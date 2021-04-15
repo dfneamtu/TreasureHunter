@@ -5,7 +5,7 @@ using System;
 using System.IO;
 using UnityEngine.UI;
 
-public class LoadInfo : MonoBehaviour
+public class LoadPlayer : MonoBehaviour
 {
     public GameObject UIObject;
 
@@ -16,8 +16,8 @@ public class LoadInfo : MonoBehaviour
     public class Info
     {
         public string playernumber;
-        public int health;
-        public int score;
+        public string health;
+        public string score;
         public string location;
     }
 
@@ -49,14 +49,13 @@ public class LoadInfo : MonoBehaviour
         {
             myInfoList.info[i] = new Info();
             myInfoList.info[i].playernumber = data[4 * (i + 1)];
-            myInfoList.info[i].health = int.Parse(data[4 * (i + 1) + 1]);
-            myInfoList.info[i].score = int.Parse(data[4 * (i + 1) + 2]);
+            myInfoList.info[i].health = data[4 * (i + 1) + 1];
+            myInfoList.info[i].score = data[4 * (i + 1) + 2];
             myInfoList.info[i].location = data[4 * (i + 1) + 3];
         }
 
 
 
     }
-
 
 }
