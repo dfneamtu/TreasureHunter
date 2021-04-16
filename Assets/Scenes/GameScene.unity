@@ -168,7 +168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &394561823
 GameObject:
@@ -179,7 +179,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 394561825}
-  - component: {fileID: 394561824}
   m_Layer: 0
   m_Name: ExportSkill
   m_TagString: Untagged
@@ -187,22 +186,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &394561824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394561823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1859754b527d246b7c6a2e38990c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIObject: {fileID: 0}
-  textAssetData: {fileID: 4900000, guid: f39d2d0a1c012b149b6dfc5d84a88d98, type: 3}
-  myInfoList:
-    info: []
 --- !u!4 &394561825
 Transform:
   m_ObjectHideFlags: 0
@@ -226,7 +209,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 671259186}
-  - component: {fileID: 671259185}
   m_Layer: 0
   m_Name: ExportTicket
   m_TagString: Untagged
@@ -234,20 +216,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &671259185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671259184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70d2ad1d5fcbed04a9495d5767b53757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIObject: {fileID: 0}
-  textAssetData: {fileID: 4900000, guid: f39d2d0a1c012b149b6dfc5d84a88d98, type: 3}
 --- !u!4 &671259186
 Transform:
   m_ObjectHideFlags: 0
@@ -260,7 +228,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1007087360
 GameObject:
@@ -271,7 +239,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1007087362}
-  - component: {fileID: 1007087361}
   m_Layer: 0
   m_Name: basicplayerinfo
   m_TagString: Untagged
@@ -279,22 +246,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1007087361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1007087360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1859754b527d246b7c6a2e38990c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIObject: {fileID: 0}
-  textAssetData: {fileID: 4900000, guid: cc4e71ad529fa7e4fafdfcd882385497, type: 3}
-  myInfoList:
-    info: []
 --- !u!4 &1007087362
 Transform:
   m_ObjectHideFlags: 0
@@ -411,7 +362,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1593846091}
-  - component: {fileID: 1593846090}
   m_Layer: 0
   m_Name: ExportFaction
   m_TagString: Untagged
@@ -419,22 +369,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1593846090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593846089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f1859754b527d246b7c6a2e38990c73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIObject: {fileID: 0}
-  textAssetData: {fileID: 4900000, guid: f39d2d0a1c012b149b6dfc5d84a88d98, type: 3}
-  myInfoList:
-    info: []
 --- !u!4 &1593846091
 Transform:
   m_ObjectHideFlags: 0
