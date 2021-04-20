@@ -14,4 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: bc09ebd0014c53949a062074edd20240
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 341836dec88ee414085f09b4d2d90446
+  - enabled: 1
+    path: Assets/Scenes/PlayResource.unity
+    guid: 4d5a89ace317cba44a3c0d94570325b5
+  - enabled: 1
+    path: Assets/Scenes/PlayTravel.unity
+    guid: c1307a97cb6cffa4c84e2985ae573b38
+  - enabled: 1
+    path: Assets/Scenes/Splash.unity
+    guid: 798fdf39888478043b60965d3dbc6bac
+  - enabled: 1
+    path: Assets/Scenes/Play3Dmap.unity
+    guid: 6781ecbe3bf97f243b0b1c802296693f
   m_configObjects: {}

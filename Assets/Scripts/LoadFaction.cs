@@ -56,12 +56,12 @@ public class LoadFaction : MonoBehaviour
             myInfoList.info[i] = new Info();
             myInfoList.info[i].team = (data[8 * (i)]);
             myInfoList.info[i].info1 = int.Parse(data[8 * (i) + 1]);
-            myInfoList.info[i].info2 = int.Parse(data[8 * (i ) + 2]);
-            myInfoList.info[i].info3 = int.Parse(data[8 * (i ) + 3]);
-            myInfoList.info[i].info4 = int.Parse(data[8 * (i ) + 4]);
-            myInfoList.info[i].info5 = int.Parse(data[8 * (i ) + 5]);
-            myInfoList.info[i].info6 = int.Parse(data[8 * (i ) + 6]);
-            myInfoList.info[i].info7 = int.Parse(data[8 * (i ) + 7]);
+            myInfoList.info[i].info2 = int.Parse(data[8 * (i) + 2]);
+            myInfoList.info[i].info3 = int.Parse(data[8 * (i) + 3]);
+            myInfoList.info[i].info4 = int.Parse(data[8 * (i) + 4]);
+            myInfoList.info[i].info5 = int.Parse(data[8 * (i) + 5]);
+            myInfoList.info[i].info6 = int.Parse(data[8 * (i) + 6]);
+            myInfoList.info[i].info7 = int.Parse(data[8 * (i) + 7]);
 
         }
 

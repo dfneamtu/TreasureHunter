@@ -19,14 +19,39 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("GameScene");
     }
 
+    public void Credits()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void Splash()
+    {
+        SceneManager.LoadScene("Splash");
+    }
+
     public void HowToPlay()
     {
         SceneManager.LoadScene("HowToPlay");
     }
 
-    public void BackToMenu()
+    public void MainMenu()
     {
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void PlayTravel()
+    {
+        SceneManager.LoadScene("PlayTravel");
+    }
+
+    public void Play3Dmap()
+    {
+        SceneManager.LoadScene("Play3Dmap");
+    }
+
+    public void PlayResource()
+    {
+        SceneManager.LoadScene("PlayResource");
     }
 
     public void QuitGame()
