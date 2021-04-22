@@ -1,58 +1,61 @@
-//using System.Collections;
-//using System.Collections.Generic;
-//using System;
-//using UnityEngine;
-//using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using Random=UnityEngine.Random;
 
 
-//public class MlAlgo : MonoBehaviour
-//{
+public class MlAlgo : MonoBehaviour
+{
    
 
-//    public int MLbase ()
-//    {
-//    	double basePercentage = .55;
-//        int minValue = 0;
-//        int maxValue = 4;
-//        int returnValue;
-//        double remainingPercentage = 1.0 - basePercentage;
+   public int MLbase ()
+   {
+   	double basePercentage = .55;
+       int minValue = 0;
+       int maxValue = 4;
+       int returnValue;
+       double remainingPercentage = 1.0 - basePercentage;
 
 
-//        int summation = 0;
+       int summation = 0;
 
-//        for (int i = (maxValue - minValue); i > 0; i--)
-//        {
-//            summation += i;
-//        }
+       for (int i = (maxValue - minValue); i > 0; i--)
+       {
+           summation += i;
+       }
 
-//        var rand = new Random();
-//        double randomNum = rand.Next(1000) / 1000.0;
-//        Console.WriteLine("RANDOM NUM: " + randomNum);
+       
+       double randomNum = Random.Range(0, 1000) / 1000.0;
+       //double randomNum = rand.Next(1000) / 1000.0;
+       //Console.WriteLine("RANDOM NUM: " + randomNum);
 
-//        double multiplier = remainingPercentage / summation;
+       double multiplier = remainingPercentage / summation;
 
-//        double lowerBound = 0;
-//        double upperBound = basePercentage;
-//        int multiplierConstant = maxValue - minValue;
+       double lowerBound = 0;
+       double upperBound = basePercentage;
+       int multiplierConstant = maxValue - minValue;
 
-//        for (int i = minValue; i <= maxValue; i++)
-//        {
+       for (int i = minValue; i <= maxValue; i++)
+       {
 
-//        	Console.WriteLine("Lower Bound: " + lowerBound);
-//        	Console.WriteLine("Upper HBound: " + upperBound);
+       	//Console.WriteLine("Lower Bound: " + lowerBound);
+       	//Console.WriteLine("Upper HBound: " + upperBound);
 
-//        	if (lowerBound <= randomNum && randomNum < upperBound)
-//        	{
-//            	returnValue = i;
-//            	Console.WriteLine("RETURNING: " + returnValue);
-//            	i = 10;
-//            	}
-//        	else
-//        	{
-//            	lowerBound = upperBound;
-//            	upperBound = upperBound + (multiplier * multiplierConstant);
-//            	multiplierConstant--;
-//        	}
-//        }
-//    }
-//}
+       	if (lowerBound <= randomNum && randomNum < upperBound)
+       	{
+           	returnValue = i;
+           	//Console.WriteLine("RETURNING: " + returnValue);
+           	return returnValue;
+           	}
+       	else
+       	{
+           	lowerBound = upperBound;
+           	upperBound = upperBound + (multiplier * multiplierConstant);
+           	multiplierConstant--;
+       	}
+       }
+    return maxValue;
+   }
+}
