@@ -9,7 +9,7 @@ public class LoadPlayer : MonoBehaviour
 {
 
     public GameObject UIObject;
-    public GameObject playerObject;
+
     public TextAsset textAssetData;
 
     [System.Serializable]
@@ -59,34 +59,34 @@ public class LoadPlayer : MonoBehaviour
 
         string[] data = textAssetData.text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
 
-        int tableSize = data.Length / 19 - 1;
+        int tableSize = data.Length / 19;
         myInfoList.info = new Info[tableSize];
 
         for (int i = 0; i < tableSize; i++)
         {
             myInfoList.info[i] = new Info();
-            myInfoList.info[i].playerid = int.Parse(data[19 * (i + 1)]);
-            myInfoList.info[i].faction = int.Parse(data[19 * (i + 1) + 1]);
-            myInfoList.info[i].map = int.Parse(data[19 * (i + 1) + 2]);
-            myInfoList.info[i].location = int.Parse(data[19 * (i + 1) + 3]);
-            myInfoList.info[i].avatar = data[19 * (i + 1) + 4];
-            myInfoList.info[i].skill1 = int.Parse(data[19 * (i + 1) + 5]);
-            myInfoList.info[i].skill2 = int.Parse(data[19 * (i + 1) + 6]);
-            myInfoList.info[i].skill3 = int.Parse(data[19 * (i + 1) + 7]);
-            myInfoList.info[i].skill4 = int.Parse(data[19 * (i + 1) + 8]);
-            myInfoList.info[i].skill5 = int.Parse(data[19 * (i + 1) + 9]);
-            myInfoList.info[i].skill6 = int.Parse(data[19 * (i + 1) + 10]);
-            myInfoList.info[i].skill7 = int.Parse(data[19 * (i + 1) + 11]);
-            myInfoList.info[i].skill8 = int.Parse(data[19 * (i + 1) + 12]);
-            myInfoList.info[i].skill9 = int.Parse(data[19 * (i + 1) + 13]);
-            myInfoList.info[i].skill10 = int.Parse(data[19 * (i + 1) + 14]);
-            myInfoList.info[i].ticket1 = int.Parse(data[19 * (i + 1) + 15]);
-            myInfoList.info[i].ticket2 = int.Parse(data[19 * (i + 1) + 16]);
-            myInfoList.info[i].ticket3 = int.Parse(data[19 * (i + 1) + 17]);
-            myInfoList.info[i].ticket4 = int.Parse(data[19 * (i + 1) + 18]);
+            myInfoList.info[i].playerid = int.Parse(data[19 * (i)]);
+            myInfoList.info[i].faction = int.Parse(data[19 * (i) + 1]);
+            myInfoList.info[i].map = int.Parse(data[19 * (i) + 2]);
+            myInfoList.info[i].location = int.Parse(data[19 * (i) + 3]);
+            myInfoList.info[i].avatar = data[19 * (i) + 4];
+            myInfoList.info[i].skill1 = int.Parse(data[19 * (i) + 5]);
+            myInfoList.info[i].skill2 = int.Parse(data[19 * (i) + 6]);
+            myInfoList.info[i].skill3 = int.Parse(data[19 * (i) + 7]);
+            myInfoList.info[i].skill4 = int.Parse(data[19 * (i) + 8]);
+            myInfoList.info[i].skill5 = int.Parse(data[19 * (i) + 9]);
+            myInfoList.info[i].skill6 = int.Parse(data[19 * (i) + 10]);
+            myInfoList.info[i].skill7 = int.Parse(data[19 * (i) + 11]);
+            myInfoList.info[i].skill8 = int.Parse(data[19 * (i) + 12]);
+            myInfoList.info[i].skill9 = int.Parse(data[19 * (i) + 13]);
+            myInfoList.info[i].skill10 = int.Parse(data[19 * (i) + 14]);
+            myInfoList.info[i].ticket1 = int.Parse(data[19 * (i) + 15]);
+            myInfoList.info[i].ticket2 = int.Parse(data[19 * (i) + 16]);
+            myInfoList.info[i].ticket3 = int.Parse(data[19 * (i) + 17]);
+            myInfoList.info[i].ticket4 = int.Parse(data[19 * (i) + 18]);
         }
 
-        playerObject = GameObject.FindGameObjectWithTag("Player");
+
 
     }
 
