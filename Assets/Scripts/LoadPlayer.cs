@@ -9,7 +9,7 @@ public class LoadPlayer : MonoBehaviour
 {
 
     public GameObject UIObject;
-    public GameObject player;
+    public GameObject playerObject;
     public TextAsset textAssetData;
 
     [System.Serializable]
@@ -86,8 +86,7 @@ public class LoadPlayer : MonoBehaviour
             myInfoList.info[i].ticket4 = int.Parse(data[19 * (i + 1) + 18]);
         }
 
-        player = GameObject.FindGameObjectWithTag("Player");
-        
+        playerObject = GameObject.FindGameObjectWithTag("Player");
 
     }
 
