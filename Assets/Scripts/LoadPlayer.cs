@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class LoadPlayer : MonoBehaviour
 {
+
     public GameObject UIObject;
 
     public TextAsset textAssetData;
@@ -47,13 +48,13 @@ public class LoadPlayer : MonoBehaviour
     public InfoList myInfoList = new InfoList();
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         ReadCSV();
 
     }
 
-    void ReadCSV()
+    public void ReadCSV()
     {
 
         string[] data = textAssetData.text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
