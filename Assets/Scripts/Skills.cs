@@ -27,6 +27,7 @@ public class Skills : MonoBehaviour
     {
         int skillToLevel = Random.Range(0, 8);
         int experienceGained = ML_Algo.ML();
+        Actions.reduceActions();
     
         skillValues[skillToLevel] += experienceGained;
         skillTexts[skillToLevel].text = skillValues[skillToLevel].ToString();

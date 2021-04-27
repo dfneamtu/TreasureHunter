@@ -8,11 +8,11 @@ using Random=UnityEngine.Random;
 public class AddTicketsScript : MonoBehaviour
 {
 	public Button addTicketsButton;
-	private PlayersTickets parentTickets;
+	private Tickets parentTickets;
     // Start is called before the first frame update
     void Start()
     {
-    	parentTickets = GetComponentInParent<PlayersTickets>();
+    	parentTickets = GetComponentInParent<Tickets>();
     	addTicketsButton.onClick.AddListener(buttonClicked);
 
         
