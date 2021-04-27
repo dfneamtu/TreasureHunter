@@ -9,6 +9,7 @@ public class LoadPlayer : MonoBehaviour
 {
 
     public GameObject UIObject;
+    public Skills skills;
 
     public TextAsset textAssetData;
 
@@ -56,6 +57,7 @@ public class LoadPlayer : MonoBehaviour
 
     public void ReadCSV()
     {
+        skills = GameObject.FindWithTag("Skills").GetComponent<Skills>();
 
         string[] data = textAssetData.text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
 
@@ -86,8 +88,14 @@ public class LoadPlayer : MonoBehaviour
             myInfoList.info[i].ticket4 = int.Parse(data[19 * (i) + 18]);
         }
 
-
-
+        skills.skillValues[0] = myInfoList.info[0].skill1;
+        skills.skillValues[1] = myInfoList.info[0].skill2;
+        skills.skillValues[2] = myInfoList.info[0].skill3;
+        skills.skillValues[3] = myInfoList.info[0].skill4;
+        skills.skillValues[4] = myInfoList.info[0].skill5;
+        skills.skillValues[5] = myInfoList.info[0].skill6;
+        skills.skillValues[6] = myInfoList.info[0].skill7;
+        skills.skillValues[7] = myInfoList.info[0].skill8;
     }
 
 }

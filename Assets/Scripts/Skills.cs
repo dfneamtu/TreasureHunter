@@ -18,8 +18,7 @@ public class Skills : MonoBehaviour
     	for (int i = 0; i < 8; i++) 
     	{
     		skillTexts[i] = this.gameObject.transform.GetChild(i).GetComponent<TMP_Text>();
-            skillTexts[i].text = "0";
-            skillValues[i] = 0;
+            skillTexts[i].text = skillValues[i].ToString();
     	}
 
     }
