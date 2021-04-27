@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random=UnityEngine.Random;
 
-public class ML_Algo : MonoBehaviour
+public static class ML_Algo : object
 {
-   public int ML ()
+   public static int ML ()
    {
-   	double basePercentage = .55;
-       int minValue = 0;
-       int maxValue = 4;
-       int returnValue;
-       double remainingPercentage = 1.0 - basePercentage;
+   	  double basePercentage = .55;
+      int minValue = 0;
+      int maxValue = 4;
+      int returnValue;
+      double remainingPercentage = 1.0 - basePercentage;
 
 
        int summation = 0;
