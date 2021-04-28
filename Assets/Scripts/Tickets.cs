@@ -8,22 +8,17 @@ using Random=UnityEngine.Random;
 public class Tickets : MonoBehaviour
 {
 	public TMP_Text[] ticketTexts = new TMP_Text[4];
-	public int boatTickets;
-    public int planeTickets;
-    public int roadTickets;
-    public int trainTickets;
+	public int boatTickets = 0;
+    public int planeTickets = 0;
+    public int roadTickets = 0;
+    public int trainTickets = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        boatTickets = 0;
-        planeTickets = 0;
-        roadTickets = 0;
-        trainTickets = 0;
         for (int i = 0; i < 4; i++) 
         {
         	ticketTexts[i] = this.gameObject.transform.GetChild(i).GetComponent<TMP_Text>();
-        	ticketTexts[i].text = "0";
         }
     }
 
