@@ -13,7 +13,6 @@ public class Skills : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
 
     	for (int i = 0; i < 8; i++) 
     	{
