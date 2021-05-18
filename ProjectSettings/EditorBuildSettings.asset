@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PlayTravel.unity
     guid: c1307a97cb6cffa4c84e2985ae573b38
   - enabled: 1
+    path: Assets/Scenes/Map3Dworld.unity
+    guid: 28004148c7d4f5e4db19918d69b10cde
+  - enabled: 1
     path: Assets/Scenes/Splash.unity
     guid: 798fdf39888478043b60965d3dbc6bac
   - enabled: 1
