@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ using Random=UnityEngine.Random;
 
 public class Skills : MonoBehaviour
 {
+
 	public TMP_Text[] skillTexts = new TMP_Text[8];
     public int[] skillValues = new int[8];
     
@@ -38,3 +40,4 @@ public class Skills : MonoBehaviour
         
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Random=UnityEngine.Random;
 
 public class Tickets : MonoBehaviour
 {
-	public TMP_Text[] ticketTexts = new TMP_Text[4];
+	 
 	public int boatTickets = 0;
     public int planeTickets = 0;
     public int roadTickets = 0;
@@ -60,3 +61,4 @@ public class Tickets : MonoBehaviour
     }
 
 }
+*/

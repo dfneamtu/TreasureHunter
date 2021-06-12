@@ -2967,7 +2967,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f80dd0ab0864ad1808f87764399839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addSkillsButton: {fileID: 702478618}
 --- !u!114 &702478616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3146,7 +3145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bca851159667d4ab1b8d72c3dc1ed956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addTicketsButton: {fileID: 717591852}
 --- !u!114 &717591854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4452,6 +4450,8 @@ GameObject:
   - component: {fileID: 1004384814}
   - component: {fileID: 1004384813}
   - component: {fileID: 1004384812}
+  - component: {fileID: 1004384815}
+  - component: {fileID: 1004384816}
   m_Layer: 0
   m_Name: Skills
   m_TagString: Skills
@@ -4499,16 +4499,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6844fc62b9eb54155b5725dae0c85818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillTexts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  skillValues: 0000000000000000000000000000000000000000000000000000000000000000
 --- !u!114 &1004384813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4643,6 +4633,65 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1004384815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004384810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e4f7cb797419e0498c347732337a556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillTexts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  player1Values: 0000000000000000000000000000000000000000000000000000000000000000
+  player2Values: 0000000000000000000000000000000000000000000000000000000000000000
+  tileSizeX: 20
+  tileSizeY: 20
+  boardCreator: {fileID: 0}
+  player1X: 0
+  player1Y: 0
+  player1Pfb: {fileID: 7453644394010595861, guid: 4ad9599c3b2a8744c936bb384481576c, type: 3}
+  player2X: 9
+  player2Y: 19
+  player2Pfb: {fileID: 7453644394010595861, guid: 4ad9599c3b2a8744c936bb384481576c, type: 3}
+  highLightMovementPfb: {fileID: 3053163763232525574, guid: 484d48bf58a0a684ca49b468197a3ff5, type: 3}
+  p1Sk: {fileID: 483103567}
+  p2Sk: {fileID: 1205134530}
+  p1Obj: {fileID: 224163406}
+  p2Obj: {fileID: 2130840147}
+  p1Tick: {fileID: 751705374}
+  p2Tick: {fileID: 739101248}
+  movesLeft: {fileID: 317621840}
+  mainCamera: {fileID: 1219916233}
+--- !u!114 &1004384816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004384810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e3bb979f760b546bdf5f86775d4c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultTile: {fileID: 1219471545100730, guid: 5173f2cfd7d874e43be25c3fc1b922ca, type: 3}
+  collectables:
+  - {fileID: 1552125181694871407, guid: c2b063191602ec142833e05119d3a503, type: 3}
+  - {fileID: 9122297352836826553, guid: a006460c027ac984bb7f8ed4deb2f978, type: 3}
+  - {fileID: 6394453802443492124, guid: e22c3e9c37663d24ba39e829f65e7c62, type: 3}
+  - {fileID: 3792393633622289180, guid: 793d7e202f92e784bbb286364dbe5b7b, type: 3}
 --- !u!1 &1018743754
 GameObject:
   m_ObjectHideFlags: 0
@@ -5778,32 +5827,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1310598564}
   - component: {fileID: 1310598563}
-  - component: {fileID: 1310598562}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1310598562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1310598561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e3bb979f760b546bdf5f86775d4c4a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultTile: {fileID: 1219471545100730, guid: 5173f2cfd7d874e43be25c3fc1b922ca, type: 3}
-  collectables:
-  - {fileID: 1552125181694871407, guid: c2b063191602ec142833e05119d3a503, type: 3}
-  - {fileID: 9122297352836826553, guid: a006460c027ac984bb7f8ed4deb2f978, type: 3}
-  - {fileID: 6394453802443492124, guid: e22c3e9c37663d24ba39e829f65e7c62, type: 3}
-  - {fileID: 3792393633622289180, guid: 793d7e202f92e784bbb286364dbe5b7b, type: 3}
+  m_IsActive: 0
 --- !u!114 &1310598563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5816,6 +5846,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f7cb797419e0498c347732337a556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillTexts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  player1Values: 0000000000000000000000000000000000000000000000000000000000000000
+  player2Values: 0000000000000000000000000000000000000000000000000000000000000000
   tileSizeX: 20
   tileSizeY: 20
   boardCreator: {fileID: 0}
@@ -7351,15 +7392,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39cc8f7d5a47148b19b864d2d855f35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ticketTexts:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  boatTickets: 0
-  planeTickets: 0
-  roadTickets: 0
-  trainTickets: 0
 --- !u!1 &1933704021
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,11 +5,12 @@ using System;
 using System.IO;
 using UnityEngine.UI;
 
+
 public class LoadPlayer : MonoBehaviour
 {
 
     public GameObject UIObject;
-    public Skills skills;
+    //public Skills skills;
 
     public TextAsset textAssetData;
 
@@ -57,7 +58,7 @@ public class LoadPlayer : MonoBehaviour
 
     public void ReadCSV()
     {
-        skills = GameObject.FindWithTag("Skills").GetComponent<Skills>();
+        //skills = GameObject.FindWithTag("Skills").GetComponent<Skills>();
 
         string[] data = textAssetData.text.Split(new string[] { ",", "\n" }, StringSplitOptions.None);
 
@@ -87,7 +88,7 @@ public class LoadPlayer : MonoBehaviour
             myInfoList.info[i].ticket3 = int.Parse(data[19 * (i) + 17]);
             myInfoList.info[i].ticket4 = int.Parse(data[19 * (i) + 18]);
         }
-
+        /*
         skills.skillValues[0] = myInfoList.info[0].skill1;
         skills.skillValues[1] = myInfoList.info[0].skill2;
         skills.skillValues[2] = myInfoList.info[0].skill3;
@@ -96,6 +97,7 @@ public class LoadPlayer : MonoBehaviour
         skills.skillValues[5] = myInfoList.info[0].skill6;
         skills.skillValues[6] = myInfoList.info[0].skill7;
         skills.skillValues[7] = myInfoList.info[0].skill8;
+        */
     }
 
 }

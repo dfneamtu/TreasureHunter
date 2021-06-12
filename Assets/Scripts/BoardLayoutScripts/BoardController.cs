@@ -2,9 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random=UnityEngine.Random;
+using TMPro;
 
 public class BoardController : MonoBehaviour
 {
+    public TMP_Text[] skillTexts = new TMP_Text[8];
+    public int[] player1Values = new int[8];
+    public int[] player2Values = new int[8];
+
     //Size of the Map
     public int tileSizeX = 16, 
                tileSizeY = 16;
@@ -26,12 +32,14 @@ public class BoardController : MonoBehaviour
     //Player1 Stats
     GameObject player1;
     int player1Skills = 0;
+    // player 1's sklils 
     int player1Objects = 0;
     int player1Tickets = 0;
 
     //Player2 Stats
     GameObject player2;
     int player2Skills = 20;
+    // player 2's skills
     int player2Objects = 5;
     int player2Tickets = 0;
 
@@ -76,6 +84,14 @@ public class BoardController : MonoBehaviour
 
     void Start()
     {
+        for (int i = 0; i < 8; i++) 
+        {
+            skillTexts[i] = this.gameObject.transform.GetChild(i).GetComponent<TMP_Text>();
+            skillTexts[i].text = 0.ToString();
+            player1Values[i] = 0;
+            player2Values[i] = 0;
+        }
+
         mainCameraController = mainCamera.GetComponent<CameraController>();
 
         collectablesQnty = (tileSizeX * tileSizeY) - 2;
@@ -186,9 +202,17 @@ public class BoardController : MonoBehaviour
                 {
                     case 4:
                         player2Objects++;
+                        int skillToLevel = Random.Range(0, 8);
+                        int experienceGained = ML_Algo.ML();
+                        Actions.reduceActions();
+                        player2Values[skillToLevel] += experienceGained;
+                        skillTexts[skillToLevel].text = player2Values[skillToLevel].ToString();
                         break;
                     case 5:
-                        player2Skills++;
+
+                        //player2Skills++;
+                        
+
                         break;
                     case 6:
                         player2Tickets++;
@@ -200,9 +224,16 @@ public class BoardController : MonoBehaviour
                 {
                     case 4:
                         player1Objects++;
+                        int skillToLevel = Random.Range(0, 8);
+                        int experienceGained = ML_Algo.ML();
+                        Actions.reduceActions();
+    
+                        player1Values[skillToLevel] += experienceGained;
+                        skillTexts[skillToLevel].text = player1Values[skillToLevel].ToString();
                         break;
                     case 5:
-                        player1Skills++;
+                        //player1Skills++;
+                        
                         break;
                     case 6:
                         player1Tickets++;
