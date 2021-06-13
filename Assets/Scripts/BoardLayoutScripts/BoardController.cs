@@ -257,6 +257,13 @@ public class BoardController : MonoBehaviour
                         Actions.reduceActions();
                         player2Values[skillToLevel] += experienceGained;
                         skillTextsp2[skillToLevel].text = player2Values[skillToLevel].ToString();
+
+                        if (player2Values[skillToLevel] > 4) 
+                        {
+                            p2VPs++;
+                            p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
+                        }
+
                         break;
                     case 5:
                         //TICKETS
@@ -339,6 +346,13 @@ public class BoardController : MonoBehaviour
     
                         player1Values[skillToLevel] += experienceGained;
                         skillTextsp1[skillToLevel].text = player1Values[skillToLevel].ToString();
+
+                        if (player1Values[skillToLevel] > 4) 
+                        {
+                            p1VPs++;
+                            p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
+                        }
+
                         break;
 
                     case 5:
