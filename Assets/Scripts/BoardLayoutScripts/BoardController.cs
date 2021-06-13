@@ -7,9 +7,23 @@ using TMPro;
 
 public class BoardController : MonoBehaviour
 {
-    public TMP_Text[] skillTexts = new TMP_Text[8];
+
+    public TMP_Text[] skillTextsp1 = new TMP_Text[8];
+    public TMP_Text[] skillTextsp2 = new TMP_Text[8];
     public int[] player1Values = new int[8];
     public int[] player2Values = new int[8];
+
+    public TMP_Text[] ticketTextsp1 = new TMP_Text[4];
+    public TMP_Text[] ticketTextsp2 = new TMP_Text[4];
+
+    //Player GameObjects to set true and false
+    public GameObject p1skills;
+    public GameObject p2skills;
+    public GameObject p1tickets;
+    public GameObject p2tickets;
+    public GameObject BGp1; 
+    public GameObject BGp2;
+
 
     //Size of the Map
     public int tileSizeX = 16, 
@@ -38,10 +52,16 @@ public class BoardController : MonoBehaviour
 
     //Player2 Stats
     GameObject player2;
-    int player2Skills = 20;
+    int player2Skills = 0;
     // player 2's skills
-    int player2Objects = 5;
+    int player2Objects = 0;
     int player2Tickets = 0;
+
+    //Tickets
+    public int boatTickets = 0;
+    public int planeTickets = 0;
+    public int roadTickets = 0;
+    public int trainTickets = 0;
 
     Transform playerPosition;
 
@@ -59,12 +79,12 @@ public class BoardController : MonoBehaviour
     int collectablesMax, collectablesQnty;
 
     //UI Variables
-    public Text p1Sk;
-    public Text p2Sk;
-    public Text p1Obj;
-    public Text p2Obj;
-    public Text p1Tick;
-    public Text p2Tick;
+    //public Text p1Sk;
+    //public Text p2Sk;
+    //public Text p1Obj;
+    //public Text p2Obj;
+    //public Text p1Tick;
+    //public Text p2Tick;
     public Text movesLeft;
 
     //Camera
@@ -73,12 +93,12 @@ public class BoardController : MonoBehaviour
 
     void UpdateUIStats()
     {
-        p1Sk.text   = player1Skills.ToString();
-        p2Sk.text   = player2Skills.ToString();
-        p1Obj.text = player1Objects.ToString();
-        p2Obj.text = player2Objects.ToString();
-        p1Tick.text  = player1Tickets.ToString();
-        p2Tick.text  = player2Tickets.ToString();
+        //p1Sk.text   = player1Skills.ToString();
+        //p2Sk.text   = player2Skills.ToString();
+        //p1Obj.text = player1Objects.ToString();
+        //p2Obj.text = player2Objects.ToString();
+        //p1Tick.text  = player1Tickets.ToString();
+        //p2Tick.text  = player2Tickets.ToString();
         movesLeft.text = playerMoves.ToString();
     }
 
@@ -86,11 +106,20 @@ public class BoardController : MonoBehaviour
     {
         for (int i = 0; i < 8; i++) 
         {
-            skillTexts[i] = this.gameObject.transform.GetChild(i).GetComponent<TMP_Text>();
-            skillTexts[i].text = 0.ToString();
+            skillTextsp1[i].text = 0.ToString();
+            skillTextsp2[i].text = 0.ToString();
             player1Values[i] = 0;
             player2Values[i] = 0;
+
         }
+
+        for (int i = 0; i < 4; i++)
+        {
+            ticketTextsp1[i].text = 0.ToString();
+            ticketTextsp2[i].text = 0.ToString();
+        }
+
+
 
         mainCameraController = mainCamera.GetComponent<CameraController>();
 
@@ -193,50 +222,130 @@ public class BoardController : MonoBehaviour
         if (ItemId == 3)
         {
             playerMoves++;
+      
         }
         else
         {
             if (turn)
             {
+                //Will need to fix - Only refreshes after first movement and doesn't work on white but we can add a case 3 then it should work idk
+                p1skills.gameObject.SetActive(false);
+                p2skills.gameObject.SetActive(true);
+                p1tickets.gameObject.SetActive(false);
+                p2tickets.gameObject.SetActive(true);
+                BGp1.gameObject.SetActive(false);
+                BGp2.gameObject.SetActive(true);
                 switch (ItemId)
                 {
                     case 4:
-                        player2Objects++;
+                        //SKILLS
+
                         int skillToLevel = Random.Range(0, 8);
                         int experienceGained = ML_Algo.ML();
                         Actions.reduceActions();
                         player2Values[skillToLevel] += experienceGained;
-                        skillTexts[skillToLevel].text = player2Values[skillToLevel].ToString();
+                        skillTextsp2[skillToLevel].text = player2Values[skillToLevel].ToString();
                         break;
                     case 5:
+                        //TICKETS
+                        int ticketGained = 0;
+                        while (ticketGained == 0)
+                        {
+                            ticketGained = ML_Algo.ML();
+                        }
 
-                        //player2Skills++;
+                        if (ticketGained == 1)
+                        {
+                            roadTickets++;
+                            ticketTextsp2[3].text = roadTickets.ToString();
+                        }
+                        else if (ticketGained == 2)
+                        {
+                            trainTickets++;
+                            ticketTextsp2[2].text = trainTickets.ToString();
+                        }
+                        else if (ticketGained == 3)
+                        {
+                            boatTickets++;
+                            ticketTextsp2[0].text = boatTickets.ToString();
+                        }
+                        else
+                        {
+                            planeTickets++;
+                            ticketTextsp2[1].text = planeTickets.ToString();
+                        }
+
+                        Actions.reduceActions();
+                        break;
                         
 
-                        break;
+                        
                     case 6:
-                        player2Tickets++;
+                        //OBJECTS
+
+
+
                         break;
                 }
             } else
             {
+                //Will need to fix - Only refreshes after first movement and doesn't work on white but we can add a case 3 then it should work idk
+                p1skills.gameObject.SetActive(true);
+                p2skills.gameObject.SetActive(false);
+                p1tickets.gameObject.SetActive(true);
+                p2tickets.gameObject.SetActive(false);
+                BGp1.gameObject.SetActive(true);
+                BGp2.gameObject.SetActive(false);
                 switch (ItemId)
                 {
                     case 4:
-                        player1Objects++;
+                        //SKILLS
+
                         int skillToLevel = Random.Range(0, 8);
                         int experienceGained = ML_Algo.ML();
                         Actions.reduceActions();
     
                         player1Values[skillToLevel] += experienceGained;
-                        skillTexts[skillToLevel].text = player1Values[skillToLevel].ToString();
+                        skillTextsp1[skillToLevel].text = player1Values[skillToLevel].ToString();
                         break;
                     case 5:
-                        //player1Skills++;
-                        
+                         //TICKETS
+                        int ticketGained = 0;
+                        while (ticketGained == 0)
+                        {
+                            ticketGained = ML_Algo.ML();
+                        }
+
+                        if (ticketGained == 1)
+                        {
+                            roadTickets++;
+                            ticketTextsp1[3].text = roadTickets.ToString();
+                        }
+                        else if (ticketGained == 2)
+                        {
+                            trainTickets++;
+                            ticketTextsp1[2].text = trainTickets.ToString();
+                        }
+                        else if (ticketGained == 3)
+                        {
+                            boatTickets++;
+                            ticketTextsp1[0].text = boatTickets.ToString();
+                        }
+                        else
+                        {
+                            planeTickets++;
+                            ticketTextsp1[1].text = planeTickets.ToString();
+                        }
+
+                        Actions.reduceActions();
+
+
+
+
                         break;
                     case 6:
-                        player1Tickets++;
+                       //OBJECTS
+
                         break;
                 }
             }
