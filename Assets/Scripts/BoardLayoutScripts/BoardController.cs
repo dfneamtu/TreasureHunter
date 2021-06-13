@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +15,13 @@ public class BoardController : MonoBehaviour
 
     public TMP_Text[] ticketTextsp1 = new TMP_Text[4];
     public TMP_Text[] ticketTextsp2 = new TMP_Text[4];
+
+    public TMP_Text p1ScoreText;
+    public TMP_Text p2ScoreText;
+
+    public int p1VPs = 0;
+    public int p2VPs = 0;
+
 
     //Player GameObjects to set true and false
     public GameObject p1skills;
@@ -58,10 +65,15 @@ public class BoardController : MonoBehaviour
     int player2Tickets = 0;
 
     //Tickets
-    public int boatTickets = 0;
-    public int planeTickets = 0;
-    public int roadTickets = 0;
-    public int trainTickets = 0;
+    public int p1BoatTickets = 0;
+    public int p1PlaneTickets = 0;
+    public int p1RoadTickets = 0;
+    public int p1TrainTickets = 0;
+
+    public int p2BoatTickets = 0;
+    public int p2PlaneTickets = 0;
+    public int p2RoadTickets = 0;
+    public int p2TrainTickets = 0;
 
     Transform playerPosition;
 
@@ -256,23 +268,43 @@ public class BoardController : MonoBehaviour
 
                         if (ticketGained == 1)
                         {
-                            roadTickets++;
-                            ticketTextsp2[3].text = roadTickets.ToString();
+                            p2RoadTickets++;
+                            ticketTextsp2[3].text = p2RoadTickets.ToString();
+                            if (p2RoadTickets >= 3)
+                            {
+                                p2VPs++;
+                                p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
+                            }
                         }
                         else if (ticketGained == 2)
                         {
-                            trainTickets++;
-                            ticketTextsp2[2].text = trainTickets.ToString();
+                            p2TrainTickets++;
+                            ticketTextsp2[2].text = p2TrainTickets.ToString();
+                            if (p2TrainTickets >= 3)
+                            {
+                                p2VPs++;
+                                p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
+                            }
                         }
                         else if (ticketGained == 3)
                         {
-                            boatTickets++;
-                            ticketTextsp2[0].text = boatTickets.ToString();
+                            p2BoatTickets++;
+                            ticketTextsp2[0].text = p2BoatTickets.ToString();
+                            if (p2BoatTickets >= 3)
+                            {
+                                p2VPs++;
+                                p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
+                            }
                         }
                         else
                         {
-                            planeTickets++;
-                            ticketTextsp2[1].text = planeTickets.ToString();
+                            p2PlaneTickets++;
+                            ticketTextsp2[1].text = p2PlaneTickets.ToString();
+                            if (p2PlaneTickets >= 3)
+                            {
+                                p2VPs++;
+                                p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
+                            }
                         }
 
                         Actions.reduceActions();
@@ -308,6 +340,7 @@ public class BoardController : MonoBehaviour
                         player1Values[skillToLevel] += experienceGained;
                         skillTextsp1[skillToLevel].text = player1Values[skillToLevel].ToString();
                         break;
+
                     case 5:
                          //TICKETS
                         int ticketGained = 0;
@@ -318,23 +351,43 @@ public class BoardController : MonoBehaviour
 
                         if (ticketGained == 1)
                         {
-                            roadTickets++;
-                            ticketTextsp1[3].text = roadTickets.ToString();
+                            p1RoadTickets++;
+                            ticketTextsp1[3].text = p1RoadTickets.ToString();
+                            if (p1RoadTickets >= 3)
+                            {
+                                p1VPs++;
+                                p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
+                            }
                         }
                         else if (ticketGained == 2)
                         {
-                            trainTickets++;
-                            ticketTextsp1[2].text = trainTickets.ToString();
+                            p1TrainTickets++;
+                            ticketTextsp1[2].text = p1TrainTickets.ToString();
+                            if (p1TrainTickets >= 3)
+                            {
+                                p1VPs++;
+                                p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
+                            }
                         }
                         else if (ticketGained == 3)
                         {
-                            boatTickets++;
-                            ticketTextsp1[0].text = boatTickets.ToString();
+                            p1BoatTickets++;
+                            ticketTextsp1[0].text = p1BoatTickets.ToString();
+                            if (p1BoatTickets >= 3)
+                            {
+                                p1VPs++;
+                                p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
+                            }
                         }
                         else
                         {
-                            planeTickets++;
-                            ticketTextsp1[1].text = planeTickets.ToString();
+                            p1PlaneTickets++;
+                            ticketTextsp1[1].text = p1PlaneTickets.ToString();
+                            if (p1PlaneTickets >= 3)
+                            {
+                                p1VPs++;
+                                p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
+                            }
                         }
 
                         Actions.reduceActions();
