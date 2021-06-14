@@ -1,4 +1,5 @@
-﻿ using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,9 @@ using UnityEngine.SceneManagement;
 
 public class BoardController : MonoBehaviour
 {
+    [SerializeField] public Ui_Inventory uiInventory;
+
+    private Inventory inventory;
 
     public TMP_Text[] skillTextsp1 = new TMP_Text[8];
     public TMP_Text[] skillTextsp2 = new TMP_Text[8];
@@ -54,23 +58,21 @@ public class BoardController : MonoBehaviour
     //Player1 Stats
     GameObject player1;
     int player1Skills = 0;
-    // player 1's sklils 
-    int player1Objects = 0;
     int player1Tickets = 0;
 
-    //Player2 Stats
-    GameObject player2;
-    int player2Skills = 0;
-    // player 2's skills
-    int player2Objects = 0;
-    int player2Tickets = 0;
-
-    //Tickets
+    //Player 1 Tickets
     public int p1BoatTickets = 0;
     public int p1PlaneTickets = 0;
     public int p1RoadTickets = 0;
     public int p1TrainTickets = 0;
 
+    //Player2 Stats
+    GameObject player2;
+    int player2Skills = 0;
+
+    int player2Tickets = 0;
+
+    //Player 2 Tickets
     public int p2BoatTickets = 0;
     public int p2PlaneTickets = 0;
     public int p2RoadTickets = 0;
@@ -83,7 +85,7 @@ public class BoardController : MonoBehaviour
 
     //Current Work in progress
     public GameObject highLightMovementPfb;
-    List<GameObject> possibleList = new List<GameObject>(); 
+    List<GameObject> possibleList = new List<GameObject>();
 
     //false = Player 1 Turn | true = Player 2 Turn
     bool turn = false;
@@ -144,6 +146,7 @@ public class BoardController : MonoBehaviour
         tileMap = boardCreator.CreateBoard(tileMap, player1.transform, player2.transform);
         Debug.Log(PrintMap(tileMap));
         CheckPlayerTurn();
+
     }
 
     private void Update()
@@ -189,6 +192,14 @@ public class BoardController : MonoBehaviour
         {
             PlayerTwoWin();
         }
+
+        
+    }
+
+    private void Awake()
+    {
+        inventory = new Inventory();
+
     }
 
     void PossibleMovements(int posX, int posY)
@@ -245,21 +256,15 @@ public class BoardController : MonoBehaviour
         if (ItemId == 3)
         {
             playerMoves++;
-      
+
         }
         else
         {
             if (turn)
             {
-                //Will need to fix - Only refreshes after first movement and doesn't work on white but we can add a case 3 then it should work idk
-                p1skills.gameObject.SetActive(false);
-                p2skills.gameObject.SetActive(true);
-                p1tickets.gameObject.SetActive(false);
-                p2tickets.gameObject.SetActive(true);
-                BGp1.gameObject.SetActive(false);
-                BGp2.gameObject.SetActive(true);
-                switch (ItemId)
+            switch (ItemId)
                 {
+
                     case 4:
                         //SKILLS
 
@@ -339,14 +344,7 @@ public class BoardController : MonoBehaviour
                 }
             } else
             {
-                //Will need to fix - Only refreshes after first movement and doesn't work on white but we can add a case 3 then it should work idk
-                p1skills.gameObject.SetActive(true);
-                p2skills.gameObject.SetActive(false);
-                p1tickets.gameObject.SetActive(true);
-                p2tickets.gameObject.SetActive(false);
-                BGp1.gameObject.SetActive(true);
-                BGp2.gameObject.SetActive(false);
-                switch (ItemId)
+            switch (ItemId)
                 {
                     case 4:
                         //SKILLS
@@ -489,6 +487,25 @@ public class BoardController : MonoBehaviour
         mainCameraController.FollowPlayer(playerGmo());
         PossibleMovements((int)playerPosition.position.z, (int)playerPosition.position.x);
         UpdateUIStats();
+
+        if (turn == true)
+        {
+            p1skills.gameObject.SetActive(false);
+            p2skills.gameObject.SetActive(true);
+            p1tickets.gameObject.SetActive(false);
+            p2tickets.gameObject.SetActive(true);
+            BGp1.gameObject.SetActive(false);
+            BGp2.gameObject.SetActive(true);
+        }
+        else if (turn == false)
+        {
+            p1skills.gameObject.SetActive(true);
+            p2skills.gameObject.SetActive(false);
+            p1tickets.gameObject.SetActive(true);
+            p2tickets.gameObject.SetActive(false);
+            BGp1.gameObject.SetActive(true);
+            BGp2.gameObject.SetActive(false);
+        }
     }
 
     void CheckCollectables()
