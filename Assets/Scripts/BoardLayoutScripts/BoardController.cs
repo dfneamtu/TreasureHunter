@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random=UnityEngine.Random;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class BoardController : MonoBehaviour
 {
@@ -177,7 +178,17 @@ public class BoardController : MonoBehaviour
                         CheckPlayerTurn();
                     }
                 }
-            }
+           }
+
+        if (p1VPs == 6)
+        {
+            PlayerOneWin();
+        }
+
+        if (p2VPs == 6)
+        {
+            PlayerTwoWin();
+        }
     }
 
     void PossibleMovements(int posX, int posY)
@@ -500,5 +511,14 @@ public class BoardController : MonoBehaviour
         possibleList.Clear();
     }
 
+    void PlayerOneWin()
+    {
+        SceneManager.LoadScene("PlayerOneWin");
+    }
+
+    void PlayerTwoWin()
+    {
+        SceneManager.LoadScene("PlayerTwoWins");
+    }
 
 }

@@ -14,39 +14,20 @@ public class Menu : MonoBehaviour
         Cursor.visible = true;
         Screen.lockCursor = false;
     }
-    public void PlayGame()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
 
     public void Credits()
     {
         SceneManager.LoadScene("Credits");
     }
 
-    public void Splash()
-    {
-        SceneManager.LoadScene("Splash");
-    }
-
-    public void HowToPlay()
-    {
-        SceneManager.LoadScene("HowToPlay");
-    }
-
-    public void MainMenu()
-    {
-        SceneManager.LoadScene("MainMenu");
-    }
-
-    public void PlayTravel()
-    {
-        SceneManager.LoadScene("PlayTravel");
-    }
+    //public void MainMenu()
+    //{
+    //    SceneManager.LoadScene("MainMenu");
+    //}
 
     public void Play3Dmap()
     {
-        SceneManager.LoadScene("Play3Dmap");
+        SceneManager.LoadScene("Map3Dworld");
     }
 
     public void PlayResource()
