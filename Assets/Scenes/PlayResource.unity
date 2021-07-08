@@ -459,7 +459,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1385998133}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2408,7 +2408,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1385998133}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2542,7 +2542,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1385998133}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3039,7 +3039,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1385998133}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3173,7 +3173,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1385998133}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3785,7 +3785,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1385998133}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4588,7 +4588,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1385998133}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4727,8 +4727,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -562.23, y: 82.295}
-  m_SizeDelta: {x: 814.47, y: 701.41}
+  m_AnchoredPosition: {x: -549.5, y: 119.39}
+  m_SizeDelta: {x: 753, y: 500.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1051502440
 MonoBehaviour:
@@ -4750,7 +4750,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b3a12ef8a3fcc8a45984bb91b4e2a5d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 97b8317879c40d3479044491906754eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6023,6 +6023,7 @@ GameObject:
   - component: {fileID: 1310598564}
   - component: {fileID: 1310598563}
   - component: {fileID: 1310598562}
+  - component: {fileID: 1310598565}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6060,7 +6061,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4f7cb797419e0498c347732337a556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiInventory: {fileID: 0}
   skillTextsp1:
   - {fileID: 1853888424}
   - {fileID: 1397196541}
@@ -6107,7 +6107,7 @@ MonoBehaviour:
   player1X: 0
   player1Y: 0
   player1Pfb: {fileID: 7453644394010595861, guid: 4ad9599c3b2a8744c936bb384481576c, type: 3}
-  player2X: 9
+  player2X: 19
   player2Y: 19
   player2Pfb: {fileID: 7453644394010595861, guid: 4ad9599c3b2a8744c936bb384481576c, type: 3}
   p1BoatTickets: 0
@@ -6118,7 +6118,9 @@ MonoBehaviour:
   p2PlaneTickets: 0
   p2RoadTickets: 0
   p2TrainTickets: 0
+  playerMoves: 3
   highLightMovementPfb: {fileID: 3053163763232525574, guid: 484d48bf58a0a684ca49b468197a3ff5, type: 3}
+  turn: 0
   movesLeft: {fileID: 317621840}
   mainCamera: {fileID: 1219916233}
 --- !u!4 &1310598564
@@ -6135,6 +6137,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1310598565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310598561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c047be7d6e064664d867f3d239bc42fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillTextsp1:
+  - {fileID: 1853888424}
+  - {fileID: 1397196541}
+  - {fileID: 336146146}
+  - {fileID: 48739775}
+  - {fileID: 1301854092}
+  - {fileID: 2037513863}
+  - {fileID: 2113550260}
+  - {fileID: 490086081}
+  player1Values: 0000000000000000000000000000000000000000000000000000000000000000
+  ticketTextsp1:
+  - {fileID: 941640373}
+  - {fileID: 1799712588}
+  - {fileID: 362819154}
+  - {fileID: 1155715271}
+  p1BoatTickets: 0
+  p1PlaneTickets: 0
+  p1RoadTickets: 0
+  p1TrainTickets: 0
+  skillTextsp2:
+  - {fileID: 689091165}
+  - {fileID: 1444649645}
+  - {fileID: 1400375692}
+  - {fileID: 873049483}
+  - {fileID: 1079804536}
+  - {fileID: 1129094122}
+  - {fileID: 1863672485}
+  - {fileID: 1304825683}
+  player2Values: 0000000000000000000000000000000000000000000000000000000000000000
+  ticketTextsp2:
+  - {fileID: 391558703}
+  - {fileID: 327020792}
+  - {fileID: 85606106}
+  - {fileID: 1460648364}
+  p2BoatTickets: 0
+  p2PlaneTickets: 0
+  p2RoadTickets: 0
+  p2TrainTickets: 0
 --- !u!1 &1322310605
 GameObject:
   m_ObjectHideFlags: 0
@@ -6165,7 +6217,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1385998133}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6371,7 +6423,6 @@ Transform:
   m_LocalPosition: {x: -264.03082, y: -213.80243, z: 0.017822266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1322310606}
   - {fileID: 618046438}
   - {fileID: 436055481}
   - {fileID: 1032271339}
@@ -6379,6 +6430,7 @@ Transform:
   - {fileID: 747320038}
   - {fileID: 393096718}
   - {fileID: 583955039}
+  - {fileID: 1322310606}
   m_Father: {fileID: 303960094}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6507,6 +6559,18 @@ MonoBehaviour:
       - m_Target: {fileID: 303960090}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: Play3Dmap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1310598563}
+        m_TargetAssemblyTypeName: BoardController, Assembly-CSharp
+        m_MethodName: SavePlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

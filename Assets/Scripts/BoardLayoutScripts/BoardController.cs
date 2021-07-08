@@ -9,10 +9,6 @@ using UnityEngine.SceneManagement;
 
 public class BoardController : MonoBehaviour
 {
-    [SerializeField] public Ui_Inventory uiInventory;
-
-    private Inventory inventory;
-
     public TMP_Text[] skillTextsp1 = new TMP_Text[8];
     public TMP_Text[] skillTextsp2 = new TMP_Text[8];
     public int[] player1Values = new int[8];
@@ -27,15 +23,13 @@ public class BoardController : MonoBehaviour
     public int p1VPs = 0;
     public int p2VPs = 0;
 
-
     //Player GameObjects to set true and false
     public GameObject p1skills;
     public GameObject p2skills;
     public GameObject p1tickets;
     public GameObject p2tickets;
-    public GameObject BGp1; 
+    public GameObject BGp1;
     public GameObject BGp2;
-
 
     //Size of the Map
     public int tileSizeX = 16, 
@@ -81,25 +75,18 @@ public class BoardController : MonoBehaviour
     Transform playerPosition;
 
     //Moves left
-    int playerMoves = 3;
+    public int playerMoves = 3;
 
     //Current Work in progress
     public GameObject highLightMovementPfb;
     List<GameObject> possibleList = new List<GameObject>();
 
     //false = Player 1 Turn | true = Player 2 Turn
-    bool turn = false;
+    public bool turn = false;
 
     //Count of collectables
     int collectablesMax, collectablesQnty;
 
-    //UI Variables
-    //public Text p1Sk;
-    //public Text p2Sk;
-    //public Text p1Obj;
-    //public Text p2Obj;
-    //public Text p1Tick;
-    //public Text p2Tick;
     public Text movesLeft;
 
     //Camera
@@ -108,17 +95,46 @@ public class BoardController : MonoBehaviour
 
     void UpdateUIStats()
     {
-        //p1Sk.text   = player1Skills.ToString();
-        //p2Sk.text   = player2Skills.ToString();
-        //p1Obj.text = player1Objects.ToString();
-        //p2Obj.text = player2Objects.ToString();
-        //p1Tick.text  = player1Tickets.ToString();
-        //p2Tick.text  = player2Tickets.ToString();
         movesLeft.text = playerMoves.ToString();
     }
 
     void Start()
     {
+        //Player 1 info to load
+        player1Values = GlobalController.Instance.player1Values;
+        p1BoatTickets = GlobalController.Instance.p1BoatTickets;
+        p1PlaneTickets = GlobalController.Instance.p1PlaneTickets;
+        p1RoadTickets = GlobalController.Instance.p1RoadTickets;
+        p1TrainTickets = GlobalController.Instance.p1TrainTickets;
+
+        //Player 2 info to load
+        player2Values = GlobalController.Instance.player2Values;
+        p2BoatTickets = GlobalController.Instance.p2BoatTickets;
+        p2PlaneTickets = GlobalController.Instance.p2PlaneTickets;
+        p2RoadTickets = GlobalController.Instance.p2RoadTickets;
+        p2TrainTickets = GlobalController.Instance.p2TrainTickets;
+
+        ////Gameplay variables to load
+        //playerMoves = GlobalController.Instance.playerMoves;
+        //turn = GlobalController.Instance.turn;
+
+        ////UI components to load
+        //skillTextsp1 = GlobalController.Instance.skillTextsp1;
+        //skillTextsp2 = GlobalController.Instance.skillTextsp2;
+
+        //ticketTextsp1 = GlobalController.Instance.ticketTextsp1;
+        //ticketTextsp2 = GlobalController.Instance.ticketTextsp2;
+
+        //p1skills = GlobalController.Instance.p1skills;
+        //p2skills = GlobalController.Instance.p2skills;
+        //p1tickets = GlobalController.Instance.p1tickets;
+        //p2tickets = GlobalController.Instance.p2tickets;
+        //BGp1 = GlobalController.Instance.BGp1;
+        //BGp2 = GlobalController.Instance.BGp2;
+
+        //movesLeft = GlobalController.Instance.movesLeft;
+        //mainCamera = GlobalController.Instance.mainCamera;
+
         for (int i = 0; i < 8; i++) 
         {
             skillTextsp1[i].text = 0.ToString();
@@ -194,12 +210,6 @@ public class BoardController : MonoBehaviour
         }
 
         
-    }
-
-    private void Awake()
-    {
-        inventory = new Inventory();
-
     }
 
     void PossibleMovements(int posX, int posY)
@@ -538,4 +548,42 @@ public class BoardController : MonoBehaviour
         SceneManager.LoadScene("PlayerTwoWins");
     }
 
+    public void SavePlayer()
+    {
+        //Player 1 info to save
+        GlobalController.Instance.player1Values = player1Values;
+        GlobalController.Instance.p1BoatTickets = p1BoatTickets;
+        GlobalController.Instance.p1PlaneTickets = p1PlaneTickets;
+        GlobalController.Instance.p1RoadTickets = p1RoadTickets;
+        GlobalController.Instance.p1TrainTickets = p1TrainTickets;
+
+        //Player 2 info to save
+        GlobalController.Instance.player2Values = player2Values;
+        GlobalController.Instance.p2BoatTickets = p2BoatTickets;
+        GlobalController.Instance.p2PlaneTickets = p2PlaneTickets;
+        GlobalController.Instance.p2RoadTickets = p2RoadTickets;
+        GlobalController.Instance.p2TrainTickets = p2TrainTickets;
+
+
+        //GlobalController.Instance.playerMoves = playerMoves;
+        //GlobalController.Instance.turn = turn;
+
+        ////UI variables to save
+        //GlobalController.Instance.skillTextsp1 = skillTextsp1;
+        //GlobalController.Instance.skillTextsp2 = skillTextsp2;
+
+        //GlobalController.Instance.ticketTextsp1 = ticketTextsp1;
+        //GlobalController.Instance.ticketTextsp2 = ticketTextsp2;
+
+        //GlobalController.Instance.p1skills = p1skills;
+        //GlobalController.Instance.p2skills = p2skills;
+        //GlobalController.Instance.p1tickets = p1tickets;
+        //GlobalController.Instance.p2tickets = p2tickets;
+        //GlobalController.Instance.BGp1 = BGp1;
+        //GlobalController.Instance.BGp2 = BGp2;
+
+        //GlobalController.Instance.movesLeft = movesLeft;
+        //GlobalController.Instance.mainCamera = mainCamera;
+
+    }
 }
