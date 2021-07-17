@@ -35,6 +35,12 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("PlayResource");
     }
 
+    public void PlayTravel()
+    {
+        SceneManager.LoadScene("PlayTravel");
+    }
+
+
     public void QuitGame()
     {
         Debug.Log("Quit");
