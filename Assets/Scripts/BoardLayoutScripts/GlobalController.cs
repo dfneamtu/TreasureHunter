@@ -15,21 +15,13 @@ public class GlobalController : MonoBehaviour
     //public TMP_Text[] skillTextsp1 = new TMP_Text[8];
     public int[] player1Values = new int[8]; //Skills
 
-    public TMP_Text[] ticketTextsp1 = new TMP_Text[4];
-    public int p1BoatTickets;
-    public int p1PlaneTickets;
-    public int p1RoadTickets;
-    public int p1TrainTickets;
+    public int[] player1Tickets = new int[4];
 
     //Player 2 Info
     //public TMP_Text[] skillTextsp2 = new TMP_Text[8];
     public int[] player2Values = new int[8]; //Skills
 
-    public TMP_Text[] ticketTextsp2 = new TMP_Text[4];
-    public int p2BoatTickets;
-    public int p2PlaneTickets;
-    public int p2RoadTickets;
-    public int p2TrainTickets;
+    public int[] player2Tickets = new int[4];
 
     //public int playerMoves;
     //public bool turn;

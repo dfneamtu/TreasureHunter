@@ -573,7 +573,6 @@ GameObject:
   m_Component:
   - component: {fileID: 48606322}
   - component: {fileID: 48606321}
-  - component: {fileID: 48606323}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -593,50 +592,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdff28dab62fc8d4bac92fa954eff85f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p1ScoreText: {fileID: 1653239342}
-  p2ScoreText: {fileID: 723416154}
   p1VPs: 0
   p2VPs: 0
-  skillTextsp1:
-  - {fileID: 1853888424}
-  - {fileID: 1397196541}
-  - {fileID: 336146146}
-  - {fileID: 48739775}
-  - {fileID: 1301854092}
-  - {fileID: 2037513863}
-  - {fileID: 2113550260}
-  - {fileID: 490086081}
   player1Values: 0000000000000000000000000000000000000000000000000000000000000000
-  ticketTextsp1:
-  - {fileID: 941640373}
-  - {fileID: 1799712588}
-  - {fileID: 362819154}
-  - {fileID: 1155715271}
-  p1BoatTickets: 0
-  p1PlaneTickets: 0
-  p1RoadTickets: 0
-  p1TrainTickets: 0
-  skillTextsp2:
-  - {fileID: 689091165}
-  - {fileID: 1444649645}
-  - {fileID: 1400375692}
-  - {fileID: 873049483}
-  - {fileID: 1079804536}
-  - {fileID: 1129094122}
-  - {fileID: 1863672485}
-  - {fileID: 1304825683}
+  player1Tickets: 00000000000000000000000000000000
   player2Values: 0000000000000000000000000000000000000000000000000000000000000000
-  ticketTextsp2:
-  - {fileID: 391558703}
-  - {fileID: 327020792}
-  - {fileID: 85606106}
-  - {fileID: 1460648364}
-  p2BoatTickets: 0
-  p2PlaneTickets: 0
-  p2RoadTickets: 0
-  p2TrainTickets: 0
+  player2Tickets: 00000000000000000000000000000000
   playerMoves: 3
-  movesLeft: {fileID: 317621840}
   turn: 0
 --- !u!4 &48606322
 Transform:
@@ -652,38 +614,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &48606323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 48606320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c047be7d6e064664d867f3d239bc42fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1Values: 0000000000000000000000000000000000000000000000000000000000000000
-  ticketTextsp1:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  p1BoatTickets: 0
-  p1PlaneTickets: 0
-  p1RoadTickets: 0
-  p1TrainTickets: 0
-  player2Values: 0000000000000000000000000000000000000000000000000000000000000000
-  ticketTextsp2:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  p2BoatTickets: 0
-  p2PlaneTickets: 0
-  p2RoadTickets: 0
-  p2TrainTickets: 0
 --- !u!1 &48739773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2835,6 +2765,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436055480}
   m_CullTransparentMesh: 1
+--- !u!1 &450424967
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450424969}
+  - component: {fileID: 450424968}
+  m_Layer: 0
+  m_Name: GlobalController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &450424968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450424967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c047be7d6e064664d867f3d239bc42fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Values: 0000000000000000000000000000000000000000000000000000000000000000
+  player1Tickets: 00000000000000000000000000000000
+  player2Values: 0000000000000000000000000000000000000000000000000000000000000000
+  player2Tickets: 00000000000000000000000000000000
+  playerMoves: 3
+  turn: 0
+--- !u!4 &450424969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450424967}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 382.97235, y: 305.58945, z: -30.194626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &462152807
 GameObject:
   m_ObjectHideFlags: 0
