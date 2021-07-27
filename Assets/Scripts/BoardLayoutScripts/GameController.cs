@@ -14,6 +14,9 @@ public class GameController : MonoBehaviour
     TMP_Text p1ScoreText;
     TMP_Text p2ScoreText;
     TMP_Text p3ScoreText;
+    TMP_Text p4ScoreText;
+    TMP_Text p5ScoreText;
+    TMP_Text p6ScoreText;
 
     public int p1VPs = 0;
     public int p2VPs = 0;
@@ -521,8 +524,8 @@ public class GameController : MonoBehaviour
                 
                 break;
             case 2:
-                int skillToLevel = Random.Range(0, 8);
-                int experienceGained = ML_Algo.ML();
+                skillToLevel = Random.Range(0, 8);
+                experienceGained = ML_Algo.ML();
                 Actions.reduceActions();
 
                 player2Values[skillToLevel] += experienceGained;
@@ -536,8 +539,8 @@ public class GameController : MonoBehaviour
                 
                 break;
             case 3:
-                int skillToLevel = Random.Range(0, 8);
-                int experienceGained = ML_Algo.ML();
+                skillToLevel = Random.Range(0, 8);
+                experienceGained = ML_Algo.ML();
                 //Actions.reduceActions();
                 player3Values[skillToLevel] += experienceGained;
                 skillTextsp3[skillToLevel].text = player3Values[skillToLevel].ToString();
@@ -550,8 +553,8 @@ public class GameController : MonoBehaviour
                 
                 break;
             case 4:
-                int skillToLevel = Random.Range(0, 8);
-                int experienceGained = ML_Algo.ML();
+                skillToLevel = Random.Range(0, 8);
+                experienceGained = ML_Algo.ML();
                 //Actions.reduceActions();
                 player4Values[skillToLevel] += experienceGained;
                 skillTextsp4[skillToLevel].text = player4Values[skillToLevel].ToString();
@@ -564,8 +567,8 @@ public class GameController : MonoBehaviour
 
                 break;
             case 5:
-                int skillToLevel = Random.Range(0, 8);
-                int experienceGained = ML_Algo.ML();
+                skillToLevel = Random.Range(0, 8);
+                experienceGained = ML_Algo.ML();
                 //Actions.reduceActions();
                 player5Values[skillToLevel] += experienceGained;
                 skillTextsp5[skillToLevel].text = player5Values[skillToLevel].ToString();
@@ -578,8 +581,8 @@ public class GameController : MonoBehaviour
 
                 break;
             case 6:
-                int skillToLevel = Random.Range(0, 8);
-                int experienceGained = ML_Algo.ML();
+                skillToLevel = Random.Range(0, 8);
+                experienceGained = ML_Algo.ML();
                 //Actions.reduceActions();
                 player6Values[skillToLevel] += experienceGained;
                 skillTextsp6[skillToLevel].text = player6Values[skillToLevel].ToString();
@@ -659,7 +662,7 @@ public class GameController : MonoBehaviour
                 break;
             case 2:
                 //TICKETS
-                int ticketGained = 0;
+                ticketGained = 0;
                 while (ticketGained == 0)
                 {
                     ticketGained = ML_Algo.ML();
@@ -710,7 +713,7 @@ public class GameController : MonoBehaviour
                 break;
             case 3:
                 //TICKETS
-                int ticketGained = 0;
+                ticketGained = 0;
                 while (ticketGained == 0)
                 {
                     ticketGained = ML_Algo.ML();
@@ -761,7 +764,7 @@ public class GameController : MonoBehaviour
                 break;
             case 4:
                 //TICKETS
-                int ticketGained = 0;
+                ticketGained = 0;
                 while (ticketGained == 0)
                 {
                     ticketGained = ML_Algo.ML();
@@ -812,7 +815,7 @@ public class GameController : MonoBehaviour
                 break;
             case 5:
                 //TICKETS
-                int ticketGained = 0;
+                ticketGained = 0;
                 while (ticketGained == 0)
                 {
                     ticketGained = ML_Algo.ML();
@@ -863,7 +866,7 @@ public class GameController : MonoBehaviour
                 break;
             case 6:
                 //TICKETS
-                int ticketGained = 0;
+                ticketGained = 0;
                 while (ticketGained == 0)
                 {
                     ticketGained = ML_Algo.ML();

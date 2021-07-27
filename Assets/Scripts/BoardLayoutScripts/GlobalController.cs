@@ -29,6 +29,23 @@ public class GlobalController : MonoBehaviour
 
     public int[] player3Tickets = new int[4];
 
+    //Player 4 Info
+    //public TMP_Text[] skillTextsp2 = new TMP_Text[8];
+    public int[] player4Values = new int[8]; //Skills
+
+    public int[] player4Tickets = new int[4];
+    //Player 5 Info
+    //public TMP_Text[] skillTextsp2 = new TMP_Text[8];
+    public int[] player5Values = new int[8]; //Skills
+
+    public int[] player5Tickets = new int[4];
+    //Player 6 Info
+    //public TMP_Text[] skillTextsp2 = new TMP_Text[8];
+    public int[] player6Values = new int[8]; //Skills
+
+    public int[] player6Tickets = new int[4];
+
+
     //public int playerMoves;
     //public bool turn;
 
