@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 
     TMP_Text p1ScoreText;
     TMP_Text p2ScoreText;
+    TMP_Text p3ScoreText;
 
     public int p1VPs = 0;
     public int p2VPs = 0;
@@ -43,7 +44,7 @@ public class GameController : MonoBehaviour
 
     //Player 1 Stats
     TMP_Text[] skillTextsp1 = new TMP_Text[8];
-    static public int[] player1Values = new int[8];
+    public int[] player1Values = new int[8];
     TMP_Text[] ticketTextsp1 = new TMP_Text[4];
     public int[] player1Tickets = new int[4];
 
@@ -66,10 +67,6 @@ public class GameController : MonoBehaviour
 
     //false = Player 1 Turn | true = Player 2 Turn
     static public bool turn = false;
-  
-
-
-
         
     void UpdateUIStats()
     {
@@ -98,6 +95,7 @@ public class GameController : MonoBehaviour
         p1VPsTag = GameObject.Find("ScoreP1");
         p2VPsTag = GameObject.Find("ScoreP2");
         p3VPsTag = GameObject.Find("ScoreP3");
+
 
         movesLeft = movesLeftTag.transform.GetComponent<Text>();
         p1ScoreText = p1VPsTag.transform.GetComponent<TMP_Text>();
@@ -202,32 +200,41 @@ public class GameController : MonoBehaviour
         {
             case 1:
                 //Console.WriteLine("Case 1");
-                p1skills.gameObject.SetActive(false);
-                p3skills.gameObject.SetActive(true);
-                p1tickets.gameObject.SetActive(false);
-                p3tickets.gameObject.SetActive(true);
-                BGp1.gameObject.SetActive(false);
-                BGp3.gameObject.SetActive(true);
+                p1skills.gameObject.SetActive(true);
+                p2skills.gameObject.SetActive(false);
+                p3skills.gameObject.SetActive(false);
+                p1tickets.gameObject.SetActive(true);
+                p2tickets.gameObject.SetActive(false);
+                p3tickets.gameObject.SetActive(false);
+                BGp1.gameObject.SetActive(true);
+                BGp2.gameObject.SetActive(false);
+                BGp3.gameObject.SetActive(false);
                 break;
 
             case 2:
                 //Console.WriteLine("Case 2");
+                p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(true);
                 p3skills.gameObject.SetActive(false);
+                p1tickets.gameObject.SetActive(false);
                 p2tickets.gameObject.SetActive(true);
                 p3tickets.gameObject.SetActive(false);
+                BGp1.gameObject.SetActive(false);
                 BGp2.gameObject.SetActive(true);
                 BGp3.gameObject.SetActive(false);
                 break;
 
             case 3:
                 //oOoo
-                p3skills.gameObject.SetActive(true);
-                p2skills.gameObject.SetActive(false);
-                p3tickets.gameObject.SetActive(true);
+                p1skills.gameObject.SetActive(false);
+                p2skills.gameObject.SetActive(true);                
+                p3skills.gameObject.SetActive(false);
+                p1tickets.gameObject.SetActive(false);
                 p2tickets.gameObject.SetActive(false);
+                p3tickets.gameObject.SetActive(true);
+                BGp1.gameObject.SetActive(false);
+                BGp2.gameObject.SetActive(false);                
                 BGp3.gameObject.SetActive(true);
-                BGp2.gameObject.SetActive(false);
                 break;
 
             default:
