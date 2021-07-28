@@ -24,8 +24,10 @@ public class GameController : MonoBehaviour
     public int p4VPs = 0;
     public int p5VPs = 0;
     public int p6VPs = 0;
-    public int playerTurn = 1;
+    static public int playerTurn = 1;
     public int maxPlayers;
+    public int[] pLocation = new int[6];
+
 
     //Player GameObjects to set true and false
     //[SerializeField]
@@ -115,7 +117,7 @@ public class GameController : MonoBehaviour
     Text movesLeft;
 
     //false = Player 1 Turn | true = Player 2 Turn
-    static public bool turn = false;
+    //static public bool turn = false;
         
     void UpdateUIStats()
     {
@@ -205,6 +207,7 @@ public class GameController : MonoBehaviour
         //playerMoves = GlobalController.Instance.playerMoves;
         //turn = GlobalController.Instance.turn;
 
+        //Game size
         if (PlayerPrefs.GetInt("players") == 2)
         {
             maxPlayers = 2;
@@ -229,7 +232,6 @@ public class GameController : MonoBehaviour
         {
             maxPlayers = 6;
         }
-
     }
 
     private void Update()
@@ -309,8 +311,8 @@ public class GameController : MonoBehaviour
         //Player 6 info to load
         player6Values = GlobalController.Instance.player6Values;
         player6Tickets = GlobalController.Instance.player6Tickets;
-        //Gameplay variables to load
 
+        pLocation = GlobalController.Instance.pLocation;
 
 
     }
@@ -498,7 +500,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    void CheckPlayerTurn()
+    public void CheckPlayerTurn()
     {
         if (playerMoves == 0)
         {
@@ -990,6 +992,7 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.player6Values = player6Values;
         GlobalController.Instance.player6Tickets = player6Tickets;
 
+        GlobalController.Instance.pLocation = pLocation;
         //GlobalController.Instance.playerMoves = playerMoves;
         //GlobalController.Instance.turn = turn;
 

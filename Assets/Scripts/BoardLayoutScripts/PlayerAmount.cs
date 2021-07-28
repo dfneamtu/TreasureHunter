@@ -7,7 +7,7 @@ public class PlayerAmount : MonoBehaviour
 
     private void Update()
     {
-        //delets all playerpreff
+        //deletes all playerpref
         if (Input.GetKey(KeyCode.Delete))
         {
             PlayerPrefs.DeleteAll();

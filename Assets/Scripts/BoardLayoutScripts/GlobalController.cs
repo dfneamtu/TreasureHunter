@@ -45,7 +45,9 @@ public class GlobalController : MonoBehaviour
 
     public int[] player6Tickets = new int[4];
 
+    public int[] pLocation = new int[6];
 
+    //public int playerTurn;
     //public int playerMoves;
     //public bool turn;
 
