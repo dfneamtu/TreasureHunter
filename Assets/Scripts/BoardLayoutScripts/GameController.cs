@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     public int p5VPs = 0;
     public int p6VPs = 0;
     public int playerTurn = 1;
-    public int maxPlayers = 6;
+    public int maxPlayers;
 
     //Player GameObjects to set true and false
     //[SerializeField]
@@ -204,6 +204,31 @@ public class GameController : MonoBehaviour
         CheckPlayerTurn();
         //playerMoves = GlobalController.Instance.playerMoves;
         //turn = GlobalController.Instance.turn;
+
+        if (PlayerPrefs.GetInt("players") == 2)
+        {
+            maxPlayers = 2;
+        }
+
+        if (PlayerPrefs.GetInt("players") == 3)
+        {
+            maxPlayers = 3;
+        }
+
+        if (PlayerPrefs.GetInt("players") == 4)
+        {
+            maxPlayers = 4;
+        }
+
+        if (PlayerPrefs.GetInt("players") == 5)
+        {
+            maxPlayers = 5;
+        }
+
+        if (PlayerPrefs.GetInt("players") == 6)
+        {
+            maxPlayers = 6;
+        }
 
     }
 
@@ -526,7 +551,7 @@ public class GameController : MonoBehaviour
             case 2:
                 skillToLevel = Random.Range(0, 8);
                 experienceGained = ML_Algo.ML();
-                Actions.reduceActions();
+                //Actions.reduceActions();
 
                 player2Values[skillToLevel] += experienceGained;
                 skillTextsp2[skillToLevel].text = player1Values[skillToLevel].ToString();
