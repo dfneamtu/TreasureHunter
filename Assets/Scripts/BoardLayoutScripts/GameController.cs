@@ -8,9 +8,10 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
-{    
+{
     //Skillsp1Script.GetComponent<Skillsp1>();
 
+   
     TMP_Text p1ScoreText;
     TMP_Text p2ScoreText;
     TMP_Text p3ScoreText;
@@ -31,6 +32,7 @@ public class GameController : MonoBehaviour
 
     //Player GameObjects to set true and false
     //[SerializeField]
+
     GameObject p1skills;
     GameObject p2skills;
     GameObject p3skills;
@@ -116,9 +118,16 @@ public class GameController : MonoBehaviour
 
     Text movesLeft;
 
+    public string p1CurrentObject;
+    public string p2CurrentObject;
+    public string p3CurrentObject;
+    public string p4CurrentObject;
+    public string p5CurrentObject;
+    public string p6CurrentObject;
+
     //false = Player 1 Turn | true = Player 2 Turn
     //static public bool turn = false;
-        
+
     void UpdateUIStats()
     {
         movesLeft.text = playerMoves.ToString();
@@ -180,6 +189,8 @@ public class GameController : MonoBehaviour
         p5ScoreText = p5VPsTag.transform.GetComponent<TMP_Text>();
         p6ScoreText = p6VPsTag.transform.GetComponent<TMP_Text>();
 
+  
+
         for (int i = 0; i < 8; i++)
         {
             skillTextsp1[i] = Skillsp1.transform.GetChild(i).GetComponent<TMP_Text>();
@@ -199,6 +210,19 @@ public class GameController : MonoBehaviour
             ticketTextsp5[i] = Ticketsp5.transform.GetChild(i).GetComponent<TMP_Text>();
             ticketTextsp6[i] = Ticketsp6.transform.GetChild(i).GetComponent<TMP_Text>();
         }
+
+        p1CurrentObject = getObject();
+        Console.WriteLine("PLAYER 1 GOT " + p1CurrentObject);
+        p2CurrentObject = getObject();
+        Console.WriteLine("PLAYER 2 GOT " + p2CurrentObject);
+        p3CurrentObject = getObject();
+        Console.WriteLine("PLAYER 3 GOT " + p3CurrentObject);
+        p4CurrentObject = getObject();
+        Console.WriteLine("PLAYER 4 GOT " + p4CurrentObject);
+        p5CurrentObject = getObject();
+        Console.WriteLine("PLAYER 5 GOT " + p5CurrentObject);
+        p6CurrentObject = getObject();
+        Console.WriteLine("PLAYER 6 GOT " + p6CurrentObject);
     }
 
     void Start()
@@ -955,7 +979,96 @@ public class GameController : MonoBehaviour
 
     public void ObjectClicked()
     {
+        CheckPlayerTurn();
+        int[] objectInfo = new int[2];
+
+        switch (playerTurn)
+        {
+            case 1:
+                objectInfo = getObjectStats(p1CurrentObject);
+                player1Values[objectInfo[0]] += objectInfo[1];
+                skillTextsp1[objectInfo[0]].text = player1Values[objectInfo[0]].ToString();
+
+                if (player1Values[objectInfo[0]] > 4)
+                {
+                    p1VPs++;
+                    p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
+                }
+                p1CurrentObject = getObject();
+                break;
+            case 2:
+                objectInfo = getObjectStats(p2CurrentObject);
+                
+                player2Values[objectInfo[0]] += objectInfo[1];
+                skillTextsp2[objectInfo[0]].text = player2Values[objectInfo[0]].ToString();
+
+                if (player2Values[objectInfo[0]] > 4)
+                {
+                    p2VPs++;
+                    p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
+                }
+                p2CurrentObject = getObject();
+                break;
+            case 3:
+                objectInfo = getObjectStats(p3CurrentObject);
+   
+                player3Values[objectInfo[0]] += objectInfo[1];
+                skillTextsp3[objectInfo[0]].text = player3Values[objectInfo[0]].ToString();
+
+                if (player3Values[objectInfo[0]] > 4)
+                {
+                    p3VPs++;
+                    p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
+                }
+                p3CurrentObject = getObject();
+                break;
+            case 4:
+                objectInfo = getObjectStats(p4CurrentObject);
+                
+                player4Values[objectInfo[0]] += objectInfo[1];
+                skillTextsp4[objectInfo[0]].text = player4Values[objectInfo[0]].ToString();
+
+                if (player4Values[objectInfo[0]] > 4)
+                {
+                    p4VPs++;
+                    p4ScoreText.text = "Player 4 Victory Points: " + p4VPs.ToString();
+                }
+                p4CurrentObject = getObject();
+                break;
+            case 5:
+                objectInfo = getObjectStats(p5CurrentObject);
+                
+                player5Values[objectInfo[0]] += objectInfo[1];
+                skillTextsp5[objectInfo[0]].text = player5Values[objectInfo[0]].ToString();
+
+                if (player5Values[objectInfo[0]] > 4)
+                {
+                    p5VPs++;
+                    p5ScoreText.text = "Player 5 Victory Points: " + p5VPs.ToString();
+                }
+                p5CurrentObject = getObject();
+                break;
+            case 6:
+                objectInfo = getObjectStats(p6CurrentObject);
+                
+                player6Values[objectInfo[0]] += objectInfo[1];
+                skillTextsp6[objectInfo[0]].text = player6Values[objectInfo[0]].ToString();
+
+                if (player6Values[objectInfo[0]] > 4)
+                {
+                    p6VPs++;
+                    p6ScoreText.text = "Player 6 Victory Points: " + p6VPs.ToString();
+                }
+                break;
+                p6CurrentObject = getObject();
+            default:
+                break;
+        }
+
+
+
         playerMoves--;
+
         Debug.Log("Objects");
     }
 
@@ -965,6 +1078,69 @@ public class GameController : MonoBehaviour
         Debug.Log("Missions");
     }
 
+    public string getObject()
+    {
+        int randomNum = Random.Range(1, 5);
+        switch (randomNum)
+        {
+            case 1:
+                return "Glock";
+                break;
+            case 2:
+                return "Rifle";
+                break;
+            case 3:
+                return "Med Kit";
+                break;
+            case 4:
+                return "Bribe Money";
+                break;
+            case 5:
+                return "Dynamite";
+                break;
+            default:
+                Console.WriteLine("ERROR");
+                return "0";
+                break;
+        }
+    }
+
+    public int[] getObjectStats(string name)
+    {
+        int[] stats = new int[2];
+        stats[0] = 0;
+        stats[1] = 0;
+
+        switch (name)
+        {
+            case "Glock":
+                stats[0] = 4;//munitions
+                stats[1] = 2;
+                break;
+            case "Rifle":
+                stats[0] = 4;//munitions
+                stats[1] = 5;
+                break;
+            case "Med Kit":
+                stats[0] = 0;//strength
+                stats[1] = 3;
+
+                break;
+            case "Bribe Money":
+                stats[0] = 2;//currency
+                stats[1] = 3;
+                break;
+            case "Cloak":
+                stats[0] = 4;//stealth
+                stats[1] = 4;
+                break;
+            default:
+                Console.WriteLine("ERROR");
+                break;
+        }
+
+        return stats;
+    }
 
     public void SavePlayer()
     {
