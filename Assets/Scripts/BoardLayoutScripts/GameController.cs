@@ -10,8 +10,9 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     //Skillsp1Script.GetComponent<Skillsp1>();
+    public List<string> log = new List<string>();
 
-   
+
     TMP_Text p1ScoreText;
     TMP_Text p2ScoreText;
     TMP_Text p3ScoreText;
@@ -531,10 +532,15 @@ public class GameController : MonoBehaviour
             if (playerTurn == maxPlayers)
             {
                 playerTurn = 1;
+                for (int i = 0; i < 9; i++)
+                {
+                    Debug.Log(log[i]);
+                }
             }
             else
             {
                 playerTurn++;
+                
             }
 
             playerMoves = 3;
@@ -650,7 +656,9 @@ public class GameController : MonoBehaviour
         }
 
         Debug.Log("Skills");
-        playerMoves--;
+        log.Add("Player " + playerTurn.ToString() + " leveled a skill.");
+        
+        playerMoves--; 
 
     }
 
@@ -968,10 +976,11 @@ public class GameController : MonoBehaviour
                 break;
             default:
                 break;
-
+                log.Add("Player " + playerTurn.ToString() + " gained a ticket.");
 
         }
-
+        Debug.Log("Player " + playerTurn.ToString() + " gained a ticket.");
+        log.Add("Player " + playerTurn.ToString() + " gained a ticket.");
 
         playerMoves--;
         Debug.Log("Tickets");
@@ -1065,16 +1074,19 @@ public class GameController : MonoBehaviour
                 break;
         }
 
-
-
         playerMoves--;
-
+        log.Add("Player " + playerTurn.ToString() + " acquired an object.");
+        Debug.Log("Player " + playerTurn.ToString() + " acquired an object.");
+        
         Debug.Log("Objects");
     }
 
     public void MissionsClicked()
     {
         playerMoves--;
+        log.Add("Player " + playerTurn.ToString() + " clicked mission button.");
+        Debug.Log("Player " + playerTurn.ToString() + " clicked a mission.");
+        
         Debug.Log("Missions");
     }
 
