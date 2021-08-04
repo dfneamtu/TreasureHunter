@@ -9,6 +9,16 @@ using UnityEngine.SceneManagement;
 
 public class playerLocation : MonoBehaviour
 {
+    public GameObject TargetCrosshairs0;
+    public GameObject TargetCrosshairs1;
+    public GameObject TargetCrosshairs2;
+    public GameObject TargetCrosshairs3;
+    public GameObject TargetCrosshairs4;
+    public GameObject TargetCrosshairs5;
+    public GameObject TargetCrosshairs6;
+    public GameObject TargetCrosshairs7;
+    public GameObject TargetCrosshairs8;
+    public GameObject TargetCrosshairs9;
 
     public GameObject p1tickets;
     public GameObject p2tickets;
@@ -240,6 +250,7 @@ public class playerLocation : MonoBehaviour
 
     public void Location0()
     {
+
         //PlayerPrefs.SetInt("location", 0);
         switch (playerTurnTickets)
         {
@@ -265,10 +276,24 @@ public class playerLocation : MonoBehaviour
                 //Console.WriteLine("Default case");
                 break;
         }
-        Debug.Log("Start");
+        Debug.Log("Start");        
+        
+        TargetCrosshairs0.gameObject.SetActive(true);
+        TargetCrosshairs1.gameObject.SetActive(false);
+        TargetCrosshairs2.gameObject.SetActive(false);
+        TargetCrosshairs3.gameObject.SetActive(false);
+        TargetCrosshairs4.gameObject.SetActive(false);
+        TargetCrosshairs5.gameObject.SetActive(false);
+        TargetCrosshairs6.gameObject.SetActive(false);
+        TargetCrosshairs7.gameObject.SetActive(false);
+        TargetCrosshairs8.gameObject.SetActive(false);
+        TargetCrosshairs9.gameObject.SetActive(false);
+
+
     }
     public void Location1()
     {
+
         switch (playerTurnTickets)
         {
             case 1:
@@ -292,11 +317,25 @@ public class playerLocation : MonoBehaviour
             default:
                 //Console.WriteLine("Default case");
                 break;
-        }
+        }        
+
+        TargetCrosshairs0.gameObject.SetActive(false);
+        TargetCrosshairs1.gameObject.SetActive(true);
+        TargetCrosshairs2.gameObject.SetActive(false);
+        TargetCrosshairs3.gameObject.SetActive(false);
+        TargetCrosshairs4.gameObject.SetActive(false);
+        TargetCrosshairs5.gameObject.SetActive(false);
+        TargetCrosshairs6.gameObject.SetActive(false);
+        TargetCrosshairs7.gameObject.SetActive(false);
+        TargetCrosshairs8.gameObject.SetActive(false);
+        TargetCrosshairs9.gameObject.SetActive(false);
+
         Debug.Log("1");
     }
     public void Location2()
     {
+
+
         switch (playerTurnTickets)
         {
             case 1:
@@ -321,10 +360,24 @@ public class playerLocation : MonoBehaviour
                 //Console.WriteLine("Default case");
                 break;
         }
+
+        TargetCrosshairs0.gameObject.SetActive(false);
+        TargetCrosshairs1.gameObject.SetActive(false);
+        TargetCrosshairs2.gameObject.SetActive(true);
+        TargetCrosshairs3.gameObject.SetActive(false);
+        TargetCrosshairs4.gameObject.SetActive(false);
+        TargetCrosshairs5.gameObject.SetActive(false);
+        TargetCrosshairs6.gameObject.SetActive(false);
+        TargetCrosshairs7.gameObject.SetActive(false);
+        TargetCrosshairs8.gameObject.SetActive(false);
+        TargetCrosshairs9.gameObject.SetActive(false);
+
         Debug.Log("2");
     }
     public void Location3()
     {
+
+
         switch (playerTurnTickets)
         {
             case 1:
@@ -349,10 +402,24 @@ public class playerLocation : MonoBehaviour
                 //Console.WriteLine("Default case");
                 break;
         }
+
+        TargetCrosshairs0.gameObject.SetActive(false);
+        TargetCrosshairs1.gameObject.SetActive(false);
+        TargetCrosshairs2.gameObject.SetActive(false);
+        TargetCrosshairs3.gameObject.SetActive(true);
+        TargetCrosshairs4.gameObject.SetActive(false);
+        TargetCrosshairs5.gameObject.SetActive(false);
+        TargetCrosshairs6.gameObject.SetActive(false);
+        TargetCrosshairs7.gameObject.SetActive(false);
+        TargetCrosshairs8.gameObject.SetActive(false);
+        TargetCrosshairs9.gameObject.SetActive(false);
+
         Debug.Log("3");
     }
     public void Location4()
     {
+
+
         switch (playerTurnTickets)
         {
             case 1:
@@ -377,10 +444,24 @@ public class playerLocation : MonoBehaviour
                 //Console.WriteLine("Default case");
                 break;
         }
+
+        TargetCrosshairs0.gameObject.SetActive(false);
+        TargetCrosshairs1.gameObject.SetActive(false);
+        TargetCrosshairs2.gameObject.SetActive(false);
+        TargetCrosshairs3.gameObject.SetActive(false);
+        TargetCrosshairs4.gameObject.SetActive(true);
+        TargetCrosshairs5.gameObject.SetActive(false);
+        TargetCrosshairs6.gameObject.SetActive(false);
+        TargetCrosshairs7.gameObject.SetActive(false);
+        TargetCrosshairs8.gameObject.SetActive(false);
+        TargetCrosshairs9.gameObject.SetActive(false);
+
         Debug.Log("4");
     }
     public void Location5()
     {
+
+
         switch (playerTurnTickets)
         {
             case 1:
@@ -404,11 +485,24 @@ public class playerLocation : MonoBehaviour
             default:
                 //Console.WriteLine("Default case");
                 break;
-        }
+        }        
+
+        TargetCrosshairs0.gameObject.SetActive(false);
+        TargetCrosshairs1.gameObject.SetActive(false);
+        TargetCrosshairs2.gameObject.SetActive(false);
+        TargetCrosshairs3.gameObject.SetActive(false);
+        TargetCrosshairs4.gameObject.SetActive(false);
+        TargetCrosshairs5.gameObject.SetActive(true);
+        TargetCrosshairs6.gameObject.SetActive(false);
+        TargetCrosshairs7.gameObject.SetActive(false);
+        TargetCrosshairs8.gameObject.SetActive(false);
+        TargetCrosshairs9.gameObject.SetActive(false);
+
         Debug.Log("5");
     }
     public void Location6()
     {
+
         switch (playerTurnTickets)
         {
             case 1:
@@ -433,10 +527,24 @@ public class playerLocation : MonoBehaviour
                 //Console.WriteLine("Default case");
                 break;
         }
+
+        TargetCrosshairs0.gameObject.SetActive(false);
+        TargetCrosshairs1.gameObject.SetActive(false);
+        TargetCrosshairs2.gameObject.SetActive(false);
+        TargetCrosshairs3.gameObject.SetActive(false);
+        TargetCrosshairs4.gameObject.SetActive(false);
+        TargetCrosshairs5.gameObject.SetActive(false);
+        TargetCrosshairs6.gameObject.SetActive(true);
+        TargetCrosshairs7.gameObject.SetActive(false);
+        TargetCrosshairs8.gameObject.SetActive(false);
+        TargetCrosshairs9.gameObject.SetActive(false);
+
         Debug.Log("6");
     }
     public void Location7()
     {
+
+
         switch (playerTurnTickets)
         {
             case 1:
@@ -460,11 +568,23 @@ public class playerLocation : MonoBehaviour
             default:
                 //Console.WriteLine("Default case");
                 break;
-        }
+        }        
+        TargetCrosshairs0.gameObject.SetActive(false);
+        TargetCrosshairs1.gameObject.SetActive(false);
+        TargetCrosshairs2.gameObject.SetActive(false);
+        TargetCrosshairs3.gameObject.SetActive(false);
+        TargetCrosshairs4.gameObject.SetActive(false);
+        TargetCrosshairs5.gameObject.SetActive(false);
+        TargetCrosshairs6.gameObject.SetActive(false);
+        TargetCrosshairs7.gameObject.SetActive(true);
+        TargetCrosshairs8.gameObject.SetActive(false);
+        TargetCrosshairs9.gameObject.SetActive(false);
         Debug.Log("7");
     }
     public void Location8()
     {
+
+
         switch (playerTurnTickets)
         {
             case 1:
@@ -489,9 +609,62 @@ public class playerLocation : MonoBehaviour
                 //Console.WriteLine("Default case");
                 break;
         }
+
+        TargetCrosshairs0.gameObject.SetActive(false);
+        TargetCrosshairs1.gameObject.SetActive(false);
+        TargetCrosshairs2.gameObject.SetActive(false);
+        TargetCrosshairs3.gameObject.SetActive(false);
+        TargetCrosshairs4.gameObject.SetActive(false);
+        TargetCrosshairs5.gameObject.SetActive(false);
+        TargetCrosshairs6.gameObject.SetActive(false);
+        TargetCrosshairs7.gameObject.SetActive(false);
+        TargetCrosshairs8.gameObject.SetActive(true);
+        TargetCrosshairs9.gameObject.SetActive(false);
+
         Debug.Log("8");
     }
 
+    public void Location9()
+    {
+
+
+        switch (playerTurnTickets)
+        {
+            case 1:
+                pLocation[0] = 9;
+                break;
+            case 2:
+                pLocation[1] = 9;
+                break;
+            case 3:
+                pLocation[2] = 9;
+                break;
+            case 4:
+                pLocation[3] = 9;
+                break;
+            case 5:
+                pLocation[4] = 9;
+                break;
+            case 6:
+                pLocation[5] = 9;
+                break;
+            default:
+                //Console.WriteLine("Default case");
+                break;
+        }
+        TargetCrosshairs0.gameObject.SetActive(false);
+        TargetCrosshairs1.gameObject.SetActive(false);
+        TargetCrosshairs2.gameObject.SetActive(false);
+        TargetCrosshairs3.gameObject.SetActive(false);
+        TargetCrosshairs4.gameObject.SetActive(false);
+        TargetCrosshairs5.gameObject.SetActive(false);
+        TargetCrosshairs6.gameObject.SetActive(false);
+        TargetCrosshairs7.gameObject.SetActive(false);
+        TargetCrosshairs8.gameObject.SetActive(false);
+        TargetCrosshairs9.gameObject.SetActive(true);
+
+        Debug.Log("9");
+    }
 
     public void SavePlayer()
     {
