@@ -34,6 +34,17 @@ public class GameController : MonoBehaviour
     //Player GameObjects to set true and false
     //[SerializeField]
 
+    public GameObject TargetCrosshairs0;
+    public GameObject TargetCrosshairs1;
+    public GameObject TargetCrosshairs2;
+    public GameObject TargetCrosshairs3;
+    public GameObject TargetCrosshairs4;
+    public GameObject TargetCrosshairs5;
+    public GameObject TargetCrosshairs6;
+    public GameObject TargetCrosshairs7;
+    public GameObject TargetCrosshairs8;
+    public GameObject TargetCrosshairs9;
+
     GameObject p1skills;
     GameObject p2skills;
     GameObject p3skills;
@@ -344,30 +355,6 @@ public class GameController : MonoBehaviour
 
     void playerGmo()
     {
-
-        //if (true)
-        //{            
-        //    turn = true;            
-        //    p1skills.gameObject.SetActive(false);
-        //    p2skills.gameObject.SetActive(true);
-        //    p1tickets.gameObject.SetActive(false);
-        //    p2tickets.gameObject.SetActive(true);
-        //    BGp1.gameObject.SetActive(false);
-        //    BGp2.gameObject.SetActive(true);
-
-        //}
-        //else
-        //{            
-        //    turn = false;
-        //    p1skills.gameObject.SetActive(true);
-        //    p2skills.gameObject.SetActive(false);
-        //    p1tickets.gameObject.SetActive(true);
-        //    p2tickets.gameObject.SetActive(false);
-        //    BGp1.gameObject.SetActive(true);
-        //    BGp2.gameObject.SetActive(false);
-
-        //}
-
         switch (playerTurn)
         {
             case 1:
@@ -393,6 +380,136 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
+                if (pLocation[0] == 0)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(true);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+
+                } else if (pLocation[0] == 1)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(true);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[0] == 2)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(true);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[0] == 3)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(true);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[0] == 4)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(true);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[0] == 5)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(true);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[0] == 6)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(true);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[0] == 7)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(true);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[0] == 8)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(true);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[0] == 9)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false); 
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(true);
+                }
                 break;
 
             case 2:
@@ -418,6 +535,137 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
+                if (pLocation[1] == 0)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(true);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+
+                }
+                else if (pLocation[1] == 1)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(true);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[1] == 2)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(true);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[1] == 3)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(true);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[1] == 4)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(true);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[1] == 5)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(true);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[1] == 6)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(true);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[1] == 7)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(true);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[1] == 8)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(true);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[1] == 9)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(true);
+                }
                 break;
 
             case 3:
@@ -442,6 +690,138 @@ public class GameController : MonoBehaviour
                 BGp4.gameObject.SetActive(false);
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
+
+                if (pLocation[2] == 0)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(true);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+
+                }
+                else if (pLocation[2] == 1)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(true);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[2] == 2)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(true);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[2] == 3)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(true);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[2] == 4)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(true);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[2] == 5)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(true);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[2] == 6)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(true);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[2] == 7)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(true);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[2] == 8)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(true);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[2] == 9)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(true);
+                }
 
                 break;
 
@@ -468,6 +848,138 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
+                if (pLocation[3] == 0)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(true);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+
+                }
+                else if (pLocation[3] == 1)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(true);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[3] == 2)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(true);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[3] == 3)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(true);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[3] == 4)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(true);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[3] == 5)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(true);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[3] == 6)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(true);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[3] == 7)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(true);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[3] == 8)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(true);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[3] == 9)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(true);
+                }
+
                 break;
 
             case 5:
@@ -491,6 +1003,138 @@ public class GameController : MonoBehaviour
                 BGp4.gameObject.SetActive(false);
                 BGp5.gameObject.SetActive(true);
                 BGp6.gameObject.SetActive(false);
+
+                if (pLocation[4] == 0)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(true);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+
+                }
+                else if (pLocation[4] == 1)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(true);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[4] == 2)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(true);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[4] == 3)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(true);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[4] == 4)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(true);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[4] == 5)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(true);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[4] == 6)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(true);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[4] == 7)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(true);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[4] == 8)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(true);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[4] == 9)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(true);
+                }
 
                 break;
 
@@ -516,6 +1160,138 @@ public class GameController : MonoBehaviour
                 BGp4.gameObject.SetActive(false);
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(true);
+
+                if (pLocation[5] == 0)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(true);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+
+                }
+                else if (pLocation[5] == 1)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(true);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[5] == 2)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(true);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[5] == 3)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(true);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[5] == 4)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(true);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[5] == 5)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(true);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[5] == 6)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(true);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[5] == 7)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(true);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[5] == 8)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(true);
+                    TargetCrosshairs9.gameObject.SetActive(false);
+                }
+                else if (pLocation[5] == 9)
+                {
+                    TargetCrosshairs0.gameObject.SetActive(false);
+                    TargetCrosshairs1.gameObject.SetActive(false);
+                    TargetCrosshairs2.gameObject.SetActive(false);
+                    TargetCrosshairs3.gameObject.SetActive(false);
+                    TargetCrosshairs4.gameObject.SetActive(false);
+                    TargetCrosshairs5.gameObject.SetActive(false);
+                    TargetCrosshairs6.gameObject.SetActive(false);
+                    TargetCrosshairs7.gameObject.SetActive(false);
+                    TargetCrosshairs8.gameObject.SetActive(false);
+                    TargetCrosshairs9.gameObject.SetActive(true);
+                }
 
                 break;
 
@@ -1153,6 +1929,8 @@ public class GameController : MonoBehaviour
 
         return stats;
     }
+
+
 
     public void SavePlayer()
     {
