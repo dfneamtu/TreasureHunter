@@ -7,11 +7,12 @@ using Random = UnityEngine.Random;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
+
 public class GameController : MonoBehaviour
 {
     //Skillsp1Script.GetComponent<Skillsp1>();
     public List<string> log = new List<string>();
-
 
     TMP_Text p1ScoreText;
     TMP_Text p2ScoreText;
@@ -201,7 +202,7 @@ public class GameController : MonoBehaviour
         p5ScoreText = p5VPsTag.transform.GetComponent<TMP_Text>();
         p6ScoreText = p6VPsTag.transform.GetComponent<TMP_Text>();
 
-  
+
 
         for (int i = 0; i < 8; i++)
         {
@@ -271,7 +272,7 @@ public class GameController : MonoBehaviour
     }
 
     private void Update()
-    {       
+    {
         for (int i = 0; i < 8; i++)
         {
             skillTextsp1[i].text = player1Values[i].ToString();
@@ -502,7 +503,7 @@ public class GameController : MonoBehaviour
                     TargetCrosshairs0.gameObject.SetActive(false);
                     TargetCrosshairs1.gameObject.SetActive(false);
                     TargetCrosshairs2.gameObject.SetActive(false);
-                    TargetCrosshairs3.gameObject.SetActive(false); 
+                    TargetCrosshairs3.gameObject.SetActive(false);
                     TargetCrosshairs4.gameObject.SetActive(false);
                     TargetCrosshairs5.gameObject.SetActive(false);
                     TargetCrosshairs6.gameObject.SetActive(false);
@@ -1316,7 +1317,7 @@ public class GameController : MonoBehaviour
             else
             {
                 playerTurn++;
-                
+
             }
 
             playerMoves = 3;
@@ -1354,7 +1355,7 @@ public class GameController : MonoBehaviour
                     p1VPs++;
                     p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
                 }
-                
+
                 break;
             case 2:
                 skillToLevel = Random.Range(0, 8);
@@ -1369,7 +1370,7 @@ public class GameController : MonoBehaviour
                     p2VPs++;
                     p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
                 }
-                
+
                 break;
             case 3:
                 skillToLevel = Random.Range(0, 8);
@@ -1383,7 +1384,7 @@ public class GameController : MonoBehaviour
                     p3VPs++;
                     p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
                 }
-                
+
                 break;
             case 4:
                 skillToLevel = Random.Range(0, 8);
@@ -1433,8 +1434,8 @@ public class GameController : MonoBehaviour
 
         Debug.Log("Skills");
         log.Add("Player " + playerTurn.ToString() + " leveled a skill.");
-        
-        playerMoves--; 
+
+        playerMoves--;
 
     }
 
@@ -1783,7 +1784,7 @@ public class GameController : MonoBehaviour
                 break;
             case 2:
                 objectInfo = getObjectStats(p2CurrentObject);
-                
+
                 player2Values[objectInfo[0]] += objectInfo[1];
                 skillTextsp2[objectInfo[0]].text = player2Values[objectInfo[0]].ToString();
 
@@ -1796,7 +1797,7 @@ public class GameController : MonoBehaviour
                 break;
             case 3:
                 objectInfo = getObjectStats(p3CurrentObject);
-   
+
                 player3Values[objectInfo[0]] += objectInfo[1];
                 skillTextsp3[objectInfo[0]].text = player3Values[objectInfo[0]].ToString();
 
@@ -1809,7 +1810,7 @@ public class GameController : MonoBehaviour
                 break;
             case 4:
                 objectInfo = getObjectStats(p4CurrentObject);
-                
+
                 player4Values[objectInfo[0]] += objectInfo[1];
                 skillTextsp4[objectInfo[0]].text = player4Values[objectInfo[0]].ToString();
 
@@ -1822,7 +1823,7 @@ public class GameController : MonoBehaviour
                 break;
             case 5:
                 objectInfo = getObjectStats(p5CurrentObject);
-                
+
                 player5Values[objectInfo[0]] += objectInfo[1];
                 skillTextsp5[objectInfo[0]].text = player5Values[objectInfo[0]].ToString();
 
@@ -1835,7 +1836,7 @@ public class GameController : MonoBehaviour
                 break;
             case 6:
                 objectInfo = getObjectStats(p6CurrentObject);
-                
+
                 player6Values[objectInfo[0]] += objectInfo[1];
                 skillTextsp6[objectInfo[0]].text = player6Values[objectInfo[0]].ToString();
 
@@ -1853,7 +1854,7 @@ public class GameController : MonoBehaviour
         playerMoves--;
         log.Add("Player " + playerTurn.ToString() + " acquired an object.");
         Debug.Log("Player " + playerTurn.ToString() + " acquired an object.");
-        
+
         Debug.Log("Objects");
     }
 
@@ -1862,7 +1863,7 @@ public class GameController : MonoBehaviour
         playerMoves--;
         log.Add("Player " + playerTurn.ToString() + " clicked mission button.");
         Debug.Log("Player " + playerTurn.ToString() + " clicked a mission.");
-        
+
         Debug.Log("Missions");
     }
 

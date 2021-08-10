@@ -10,6 +10,7 @@ public class Location : MonoBehaviour
     public int x;
     public int y;
     public int diff;
-    public bool isAirport;
-    public bool isSpawner;
+    public int isAirport;
+    public int isSpawner;
+    public int enemiesPresent;
 }
