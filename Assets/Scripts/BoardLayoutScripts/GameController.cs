@@ -8,11 +8,16 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 
-
 public class GameController : MonoBehaviour
 {
     //Skillsp1Script.GetComponent<Skillsp1>();
     public List<string> log = new List<string>();
+    public GameObject LocationsObj;
+    public GameObject LocationPathsObj;
+    public GameObject Spawner;
+    private ReadLocationPaths locationPathsScript;
+    private ReadLocations locationsScript;
+    private Spawner spawnerScript;
 
     TMP_Text p1ScoreText;
     TMP_Text p2ScoreText;
@@ -241,6 +246,19 @@ public class GameController : MonoBehaviour
     void Start()
     {
         CheckPlayerTurn();
+        locationsScript = LocationsObj.GetComponent<ReadLocations>();
+        locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
+        spawnerScript = Spawner.GetComponent<Spawner>();
+        for (int i = 0; i < 3; i++)
+        {
+          spawnerScript.spawnEnemy();
+        }
+
+        foreach(Location l in locationsScript.locations)
+        {
+          //Debug.Log(l.locationStr);
+        }
+
         //playerMoves = GlobalController.Instance.playerMoves;
         //turn = GlobalController.Instance.turn;
 
@@ -269,6 +287,7 @@ public class GameController : MonoBehaviour
         {
             maxPlayers = 6;
         }
+
     }
 
     private void Update()

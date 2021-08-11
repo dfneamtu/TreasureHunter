@@ -12,5 +12,7 @@ public class Location : MonoBehaviour
     public int diff;
     public int isAirport;
     public int isSpawner;
+    public float xPos;
+    public float zPos;
     public int enemiesPresent;
 }

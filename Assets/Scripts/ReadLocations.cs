@@ -26,21 +26,23 @@ public class ReadLocations : MonoBehaviour
           int.TryParse(row[6], out l.diff);
           int.TryParse(row[7], out l.isAirport);
           int.TryParse(row[8], out l.isSpawner);
+          float.TryParse(row[9], out l.xPos);
+          float.TryParse(row[10], out l.zPos);
           l.enemiesPresent = 0;
 
           locations.Add(l);
-          Debug.Log(l.hubNum + "," + l.locationNum + "," + l.locationStr + "," + l.x + "," + l.y + "," + l.diff + "," + l.isAirport + "," + l.isSpawner);
+          //Debug.Log(l.hubNum + "," + l.locationNum + "," + l.locationStr + "," + l.x + "," + l.y + "," + l.diff + "," + l.isAirport + "," + l.isSpawner);
 
           if (l.isSpawner == 1)
           {
-            Debug.Log("ADDING !");
+            //Debug.Log("ADDING !");
             hostileLocations.Add(l);
           }
         }
 
         foreach (Location l in hostileLocations)
         {
-          Debug.Log(l.locationStr + " IS HOSTILE!");
+          //Debug.Log(l.locationStr + " IS HOSTILE!");
         }
     }
 

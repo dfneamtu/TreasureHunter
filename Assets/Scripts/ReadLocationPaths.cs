@@ -29,19 +29,6 @@ public class ReadLocationPaths : MonoBehaviour
 
           locationPaths.Add(lp);
         }
-
-        List<LocationPath> adjacentLocationPaths = new List<LocationPath>();
-        foreach (LocationPath lp in locationPaths)
-        {
-          if (lp.hubNum == 1)
-          {
-            if (lp.locationNum == 1)
-            {
-              adjacentLocationPaths.Add(lp);
-              Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
-            }
-          }
-        }
     }
 
     // Update is called once per frame
