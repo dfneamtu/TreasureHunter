@@ -35,6 +35,7 @@ public class GameController : MonoBehaviour
     static public int playerTurn = 1;
     public int maxPlayers;
     public int[] pLocation = new int[6];
+    public int[] hubLocation = new int[6];
 
 
     //Player GameObjects to set true and false
@@ -369,6 +370,7 @@ public class GameController : MonoBehaviour
         player6Tickets = GlobalController.Instance.player6Tickets;
 
         pLocation = GlobalController.Instance.pLocation;
+        hubLocation = GlobalController.Instance.hubLocation;
 
 
     }
@@ -412,6 +414,8 @@ public class GameController : MonoBehaviour
                     TargetCrosshairs7.gameObject.SetActive(false);
                     TargetCrosshairs8.gameObject.SetActive(false);
                     TargetCrosshairs9.gameObject.SetActive(false);
+
+
 
                 } else if (pLocation[0] == 1)
                 {
@@ -1979,6 +1983,8 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.player6Tickets = player6Tickets;
 
         GlobalController.Instance.pLocation = pLocation;
+        GlobalController.Instance.hubLocation = hubLocation;
+
         //GlobalController.Instance.playerMoves = playerMoves;
         //GlobalController.Instance.turn = turn;
 

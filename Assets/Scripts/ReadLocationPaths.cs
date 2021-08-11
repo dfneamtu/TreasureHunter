@@ -6,11 +6,16 @@ using UnityEngine;
 public class ReadLocationPaths : MonoBehaviour
 {
     public List<LocationPath> locationPaths = new List<LocationPath>();
+
+    public int[] pLocation = new int[6];
+    public int[] hubLocation = new int[6];
+
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("working");
         TextAsset locationPathData = Resources.Load<TextAsset>("LocationPaths");
+       
 
         string[] data = locationPathData.text.Split(new char[] { '\n'});
 
@@ -29,11 +34,91 @@ public class ReadLocationPaths : MonoBehaviour
 
           locationPaths.Add(lp);
         }
+
+
     }
 
-    // Update is called once per frame
     void Update()
     {
+        pLocation = GlobalController.Instance.pLocation;
+        hubLocation = GlobalController.Instance.hubLocation;
+
+        List<LocationPath> adjacentLocationPaths = new List<LocationPath>();
+
+        foreach (LocationPath lp in locationPaths)
+        {
+            if (lp.hubNum == hubLocation[0])
+            {
+                if (lp.locationNum == pLocation[0])
+                {
+                    adjacentLocationPaths.Add(lp);
+                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
+                }
+            }
+        }
+        foreach (LocationPath lp in locationPaths)
+        {
+            if (lp.hubNum == hubLocation[1])
+            {
+                if (lp.locationNum == pLocation[1])
+                {
+                    adjacentLocationPaths.Add(lp);
+                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
+                }
+            }
+        }
+        foreach (LocationPath lp in locationPaths)
+        {
+            if (lp.hubNum == pLocation[2])
+            {
+                if (lp.locationNum == pLocation[2])
+                {
+                    adjacentLocationPaths.Add(lp);
+                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
+                }
+            }
+        }
+        foreach (LocationPath lp in locationPaths)
+        {
+            if (lp.hubNum == pLocation[3])
+            {
+                if (lp.locationNum == pLocation[3])
+                {
+                    adjacentLocationPaths.Add(lp);
+                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
+                }
+            }
+        }
+        foreach (LocationPath lp in locationPaths)
+        {
+            if (lp.hubNum == pLocation[4])
+            {
+                if (lp.locationNum == pLocation[4])
+                {
+                    adjacentLocationPaths.Add(lp);
+                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
+                }
+            }
+        }
+        foreach (LocationPath lp in locationPaths)
+        {
+            if (lp.hubNum == pLocation[5])
+            {
+                if (lp.locationNum == pLocation[5])
+                {
+                    adjacentLocationPaths.Add(lp);
+                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
+                }
+            }
+        }
+    }
+
+
+    public void SavePlayer()
+    {
+
+        GlobalController.Instance.pLocation = pLocation;
+        GlobalController.Instance.hubLocation = hubLocation;
 
     }
 }
