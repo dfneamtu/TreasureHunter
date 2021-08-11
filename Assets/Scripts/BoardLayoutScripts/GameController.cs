@@ -7,17 +7,61 @@ using Random = UnityEngine.Random;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+public class Enemy
+{
+  public int hubNum;
+  public int locationNum;
+  public int damage;
+
+  public Enemy(int h, int l)
+  {
+    hubNum = h;
+    locationNum = l;
+    damage = Random.Range(1, 4);
+  }
+}
+
+public class Player
+{
+  public int hubNum;
+  public int locationNum;
+  public int health;
+  public int strength;
+  public int[] skills = new int[8];
+  public int[] tickets = new int[4];
+
+  public Player()
+  {
+    hubNum = 1;
+    locationNum = 1;
+    health = 10;
+    strength = 10;
+    for (int i = 0; i < 8; i++)
+    {
+      skills[i] = 0;
+    }
+    for (int i = 0; i < 4; i++)
+    {
+      tickets[i] = 0;
+    }
+  }
+
+}
+
 
 public class GameController : MonoBehaviour
 {
     //Skillsp1Script.GetComponent<Skillsp1>();
     public List<string> log = new List<string>();
+    public List<Enemy> enemies = new List<Enemy>();
+    public List<Player> players = new List<Player>();
+
     public GameObject LocationsObj;
     public GameObject LocationPathsObj;
-    public GameObject Spawner;
+
     private ReadLocationPaths locationPathsScript;
     private ReadLocations locationsScript;
-    private Spawner spawnerScript;
+
 
     TMP_Text p1ScoreText;
     TMP_Text p2ScoreText;
@@ -248,11 +292,7 @@ public class GameController : MonoBehaviour
         CheckPlayerTurn();
         locationsScript = LocationsObj.GetComponent<ReadLocations>();
         locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
-        spawnerScript = Spawner.GetComponent<Spawner>();
-        for (int i = 0; i < 3; i++)
-        {
-          spawnerScript.spawnEnemy();
-        }
+
 
         foreach(Location l in locationsScript.locations)
         {
@@ -288,6 +328,12 @@ public class GameController : MonoBehaviour
             maxPlayers = 6;
         }
 
+
+        for (int i = 0; i < maxPlayers; i++)
+        {
+          Player p = new Player();
+          players.Add(p);
+        }
     }
 
     private void Update()
@@ -1328,15 +1374,13 @@ public class GameController : MonoBehaviour
             if (playerTurn == maxPlayers)
             {
                 playerTurn = 1;
-                for (int i = 0; i < 9; i++)
-                {
-                    Debug.Log(log[i]);
-                }
+                moveEnemies(enemies);
+                spawnEnemies(locationsScript.hostileLocations);
+
             }
             else
             {
                 playerTurn++;
-
             }
 
             playerMoves = 3;
@@ -1954,6 +1998,7 @@ public class GameController : MonoBehaviour
 
     public void SavePlayer()
     {
+        GlobalController.Instance.players = players;
         //Player 1 info to save
         GlobalController.Instance.player1Values = player1Values;
         GlobalController.Instance.player1Tickets = player1Tickets;
@@ -1984,4 +2029,45 @@ public class GameController : MonoBehaviour
 
     }
 
+    public void spawnEnemies(List<Location> hostileLocations)
+    {
+      foreach(Location l in hostileLocations)
+      {
+        Enemy e = new Enemy(l.hubNum, l.locationNum);
+        enemies.Add(e);
+        Debug.Log("Added a new enemy at: " + l.hubNum + ", " + l.locationNum);
+      }
+    }
+
+    public void moveEnemies(List<Enemy> enemies)
+    {
+      foreach(Enemy e in enemies)
+      {
+        Debug.Log("Enemy at: " + e.hubNum + ", " + e.locationNum);
+        List<LocationPath> paths = getPaths(e.hubNum, e.locationNum);
+
+        int randomPath = Random.Range(0,paths.Count);
+        Debug.Log(paths[randomPath].hubNum + ", " + paths[randomPath].locationNum);
+        e.hubNum = paths[randomPath].hubToNum;
+        e.locationNum = paths[randomPath].travelToNum;
+
+        Debug.Log("Enemy moved to: " + e.hubNum + ", " + e.locationNum);
+      }
+    }
+
+    public List<LocationPath> getPaths(int hubNum, int locationNum)
+    {
+      List<LocationPath> paths = new List<LocationPath>();
+      foreach(LocationPath lp in locationPathsScript.locationPaths)
+      {
+        if (lp.hubNum == hubNum)
+        {
+          if (lp.locationNum == locationNum)
+          {
+            paths.Add(lp);
+          }
+        }
+      }
+      return paths;
+    }
 }

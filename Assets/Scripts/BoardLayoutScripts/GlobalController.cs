@@ -11,6 +11,7 @@ public class GlobalController : MonoBehaviour
 {
     public static GlobalController Instance;
 
+    public List<Player> players = new List<Player>();
     //Player 1 Info
     //public TMP_Text[] skillTextsp1 = new TMP_Text[8];
     public int[] player1Values = new int[8]; //Skills
