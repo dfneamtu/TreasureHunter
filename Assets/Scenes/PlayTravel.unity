@@ -6474,7 +6474,6 @@ GameObject:
   - component: {fileID: 1141990262}
   - component: {fileID: 1141990261}
   - component: {fileID: 1141990260}
-  - component: {fileID: 1141990263}
   m_Layer: 0
   m_Name: Locations
   m_TagString: Untagged
@@ -6533,20 +6532,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1141990263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141990259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d51b9b6550141f58592406167e4bee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locations: []
-  hostileLocations: []
 --- !u!1 &1153000479
 GameObject:
   m_ObjectHideFlags: 0
