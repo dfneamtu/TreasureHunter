@@ -21,6 +21,31 @@ public class Enemy
   }
 }
 
+public class Mission
+{
+  public int hubNum;
+  public int locationNum;
+  public int skillNum;
+  public int pointsReq;
+  public int victoryPoints;
+  public bool[] completedBy = new bool[6];
+
+  public Mission(int h, int l, int s)
+  {
+    hubNum = h;
+    locationNum = l;
+    skillNum = s;
+
+    pointsReq = ML_Algo.ML() + 1;
+    victoryPoints = ML_Algo.ML() + 1;
+
+    for (int i = 0; i < 6; i++)
+    {
+      completedBy[i] = false;
+    }
+  }
+}
+
 public class Player
 {
   public int hubNum;
@@ -45,7 +70,6 @@ public class Player
       tickets[i] = 0;
     }
   }
-
 }
 
 
@@ -55,6 +79,7 @@ public class GameController : MonoBehaviour
     public List<string> log = new List<string>();
     public List<Enemy> enemies = new List<Enemy>();
     public List<Player> players = new List<Player>();
+    public List<Mission> missions = new List<Mission>();
 
     public GameObject LocationsObj;
     public GameObject LocationPathsObj;
@@ -286,18 +311,19 @@ public class GameController : MonoBehaviour
         Console.WriteLine("PLAYER 5 GOT " + p5CurrentObject);
         p6CurrentObject = getObject();
         Console.WriteLine("PLAYER 6 GOT " + p6CurrentObject);
+
+        locationsScript = LocationsObj.GetComponent<ReadLocations>();
+        locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
+
     }
 
     void Start()
     {
         CheckPlayerTurn();
-        locationsScript = LocationsObj.GetComponent<ReadLocations>();
-        locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
-
-
-        foreach(Location l in locationsScript.locations)
+        generateMissions();
+        for (int i = 0; i < missions.Count; i++)
         {
-          //Debug.Log(l.locationStr);
+          Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum + ", " + missions[i].skillNum + ", " + missions[i].pointsReq + ", " + missions[i].victoryPoints);
         }
 
         //playerMoves = GlobalController.Instance.playerMoves;
@@ -335,6 +361,10 @@ public class GameController : MonoBehaviour
           Player p = new Player();
           players.Add(p);
         }
+
+
+
+
     }
 
     private void Update()
@@ -1380,7 +1410,6 @@ public class GameController : MonoBehaviour
                 playerTurn = 1;
                 moveEnemies(enemies);
                 spawnEnemies(locationsScript.hostileLocations);
-
             }
             else
             {
@@ -1928,6 +1957,11 @@ public class GameController : MonoBehaviour
     public void MissionsClicked()
     {
         playerMoves--;
+        generateMissions();
+        for (int i = 0; i < missions.Count; i++)
+        {
+          Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum + ", " + missions[i].skillNum + ", " + missions[i].pointsReq + ", " + missions[i].victoryPoints);
+        }
         log.Add("Player " + playerTurn.ToString() + " clicked mission button.");
         Debug.Log("Player " + playerTurn.ToString() + " clicked a mission.");
 
@@ -2043,6 +2077,10 @@ public class GameController : MonoBehaviour
         enemies.Add(e);
         Debug.Log("Added a new enemy at: " + l.hubNum + ", " + l.locationNum);
       }
+      foreach(Location l in locationsScript.locations)
+      {
+        Debug.Log(l.locationStr);
+      }
     }
 
     public void moveEnemies(List<Enemy> enemies)
@@ -2075,5 +2113,74 @@ public class GameController : MonoBehaviour
         }
       }
       return paths;
+    }
+
+    public void generateMissions()
+    {
+      foreach(Location l in locationsScript.locations)
+      {
+        Debug.Log(l.locationStr);
+      }
+
+      Debug.Log("function begins");
+      List<Location> potentialLocationsHub1 = new List<Location>();
+      List<Location> potentialLocationsHub2 = new List<Location>();
+      List<Location> potentialLocationsHub3 = new List<Location>();
+      Debug.Log("variables declared");
+      foreach(Location l in locationsScript.locations)
+      {
+        Debug.Log("foreach entered");
+        if (l.isSpawner == 0 && l.isAirport == 0)
+        {
+          if (l.hubNum == 1)
+          {
+            Debug.Log("made it1");
+            potentialLocationsHub1.Add(l);
+          }
+          if (l.hubNum == 2)
+          {
+            Debug.Log("made it 2");
+            potentialLocationsHub2.Add(l);
+          }
+          if (l.hubNum == 3)
+          {
+            potentialLocationsHub3.Add(l);
+          }
+        }
+      }
+
+      IListExtensions.Shuffle(potentialLocationsHub1);
+      Debug.Log(potentialLocationsHub1.Count);
+      IListExtensions.Shuffle(potentialLocationsHub2);
+      Debug.Log(potentialLocationsHub2.Count);
+      IListExtensions.Shuffle(potentialLocationsHub3);
+      Debug.Log(potentialLocationsHub3.Count);
+
+      int[] skillsHub1 = new int[7];
+      int[] skillsHub2 = new int[7];
+      int[] skillsHub3 = new int[7];
+
+      for (int i = 0; i < 7; i++)
+      {
+        skillsHub1[i] = i + 1;
+        skillsHub2[i] = i + 1;
+        skillsHub3[i] = i + 1;
+      }
+
+      IListExtensions.Shuffle(skillsHub1);
+      IListExtensions.Shuffle(skillsHub2);
+      IListExtensions.Shuffle(skillsHub3);
+
+      for (int i = 0; i < 7; i++)
+      {
+        Mission m1 = new Mission(1, potentialLocationsHub1[i].locationNum, skillsHub1[i]);
+        Mission m2 = new Mission(2, potentialLocationsHub2[i].locationNum, skillsHub2[i]);
+        Mission m3 = new Mission(3, potentialLocationsHub3[i].locationNum, skillsHub3[i]);
+
+        missions.Add(m1);
+        missions.Add(m2);
+        missions.Add(m3);
+      }
+      return;
     }
 }
