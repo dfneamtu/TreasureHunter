@@ -1957,15 +1957,32 @@ public class GameController : MonoBehaviour
     public void MissionsClicked()
     {
         playerMoves--;
-        generateMissions();
-        for (int i = 0; i < missions.Count; i++)
+        foreach(Mission m in missions)
         {
-          Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum + ", " + missions[i].skillNum + ", " + missions[i].pointsReq + ", " + missions[i].victoryPoints);
+          if (hubLocation[playerTurn - 1] == m.hubNum)
+          {
+            if (pLocation[playerTurn - 1] == m.locationNum)
+            {
+              if (m.completedBy[playerTurn - 1] == false)
+              {
+                //REVEAL POTENTIAL MISSION
+                Debug.Log(m.hubNum + ", " + m.locationNum + ", " + m.skillNum + ", " + m.pointsReq + ", " + m.victoryPoints);
+                return;
+              }
+              else
+              {
+                //MISSION HAS ALREADY BEEN COMPLETED BY CURRENT PLAYER
+                Debug.Log("Mission already done");
+                return;
+              }
+            }
+          }
         }
+
+        Debug.Log("no mission present");
+
         log.Add("Player " + playerTurn.ToString() + " clicked mission button.");
         Debug.Log("Player " + playerTurn.ToString() + " clicked a mission.");
-
-        Debug.Log("Missions");
     }
 
     public string getObject()
@@ -2122,24 +2139,19 @@ public class GameController : MonoBehaviour
         Debug.Log(l.locationStr);
       }
 
-      Debug.Log("function begins");
       List<Location> potentialLocationsHub1 = new List<Location>();
       List<Location> potentialLocationsHub2 = new List<Location>();
       List<Location> potentialLocationsHub3 = new List<Location>();
-      Debug.Log("variables declared");
       foreach(Location l in locationsScript.locations)
       {
-        Debug.Log("foreach entered");
         if (l.isSpawner == 0 && l.isAirport == 0)
         {
           if (l.hubNum == 1)
           {
-            Debug.Log("made it1");
             potentialLocationsHub1.Add(l);
           }
           if (l.hubNum == 2)
           {
-            Debug.Log("made it 2");
             potentialLocationsHub2.Add(l);
           }
           if (l.hubNum == 3)
