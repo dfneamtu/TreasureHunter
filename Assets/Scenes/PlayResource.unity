@@ -1226,7 +1226,6 @@ MonoBehaviour:
   log: []
   LocationsObj: {fileID: 174482593}
   LocationPathsObj: {fileID: 1093681355}
-  Spawner: {fileID: 1141093135}
   p1VPs: 0
   p2VPs: 0
   p3VPs: 0
@@ -2516,6 +2515,8 @@ MonoBehaviour:
   diff: 0
   isAirport: 0
   isSpawner: 0
+  xPos: 0
+  zPos: 0
   enemiesPresent: 0
 --- !u!4 &174482596
 Transform:
@@ -2964,6 +2965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c25092ba628dbf4c86ad8249e395e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playTravelObj: {fileID: 0}
 --- !u!114 &303960091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9562,6 +9564,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locationPaths: []
+  pLocation: 000000000000000000000000000000000000000000000000
+  hubLocation: 000000000000000000000000000000000000000000000000
+  fromLocation: {fileID: 0}
+  toLocation: {fileID: 0}
+  airTravel: {fileID: 0}
+  boatTravel: {fileID: 0}
+  trainTravel: {fileID: 0}
+  roadTravel: {fileID: 0}
+  fwdButton: {fileID: 0}
+  prevButton: {fileID: 0}
 --- !u!4 &1093681358
 Transform:
   m_ObjectHideFlags: 0
@@ -9574,7 +9586,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1116994805
 GameObject:
@@ -9873,7 +9885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1ee5aaf0b724846b29b898c510b91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7057742894157055290, guid: 140f1ac581bb145e38d5cd7c5cb86fc7, type: 3}
 --- !u!4 &1141093137
 Transform:
   m_ObjectHideFlags: 0
@@ -9886,7 +9897,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1155715269
 GameObject:
@@ -12330,6 +12341,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400375690}
   m_CullTransparentMesh: 1
+--- !u!1 &1410779199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410779201}
+  - component: {fileID: 1410779200}
+  m_Layer: 0
+  m_Name: playTravel
+  m_TagString: travel
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1410779200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410779199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea8e5cccd86946bea6bf1e99aa1472d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1410779201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410779199}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1444088037
 GameObject:
   m_ObjectHideFlags: 0
@@ -15187,6 +15241,14 @@ MonoBehaviour:
   locationPaths: []
   pLocation: 000000000000000000000000000000000000000000000000
   hubLocation: 000000000000000000000000000000000000000000000000
+  fromLocation: {fileID: 0}
+  toLocation: {fileID: 0}
+  airTravel: {fileID: 0}
+  boatTravel: {fileID: 0}
+  trainTravel: {fileID: 0}
+  roadTravel: {fileID: 0}
+  fwdButton: {fileID: 0}
+  prevButton: {fileID: 0}
 --- !u!4 &1840447060
 Transform:
   m_ObjectHideFlags: 0
@@ -15199,7 +15261,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1853888422
 GameObject:
@@ -16077,9 +16139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6503261fc7704b828b54ebcbc670054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hubNum: 0
-  locationNum: 0
-  damage: 0
 --- !u!1 &1998059355
 GameObject:
   m_ObjectHideFlags: 0

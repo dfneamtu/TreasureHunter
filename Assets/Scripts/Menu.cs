@@ -8,11 +8,14 @@ public class Menu : MonoBehaviour
 {
     //public string sceneName;
     //public string previousScene;
+    public GameObject playTravelObj;
+
     void Start()
     {
         Time.timeScale = 1;
         Cursor.visible = true;
         Screen.lockCursor = false;
+        //playTravelObj = GameObject.FindWithTag("travel");
     }
 
     public void Credits()
@@ -37,6 +40,8 @@ public class Menu : MonoBehaviour
 
     public void PlayTravel()
     {
+        playTravelObj = GameObject.FindWithTag("travel");
+        playTravelObj.SetActive(true);
         SceneManager.LoadScene("PlayTravel");
     }
 
