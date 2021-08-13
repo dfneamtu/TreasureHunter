@@ -21,10 +21,11 @@ public class ReadLocationPaths : MonoBehaviour
     public TMP_Text trainTravel;
     public TMP_Text roadTravel;
 
-    //int index = 0;
-    //int index = 0;
+
     public Button fwdButton;
     public Button prevButton;
+
+    int listCounter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,6 @@ public class ReadLocationPaths : MonoBehaviour
         }
 
 
-
     }
 
     void Update()
@@ -66,42 +66,49 @@ public class ReadLocationPaths : MonoBehaviour
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
 
+
         List<LocationPath> adjacentLocationPaths = new List<LocationPath>();
 
         foreach (LocationPath lp in locationPaths)
         {
+            int length = adjacentLocationPaths.Count;
+
             if (lp.hubNum == hubLocation[0])
             {
                 if (lp.locationNum == pLocation[0])
                 {
+
                     adjacentLocationPaths.Add(lp);
                     Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
-                    fromLocation.text = lp.locationStr.ToString();
-                    toLocation.text = lp.travelToStr.ToString();
+
+                    fromLocation.text = adjacentLocationPaths[listCounter].locationStr.ToString();
+                    toLocation.text = adjacentLocationPaths[listCounter].travelToStr.ToString();
 
                     if (lp.travelType == "Air")
                     {
-                        airTravel.text = lp.ticketNum.ToString();
-
+                        airTravel.text = adjacentLocationPaths[listCounter].ticketNum.ToString();
                     }
 
                     if (lp.travelType == "Train")
                     {
-                        airTravel.text = lp.ticketNum.ToString();
+                        airTravel.text = adjacentLocationPaths[listCounter].ticketNum.ToString();
                     }
 
                     if (lp.travelType == "Boat")
                     {
-                        airTravel.text = lp.ticketNum.ToString();
+                        airTravel.text = adjacentLocationPaths[listCounter].ticketNum.ToString();
                     }
 
                     if (lp.travelType == "Road")
                     {
-                        airTravel.text = lp.ticketNum.ToString();
+                        airTravel.text = adjacentLocationPaths[listCounter].ticketNum.ToString();
                     }
+
                 }
             }
-            if (adjacentLocationPaths.Count == 12) break;
+
+
+            // if (adjacentLocationPaths.Count == 12) break;
         }
         foreach (LocationPath lp in locationPaths)
         {
@@ -290,11 +297,13 @@ public class ReadLocationPaths : MonoBehaviour
 
     public void FwdButton()
     {
+        listCounter++;
 
     }
 
     public void PrevButton()
     {
+        listCounter--;
 
     }
 }
