@@ -15,6 +15,7 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1;
         Cursor.visible = true;
         Screen.lockCursor = false;
+        playTravelObj.SetActive(false);
         //playTravelObj = GameObject.FindWithTag("travel");
 
         //playTravelObj.SetActive(false);
@@ -33,11 +34,13 @@ public class Menu : MonoBehaviour
     public void Play3Dmap()
     {
         SceneManager.LoadScene("Map3Dworld");
+        playTravelObj.SetActive(false);
     }
 
     public void PlayResource()
     {
         SceneManager.LoadScene("PlayResource");
+        playTravelObj.SetActive(false);
     }
 
     public void PlayTravel()

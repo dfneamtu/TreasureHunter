@@ -421,6 +421,7 @@ public class GameController : MonoBehaviour
             PlayerTwoWin();
         }
 
+        playerTurn = GlobalController.Instance.playerTurn;
         //Player 1 info to load
         player1Values = GlobalController.Instance.player1Values;
         player1Tickets = GlobalController.Instance.player1Tickets;

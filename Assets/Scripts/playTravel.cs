@@ -15,10 +15,15 @@ public class playTravel : MonoBehaviour
     private ReadLocationPaths locationPathsScript;
     private ReadLocations locationsScript;
 
+    public List<LocationPath> adjacentLocations;
+
+    public int playerTurn;
+
     public int[] pLocation = new int[6];
     public int[] hubLocation = new int[6];
 
     public int playerTurnTickets;
+    public int counter;
 
     public Button fwdButton;
     public Button prevButton;
@@ -36,33 +41,36 @@ public class playTravel : MonoBehaviour
     {
       locationsScript = LocationsObj.GetComponent<ReadLocations>();
       locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
-
+      playerTurn = GlobalController.Instance.playerTurn;
 
     }
 
     void onEnable()
     {
+
       pLocation = GlobalController.Instance.pLocation;
       hubLocation = GlobalController.Instance.hubLocation;
-      List<Location> adjacentLocations = getAdjacentLocations();
+      adjacentLocations = getAdjacentLocations();
       int length = adjacentLocations.Count;
-      int counter = 0;
+      counter = 0;
 
+
+      Debug.Log("current player " + playerTurn + " can travel to " + adjacentLocations[counter].travelToStr);
      //Debug.Log("current player " + playerTurnTickets + " can travel to: " + adjacentLocations[0].travelToStr);
-      
+
     }
 
-    public List<Location> getAdjacentLocations()
+    public List<LocationPath> getAdjacentLocations()
     {
-      List<Location> adjacentLocations = new List<Location>();
+      List<LocationPath> adjacentLocations = new List<LocationPath>();
 
-      foreach(Location l in locationsScript.locations)
+      foreach(LocationPath lp in locationPathsScript.locationPaths)
       {
-        if (l.hubNum == hubLocation[playerTurnTickets - 1])
+        if (lp.hubNum == hubLocation[playerTurnTickets - 1])
         {
-          if (l.locationNum == pLocation[playerTurnTickets - 1])
+          if (lp.locationNum == pLocation[playerTurnTickets - 1])
           {
-            adjacentLocations.Add(l);
+            adjacentLocations.Add(lp);
           }
         }
       }
@@ -91,13 +99,19 @@ public class playTravel : MonoBehaviour
 
     public void FwdButton()
     {
-        //listCounter++;
+      if (counter + 1 < adjacentLocations.Count)
+      {
+        counter++;
+        Debug.Log("current player " + playerTurn + " can travel to " + adjacentLocations[counter].travelToStr);
+      }
 
     }
 
     public void PrevButton()
     {
-        //listCounter--;
-
+        if (counter - 1 == -1)
+        {
+          Debug.Log("current player " + playerTurn + " can travel to " + adjacentLocations[counter].travelToStr);
+        }
     }
 }
