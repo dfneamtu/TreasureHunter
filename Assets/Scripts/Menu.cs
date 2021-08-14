@@ -16,6 +16,8 @@ public class Menu : MonoBehaviour
         Cursor.visible = true;
         Screen.lockCursor = false;
         //playTravelObj = GameObject.FindWithTag("travel");
+
+        //playTravelObj.SetActive(false);
     }
 
     public void Credits()
@@ -40,7 +42,7 @@ public class Menu : MonoBehaviour
 
     public void PlayTravel()
     {
-        playTravelObj = GameObject.FindWithTag("travel");
+        //playTravelObj = GameObject.FindWithTag("travel");
         playTravelObj.SetActive(true);
         SceneManager.LoadScene("PlayTravel");
     }

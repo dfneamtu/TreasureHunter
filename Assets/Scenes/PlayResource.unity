@@ -2965,7 +2965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c25092ba628dbf4c86ad8249e395e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playTravelObj: {fileID: 0}
+  playTravelObj: {fileID: 1410779199}
 --- !u!114 &303960091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10446,7 +10446,6 @@ GameObject:
   - component: {fileID: 1219916237}
   - component: {fileID: 1219916236}
   - component: {fileID: 1219916235}
-  - component: {fileID: 1219916234}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -10454,19 +10453,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1219916234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219916233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05dce873a2a9ead4aaa729dd0ee2dd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerToFollow: {fileID: 0}
 --- !u!81 &1219916235
 AudioListener:
   m_ObjectHideFlags: 0
@@ -12357,7 +12343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1410779200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12370,6 +12356,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea8e5cccd86946bea6bf1e99aa1472d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LocationsObj: {fileID: 174482593}
+  LocationPathsObj: {fileID: 1093681355}
+  pLocation: 000000000000000000000000000000000000000000000000
+  hubLocation: 000000000000000000000000000000000000000000000000
+  playerTurnTickets: 0
 --- !u!4 &1410779201
 Transform:
   m_ObjectHideFlags: 0

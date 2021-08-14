@@ -2346,7 +2346,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &396150193
 GameObject:
@@ -4733,7 +4733,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &790697429
 GameObject:
@@ -5729,6 +5729,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024105354}
   m_CullTransparentMesh: 1
+--- !u!1 &1033649315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1033649317}
+  - component: {fileID: 1033649316}
+  m_Layer: 0
+  m_Name: playTravel
+  m_TagString: travel
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1033649316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033649315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea8e5cccd86946bea6bf1e99aa1472d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LocationsObj: {fileID: 1600647758}
+  LocationPathsObj: {fileID: 1141990259}
+  pLocation: 000000000000000000000000000000000000000000000000
+  hubLocation: 000000000000000000000000000000000000000000000000
+  playerTurnTickets: 0
+  fwdButton: {fileID: 318191116}
+  prevButton: {fileID: 1967666429}
+  fromLocation: {fileID: 0}
+  toLocation: {fileID: 0}
+  airTravel: {fileID: 0}
+  boatTravel: {fileID: 0}
+  trainTravel: {fileID: 0}
+  roadTravel: {fileID: 0}
+--- !u!4 &1033649317
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033649315}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1058038457
 GameObject:
   m_ObjectHideFlags: 0
@@ -6472,10 +6528,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1141990262}
-  - component: {fileID: 1141990261}
   - component: {fileID: 1141990260}
   m_Layer: 0
-  m_Name: Locations
+  m_Name: LocationPathsObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6504,20 +6559,6 @@ MonoBehaviour:
   roadTravel: {fileID: 186616265}
   fwdButton: {fileID: 318191116}
   prevButton: {fileID: 1967666429}
---- !u!114 &1141990261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141990259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d51b9b6550141f58592406167e4bee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locations: []
-  hostileLocations: []
 --- !u!4 &1141990262
 Transform:
   m_ObjectHideFlags: 0
@@ -8909,6 +8950,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595052532}
   m_CullTransparentMesh: 1
+--- !u!1 &1600647758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1600647760}
+  - component: {fileID: 1600647759}
+  m_Layer: 0
+  m_Name: LocationsObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1600647759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600647758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d51b9b6550141f58592406167e4bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locations: []
+  hostileLocations: []
+--- !u!4 &1600647760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1600647758}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1371.2598, y: 660.4079, z: -937.4853}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1602484495
 GameObject:
   m_ObjectHideFlags: 0
@@ -10404,6 +10490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c25092ba628dbf4c86ad8249e395e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playTravelObj: {fileID: 0}
 --- !u!114 &1789287576
 MonoBehaviour:
   m_ObjectHideFlags: 0

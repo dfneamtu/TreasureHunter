@@ -106,9 +106,6 @@ public class ReadLocationPaths : MonoBehaviour
 
                 }
             }
-
-
-            // if (adjacentLocationPaths.Count == 12) break;
         }
         foreach (LocationPath lp in locationPaths)
         {
