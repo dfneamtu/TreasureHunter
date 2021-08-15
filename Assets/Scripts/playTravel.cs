@@ -17,7 +17,7 @@ public class playTravel : MonoBehaviour
 
     public List<LocationPath> adjacentLocations;
 
-    public int playerTurn;
+    //public int playerTurn;
 
     public int[] pLocation = new int[6];
     public int[] hubLocation = new int[6];
@@ -41,7 +41,7 @@ public class playTravel : MonoBehaviour
     {
       locationsScript = LocationsObj.GetComponent<ReadLocations>();
       locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
-      playerTurn = GlobalController.Instance.playerTurn;
+      //playerTurn = GlobalController.Instance.playerTurn;
 
     }
 
@@ -55,7 +55,7 @@ public class playTravel : MonoBehaviour
       counter = 0;
 
 
-      Debug.Log("current player " + playerTurn + " can travel to " + adjacentLocations[counter].travelToStr);
+      Debug.Log("current player " + playerTurnTickets + " can travel to " + adjacentLocations[counter].travelToStr);
      //Debug.Log("current player " + playerTurnTickets + " can travel to: " + adjacentLocations[0].travelToStr);
 
     }
@@ -102,7 +102,7 @@ public class playTravel : MonoBehaviour
       if (counter + 1 < adjacentLocations.Count)
       {
         counter++;
-        Debug.Log("current player " + playerTurn + " can travel to " + adjacentLocations[counter].travelToStr);
+        Debug.Log("current player " + playerTurnTickets + " can travel to " + adjacentLocations[counter].travelToStr);
       }
 
     }
@@ -111,7 +111,7 @@ public class playTravel : MonoBehaviour
     {
         if (counter - 1 == -1)
         {
-          Debug.Log("current player " + playerTurn + " can travel to " + adjacentLocations[counter].travelToStr);
+          Debug.Log("current player " + playerTurnTickets + " can travel to " + adjacentLocations[counter].travelToStr);
         }
     }
 }

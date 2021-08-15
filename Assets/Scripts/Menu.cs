@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour
         Time.timeScale = 1;
         Cursor.visible = true;
         Screen.lockCursor = false;
-        playTravelObj.SetActive(false);
+        //playTravelObj.SetActive(false);
         //playTravelObj = GameObject.FindWithTag("travel");
 
         //playTravelObj.SetActive(false);
