@@ -11,9 +11,8 @@ public class playTravel : MonoBehaviour
 {
     public GameObject LocationsObj;
     public GameObject LocationPathsObj;
-
+    public List<LocationPath> paths;
     private ReadLocationPaths locationPathsScript;
-    private ReadLocations locationsScript;
 
     public List<LocationPath> adjacentLocations;
 
@@ -37,43 +36,57 @@ public class playTravel : MonoBehaviour
 
     //need access to player turn and player location/hubs
     // Start is called before the first frame update
+    void Awake()
+    {
+      Debug.Log("AWAKE CALLED");
+      locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
+      paths = locationPathsScript.locationPaths;
+      Debug.Log(paths.Count);
+    }
     void Start()
     {
-      locationsScript = LocationsObj.GetComponent<ReadLocations>();
-      locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
+      Debug.Log("START CALLED");
       //playerTurn = GlobalController.Instance.playerTurn;
 
     }
 
-    void onEnable()
+    void OnEnable()
     {
+      locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
+      paths = locationPathsScript.locationPaths;
+      Debug.Log(paths.Count);
+      Debug.Log(paths[0].travelToStr);
 
-      pLocation = GlobalController.Instance.pLocation;
-      hubLocation = GlobalController.Instance.hubLocation;
-      adjacentLocations = getAdjacentLocations();
-      int length = adjacentLocations.Count;
-      counter = 0;
-
-
-      Debug.Log("current player " + playerTurnTickets + " can travel to " + adjacentLocations[counter].travelToStr);
-     //Debug.Log("current player " + playerTurnTickets + " can travel to: " + adjacentLocations[0].travelToStr);
+      // pLocation = GlobalController.Instance.pLocation;
+      // hubLocation = GlobalController.Instance.hubLocation;
+      // adjacentLocations = getAdjacentLocations();
+      // int length = adjacentLocations.Count;
+      // counter = 0;
+      //
+      // Debug.Log(locationPathsScript.locationPaths[0].travelToStr);
+      // //Debug.Log("current player " + playerTurnTickets + " can travel to " + adjacentLocations[counter].travelToStr);
+      // //Debug.Log("current player " + playerTurnTickets + " can travel to: " + adjacentLocations[0].travelToStr);
+      // Debug.Log("ON ENABLE OVER");
 
     }
 
     public List<LocationPath> getAdjacentLocations()
     {
-      List<LocationPath> adjacentLocations = new List<LocationPath>();
+      Debug.Log("vot here!!");
 
-      foreach(LocationPath lp in locationPathsScript.locationPaths)
+      foreach(LocationPath lp in paths)
       {
+        Debug.Log("in foreach");
         if (lp.hubNum == hubLocation[playerTurnTickets - 1])
         {
           if (lp.locationNum == pLocation[playerTurnTickets - 1])
           {
             adjacentLocations.Add(lp);
+
           }
         }
       }
+      Debug.Log("returning");
       return adjacentLocations;
     }
 
