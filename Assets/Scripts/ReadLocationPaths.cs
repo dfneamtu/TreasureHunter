@@ -14,6 +14,8 @@ public class ReadLocationPaths : MonoBehaviour
     public int[] pLocation = new int[6];
     public int[] hubLocation = new int[6];
 
+    public int playerTurnTickets;
+
     public TMP_Text fromLocation;
     public TMP_Text toLocation;
     public TMP_Text airTravel;
@@ -25,7 +27,7 @@ public class ReadLocationPaths : MonoBehaviour
     public Button fwdButton;
     public Button prevButton;
 
-    int listCounter = 0;
+    int counter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +68,7 @@ public class ReadLocationPaths : MonoBehaviour
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
 
+        playerTurnTickets = GameController.playerTurn;
 
         List<LocationPath> adjacentLocationPaths = new List<LocationPath>();
 
@@ -73,215 +76,40 @@ public class ReadLocationPaths : MonoBehaviour
         {
             int length = adjacentLocationPaths.Count;
 
-            if (lp.hubNum == hubLocation[0])
+            if (lp.hubNum == hubLocation[playerTurnTickets - 1])
             {
-                if (lp.locationNum == pLocation[0])
+                if (lp.locationNum == pLocation[playerTurnTickets - 1])
                 {
 
                     adjacentLocationPaths.Add(lp);
                     Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
 
-                    fromLocation.text = adjacentLocationPaths[listCounter].locationStr.ToString();
-                    toLocation.text = adjacentLocationPaths[listCounter].travelToStr.ToString();
+                    fromLocation.text = adjacentLocationPaths[counter].locationStr.ToString();
+                    toLocation.text = adjacentLocationPaths[counter].travelToStr.ToString();
 
                     if (lp.travelType == "Air")
                     {
-                        airTravel.text = adjacentLocationPaths[listCounter].ticketNum.ToString();
+                        airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
                     }
 
                     if (lp.travelType == "Train")
                     {
-                        airTravel.text = adjacentLocationPaths[listCounter].ticketNum.ToString();
+                        airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
                     }
 
                     if (lp.travelType == "Boat")
                     {
-                        airTravel.text = adjacentLocationPaths[listCounter].ticketNum.ToString();
+                        airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
                     }
 
                     if (lp.travelType == "Road")
                     {
-                        airTravel.text = adjacentLocationPaths[listCounter].ticketNum.ToString();
+                        airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
                     }
 
                 }
             }
         }
-        foreach (LocationPath lp in locationPaths)
-        {
-            if (lp.hubNum == hubLocation[1])
-            {
-                if (lp.locationNum == pLocation[1])
-                {
-                    adjacentLocationPaths.Add(lp);
-                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
-                    fromLocation.text = lp.locationStr.ToString();
-                    toLocation.text = lp.travelToStr.ToString();
-
-                    if (lp.travelType == "Air")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-
-                    }
-
-                    if (lp.travelType == "Train")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Boat")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Road")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                }
-            }
-        }
-        foreach (LocationPath lp in locationPaths)
-        {
-            if (lp.hubNum == pLocation[2])
-            {
-                if (lp.locationNum == pLocation[2])
-                {
-                    adjacentLocationPaths.Add(lp);
-                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
-                    fromLocation.text = lp.locationStr.ToString();
-                    toLocation.text = lp.travelToStr.ToString();
-
-                    if (lp.travelType == "Air")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-
-                    }
-
-                    if (lp.travelType == "Train")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Boat")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Road")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                }
-            }
-        }
-        foreach (LocationPath lp in locationPaths)
-        {
-            if (lp.hubNum == pLocation[3])
-            {
-                if (lp.locationNum == pLocation[3])
-                {
-                    adjacentLocationPaths.Add(lp);
-                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
-                    fromLocation.text = lp.locationStr.ToString();
-                    toLocation.text = lp.travelToStr.ToString();
-
-                    if (lp.travelType == "Air")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-
-                    }
-
-                    if (lp.travelType == "Train")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Boat")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Road")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                }
-            }
-        }
-        foreach (LocationPath lp in locationPaths)
-        {
-            if (lp.hubNum == pLocation[4])
-            {
-                if (lp.locationNum == pLocation[4])
-                {
-                    adjacentLocationPaths.Add(lp);
-                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
-                    fromLocation.text = lp.locationStr.ToString();
-                    toLocation.text = lp.travelToStr.ToString();
-
-                    if (lp.travelType == "Air")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-
-                    }
-
-                    if (lp.travelType == "Train")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Boat")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Road")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                }
-            }
-        }
-        foreach (LocationPath lp in locationPaths)
-        {
-            if (lp.hubNum == pLocation[5])
-            {
-                if (lp.locationNum == pLocation[5])
-                {
-                    adjacentLocationPaths.Add(lp);
-                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
-                    fromLocation.text = lp.locationStr.ToString();
-                    toLocation.text = lp.travelToStr.ToString();
-
-                    if (lp.travelType == "Air")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-
-                    }
-
-                    if (lp.travelType == "Train")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Boat")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Road")
-                    {
-                        airTravel.text = lp.ticketNum.ToString();
-                    }
-                }
-            }
-        }
-
     }
 
     public void SavePlayer()
@@ -294,13 +122,19 @@ public class ReadLocationPaths : MonoBehaviour
 
     public void FwdButton()
     {
-        listCounter++;
-
+        if (counter + 1 < locationPaths.Count)
+        {
+            counter++;
+            Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
+        }
     }
 
     public void PrevButton()
     {
-        listCounter--;
+        if (counter - 1 == -1)
+        {
+            Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
+        }
 
     }
 }

@@ -2177,7 +2177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &318191115
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5760,6 +5760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LocationsObj: {fileID: 1600647758}
   LocationPathsObj: {fileID: 1141990259}
+  paths: []
   adjacentLocations: []
   pLocation: 000000000000000000000000000000000000000000000000
   hubLocation: 000000000000000000000000000000000000000000000000
@@ -6553,6 +6554,7 @@ MonoBehaviour:
   locationPaths: []
   pLocation: 000000000000000000000000000000000000000000000000
   hubLocation: 000000000000000000000000000000000000000000000000
+  playerTurnTickets: 0
   fromLocation: {fileID: 9226790}
   toLocation: {fileID: 188756930}
   airTravel: {fileID: 2122463663}
@@ -11916,7 +11918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1967666428
 RectTransform:
   m_ObjectHideFlags: 0
