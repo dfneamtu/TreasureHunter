@@ -26,6 +26,12 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Credits");
     }
 
+    public void Options()
+    {
+        SceneManager.LoadScene("Options");
+    }
+
+
     //public void MainMenu()
     //{
     //    SceneManager.LoadScene("MainMenu");

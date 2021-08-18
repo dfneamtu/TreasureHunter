@@ -88,12 +88,12 @@ public class GameController : MonoBehaviour
     private ReadLocations locationsScript;
 
 
-    TMP_Text p1ScoreText;
-    TMP_Text p2ScoreText;
-    TMP_Text p3ScoreText;
-    TMP_Text p4ScoreText;
-    TMP_Text p5ScoreText;
-    TMP_Text p6ScoreText;
+    public TMP_Text p1ScoreText;
+    public TMP_Text p2ScoreText;
+    public TMP_Text p3ScoreText;
+    public TMP_Text p4ScoreText;
+    public TMP_Text p5ScoreText;
+    public TMP_Text p6ScoreText;
 
     public int p1VPs = 0;
     public int p2VPs = 0;
@@ -108,7 +108,6 @@ public class GameController : MonoBehaviour
 
 
     //Player GameObjects to set true and false
-    //[SerializeField]
 
     public GameObject TargetCrosshairs0;
     public GameObject TargetCrosshairs1;
@@ -121,50 +120,29 @@ public class GameController : MonoBehaviour
     public GameObject TargetCrosshairs8;
     public GameObject TargetCrosshairs9;
 
-    GameObject p1skills;
-    GameObject p2skills;
-    GameObject p3skills;
-    GameObject p4skills;
-    GameObject p5skills;
-    GameObject p6skills;
+    public GameObject p1skills;
+    public GameObject p2skills;
+    public GameObject p3skills;
+    public GameObject p4skills;
+    public GameObject p5skills;
+    public GameObject p6skills;
 
-    GameObject p1tickets;
-    GameObject p2tickets;
-    GameObject p3tickets;
-    GameObject p4tickets;
-    GameObject p5tickets;
-    GameObject p6tickets;
+    public GameObject p1tickets;
+    public GameObject p2tickets;
+    public GameObject p3tickets;
+    public GameObject p4tickets;
+    public GameObject p5tickets;
+    public GameObject p6tickets;
 
-    GameObject BGp1;
-    GameObject BGp2;
-    GameObject BGp3;
-    GameObject BGp4;
-    GameObject BGp5;
-    GameObject BGp6;
+    public GameObject BGp1;
+    public GameObject BGp2;
+    public GameObject BGp3;
+    public GameObject BGp4;
+    public GameObject BGp5;
+    public GameObject BGp6;
 
-    GameObject Skillsp1;
-    GameObject Skillsp2;
-    GameObject Skillsp3;
-    GameObject Skillsp4;
-    GameObject Skillsp5;
-    GameObject Skillsp6;
-
-    GameObject Ticketsp1;
-    GameObject Ticketsp2;
-    GameObject Ticketsp3;
-    GameObject Ticketsp4;
-    GameObject Ticketsp5;
-    GameObject Ticketsp6;
-
-    GameObject movesLeftTag;
-    Text movesLeft;
-
-    GameObject p1VPsTag;
-    GameObject p2VPsTag;
-    GameObject p3VPsTag;
-    GameObject p4VPsTag;
-    GameObject p5VPsTag;
-    GameObject p6VPsTag;
+    //public GameObject movesLeftTag;
+    public Text movesLeft;
 
     public GameObject SkillObj;
     public GameObject ObjectObj;
@@ -174,39 +152,39 @@ public class GameController : MonoBehaviour
     public Text TypeTxt;
 
     //Player 1 Stats
-    TMP_Text[] skillTextsp1 = new TMP_Text[8];
+    public TMP_Text[] skillTextsp1 = new TMP_Text[8];
     public int[] player1Values = new int[8];
-    TMP_Text[] ticketTextsp1 = new TMP_Text[4];
+    public TMP_Text[] ticketTextsp1 = new TMP_Text[4];
     public int[] player1Tickets = new int[4];
 
     //Player2 Stats
-    TMP_Text[] skillTextsp2 = new TMP_Text[8];
+    public TMP_Text[] skillTextsp2 = new TMP_Text[8];
     public int[] player2Values = new int[8];
-    TMP_Text[] ticketTextsp2 = new TMP_Text[4];
+    public TMP_Text[] ticketTextsp2 = new TMP_Text[4];
     public int[] player2Tickets = new int[4];
 
     //Player3 Stats
-    TMP_Text[] skillTextsp3 = new TMP_Text[8];
+    public TMP_Text[] skillTextsp3 = new TMP_Text[8];
     public int[] player3Values = new int[8];
-    TMP_Text[] ticketTextsp3 = new TMP_Text[4];
+    public TMP_Text[] ticketTextsp3 = new TMP_Text[4];
     public int[] player3Tickets = new int[4];
 
     //Player4 Stats
-    TMP_Text[] skillTextsp4 = new TMP_Text[8];
+    public TMP_Text[] skillTextsp4 = new TMP_Text[8];
     public int[] player4Values = new int[8];
-    TMP_Text[] ticketTextsp4 = new TMP_Text[4];
+    public TMP_Text[] ticketTextsp4 = new TMP_Text[4];
     public int[] player4Tickets = new int[4];
 
     //Player5 Stats
-    TMP_Text[] skillTextsp5 = new TMP_Text[8];
+    public TMP_Text[] skillTextsp5 = new TMP_Text[8];
     public int[] player5Values = new int[8];
-    TMP_Text[] ticketTextsp5 = new TMP_Text[4];
+    public TMP_Text[] ticketTextsp5 = new TMP_Text[4];
     public int[] player5Tickets = new int[4];
 
     //Player6 Stats
-    TMP_Text[] skillTextsp6 = new TMP_Text[8];
+    public TMP_Text[] skillTextsp6 = new TMP_Text[8];
     public int[] player6Values = new int[8];
-    TMP_Text[] ticketTextsp6 = new TMP_Text[4];
+    public TMP_Text[] ticketTextsp6 = new TMP_Text[4];
     public int[] player6Tickets = new int[4];
 
     //Moves left
@@ -226,85 +204,10 @@ public class GameController : MonoBehaviour
     void UpdateUIStats()
     {
         movesLeft.text = playerMoves.ToString();
-
     }
 
     void Awake()
     {
-        p1skills = GameObject.Find("P1Skills");
-        p2skills = GameObject.Find("P2Skills");
-        p3skills = GameObject.Find("P3Skills");
-        p4skills = GameObject.Find("P4Skills");
-        p5skills = GameObject.Find("P5Skills");
-        p6skills = GameObject.Find("P6Skills");
-
-        p1tickets = GameObject.Find("TicketsP1");
-        p2tickets = GameObject.Find("TicketsP2");
-        p3tickets = GameObject.Find("TicketsP3");
-        p4tickets = GameObject.Find("TicketsP4");
-        p5tickets = GameObject.Find("TicketsP5");
-        p6tickets = GameObject.Find("TicketsP6");
-
-        BGp1 = GameObject.Find("img Background p1");
-        BGp2 = GameObject.Find("img Background p2");
-        BGp3 = GameObject.Find("img Background p3");
-        BGp4 = GameObject.Find("img Background p4");
-        BGp5 = GameObject.Find("img Background p5");
-        BGp6 = GameObject.Find("img Background p6");
-
-        Skillsp1 = GameObject.Find("P1Skills");
-        Skillsp2 = GameObject.Find("P2Skills");
-        Skillsp3 = GameObject.Find("P3Skills");
-        Skillsp4 = GameObject.Find("P4Skills");
-        Skillsp5 = GameObject.Find("P5Skills");
-        Skillsp6 = GameObject.Find("P6Skills");
-
-        Ticketsp1 = GameObject.Find("TicketsP1");
-        Ticketsp2 = GameObject.Find("TicketsP2");
-        Ticketsp3 = GameObject.Find("TicketsP3");
-        Ticketsp4 = GameObject.Find("TicketsP4");
-        Ticketsp5 = GameObject.Find("TicketsP5");
-        Ticketsp6 = GameObject.Find("TicketsP6");
-
-        movesLeftTag = GameObject.Find("MovesLeft");
-
-        p1VPsTag = GameObject.Find("ScoreP1");
-        p2VPsTag = GameObject.Find("ScoreP2");
-        p3VPsTag = GameObject.Find("ScoreP3");
-        p4VPsTag = GameObject.Find("ScoreP4");
-        p5VPsTag = GameObject.Find("ScoreP5");
-        p6VPsTag = GameObject.Find("ScoreP6");
-
-
-        movesLeft = movesLeftTag.transform.GetComponent<Text>();
-        p1ScoreText = p1VPsTag.transform.GetComponent<TMP_Text>();
-        p2ScoreText = p2VPsTag.transform.GetComponent<TMP_Text>();
-        p3ScoreText = p3VPsTag.transform.GetComponent<TMP_Text>();
-        p4ScoreText = p4VPsTag.transform.GetComponent<TMP_Text>();
-        p5ScoreText = p5VPsTag.transform.GetComponent<TMP_Text>();
-        p6ScoreText = p6VPsTag.transform.GetComponent<TMP_Text>();
-
-
-
-        for (int i = 0; i < 8; i++)
-        {
-            skillTextsp1[i] = Skillsp1.transform.GetChild(i).GetComponent<TMP_Text>();
-            skillTextsp2[i] = Skillsp2.transform.GetChild(i).GetComponent<TMP_Text>();
-            skillTextsp3[i] = Skillsp3.transform.GetChild(i).GetComponent<TMP_Text>();
-            skillTextsp4[i] = Skillsp4.transform.GetChild(i).GetComponent<TMP_Text>();
-            skillTextsp5[i] = Skillsp5.transform.GetChild(i).GetComponent<TMP_Text>();
-            skillTextsp6[i] = Skillsp6.transform.GetChild(i).GetComponent<TMP_Text>();
-        }
-
-        for (int i = 0; i < 4; i++)
-        {
-            ticketTextsp1[i] = Ticketsp1.transform.GetChild(i).GetComponent<TMP_Text>();
-            ticketTextsp2[i] = Ticketsp2.transform.GetChild(i).GetComponent<TMP_Text>();
-            ticketTextsp3[i] = Ticketsp3.transform.GetChild(i).GetComponent<TMP_Text>();
-            ticketTextsp4[i] = Ticketsp4.transform.GetChild(i).GetComponent<TMP_Text>();
-            ticketTextsp5[i] = Ticketsp5.transform.GetChild(i).GetComponent<TMP_Text>();
-            ticketTextsp6[i] = Ticketsp6.transform.GetChild(i).GetComponent<TMP_Text>();
-        }
 
         p1CurrentObject = getObject();
         Console.WriteLine("PLAYER 1 GOT " + p1CurrentObject);
@@ -326,6 +229,30 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        for (int i = 0; i < 8; i++)
+        {
+            skillTextsp1[i].text = 0.ToString();
+            skillTextsp2[i].text = 0.ToString();
+            skillTextsp3[i].text = 0.ToString();
+            skillTextsp4[i].text = 0.ToString();
+            skillTextsp5[i].text = 0.ToString();
+            skillTextsp6[i].text = 0.ToString();
+            //player1Values[i] = 0;
+            //player2Values[i] = 0;
+
+        }
+
+        for (int i = 0; i < 4; i++)
+        {
+            ticketTextsp1[i].text = 0.ToString();
+            ticketTextsp2[i].text = 0.ToString();
+            ticketTextsp3[i].text = 0.ToString();
+            ticketTextsp4[i].text = 0.ToString();
+            ticketTextsp5[i].text = 0.ToString();
+            ticketTextsp6[i].text = 0.ToString();
+        }
+
+
         CheckPlayerTurn();
         generateMissions();
         for (int i = 0; i < missions.Count; i++)
@@ -462,955 +389,6 @@ public class GameController : MonoBehaviour
     void playerGmo()
     {                
         StartCoroutine(ExampleCoroutine());
-        //switch (playerTurn)
-        //{
-        //    case 1:
-
-
-        //        //Console.WriteLine("Case 1");
-        //        p1skills.gameObject.SetActive(true);
-        //        p2skills.gameObject.SetActive(false);
-        //        p3skills.gameObject.SetActive(false);
-        //        p4skills.gameObject.SetActive(false);
-        //        p5skills.gameObject.SetActive(false);
-        //        p6skills.gameObject.SetActive(false);
-
-        //        p1tickets.gameObject.SetActive(true);
-        //        p2tickets.gameObject.SetActive(false);
-        //        p3tickets.gameObject.SetActive(false);
-        //        p4tickets.gameObject.SetActive(false);
-        //        p5tickets.gameObject.SetActive(false);
-        //        p6tickets.gameObject.SetActive(false);
-
-        //        BGp1.gameObject.SetActive(true);
-        //        BGp2.gameObject.SetActive(false);
-        //        BGp3.gameObject.SetActive(false);
-        //        BGp4.gameObject.SetActive(false);
-        //        BGp5.gameObject.SetActive(false);
-        //        BGp6.gameObject.SetActive(false);
-
-        //        if (pLocation[0] == 0)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(true);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-
-
-
-        //        } else if (pLocation[0] == 1)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(true);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[0] == 2)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(true);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[0] == 3)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(true);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[0] == 4)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(true);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[0] == 5)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(true);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[0] == 6)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(true);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[0] == 7)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(true);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[0] == 8)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(true);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[0] == 9)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(true);
-        //        }
-        //        break;
-
-        //    case 2:
-        //        //Console.WriteLine("Case 2");
-        //        p1skills.gameObject.SetActive(false);
-        //        p2skills.gameObject.SetActive(true);
-        //        p3skills.gameObject.SetActive(false);
-        //        p4skills.gameObject.SetActive(false);
-        //        p5skills.gameObject.SetActive(false);
-        //        p6skills.gameObject.SetActive(false);
-
-        //        p1tickets.gameObject.SetActive(false);
-        //        p2tickets.gameObject.SetActive(true);
-        //        p3tickets.gameObject.SetActive(false);
-        //        p4tickets.gameObject.SetActive(false);
-        //        p5tickets.gameObject.SetActive(false);
-        //        p6tickets.gameObject.SetActive(false);
-
-        //        BGp1.gameObject.SetActive(false);
-        //        BGp2.gameObject.SetActive(true);
-        //        BGp3.gameObject.SetActive(false);
-        //        BGp4.gameObject.SetActive(false);
-        //        BGp5.gameObject.SetActive(false);
-        //        BGp6.gameObject.SetActive(false);
-
-        //        if (pLocation[1] == 0)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(true);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-
-        //        }
-        //        else if (pLocation[1] == 1)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(true);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[1] == 2)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(true);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[1] == 3)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(true);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[1] == 4)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(true);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[1] == 5)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(true);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[1] == 6)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(true);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[1] == 7)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(true);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[1] == 8)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(true);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[1] == 9)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(true);
-        //        }
-        //        break;
-
-        //    case 3:
-        //        //oOoo
-        //        p1skills.gameObject.SetActive(false);
-        //        p2skills.gameObject.SetActive(false);
-        //        p3skills.gameObject.SetActive(true);
-        //        p4skills.gameObject.SetActive(false);
-        //        p5skills.gameObject.SetActive(false);
-        //        p6skills.gameObject.SetActive(false);
-
-        //        p1tickets.gameObject.SetActive(false);
-        //        p2tickets.gameObject.SetActive(false);
-        //        p3tickets.gameObject.SetActive(true);
-        //        p4tickets.gameObject.SetActive(false);
-        //        p5tickets.gameObject.SetActive(false);
-        //        p6tickets.gameObject.SetActive(false);
-
-        //        BGp1.gameObject.SetActive(false);
-        //        BGp2.gameObject.SetActive(false);
-        //        BGp3.gameObject.SetActive(true);
-        //        BGp4.gameObject.SetActive(false);
-        //        BGp5.gameObject.SetActive(false);
-        //        BGp6.gameObject.SetActive(false);
-
-        //        if (pLocation[2] == 0)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(true);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-
-        //        }
-        //        else if (pLocation[2] == 1)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(true);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[2] == 2)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(true);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[2] == 3)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(true);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[2] == 4)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(true);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[2] == 5)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(true);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[2] == 6)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(true);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[2] == 7)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(true);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[2] == 8)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(true);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[2] == 9)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(true);
-        //        }
-
-        //        break;
-
-        //    case 4:
-
-        //        p1skills.gameObject.SetActive(false);
-        //        p2skills.gameObject.SetActive(false);
-        //        p3skills.gameObject.SetActive(false);
-        //        p4skills.gameObject.SetActive(true);
-        //        p5skills.gameObject.SetActive(false);
-        //        p6skills.gameObject.SetActive(false);
-
-        //        p1tickets.gameObject.SetActive(false);
-        //        p2tickets.gameObject.SetActive(false);
-        //        p3tickets.gameObject.SetActive(false);
-        //        p4tickets.gameObject.SetActive(true);
-        //        p5tickets.gameObject.SetActive(false);
-        //        p6tickets.gameObject.SetActive(false);
-
-        //        BGp1.gameObject.SetActive(false);
-        //        BGp2.gameObject.SetActive(false);
-        //        BGp3.gameObject.SetActive(false);
-        //        BGp4.gameObject.SetActive(true);
-        //        BGp5.gameObject.SetActive(false);
-        //        BGp6.gameObject.SetActive(false);
-
-        //        if (pLocation[3] == 0)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(true);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-
-        //        }
-        //        else if (pLocation[3] == 1)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(true);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[3] == 2)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(true);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[3] == 3)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(true);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[3] == 4)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(true);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[3] == 5)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(true);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[3] == 6)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(true);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[3] == 7)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(true);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[3] == 8)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(true);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[3] == 9)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(true);
-        //        }
-
-        //        break;
-
-        //    case 5:
-        //        p1skills.gameObject.SetActive(false);
-        //        p2skills.gameObject.SetActive(false);
-        //        p3skills.gameObject.SetActive(false);
-        //        p4skills.gameObject.SetActive(false);
-        //        p5skills.gameObject.SetActive(true);
-        //        p6skills.gameObject.SetActive(false);
-
-        //        p1tickets.gameObject.SetActive(false);
-        //        p2tickets.gameObject.SetActive(false);
-        //        p3tickets.gameObject.SetActive(false);
-        //        p4tickets.gameObject.SetActive(false);
-        //        p5tickets.gameObject.SetActive(true);
-        //        p6tickets.gameObject.SetActive(false);
-
-        //        BGp1.gameObject.SetActive(false);
-        //        BGp2.gameObject.SetActive(false);
-        //        BGp3.gameObject.SetActive(false);
-        //        BGp4.gameObject.SetActive(false);
-        //        BGp5.gameObject.SetActive(true);
-        //        BGp6.gameObject.SetActive(false);
-
-        //        if (pLocation[4] == 0)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(true);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-
-        //        }
-        //        else if (pLocation[4] == 1)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(true);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[4] == 2)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(true);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[4] == 3)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(true);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[4] == 4)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(true);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[4] == 5)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(true);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[4] == 6)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(true);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[4] == 7)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(true);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[4] == 8)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(true);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[4] == 9)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(true);
-        //        }
-
-        //        break;
-
-        //    case 6:
-
-        //        p1skills.gameObject.SetActive(false);
-        //        p2skills.gameObject.SetActive(false);
-        //        p3skills.gameObject.SetActive(false);
-        //        p4skills.gameObject.SetActive(false);
-        //        p5skills.gameObject.SetActive(false);
-        //        p6skills.gameObject.SetActive(true);
-
-        //        p1tickets.gameObject.SetActive(false);
-        //        p2tickets.gameObject.SetActive(false);
-        //        p3tickets.gameObject.SetActive(false);
-        //        p4tickets.gameObject.SetActive(false);
-        //        p5tickets.gameObject.SetActive(false);
-        //        p6tickets.gameObject.SetActive(true);
-
-        //        BGp1.gameObject.SetActive(false);
-        //        BGp2.gameObject.SetActive(false);
-        //        BGp3.gameObject.SetActive(false);
-        //        BGp4.gameObject.SetActive(false);
-        //        BGp5.gameObject.SetActive(false);
-        //        BGp6.gameObject.SetActive(true);
-
-        //        if (pLocation[5] == 0)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(true);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-
-        //        }
-        //        else if (pLocation[5] == 1)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(true);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[5] == 2)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(true);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[5] == 3)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(true);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[5] == 4)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(true);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[5] == 5)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(true);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[5] == 6)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(true);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[5] == 7)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(true);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[5] == 8)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(true);
-        //            TargetCrosshairs9.gameObject.SetActive(false);
-        //        }
-        //        else if (pLocation[5] == 9)
-        //        {
-        //            TargetCrosshairs0.gameObject.SetActive(false);
-        //            TargetCrosshairs1.gameObject.SetActive(false);
-        //            TargetCrosshairs2.gameObject.SetActive(false);
-        //            TargetCrosshairs3.gameObject.SetActive(false);
-        //            TargetCrosshairs4.gameObject.SetActive(false);
-        //            TargetCrosshairs5.gameObject.SetActive(false);
-        //            TargetCrosshairs6.gameObject.SetActive(false);
-        //            TargetCrosshairs7.gameObject.SetActive(false);
-        //            TargetCrosshairs8.gameObject.SetActive(false);
-        //            TargetCrosshairs9.gameObject.SetActive(true);
-
-        //        }
-
-        //        break;
-
-        //    default:
-        //        //Console.WriteLine("Default case");
-        //        break;
-        //}
     }
 
     public void CheckPlayerTurn()
@@ -2258,6 +1236,13 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
+                p1ScoreText.gameObject.SetActive(true);
+                p2ScoreText.gameObject.SetActive(false);
+                p3ScoreText.gameObject.SetActive(false);
+                p4ScoreText.gameObject.SetActive(false);
+                p5ScoreText.gameObject.SetActive(false);
+                p6ScoreText.gameObject.SetActive(false);
+
                 if (pLocation[0] == 0)
                 {
                     TargetCrosshairs0.gameObject.SetActive(true);
@@ -2396,6 +1381,13 @@ public class GameController : MonoBehaviour
             case 2:
 
                 yield return new WaitForSeconds(1);
+
+                p1ScoreText.gameObject.SetActive(false);
+                p2ScoreText.gameObject.SetActive(true);
+                p3ScoreText.gameObject.SetActive(false);
+                p4ScoreText.gameObject.SetActive(false);
+                p5ScoreText.gameObject.SetActive(false);
+                p6ScoreText.gameObject.SetActive(false);
                 //Console.WriteLine("Case 2");
                 p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(true);
@@ -2554,6 +1546,13 @@ public class GameController : MonoBehaviour
             case 3:
 
                 yield return new WaitForSeconds(1);
+
+                p1ScoreText.gameObject.SetActive(false);
+                p2ScoreText.gameObject.SetActive(false);
+                p3ScoreText.gameObject.SetActive(true);
+                p4ScoreText.gameObject.SetActive(false);
+                p5ScoreText.gameObject.SetActive(false);
+                p6ScoreText.gameObject.SetActive(false);
                 //oOoo
                 p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(false);
@@ -2714,6 +1713,13 @@ public class GameController : MonoBehaviour
 
                 yield return new WaitForSeconds(1);
 
+                p1ScoreText.gameObject.SetActive(false);
+                p2ScoreText.gameObject.SetActive(false);
+                p3ScoreText.gameObject.SetActive(false);
+                p4ScoreText.gameObject.SetActive(true);
+                p5ScoreText.gameObject.SetActive(false);
+                p6ScoreText.gameObject.SetActive(false);
+
                 p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(false);
                 p3skills.gameObject.SetActive(false);
@@ -2872,6 +1878,14 @@ public class GameController : MonoBehaviour
             case 5:
 
                 yield return new WaitForSeconds(1);
+
+                p1ScoreText.gameObject.SetActive(false);
+                p2ScoreText.gameObject.SetActive(false);
+                p3ScoreText.gameObject.SetActive(false);
+                p4ScoreText.gameObject.SetActive(false);
+                p5ScoreText.gameObject.SetActive(true);
+                p6ScoreText.gameObject.SetActive(false);
+
                 p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(false);
                 p3skills.gameObject.SetActive(false);
@@ -3030,6 +2044,13 @@ public class GameController : MonoBehaviour
             case 6:
 
                 yield return new WaitForSeconds(1);
+
+                p1ScoreText.gameObject.SetActive(false);
+                p2ScoreText.gameObject.SetActive(false);
+                p3ScoreText.gameObject.SetActive(false);
+                p4ScoreText.gameObject.SetActive(false);
+                p5ScoreText.gameObject.SetActive(false);
+                p6ScoreText.gameObject.SetActive(true);
 
                 p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(false);

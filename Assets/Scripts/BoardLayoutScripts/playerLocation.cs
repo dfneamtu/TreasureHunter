@@ -42,6 +42,8 @@ public class playerLocation : MonoBehaviour
     public GameObject BGp5;
     public GameObject BGp6;
 
+    public Text playerMoves;
+
     //Player 1 Stats
     TMP_Text[] ticketTextsp1 = new TMP_Text[4];
     public int[] player1Tickets = new int[4];
@@ -69,6 +71,7 @@ public class playerLocation : MonoBehaviour
     public Transform[] spawnPoint;
 
     public int playerTurnTickets;
+    public int playerMovesLeft;
 
     public int[] pLocation = new int[6];
     public int[] hubLocation = new int[6];
@@ -122,6 +125,8 @@ public class playerLocation : MonoBehaviour
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
 
+        playerMoves.text = playerMovesLeft.ToString();
+
         playerGmo();
     }
 
@@ -129,6 +134,7 @@ public class playerLocation : MonoBehaviour
     void Start()
     {
         playerTurnTickets = GameController.playerTurn;
+        playerMovesLeft = GameController.playerMoves;
     }
 
     void playerGmo()
