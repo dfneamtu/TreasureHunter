@@ -2177,7 +2177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &318191115
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2241,8 +2241,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1141990260}
-        m_TargetAssemblyTypeName: ReadLocationPaths, Assembly-CSharp
+      - m_Target: {fileID: 1189453247}
+        m_TargetAssemblyTypeName: LoadLocation, Assembly-CSharp
         m_MethodName: FwdButton
         m_Mode: 1
         m_Arguments:
@@ -2346,7 +2346,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &396150193
 GameObject:
@@ -4735,7 +4735,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &790697429
 GameObject:
@@ -5747,7 +5747,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1033649316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5788,7 +5788,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1058038457
 GameObject:
@@ -6540,7 +6540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1141990260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6577,7 +6577,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1153000479
 GameObject:
@@ -6788,6 +6788,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175234045}
   m_CullTransparentMesh: 1
+--- !u!1 &1189453246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1189453248}
+  - component: {fileID: 1189453247}
+  - component: {fileID: 1189453249}
+  m_Layer: 0
+  m_Name: LocationPathsObjReader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1189453247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189453246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b6672aa3c79f1e48964bdf0a5533c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textAssetData: {fileID: 4900000, guid: b52c794021a894d89996fbeedb1eb78d, type: 3}
+  myInfoList:
+    info: []
+--- !u!4 &1189453248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189453246}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1371.2598, y: 660.4079, z: -937.4853}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1189453249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189453246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b42e44e06c945874f9623b91ac14da7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pLocation: 000000000000000000000000000000000000000000000000
+  hubLocation: 000000000000000000000000000000000000000000000000
+  playerTurnTickets: 0
+  fromLocation: {fileID: 9226790}
+  toLocation: {fileID: 188756930}
+  airTravel: {fileID: 2122463663}
+  boatTravel: {fileID: 777532537}
+  trainTravel: {fileID: 699652492}
+  roadTravel: {fileID: 186616265}
+  fwdButton: {fileID: 318191116}
+  prevButton: {fileID: 1967666429}
 --- !u!1 &1193671173
 GameObject:
   m_ObjectHideFlags: 0
@@ -8999,7 +9069,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1602484495
 GameObject:
@@ -11920,7 +11990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1967666428
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11984,8 +12054,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1141990260}
-        m_TargetAssemblyTypeName: ReadLocationPaths, Assembly-CSharp
+      - m_Target: {fileID: 1189453247}
+        m_TargetAssemblyTypeName: LoadLocation, Assembly-CSharp
         m_MethodName: PrevButton
         m_Mode: 1
         m_Arguments:
