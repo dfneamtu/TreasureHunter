@@ -34,38 +34,6 @@ public class LocationReader : MonoBehaviour
 
         playerTurnTickets = GameController.playerTurn;
 
-        //if (LoadLocation.hubNum == hubLocation[playerTurnTickets])
-        //{
-        //    if (LoadLocation.locationNum == pLocation[playerTurnTickets])
-        //    {
-        //        //Debug.Log("Player can travel to: " + Info.travelToStr + " with " + Info.ticketNum + " " + Info.travelType + " tickets. FROM: " + Info.locationStr);
-
-        //        //fromLocation.text = adjacentLocationPaths[counter].locationStr.ToString();
-        //        //toLocation.text = adjacentLocationPaths[counter].travelToStr.ToString();
-
-        //        //if (lp.travelType == "Air")
-        //        //{
-        //        //    airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
-        //        //}
-
-        //        //if (lp.travelType == "Train")
-        //        //{
-        //        //    airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
-        //        //}
-
-        //        //if (lp.travelType == "Boat")
-        //        //{
-        //        //    airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
-        //        //}
-
-        //        //if (lp.travelType == "Road")
-        //        //{
-        //        //    airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
-        //        //}
-
-        //    }
-        //}
-
     }
 
     public void SavePlayer()

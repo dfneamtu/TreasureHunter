@@ -11,6 +11,22 @@ using UnityEngine.SceneManagement;
 
 public class LoadLocation : MonoBehaviour
 {
+    public int[] pLocation = new int[6];
+    public int[] hubLocation = new int[6];
+
+    public int playerTurnTickets;
+
+    public TMP_Text fromLocation;
+    public TMP_Text toLocation;
+    public TMP_Text airTravel;
+    public TMP_Text boatTravel;
+    public TMP_Text trainTravel;
+    public TMP_Text roadTravel;
+
+
+    public Button fwdButton;
+    public Button prevButton;
+
     public TextAsset textAssetData;
 
     [System.Serializable]
@@ -62,6 +78,52 @@ public class LoadLocation : MonoBehaviour
             myInfoList.info[i].hubtoNum = int.Parse(data[8 * (i + 1) + 6]);
             myInfoList.info[i].traveltoNum = int.Parse(data[8 * (i + 1) + 7]);
         }
+    }
+
+    public void Update()
+    {
+        pLocation = GlobalController.Instance.pLocation;
+        hubLocation = GlobalController.Instance.hubLocation;
+
+        playerTurnTickets = GameController.playerTurn;
+        //Debug.Log("in Update");
+
+        //Debug.Log("Player can travel to: " + myInfoList.info[hubLocation[playerTurnTickets]].traveltoStr + " with " + myInfoList.info[hubLocation[playerTurnTickets]].ticketNum + " " + myInfoList.info[hubLocation[playerTurnTickets]].travelType + " tickets. From: " + myInfoList.info[hubLocation[playerTurnTickets]].locationStr);
+
+
+        if (myInfoList.info[hubLocation[playerTurnTickets]].hubNum == hubLocation[playerTurnTickets])
+        {
+            if (myInfoList.info[hubLocation[playerTurnTickets]].locationNum == pLocation[playerTurnTickets])
+            {   
+                Debug.Log("Player can travel to: " + myInfoList.info[hubLocation[playerTurnTickets]].traveltoStr + " with " + myInfoList.info[hubLocation[playerTurnTickets]].ticketNum + " " + myInfoList.info[hubLocation[playerTurnTickets]].travelType + " tickets. From: " + myInfoList.info[hubLocation[playerTurnTickets]].locationStr);
+            }
+        }
+
+    }
+
+    public void SavePlayer()
+    {
+
+        GlobalController.Instance.pLocation = pLocation;
+        GlobalController.Instance.hubLocation = hubLocation;
+
+    }
+
+    public void FwdButton()
+    {
+        //if (counter + 1 < locationPaths.Count)
+        //{
+        //    counter++;
+        //    //Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
+        //}
+    }
+
+    public void PrevButton()
+    {
+        //if (counter - 1 == -1)
+        //{
+        //    //Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
+        //}
 
     }
 

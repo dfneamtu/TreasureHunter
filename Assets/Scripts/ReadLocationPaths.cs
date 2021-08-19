@@ -78,7 +78,7 @@ public class ReadLocationPaths : MonoBehaviour
 
             if (lp.hubNum == hubLocation[playerTurnTickets - 1])
             {
-                if (lp.locationNum == pLocation[playerTurnTickets - 1])
+                if (lp.locationNum ==  pLocation[playerTurnTickets - 1])
                 {
 
                     adjacentLocationPaths.Add(lp);
