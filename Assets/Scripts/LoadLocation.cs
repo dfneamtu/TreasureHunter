@@ -27,6 +27,8 @@ public class LoadLocation : MonoBehaviour
     public Button fwdButton;
     public Button prevButton;
 
+    int counter = 0;
+
     public TextAsset textAssetData;
 
     [System.Serializable]
@@ -57,6 +59,8 @@ public class LoadLocation : MonoBehaviour
     public void Start()
     {
         ReadCSV();
+
+
     }
 
     public void ReadCSV()
@@ -89,13 +93,40 @@ public class LoadLocation : MonoBehaviour
         //Debug.Log("in Update");
 
         //Debug.Log("Player can travel to: " + myInfoList.info[hubLocation[playerTurnTickets]].traveltoStr + " with " + myInfoList.info[hubLocation[playerTurnTickets]].ticketNum + " " + myInfoList.info[hubLocation[playerTurnTickets]].travelType + " tickets. From: " + myInfoList.info[hubLocation[playerTurnTickets]].locationStr);
-
-
-        if (myInfoList.info[hubLocation[playerTurnTickets]].hubNum == hubLocation[playerTurnTickets])
+        
+        
+        for (int i = 0; i < myInfoList.info.Length; i++)
         {
-            if (myInfoList.info[hubLocation[playerTurnTickets]].locationNum == pLocation[playerTurnTickets])
-            {   
-                Debug.Log("Player can travel to: " + myInfoList.info[hubLocation[playerTurnTickets]].traveltoStr + " with " + myInfoList.info[hubLocation[playerTurnTickets]].ticketNum + " " + myInfoList.info[hubLocation[playerTurnTickets]].travelType + " tickets. From: " + myInfoList.info[hubLocation[playerTurnTickets]].locationStr);
+            if (myInfoList.info[i].hubNum == hubLocation[playerTurnTickets - 1])
+            {
+                if (myInfoList.info[i].locationNum == pLocation[playerTurnTickets - 1])
+                {
+                    Debug.Log("Player can travel to: " + myInfoList.info[i].traveltoStr + " with " + myInfoList.info[i].ticketNum + " " + myInfoList.info[i].travelType + " tickets. From: " + myInfoList.info[i].locationStr);
+
+                    fromLocation.text = myInfoList.info[counter].locationStr.ToString();
+                    toLocation.text = myInfoList.info[counter].traveltoStr.ToString();
+
+                    if (myInfoList.info[i].travelType == "Air")
+                    {
+                        airTravel.text = myInfoList.info[counter].ticketNum.ToString();
+                    }
+
+                    if (myInfoList.info[i].travelType == "Train")
+                    {
+                        airTravel.text = myInfoList.info[counter].ticketNum.ToString();
+                    }
+
+                    if (myInfoList.info[i].travelType == "Boat")
+                    {
+                        airTravel.text = myInfoList.info[counter].ticketNum.ToString();
+                    }
+
+                    if (myInfoList.info[i].travelType == "Road")
+                    {
+                        airTravel.text = myInfoList.info[counter].ticketNum.ToString();
+                    }
+
+                }
             }
         }
 
@@ -111,19 +142,20 @@ public class LoadLocation : MonoBehaviour
 
     public void FwdButton()
     {
-        //if (counter + 1 < locationPaths.Count)
-        //{
-        //    counter++;
-        //    //Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
-        //}
+        if (counter + 1 < myInfoList.info.Length)
+        {
+            counter++;
+            //Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
+        }
     }
 
     public void PrevButton()
     {
-        //if (counter - 1 == -1)
-        //{
-        //    //Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
-        //}
+        if (counter - 1 == -1)
+        {
+            counter--;
+            //Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
+        }
 
     }
 

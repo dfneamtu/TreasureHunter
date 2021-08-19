@@ -6818,6 +6818,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6672aa3c79f1e48964bdf0a5533c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pLocation: 000000000000000000000000000000000000000000000000
+  hubLocation: 000000000000000000000000000000000000000000000000
+  playerTurnTickets: 0
+  fromLocation: {fileID: 9226790}
+  toLocation: {fileID: 188756930}
+  airTravel: {fileID: 2122463663}
+  boatTravel: {fileID: 777532537}
+  trainTravel: {fileID: 699652492}
+  roadTravel: {fileID: 186616265}
+  fwdButton: {fileID: 318191116}
+  prevButton: {fileID: 1967666429}
   textAssetData: {fileID: 4900000, guid: b52c794021a894d89996fbeedb1eb78d, type: 3}
   myInfoList:
     info: []
