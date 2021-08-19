@@ -106,25 +106,26 @@ public class LoadLocation : MonoBehaviour
                     fromLocation.text = myInfoList.info[counter].locationStr.ToString();
                     toLocation.text = myInfoList.info[counter].traveltoStr.ToString();
 
-                    if (myInfoList.info[i].travelType == "Air")
+                    if (myInfoList.info[counter].travelType == "Air")
                     {
                         airTravel.text = myInfoList.info[counter].ticketNum.ToString();
                     }
 
-                    if (myInfoList.info[i].travelType == "Train")
+                    if (myInfoList.info[counter].travelType == "Train")
                     {
                         airTravel.text = myInfoList.info[counter].ticketNum.ToString();
                     }
 
-                    if (myInfoList.info[i].travelType == "Boat")
+                    if (myInfoList.info[counter].travelType == "Boat")
                     {
                         airTravel.text = myInfoList.info[counter].ticketNum.ToString();
                     }
 
-                    if (myInfoList.info[i].travelType == "Road")
+                    if (myInfoList.info[counter].travelType == "Road")
                     {
                         airTravel.text = myInfoList.info[counter].ticketNum.ToString();
                     }
+
 
                 }
             }
@@ -145,18 +146,12 @@ public class LoadLocation : MonoBehaviour
         if (counter + 1 < myInfoList.info.Length)
         {
             counter++;
-            //Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
         }
     }
 
     public void PrevButton()
     {
-        if (counter - 1 == -1)
-        {
-            counter--;
-            //Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
-        }
-
+        counter--;
     }
 
 }
