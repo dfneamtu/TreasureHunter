@@ -1214,6 +1214,7 @@ public class GameController : MonoBehaviour
             case 1:
 
                 yield return new WaitForSeconds(1);
+
                 //Console.WriteLine("Case 1");
                 p1skills.gameObject.SetActive(true);
                 p2skills.gameObject.SetActive(false);
