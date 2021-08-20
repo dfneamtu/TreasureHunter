@@ -387,11 +387,11 @@ public class GameController : MonoBehaviour
     }
 
     void playerGmo()
-    {
+    {                
         StartCoroutine(ExampleCoroutine());
     }
 
-    public void  PlayerTurn()
+    public void CheckPlayerTurn()
     {
         if (playerMoves == 0)
         {
@@ -858,7 +858,7 @@ public class GameController : MonoBehaviour
         int[] objectInfo = new int[2];
 
         switch (playerTurn)
-        {
+        {        
             case 1:
                 objectInfo = getObjectStats(p1CurrentObject);
                 player1Values[objectInfo[0]] += objectInfo[1];
@@ -1103,6 +1103,10 @@ public class GameController : MonoBehaviour
         Enemy e = new Enemy(l.hubNum, l.locationNum);
         enemies.Add(e);
         Debug.Log("Added a new enemy at: " + l.hubNum + ", " + l.locationNum);
+      }
+      foreach(Location l in locationsScript.locations)
+      {
+        Debug.Log(l.locationStr);
       }
     }
 
