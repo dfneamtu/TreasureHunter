@@ -387,7 +387,7 @@ public class GameController : MonoBehaviour
     }
 
     void playerGmo()
-    {                
+    {
         StartCoroutine(ExampleCoroutine());
     }
 
@@ -858,7 +858,7 @@ public class GameController : MonoBehaviour
         int[] objectInfo = new int[2];
 
         switch (playerTurn)
-        {        
+        {
             case 1:
                 objectInfo = getObjectStats(p1CurrentObject);
                 player1Values[objectInfo[0]] += objectInfo[1];
@@ -1144,11 +1144,6 @@ public class GameController : MonoBehaviour
 
     public void generateMissions()
     {
-      foreach(Location l in locationsScript.locations)
-      {
-        Debug.Log(l.locationStr);
-      }
-
       List<Location> potentialLocationsHub1 = new List<Location>();
       List<Location> potentialLocationsHub2 = new List<Location>();
       List<Location> potentialLocationsHub3 = new List<Location>();
@@ -1190,10 +1185,8 @@ public class GameController : MonoBehaviour
       }
 
       IListExtensions.Shuffle(skillsHub1);
-      IListExtensions.Shuffle(skillsHub2);
-      IListExtensions.Shuffle(skillsHub3);
 
-      for (int i = 0; i < 7; i++)
+      for (int i = 0; i < 3; i++)
       {
         Mission m1 = new Mission(1, potentialLocationsHub1[i].locationNum, skillsHub1[i]);
         Mission m2 = new Mission(2, potentialLocationsHub2[i].locationNum, skillsHub2[i]);
