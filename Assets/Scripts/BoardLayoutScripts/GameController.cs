@@ -296,7 +296,14 @@ public class GameController : MonoBehaviour
           players.Add(p);
         }
 
+        for (int i = 0; i < 6; i++)
+        {
+            pLocation[i] = 1;
+            hubLocation[i] = 1;
+        }
 
+        //pLocation = { 1, 1, 1, 1, 1, 1 };
+        //hubLocation = { 1, 1, 1, 1, 1, 1 };
 
 
     }
@@ -961,20 +968,24 @@ public class GameController : MonoBehaviour
             {
               if (m.completedBy[playerTurn - 1] == false)
               {
-                //REVEAL POTENTIAL MISSION
-                Debug.Log(m.hubNum + ", " + m.locationNum + ", " + m.skillNum + ", " + m.pointsReq + ", " + m.victoryPoints);
-                return;
+                 ItemTxt.text = ("Need to define skill type");
+                 TypeTxt.text = " ";
+                 AmountTxt.text = m.pointsReq.ToString();
+                 //REVEAL POTENTIAL MISSION
+                 Debug.Log(m.hubNum + ", " + m.locationNum + ", " + m.skillNum + ", " + m.pointsReq + ", " + m.victoryPoints);
+                 return;
               }
               else
               {
-                //MISSION HAS ALREADY BEEN COMPLETED BY CURRENT PLAYER
-                Debug.Log("Mission already done");
-                return;
+                 ItemTxt.text = ("Mission already Done");
+                 Debug.Log("Mission already done");
+                 return;
               }
             }
           }
         }
 
+        ItemTxt.text = ("No Mission available at this Location");
         Debug.Log("no mission present");
 
         log.Add("Player " + playerTurn.ToString() + " clicked mission button.");

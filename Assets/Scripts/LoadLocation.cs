@@ -27,7 +27,8 @@ public class LoadLocation : MonoBehaviour
     public Button fwdButton;
     public Button prevButton;
 
-    int counter = 0;
+    public int counter;
+    int i;
 
     public TextAsset textAssetData;
 
@@ -60,7 +61,6 @@ public class LoadLocation : MonoBehaviour
     {
         ReadCSV();
 
-
     }
 
     public void ReadCSV()
@@ -82,6 +82,7 @@ public class LoadLocation : MonoBehaviour
             myInfoList.info[i].hubtoNum = int.Parse(data[8 * (i + 1) + 6]);
             myInfoList.info[i].traveltoNum = int.Parse(data[8 * (i + 1) + 7]);
         }
+
     }
 
     public void Update()
@@ -93,44 +94,37 @@ public class LoadLocation : MonoBehaviour
         //Debug.Log("in Update");
 
         //Debug.Log("Player can travel to: " + myInfoList.info[hubLocation[playerTurnTickets]].traveltoStr + " with " + myInfoList.info[hubLocation[playerTurnTickets]].ticketNum + " " + myInfoList.info[hubLocation[playerTurnTickets]].travelType + " tickets. From: " + myInfoList.info[hubLocation[playerTurnTickets]].locationStr);
-        
-        
-        for (int i = 0; i < myInfoList.info.Length; i++)
+        if (myInfoList.info[counter].hubNum == hubLocation[playerTurnTickets - 1])
         {
-            if (myInfoList.info[i].hubNum == hubLocation[playerTurnTickets - 1])
+            if (myInfoList.info[counter].locationNum == pLocation[playerTurnTickets - 1])
             {
-                if (myInfoList.info[i].locationNum == pLocation[playerTurnTickets - 1])
+
+                //Debug.Log("Player can travel to: " + myInfoList.info[i].traveltoStr + " with " + myInfoList.info[i].ticketNum + " " + myInfoList.info[i].travelType + " tickets. From: " + myInfoList.info[i].locationStr);
+
+                fromLocation.text = myInfoList.info[counter].locationStr.ToString();
+                toLocation.text = myInfoList.info[counter].traveltoStr.ToString();
+
+                if (myInfoList.info[counter].travelType == "Air")
                 {
-                    Debug.Log("Player can travel to: " + myInfoList.info[i].traveltoStr + " with " + myInfoList.info[i].ticketNum + " " + myInfoList.info[i].travelType + " tickets. From: " + myInfoList.info[i].locationStr);
+                    airTravel.text = myInfoList.info[counter].ticketNum.ToString();
+                }
 
-                    fromLocation.text = myInfoList.info[counter].locationStr.ToString();
-                    toLocation.text = myInfoList.info[counter].traveltoStr.ToString();
+                if (myInfoList.info[counter].travelType == "Train")
+                {
+                    trainTravel.text = myInfoList.info[counter].ticketNum.ToString();
+                }
 
-                    if (myInfoList.info[counter].travelType == "Air")
-                    {
-                        airTravel.text = myInfoList.info[counter].ticketNum.ToString();
-                    }
+                if (myInfoList.info[counter].travelType == "Boat")
+                {
+                    boatTravel.text = myInfoList.info[counter].ticketNum.ToString();
+                }
 
-                    if (myInfoList.info[counter].travelType == "Train")
-                    {
-                        airTravel.text = myInfoList.info[counter].ticketNum.ToString();
-                    }
-
-                    if (myInfoList.info[counter].travelType == "Boat")
-                    {
-                        airTravel.text = myInfoList.info[counter].ticketNum.ToString();
-                    }
-
-                    if (myInfoList.info[counter].travelType == "Road")
-                    {
-                        airTravel.text = myInfoList.info[counter].ticketNum.ToString();
-                    }
-
-
+                if (myInfoList.info[counter].travelType == "Road")
+                {
+                    roadTravel.text = myInfoList.info[counter].ticketNum.ToString();
                 }
             }
         }
-
     }
 
     public void SavePlayer()
@@ -143,15 +137,39 @@ public class LoadLocation : MonoBehaviour
 
     public void FwdButton()
     {
-        if (counter + 1 < myInfoList.info.Length)
-        {
-            counter++;
-        }
+        counter++;
     }
 
     public void PrevButton()
     {
         counter--;
+    }
+
+    public void TravelBtn()
+    {
+        hubLocation[playerTurnTickets - 1] = myInfoList.info[counter].hubNum;
+        pLocation[playerTurnTickets - 1] = myInfoList.info[counter].locationNum;
+
+        if (myInfoList.info[counter].travelType == "Air")
+        {
+            //airTravel;
+        }
+
+        if (myInfoList.info[counter].travelType == "Train")
+        {
+            //trainTravel;
+        }
+
+        if (myInfoList.info[counter].travelType == "Boat")
+        {
+            //boatTravel;
+        }
+
+        if (myInfoList.info[counter].travelType == "Road")
+        {
+            //roadTravel;
+        }
+
     }
 
 }

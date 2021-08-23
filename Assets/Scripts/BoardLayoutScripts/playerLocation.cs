@@ -35,12 +35,11 @@ public class playerLocation : MonoBehaviour
     public GameObject Ticketsp5;
     public GameObject Ticketsp6;
 
-    public GameObject BGp1;
-    public GameObject BGp2;
-    public GameObject BGp3;
-    public GameObject BGp4;
-    public GameObject BGp5;
-    public GameObject BGp6;
+    public Sprite[] PlayerBGs;
+    public SpriteRenderer playerbgs;
+
+    public Sprite[] HubLocations;
+    public SpriteRenderer spriteRenderer;
 
     public Text playerMoves;
 
@@ -128,6 +127,22 @@ public class playerLocation : MonoBehaviour
         playerMoves.text = playerMovesLeft.ToString();
 
         playerGmo();
+
+        if (hubLocation[playerTurnTickets - 1] == 1)
+        {
+            spriteRenderer.sprite = HubLocations[0];
+        }
+
+        if (hubLocation[playerTurnTickets - 1] == 2)
+        {
+            spriteRenderer.sprite = HubLocations[1];
+        }
+
+        if (hubLocation[playerTurnTickets - 1] == 3)
+        {
+            spriteRenderer.sprite = HubLocations[2];
+        }
+
     }
 
 
@@ -135,6 +150,8 @@ public class playerLocation : MonoBehaviour
     {
         playerTurnTickets = GameController.playerTurn;
         playerMovesLeft = GameController.playerMoves;
+
+
     }
 
     void playerGmo()
@@ -150,13 +167,7 @@ public class playerLocation : MonoBehaviour
                 p5tickets.gameObject.SetActive(false);
                 p6tickets.gameObject.SetActive(false);
 
-
-                BGp1.gameObject.SetActive(true);
-                BGp2.gameObject.SetActive(false);
-                BGp3.gameObject.SetActive(false);
-                BGp4.gameObject.SetActive(false);
-                BGp5.gameObject.SetActive(false);
-                BGp6.gameObject.SetActive(false);
+                playerbgs.sprite = PlayerBGs[0];
 
                 break;
 
@@ -169,13 +180,7 @@ public class playerLocation : MonoBehaviour
                 p5tickets.gameObject.SetActive(false);
                 p6tickets.gameObject.SetActive(false);
 
-
-                BGp1.gameObject.SetActive(false);
-                BGp2.gameObject.SetActive(true);
-                BGp3.gameObject.SetActive(false);
-                BGp4.gameObject.SetActive(false);
-                BGp5.gameObject.SetActive(false);
-                BGp6.gameObject.SetActive(false);
+                playerbgs.sprite = PlayerBGs[1];
 
                 break;
 
@@ -188,12 +193,7 @@ public class playerLocation : MonoBehaviour
                 p5tickets.gameObject.SetActive(false);
                 p6tickets.gameObject.SetActive(false);
 
-                BGp1.gameObject.SetActive(false);
-                BGp2.gameObject.SetActive(false);
-                BGp3.gameObject.SetActive(true);
-                BGp4.gameObject.SetActive(false);
-                BGp5.gameObject.SetActive(false);
-                BGp6.gameObject.SetActive(false);
+                playerbgs.sprite = PlayerBGs[2];
 
                 break;
 
@@ -206,12 +206,7 @@ public class playerLocation : MonoBehaviour
                 p5tickets.gameObject.SetActive(false);
                 p6tickets.gameObject.SetActive(false);
 
-                BGp1.gameObject.SetActive(false);
-                BGp2.gameObject.SetActive(false);
-                BGp3.gameObject.SetActive(false);
-                BGp4.gameObject.SetActive(true);
-                BGp5.gameObject.SetActive(false);
-                BGp6.gameObject.SetActive(false);
+                playerbgs.sprite = PlayerBGs[3];
 
                 break;
 
@@ -224,12 +219,7 @@ public class playerLocation : MonoBehaviour
                 p5tickets.gameObject.SetActive(true);
                 p6tickets.gameObject.SetActive(false);
 
-                BGp1.gameObject.SetActive(false);
-                BGp2.gameObject.SetActive(false);
-                BGp3.gameObject.SetActive(false);
-                BGp4.gameObject.SetActive(false);
-                BGp5.gameObject.SetActive(true);
-                BGp6.gameObject.SetActive(false);
+                playerbgs.sprite = PlayerBGs[4];
 
                 break;
 
@@ -242,13 +232,7 @@ public class playerLocation : MonoBehaviour
                 p5tickets.gameObject.SetActive(false);
                 p6tickets.gameObject.SetActive(true);
 
-
-                BGp1.gameObject.SetActive(false);
-                BGp2.gameObject.SetActive(false);
-                BGp3.gameObject.SetActive(false);
-                BGp4.gameObject.SetActive(false);
-                BGp5.gameObject.SetActive(false);
-                BGp6.gameObject.SetActive(true);
+                playerbgs.sprite = PlayerBGs[5];
 
                 break;
 
@@ -260,37 +244,8 @@ public class playerLocation : MonoBehaviour
 
     public void Location1()
     {
-
-        switch (playerTurnTickets)
-        {
-            case 1:
-                hubLocation[0] = 1;
-                pLocation[0] = 1;
-                break;
-            case 2:
-                hubLocation[1] = 1;
-                pLocation[1] = 1;
-                break;
-            case 3:
-                hubLocation[2] = 1;
-                pLocation[2] = 1;
-                break;
-            case 4:
-                hubLocation[3] = 1;
-                pLocation[3] = 1;
-                break;
-            case 5:
-                hubLocation[4] = 1;
-                pLocation[4] = 1;
-                break;
-            case 6:
-                hubLocation[5] = 1;
-                pLocation[5] = 1;
-                break;
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }        
+        hubLocation[playerTurnTickets - 1] = 1;
+        pLocation[playerTurnTickets - 1] = 1;
 
         TargetCrosshairs1.gameObject.SetActive(true);
         TargetCrosshairs2.gameObject.SetActive(false);
@@ -307,38 +262,8 @@ public class playerLocation : MonoBehaviour
     }
     public void Location2()
     {
-
-
-        switch (playerTurnTickets)
-        {
-            case 1:
-                hubLocation[0] = 1;
-                pLocation[0] = 2;
-                break;
-            case 2:
-                hubLocation[1] = 1;
-                pLocation[1] = 2;
-                break;
-            case 3:
-                hubLocation[1] = 1;
-                pLocation[2] = 2;
-                break;
-            case 4:
-                hubLocation[1] = 1;
-                pLocation[3] = 2;
-                break;
-            case 5:
-                hubLocation[1] = 1;
-                pLocation[4] = 2;
-                break;
-            case 6:
-                hubLocation[1] = 1;
-                pLocation[5] = 2;
-                break;
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }
+        hubLocation[playerTurnTickets - 1] = 1;
+        pLocation[playerTurnTickets - 1] = 2;
 
         TargetCrosshairs1.gameObject.SetActive(false);
         TargetCrosshairs2.gameObject.SetActive(true);
@@ -355,39 +280,8 @@ public class playerLocation : MonoBehaviour
     }
     public void Location3()
     {
-
-
-        switch (playerTurnTickets)
-        {
-            case 1:
-                hubLocation[0] = 1;
-                pLocation[0] = 3;
-                break;
-            case 2:
-                hubLocation[1] = 1;
-                pLocation[1] = 3;
-                break;
-            case 3:
-                hubLocation[2] = 1;
-                pLocation[2] = 3;
-                break;
-            case 4:
-                hubLocation[3] = 1;
-                pLocation[3] = 3;
-                break;
-            case 5:
-                hubLocation[4] = 1;
-                pLocation[4] = 3;
-                break;
-            case 6:
-                hubLocation[5] = 1;
-                pLocation[5] = 3;
-                break;
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }
-
+        hubLocation[playerTurnTickets - 1] = 1;
+        pLocation[playerTurnTickets - 1] = 3;
 
         TargetCrosshairs1.gameObject.SetActive(false);
         TargetCrosshairs2.gameObject.SetActive(false);
@@ -405,37 +299,8 @@ public class playerLocation : MonoBehaviour
     public void Location4()
     {
 
-
-        switch (playerTurnTickets)
-        {
-            case 1:
-                hubLocation[0] = 1;
-                pLocation[0] = 4;
-                break;
-            case 2:
-                hubLocation[1] = 1;
-                pLocation[1] = 4;
-                break;
-            case 3:
-                hubLocation[2] = 1;
-                pLocation[2] = 4;
-                break;
-            case 4:
-                hubLocation[3] = 1;
-                pLocation[3] = 4;
-                break;
-            case 5:
-                hubLocation[4] = 1;
-                pLocation[4] = 4;
-                break;
-            case 6:
-                hubLocation[5] = 1;
-                pLocation[5] = 4;
-                break;
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }
+        hubLocation[playerTurnTickets - 1] = 1;
+        pLocation[playerTurnTickets - 1] = 4;
 
         TargetCrosshairs1.gameObject.SetActive(false);
         TargetCrosshairs2.gameObject.SetActive(false);
@@ -451,38 +316,8 @@ public class playerLocation : MonoBehaviour
     }
     public void Location5()
     {
-
-
-        switch (playerTurnTickets)
-        {
-            case 1:
-                hubLocation[0] = 1;
-                pLocation[0] = 5;
-                break;
-            case 2:
-                hubLocation[1] = 1;
-                pLocation[1] = 5;
-                break;
-            case 3:
-                hubLocation[2] = 1;
-                pLocation[2] = 5;
-                break;
-            case 4:
-                hubLocation[3] = 1;
-                pLocation[3] = 5;
-                break;
-            case 5:
-                hubLocation[4] = 1;
-                pLocation[4] = 5;
-                break;
-            case 6:
-                hubLocation[5] = 1;
-                pLocation[5] = 5;
-                break;
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }        
+        hubLocation[playerTurnTickets - 1] = 1;
+        pLocation[playerTurnTickets - 1] = 5;
 
         TargetCrosshairs1.gameObject.SetActive(false);
         TargetCrosshairs2.gameObject.SetActive(false);
@@ -499,36 +334,8 @@ public class playerLocation : MonoBehaviour
     public void Location6()
     {
 
-        switch (playerTurnTickets)
-        {
-            case 1:
-                hubLocation[0] = 1;
-                pLocation[0] = 6;
-                break;
-            case 2:
-                hubLocation[1] = 1;
-                pLocation[1] = 6;
-                break;
-            case 3:
-                hubLocation[2] = 1;
-                pLocation[2] = 6;
-                break;
-            case 4:
-                hubLocation[3] = 1;
-                pLocation[3] = 6;
-                break;
-            case 5:
-                hubLocation[4] = 1;
-                pLocation[4] = 6;
-                break;
-            case 6:
-                hubLocation[5] = 1;
-                pLocation[5] = 6;
-                break;
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }
+        hubLocation[playerTurnTickets - 1] = 1;
+        pLocation[playerTurnTickets - 1] = 6;
 
         TargetCrosshairs1.gameObject.SetActive(false);
         TargetCrosshairs2.gameObject.SetActive(false);
@@ -545,37 +352,8 @@ public class playerLocation : MonoBehaviour
     public void Location7()
     {
 
-
-        switch (playerTurnTickets)
-        {
-            case 1:
-                hubLocation[0] = 1;
-                pLocation[0] = 7;
-                break;
-            case 2:
-                hubLocation[1] = 1;
-                pLocation[1] = 7;
-                break;
-            case 3:
-                hubLocation[2] = 1;
-                pLocation[2] = 7;
-                break;
-            case 4:
-                hubLocation[3] = 1;
-                pLocation[3] = 7;
-                break;
-            case 5:
-                hubLocation[4] = 1;
-                pLocation[4] = 7;
-                break;
-            case 6:
-                hubLocation[5] = 1;
-                pLocation[5] = 7;
-                break;
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }        
+        hubLocation[playerTurnTickets - 1] = 1;
+        pLocation[playerTurnTickets - 1] = 7;
 
         TargetCrosshairs1.gameObject.SetActive(false);
         TargetCrosshairs2.gameObject.SetActive(false);
@@ -592,37 +370,8 @@ public class playerLocation : MonoBehaviour
     public void Location8()
     {
 
-
-        switch (playerTurnTickets)
-        {
-            case 1:
-                hubLocation[0] = 1;
-                pLocation[0] = 8;
-                break;
-            case 2:
-                hubLocation[2] = 1;
-                pLocation[1] = 8;
-                break;
-            case 3:
-                hubLocation[3] = 1;
-                pLocation[2] = 8;
-                break;
-            case 4:
-                hubLocation[4] = 1;
-                pLocation[3] = 8;
-                break;
-            case 5:
-                hubLocation[5] = 1;
-                pLocation[4] = 8;
-                break;
-            case 6:
-                hubLocation[6] = 1;
-                pLocation[5] = 8;
-                break;
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }
+        hubLocation[playerTurnTickets - 1] = 1;
+        pLocation[playerTurnTickets - 1] = 8;
 
         TargetCrosshairs1.gameObject.SetActive(false);
         TargetCrosshairs2.gameObject.SetActive(false);
@@ -640,38 +389,9 @@ public class playerLocation : MonoBehaviour
 
     public void Location9()
     {
+        hubLocation[playerTurnTickets - 1] = 1;
+        pLocation[playerTurnTickets - 1] = 9;
 
-
-        switch (playerTurnTickets)
-        {
-            case 1:
-                hubLocation[0] = 1;
-                pLocation[0] = 9;
-                break;
-            case 2:
-                hubLocation[1] = 1;
-                pLocation[1] = 9;
-                break;
-            case 3:
-                hubLocation[2] = 1;
-                pLocation[2] = 9;
-                break;
-            case 4:
-                hubLocation[3] = 1;
-                pLocation[3] = 9;
-                break;
-            case 5:
-                hubLocation[4] = 1;
-                pLocation[4] = 9;
-                break;
-            case 6:
-                hubLocation[5] = 1;
-                pLocation[5] = 9;
-                break;
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }
         TargetCrosshairs1.gameObject.SetActive(false);
         TargetCrosshairs2.gameObject.SetActive(false);
         TargetCrosshairs3.gameObject.SetActive(false);
@@ -688,40 +408,8 @@ public class playerLocation : MonoBehaviour
 
     public void Location10()
     {
-
-
-        switch (playerTurnTickets)
-        {
-            case 1:
-                hubLocation[0] = 1;
-                pLocation[0] = 10;
-
-                break;
-            case 2:
-
-                hubLocation[1] = 1;
-                pLocation[1] = 10;
-                break;
-            case 3:
-                hubLocation[2] = 1;
-                pLocation[2] = 10;
-                break;
-            case 4:
-                hubLocation[3] = 1;
-                pLocation[3] = 10;
-                break;
-            case 5:
-                hubLocation[4] = 1;
-                pLocation[4] = 10;
-                break;
-            case 6:
-                hubLocation[5] = 1;
-                pLocation[5] = 10;
-                break;
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }
+        hubLocation[playerTurnTickets - 1] = 1;
+        pLocation[playerTurnTickets - 1] = 10;
 
         TargetCrosshairs1.gameObject.SetActive(false);
         TargetCrosshairs2.gameObject.SetActive(false);
