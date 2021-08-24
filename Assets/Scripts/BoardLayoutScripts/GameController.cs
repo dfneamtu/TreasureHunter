@@ -296,12 +296,6 @@ public class GameController : MonoBehaviour
           players.Add(p);
         }
 
-        for (int i = 0; i < 6; i++)
-        {
-            pLocation[i] = 1;
-            hubLocation[i] = 1;
-        }
-
         //pLocation = { 1, 1, 1, 1, 1, 1 };
         //hubLocation = { 1, 1, 1, 1, 1, 1 };
 

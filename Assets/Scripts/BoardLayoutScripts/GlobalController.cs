@@ -76,4 +76,13 @@ public class GlobalController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void Start()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            pLocation[i] = 1;
+            hubLocation[i] = 1;
+        }
+    }
 }
