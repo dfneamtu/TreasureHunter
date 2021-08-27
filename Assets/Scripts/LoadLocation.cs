@@ -116,33 +116,21 @@ public class LoadLocation : MonoBehaviour
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
                 {
                     airTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
-                    trainTravel.text = ("0");
-                    boatTravel.text = ("0");
-                    roadTravel.text = ("0");
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
                 {
                     trainTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
-                    airTravel.text = ("0");
-                    boatTravel.text = ("0");
-                    roadTravel.text = ("0");
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
                 {
                     boatTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
-                    trainTravel.text = ("0");
-                    airTravel.text = ("0");
-                    roadTravel.text = ("0");
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
                 {
                     roadTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
-                    trainTravel.text = ("0");
-                    boatTravel.text = ("0");
-                    airTravel.text = ("0");
                 }
             }
         }
