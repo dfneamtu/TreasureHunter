@@ -62,7 +62,9 @@ public class LoadLocation : MonoBehaviour
     public void Start()
     {
         ReadCSV();
-        Debug.Log("counter being set to: " + counter);
+        //Debug.Log("counter is: " + counters[playerTurnTickets - 1]);
+        //Debug.Log("player is at: " + hubLocation[playerTurnTickets - 1] + ", " + pLocation[playerTurnTickets - 1]);
+
 
         //setCounter();
 
@@ -116,33 +118,21 @@ public class LoadLocation : MonoBehaviour
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
                 {
                     airTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
-                    trainTravel.text = ("0");
-                    boatTravel.text = ("0");
-                    roadTravel.text = ("0");
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
                 {
                     trainTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
-                    airTravel.text = ("0");
-                    boatTravel.text = ("0");
-                    roadTravel.text = ("0");
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
                 {
                     boatTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
-                    trainTravel.text = ("0");
-                    airTravel.text = ("0");
-                    roadTravel.text = ("0");
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
                 {
                     roadTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
-                    trainTravel.text = ("0");
-                    boatTravel.text = ("0");
-                    airTravel.text = ("0");
                 }
             }
         }
@@ -164,20 +154,29 @@ public class LoadLocation : MonoBehaviour
 
     public void FwdButton()
     {
+      if (counters[playerTurnTickets - 1] != tableSize && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].hubNum)
+      {
         Debug.Log("incrementing counter");
         counters[playerTurnTickets - 1]++;
+      }
     }
 
     public void PrevButton()
     {
+      if (counters[playerTurnTickets - 1] != 0 && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].hubNum)
+      {
         Debug.Log("decrementing counter");
         counters[playerTurnTickets - 1]--;
+      }
     }
 
     public void TravelBtn()
     {
         hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
         pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+        Debug.Log("players new coordinates:" + hubLocation[playerTurnTickets - 1] + ", " + pLocation[playerTurnTickets - 1]);
+        Debug.Log("travelled to: " + myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr);
+        Debug.Log("current counter: " + counters[playerTurnTickets - 1]);
 
         for (int i = 0; i < tableSize; i++)
         {
@@ -186,7 +185,7 @@ public class LoadLocation : MonoBehaviour
             if (myInfoList.info[i].locationNum == pLocation[playerTurnTickets - 1])
             {
               counters[playerTurnTickets - 1] = i;
-              return;
+              Debug.Log("new counter value: " + counters[playerTurnTickets - 1]);
             }
           }
         }
