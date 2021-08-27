@@ -138,17 +138,7 @@ public class LoadLocation : MonoBehaviour
 
     public void setCounter()
     {
-      for (int i = 0; i < tableSize; i++)
-      {
-        if (myInfoList.info[i].hubNum == hubLocation[playerTurnTickets - 1])
-        {
-          if (myInfoList.info[i].locationNum == pLocation[playerTurnTickets - 1])
-          {
-            counter = i;
-            return;
-          }
-        }
-      }
+
     }
 
     public void SavePlayer()
@@ -174,30 +164,41 @@ public class LoadLocation : MonoBehaviour
 
     public void TravelBtn()
     {
-        hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubNum;
-        pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].locationNum;
+        hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+        pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
 
-        if (myInfoList.info[counter].travelType == "Air")
+        for (int i = 0; i < tableSize; i++)
+        {
+          if (myInfoList.info[i].hubNum == hubLocation[playerTurnTickets - 1])
+          {
+            if (myInfoList.info[i].locationNum == pLocation[playerTurnTickets - 1])
+            {
+              counters[playerTurnTickets - 1] = i;
+              return;
+            }
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
         {
             //airTravel;
         }
 
-        if (myInfoList.info[counter].travelType == "Train")
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
         {
             //trainTravel;
         }
 
-        if (myInfoList.info[counter].travelType == "Boat")
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
         {
             //boatTravel;
         }
 
-        if (myInfoList.info[counter].travelType == "Road")
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
         {
             //roadTravel;
         }
 
-        setCounter();
         SavePlayer();
         SceneManager.LoadScene("PlayResource");
     }

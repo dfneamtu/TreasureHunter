@@ -298,10 +298,6 @@ public class GameController : MonoBehaviour
           players.Add(p);
         }
 
-        for (int i = 0; i < 6; i++)
-        {
-          counters[i] = 0;
-        }
         //pLocation = { 1, 1, 1, 1, 1, 1 };
         //hubLocation = { 1, 1, 1, 1, 1, 1 };
 
@@ -1075,6 +1071,7 @@ public class GameController : MonoBehaviour
     public void SavePlayer()
     {
         GlobalController.Instance.players = players;
+        GlobalController.Instance.counters = counters;
         //Player 1 info to save
         GlobalController.Instance.player1Values = player1Values;
         GlobalController.Instance.player1Tickets = player1Tickets;

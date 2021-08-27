@@ -85,6 +85,7 @@ public class GlobalController : MonoBehaviour
         {
             pLocation[i] = 1;
             hubLocation[i] = 1;
+            counters[i] = 0;
         }
     }
 }
