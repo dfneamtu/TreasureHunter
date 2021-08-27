@@ -38,8 +38,9 @@ public class playerLocation : MonoBehaviour
     public Sprite[] PlayerBGs;
     public SpriteRenderer playerbgs;
 
-    public Sprite[] HubLocations;
-    public SpriteRenderer spriteRenderer;
+    public GameObject hub1;
+    public GameObject hub2;
+    public GameObject hub3;
 
     public Text playerMoves;
 
@@ -130,17 +131,23 @@ public class playerLocation : MonoBehaviour
 
         if (hubLocation[playerTurnTickets - 1] == 1)
         {
-            spriteRenderer.sprite = HubLocations[0];
+            hub1.gameObject.SetActive(true);
+            hub2.gameObject.SetActive(false);
+            hub3.gameObject.SetActive(false);
         }
 
         if (hubLocation[playerTurnTickets - 1] == 2)
         {
-            spriteRenderer.sprite = HubLocations[1];
+            hub1.gameObject.SetActive(false);
+            hub2.gameObject.SetActive(true);
+            hub3.gameObject.SetActive(false);
         }
 
         if (hubLocation[playerTurnTickets - 1] == 3)
         {
-            spriteRenderer.sprite = HubLocations[2];
+            hub1.gameObject.SetActive(false);
+            hub2.gameObject.SetActive(false);
+            hub3.gameObject.SetActive(true);
         }
 
     }
