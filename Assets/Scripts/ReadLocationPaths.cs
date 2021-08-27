@@ -34,7 +34,7 @@ public class ReadLocationPaths : MonoBehaviour
     {
         Debug.Log("working");
         TextAsset locationPathData = Resources.Load<TextAsset>("LocationPaths");
-       
+
 
         string[] data = locationPathData.text.Split(new char[] { '\n'});
 
@@ -57,84 +57,5 @@ public class ReadLocationPaths : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        UpdateUIStats();
-    }
-
-
-    void UpdateUIStats()
-    {
-        pLocation = GlobalController.Instance.pLocation;
-        hubLocation = GlobalController.Instance.hubLocation;
-
-        playerTurnTickets = GameController.playerTurn;
-
-        List<LocationPath> adjacentLocationPaths = new List<LocationPath>();
-
-        foreach (LocationPath lp in locationPaths)
-        {
-            int length = adjacentLocationPaths.Count;
-
-            if (lp.hubNum == hubLocation[playerTurnTickets - 1])
-            {
-                if (lp.locationNum ==  pLocation[playerTurnTickets - 1])
-                {
-
-                    adjacentLocationPaths.Add(lp);
-                    Debug.Log("Player can travel to: " + lp.travelToStr + " with " + lp.ticketNum + " " + lp.travelType + " tickets. FROM: " + lp.locationStr);
-
-                    fromLocation.text = adjacentLocationPaths[counter].locationStr.ToString();
-                    toLocation.text = adjacentLocationPaths[counter].travelToStr.ToString();
-
-                    if (lp.travelType == "Air")
-                    {
-                        airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Train")
-                    {
-                        airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Boat")
-                    {
-                        airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
-                    }
-
-                    if (lp.travelType == "Road")
-                    {
-                        airTravel.text = adjacentLocationPaths[counter].ticketNum.ToString();
-                    }
-
-                }
-            }
-        }
-    }
-
-    public void SavePlayer()
-    {
-
-        GlobalController.Instance.pLocation = pLocation;
-        GlobalController.Instance.hubLocation = hubLocation;
-
-    }
-
-    public void FwdButton()
-    {
-        if (counter + 1 < locationPaths.Count)
-        {
-            counter++;
-            Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
-        }
-    }
-
-    public void PrevButton()
-    {
-        if (counter - 1 == -1)
-        {
-            Debug.Log("current player " + playerTurnTickets + " can travel to " + locationPaths[counter].travelToStr);
-        }
-
-    }
+    
 }

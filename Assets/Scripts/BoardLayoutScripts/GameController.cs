@@ -84,6 +84,8 @@ public class GameController : MonoBehaviour
     public GameObject LocationsObj;
     public GameObject LocationPathsObj;
 
+    public int[] counters = new int[6];
+
     private ReadLocationPaths locationPathsScript;
     private ReadLocations locationsScript;
 
@@ -296,6 +298,10 @@ public class GameController : MonoBehaviour
           players.Add(p);
         }
 
+        for (int i = 0; i < 6; i++)
+        {
+          counters[i] = 0;
+        }
         //pLocation = { 1, 1, 1, 1, 1, 1 };
         //hubLocation = { 1, 1, 1, 1, 1, 1 };
 
@@ -383,7 +389,7 @@ public class GameController : MonoBehaviour
 
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
-
+        counters = GlobalController.Instance.counters;
 
     }
 
