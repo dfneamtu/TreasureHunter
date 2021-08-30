@@ -62,6 +62,8 @@ public class LoadLocation : MonoBehaviour
     public void Start()
     {
         ReadCSV();
+        Time.timeScale = 1;
+
         //Debug.Log("counter is: " + counters[playerTurnTickets - 1]);
         //Debug.Log("player is at: " + hubLocation[playerTurnTickets - 1] + ", " + pLocation[playerTurnTickets - 1]);
 
@@ -94,6 +96,7 @@ public class LoadLocation : MonoBehaviour
 
     public void Update()
     {
+        Debug.Log("CALLING UPDATE");
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
         counters = GlobalController.Instance.counters;
@@ -104,9 +107,10 @@ public class LoadLocation : MonoBehaviour
         //Debug.Log("Player can travel to: " + myInfoList.info[hubLocation[playerTurnTickets]].traveltoStr + " with " + myInfoList.info[hubLocation[playerTurnTickets]].ticketNum + " " + myInfoList.info[hubLocation[playerTurnTickets]].travelType + " tickets. From: " + myInfoList.info[hubLocation[playerTurnTickets]].locationStr);
         if (myInfoList.info[counters[playerTurnTickets - 1]].hubNum == hubLocation[playerTurnTickets - 1])
         {
+            Debug.Log("INSIDE HUB IF");
             if (myInfoList.info[counters[playerTurnTickets - 1]].locationNum == pLocation[playerTurnTickets - 1])
             {
-
+                Debug.Log("INSIDE LOCATION IF");
                 //Debug.Log("Player can travel to: " + myInfoList.info[i].traveltoStr + " with " + myInfoList.info[i].ticketNum + " " + myInfoList.info[i].travelType + " tickets. From: " + myInfoList.info[i].locationStr);
                 Debug.Log("TRAVELLING FOR PLAYER " + playerTurnTickets);
                 Debug.Log("SHOWING DESTINATION: " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr);
@@ -210,8 +214,8 @@ public class LoadLocation : MonoBehaviour
             //roadTravel;
         }
 
-        SavePlayer();
-        SceneManager.LoadScene("PlayResource");
+        //SavePlayer();
+        //SceneManager.LoadScene("PlayResource");
     }
 
 }

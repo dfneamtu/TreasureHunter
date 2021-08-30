@@ -40,19 +40,19 @@ public class Menu : MonoBehaviour
     public void Play3Dmap()
     {
         SceneManager.LoadScene("Map3Dworld");
-        playTravelObj.SetActive(false);
+        //playTravelObj.SetActive(false);
     }
 
     public void PlayResource()
     {
         SceneManager.LoadScene("PlayResource");
-        playTravelObj.SetActive(false);
+        //playTravelObj.SetActive(false);
     }
 
     public void PlayTravel()
     {
         //playTravelObj = GameObject.FindWithTag("travel");
-        playTravelObj.SetActive(true);
+        //playTravelObj.SetActive(true);
         SceneManager.LoadScene("PlayTravel");
     }
 

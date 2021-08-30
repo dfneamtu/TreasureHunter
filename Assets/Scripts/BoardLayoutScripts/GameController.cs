@@ -231,6 +231,9 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+
+        Time.timeScale = 1;
+        
         for (int i = 0; i < 8; i++)
         {
             skillTextsp1[i].text = 0.ToString();

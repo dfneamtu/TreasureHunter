@@ -2417,6 +2417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c047be7d6e064664d867f3d239bc42fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  counters: 000000000000000000000000000000000000000000000000
   player1Values: 0000000000000000000000000000000000000000000000000000000000000000
   player1Tickets: 00000000000000000000000000000000
   player2Values: 0000000000000000000000000000000000000000000000000000000000000000
@@ -5835,7 +5836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1033649316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6908,6 +6909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pLocation: 000000000000000000000000000000000000000000000000
   hubLocation: 000000000000000000000000000000000000000000000000
+  counters: 000000000000000000000000000000000000000000000000
   playerTurnTickets: 0
   fromLocation: {fileID: 9226790}
   toLocation: {fileID: 188756930}
@@ -6915,6 +6917,7 @@ MonoBehaviour:
   boatTravel: {fileID: 777532537}
   trainTravel: {fileID: 699652492}
   roadTravel: {fileID: 186616265}
+  tableSize: 0
   fwdButton: {fileID: 318191116}
   prevButton: {fileID: 1967666429}
   counter: 0
