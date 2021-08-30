@@ -157,7 +157,7 @@ public class LoadLocation : MonoBehaviour
 
     public void FwdButton()
     {
-      if (counters[playerTurnTickets - 1] != tableSize && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].hubNum && pLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].locationNum)
+      if (counters[playerTurnTickets - 1] != (tableSize - 1) && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].hubNum && pLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].locationNum)
       {
         Debug.Log("incrementing counter");
         counters[playerTurnTickets - 1]++;
