@@ -91,12 +91,11 @@ public class LoadLocation : MonoBehaviour
             myInfoList.info[i].hubtoNum = int.Parse(data[8 * (i + 1) + 6]);
             myInfoList.info[i].traveltoNum = int.Parse(data[8 * (i + 1) + 7]);
         }
-
     }
 
     public void Update()
     {
-        Debug.Log("CALLING UPDATE");
+        //Debug.Log("CALLING UPDATE");
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
         counters = GlobalController.Instance.counters;
@@ -107,14 +106,14 @@ public class LoadLocation : MonoBehaviour
         //Debug.Log("Player can travel to: " + myInfoList.info[hubLocation[playerTurnTickets]].traveltoStr + " with " + myInfoList.info[hubLocation[playerTurnTickets]].ticketNum + " " + myInfoList.info[hubLocation[playerTurnTickets]].travelType + " tickets. From: " + myInfoList.info[hubLocation[playerTurnTickets]].locationStr);
         if (myInfoList.info[counters[playerTurnTickets - 1]].hubNum == hubLocation[playerTurnTickets - 1])
         {
-            Debug.Log("INSIDE HUB IF");
+            //Debug.Log("INSIDE HUB IF");
             if (myInfoList.info[counters[playerTurnTickets - 1]].locationNum == pLocation[playerTurnTickets - 1])
             {
-                Debug.Log("INSIDE LOCATION IF");
+                //Debug.Log("INSIDE LOCATION IF");
                 //Debug.Log("Player can travel to: " + myInfoList.info[i].traveltoStr + " with " + myInfoList.info[i].ticketNum + " " + myInfoList.info[i].travelType + " tickets. From: " + myInfoList.info[i].locationStr);
-                Debug.Log("TRAVELLING FOR PLAYER " + playerTurnTickets);
-                Debug.Log("SHOWING DESTINATION: " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr);
-                Debug.Log("COUNTER VALUE: " + counters[playerTurnTickets - 1]);
+                //Debug.Log("TRAVELLING FOR PLAYER " + playerTurnTickets);
+                //Debug.Log("SHOWING DESTINATION: " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr);
+                //Debug.Log("COUNTER VALUE: " + counters[playerTurnTickets - 1]);
 
                 fromLocation.text = myInfoList.info[counters[playerTurnTickets - 1]].locationStr.ToString();
                 toLocation.text = myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr.ToString();
@@ -158,19 +157,21 @@ public class LoadLocation : MonoBehaviour
 
     public void FwdButton()
     {
-      if (counters[playerTurnTickets - 1] != tableSize && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].hubNum)
+      if (counters[playerTurnTickets - 1] != tableSize && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].hubNum && pLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].locationNum)
       {
         Debug.Log("incrementing counter");
         counters[playerTurnTickets - 1]++;
+        Debug.Log("DISPLAY SHOULD SHOW: " + myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr);
       }
     }
 
     public void PrevButton()
     {
-      if (counters[playerTurnTickets - 1] != 0 && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].hubNum)
+      if (counters[playerTurnTickets - 1] != 0 && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].hubNum && pLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].locationNum)
       {
         Debug.Log("decrementing counter");
         counters[playerTurnTickets - 1]--;
+        Debug.Log("DISPLAY SHOULD SHOW: " + myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr);
       }
     }
 
@@ -182,7 +183,7 @@ public class LoadLocation : MonoBehaviour
         Debug.Log("travelled to: " + myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr);
         Debug.Log("current counter: " + counters[playerTurnTickets - 1]);
 
-        for (int i = 0; i < tableSize; i++)
+        for (int i = tableSize - 1; i >= 0; i--)
         {
           if (myInfoList.info[i].hubNum == hubLocation[playerTurnTickets - 1])
           {
@@ -215,7 +216,7 @@ public class LoadLocation : MonoBehaviour
         }
 
         //SavePlayer();
-        //SceneManager.LoadScene("PlayResource");
+        SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
     }
 
 }

@@ -45,7 +45,7 @@ public class Menu : MonoBehaviour
 
     public void PlayResource()
     {
-        SceneManager.LoadScene("PlayResource");
+        SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
         //playTravelObj.SetActive(false);
     }
 
@@ -53,7 +53,7 @@ public class Menu : MonoBehaviour
     {
         //playTravelObj = GameObject.FindWithTag("travel");
         //playTravelObj.SetActive(true);
-        SceneManager.LoadScene("PlayTravel");
+        SceneManager.LoadScene("PlayTravel", LoadSceneMode.Single);
     }
 
 

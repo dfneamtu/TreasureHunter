@@ -5820,65 +5820,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1024105354}
   m_CullTransparentMesh: 1
---- !u!1 &1033649315
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1033649317}
-  - component: {fileID: 1033649316}
-  m_Layer: 0
-  m_Name: playTravel
-  m_TagString: travel
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1033649316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033649315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea8e5cccd86946bea6bf1e99aa1472d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LocationsObj: {fileID: 1600647758}
-  LocationPathsObj: {fileID: 1141990259}
-  paths: []
-  adjacentLocations: []
-  pLocation: 000000000000000000000000000000000000000000000000
-  hubLocation: 000000000000000000000000000000000000000000000000
-  playerTurnTickets: 0
-  counter: 0
-  fwdButton: {fileID: 318191116}
-  prevButton: {fileID: 1967666429}
-  fromLocation: {fileID: 9226790}
-  toLocation: {fileID: 188756930}
-  airTravel: {fileID: 2122463663}
-  boatTravel: {fileID: 777532537}
-  trainTravel: {fileID: 699652492}
-  roadTravel: {fileID: 186616265}
---- !u!4 &1033649317
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033649315}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1058038457
 GameObject:
   m_ObjectHideFlags: 0
@@ -6887,7 +6828,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1189453248}
   - component: {fileID: 1189453247}
-  - component: {fileID: 1189453249}
   m_Layer: 0
   m_Name: LocationPathsObjReader
   m_TagString: Untagged
@@ -6938,29 +6878,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1189453249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189453246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b42e44e06c945874f9623b91ac14da7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pLocation: 000000000000000000000000000000000000000000000000
-  hubLocation: 000000000000000000000000000000000000000000000000
-  playerTurnTickets: 0
-  fromLocation: {fileID: 9226790}
-  toLocation: {fileID: 188756930}
-  airTravel: {fileID: 2122463663}
-  boatTravel: {fileID: 777532537}
-  trainTravel: {fileID: 699652492}
-  roadTravel: {fileID: 186616265}
-  fwdButton: {fileID: 318191116}
-  prevButton: {fileID: 1967666429}
 --- !u!1 &1193671173
 GameObject:
   m_ObjectHideFlags: 0
@@ -10665,7 +10582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c25092ba628dbf4c86ad8249e395e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playTravelObj: {fileID: 1033649315}
+  playTravelObj: {fileID: 0}
 --- !u!114 &1789287576
 MonoBehaviour:
   m_ObjectHideFlags: 0

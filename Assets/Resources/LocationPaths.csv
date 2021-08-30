@@ -1,11 +1,6 @@
 ﻿Hub,LocationNum,LocationStr,TravelType,TicketNum,TravelToString,HubToNum,TravelToNum
 1,1,London,Air,1,Paris,2,1
 1,1,London,Air,1,Stockholm,3,1
-1,1,London,Air,2,Moscow,4,1
-1,1,London,Air,3,Istanbul,5,1
-1,1,London,Air,1,Berlin,6,1
-1,1,London,Air,2,Cairo,7,1
-1,1,London,Air,1,Stockholm,8,1
 1,1,London,Road,1,Leeds,1,7
 1,1,London,Road,1,Canterbury,1,2
 1,1,London,Train,1,Birmingham,1,5
@@ -14,14 +9,13 @@
 1,2,Canterbury,Road,1,London,1,1
 1,2,Canterbury,Boat,1,Brussels,1,3
 1,3,Brussels,Boat,1,Canterbury,1,2
-1,3,Brussels,Road,1,HUB-Paris,2,3
+1,3,Brussels,Road,1,Paris,2,3
 1,4,Amsterdam,Boat,1,Leeds,1,7
-1,4,Amsterdam,Road,1,HUB-Berlin,3,4
 1,5,Birmingham,Train,1,London,1,1
 1,5,Birmingham,Train,1,Liverpool,1,6
 1,5,Birmingham,Train,2,Edinburgh,1,8
 1,6,Liverpool,Train,2,London,1,1
-1,6,Liverpool,Train,1,Bimingham,1,5
+1,6,Liverpool,Train,1,Birmingham,1,5
 1,6,Liverpool,Train,1,Edinburgh,1,8
 1,6,Liverpool,Road,1,Leeds,1,7
 1,6,Liverpool,Boat,1,Dublin,1,9
@@ -29,19 +23,13 @@
 1,7,Leeds,Road,1,Liverpool,1,6
 1,7,Leeds,Boat,1,Amsterdam,1,4
 1,8,Edinburgh,Train,3,London,1,1
-1,8,Edinburgh,Train,2,Bimingham,1,5
+1,8,Edinburgh,Train,2,Birmingham,1,5
 1,8,Edinburgh,Train,1,Liverpool,1,6
-1,8,Edinburgh,Boat,1,HUB-Stockholm,8,2
 1,9,Dublin,Road,1,Belfast,1,10
 1,9,Dublin,Boat,1,Liverpool,1,6
 1,10,Belfast,Road,1,Dublin,1,9
 2,1,Paris,Air,1,London,1,1
 2,1,Paris,Air,1,Stockholm,3,1
-2,1,Paris,Air,2,Moscow,4,1
-2,1,Paris,Air,3,Istanbul,5,1
-2,1,Paris,Air,1,Berlin,6,1
-2,1,Paris,Air,2,Cairo,7,1
-2,1,Paris,Air,1,Stockholm,8,1
 2,1,Paris,Road,1,Luxembourg,2,2
 2,1,Paris,Road,1,Nantes,2,11
 2,2,Luxembourg,Road,1,Paris,2,1
@@ -49,7 +37,7 @@
 2,2,Luxembourg,Road,1,Bern,2,3
 2,3,Bern,Road,1,Luxembourg,2,2
 2,3,Bern,Road,1,Milan,2,4
-2,3,Bern,Road,1,HUB-Berlin,3,1
+2,3,Bern,Road,1,Stockholm,3,1
 2,4,Milan,Train,1,Lyon,2,10
 2,4,Milan,Train,1,Nantes,2,11
 2,4,Milan,Road,1,Bern,2,3
@@ -57,8 +45,6 @@
 2,5,Genoa,Road,2,Milan,2,4
 2,5,Genoa,Road,1,Monaco,2,7
 2,6,Monaco,Road,1,Genoa,2,5
-2,6,Monaco,Boat,1,Hub-Cypres,4,1
-2,6,Monaco,Boat,3,Hub-North Africa,5,1
 2,6,Monaco,Road,1,Marseille,2,7
 2,7,Marseille,Road,1,Monaco,2,6
 2,7,Marseille,Road,1,Lyon,2,10
@@ -75,17 +61,11 @@
 2,11,Nantes,Train,1,Milan,2,4
 2,11,Nantes,Road,1,Paris,2,1
 3,1,Stockholm,Air,1,London,1,1
-3,1,Stockholm,Air,1,Berlin,3,1
-3,1,Stockholm,Air,2,Moscow,4,1
-3,1,Stockholm,Air,3,Istanbul,5,1
-3,1,Stockholm,Air,1,Rome,6,1
-3,1,Stockholm,Air,2,Cairo,7,1
 3,1,Stockholm,Air,1,Paris,2,1
 3,1,Stockholm,Road,1,Copenhagen,3,2
 3,1,Stockholm,Road,1,Gavle,3,3
 3,1,Stockholm,Boat,1,Helsinki,3,11
 3,2,Copenhagen,Road,1,Stockholm,3,1
-3,2,Copenhagen,Road,1,Gdansk,333,333
 3,3,Gavle,Train,1,Stockholm,3,1
 3,3,Gavle,Train,1,Oslo,3,4
 3,3,Gavle,Train,2,Bergen,3,5
@@ -109,5 +89,4 @@
 3,10,Tampere,Road,1,Oulu,3,9
 3,10,Tampere,Road,1,Helsinki,3,11
 3,11,Helsinki,Road,1,Tampere,3,10
-3,11,Helsinki,Boat,1,St. Petersberg,333,333
 3,11,Helsinki,Boat,1,Stockholm,3,1
