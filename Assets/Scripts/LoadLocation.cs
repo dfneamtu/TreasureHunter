@@ -34,6 +34,24 @@ public class LoadLocation : MonoBehaviour
 
     public TextAsset textAssetData;
 
+    //Player 1 Stats
+    public int[] player1Tickets = new int[4];
+
+    //Player2 Stats
+    public int[] player2Tickets = new int[4];
+
+    //Player3 Stats
+    public int[] player3Tickets = new int[4];
+
+    //Player4 Stats
+    public int[] player4Tickets = new int[4];
+
+    //Player5 Stats
+    public int[] player5Tickets = new int[4];
+
+    //Player6 Stats
+    public int[] player6Tickets = new int[4];
+
     [System.Serializable]
 
     public class Info
@@ -96,6 +114,24 @@ public class LoadLocation : MonoBehaviour
     public void Update()
     {
         //Debug.Log("CALLING UPDATE");
+        //Player 1 info to load
+        player1Tickets = GlobalController.Instance.player1Tickets;
+
+        //Player 2 info to load
+        player2Tickets = GlobalController.Instance.player2Tickets;
+
+        //Player 3 info to load
+        player3Tickets = GlobalController.Instance.player3Tickets;
+
+        //Player 4 info to load
+        player4Tickets = GlobalController.Instance.player4Tickets;
+
+        //Player 5 info to load
+        player5Tickets = GlobalController.Instance.player5Tickets;
+
+        //Player 6 info to load
+        player6Tickets = GlobalController.Instance.player6Tickets;
+
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
         counters = GlobalController.Instance.counters;
@@ -121,21 +157,33 @@ public class LoadLocation : MonoBehaviour
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
                 {
                     airTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
+                    trainTravel.text = "0";
+                    boatTravel.text = "0";
+                    roadTravel.text = "0";
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
                 {
                     trainTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
+                    airTravel.text = "0";
+                    boatTravel.text = "0";
+                    roadTravel.text = "0";
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
                 {
                     boatTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
+                    trainTravel.text = "0";
+                    airTravel.text = "0";
+                    roadTravel.text = "0";
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
                 {
                     roadTravel.text = myInfoList.info[counters[playerTurnTickets - 1]].ticketNum.ToString();
+                    trainTravel.text = "0";
+                    boatTravel.text = "0";
+                    airTravel.text = "0";
                 }
             }
         }
@@ -148,6 +196,23 @@ public class LoadLocation : MonoBehaviour
 
     public void SavePlayer()
     {
+        //Player 1 info to save
+        GlobalController.Instance.player1Tickets = player1Tickets;
+
+        //Player 2 info to save
+        GlobalController.Instance.player2Tickets = player2Tickets;
+
+        //Player 3 info to save
+        GlobalController.Instance.player3Tickets = player3Tickets;
+
+        //Player 4 info to save
+        GlobalController.Instance.player4Tickets = player4Tickets;
+
+        //Player 5 info to save
+        GlobalController.Instance.player5Tickets = player5Tickets;
+
+        //Player 6 info to save
+        GlobalController.Instance.player6Tickets = player6Tickets;
 
         GlobalController.Instance.pLocation = pLocation;
         GlobalController.Instance.hubLocation = hubLocation;
