@@ -145,11 +145,6 @@ public class LoadLocation : MonoBehaviour
             //Debug.Log("INSIDE HUB IF");
             if (myInfoList.info[counters[playerTurnTickets - 1]].locationNum == pLocation[playerTurnTickets - 1])
             {
-                //Debug.Log("INSIDE LOCATION IF");
-                //Debug.Log("Player can travel to: " + myInfoList.info[i].traveltoStr + " with " + myInfoList.info[i].ticketNum + " " + myInfoList.info[i].travelType + " tickets. From: " + myInfoList.info[i].locationStr);
-                //Debug.Log("TRAVELLING FOR PLAYER " + playerTurnTickets);
-                //Debug.Log("SHOWING DESTINATION: " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr);
-                //Debug.Log("COUNTER VALUE: " + counters[playerTurnTickets - 1]);
 
                 fromLocation.text = myInfoList.info[counters[playerTurnTickets - 1]].locationStr.ToString();
                 toLocation.text = myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr.ToString();
@@ -191,7 +186,17 @@ public class LoadLocation : MonoBehaviour
 
     public void setCounter()
     {
-
+      for (int i = tableSize - 1; i >= 0; i--)
+      {
+        if (myInfoList.info[i].hubNum == hubLocation[playerTurnTickets - 1])
+        {
+          if (myInfoList.info[i].locationNum == pLocation[playerTurnTickets - 1])
+          {
+            counters[playerTurnTickets - 1] = i;
+            Debug.Log("new counter value: " + counters[playerTurnTickets - 1]);
+          }
+        }
+      }
     }
 
     public void SavePlayer()
@@ -224,9 +229,7 @@ public class LoadLocation : MonoBehaviour
     {
       if (counters[playerTurnTickets - 1] != (tableSize - 1) && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].hubNum && pLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].locationNum)
       {
-        Debug.Log("incrementing counter");
         counters[playerTurnTickets - 1]++;
-        Debug.Log("DISPLAY SHOULD SHOW: " + myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr);
       }
     }
 
@@ -234,54 +237,463 @@ public class LoadLocation : MonoBehaviour
     {
       if (counters[playerTurnTickets - 1] != 0 && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].hubNum && pLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].locationNum)
       {
-        Debug.Log("decrementing counter");
         counters[playerTurnTickets - 1]--;
-        Debug.Log("DISPLAY SHOULD SHOW: " + myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr);
       }
     }
 
     public void TravelBtn()
     {
-        hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-        pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
-        Debug.Log("players new coordinates:" + hubLocation[playerTurnTickets - 1] + ", " + pLocation[playerTurnTickets - 1]);
-        Debug.Log("travelled to: " + myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr);
-        Debug.Log("current counter: " + counters[playerTurnTickets - 1]);
 
-        for (int i = tableSize - 1; i >= 0; i--)
-        {
-          if (myInfoList.info[i].hubNum == hubLocation[playerTurnTickets - 1])
-          {
-            if (myInfoList.info[i].locationNum == pLocation[playerTurnTickets - 1])
-            {
-              counters[playerTurnTickets - 1] = i;
-              Debug.Log("new counter value: " + counters[playerTurnTickets - 1]);
-            }
-          }
-        }
-
+      switch (playerTurnTickets)
+      {
+        case 1:
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
         {
-            //airTravel;
+            if (player1Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+            {
+              player1Tickets[1] = player1Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              setCounter();
+              SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+            }
+            else
+            {
+              Debug.Log("insufficient");
+              //insufficient tickets
+            }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
         {
+            //trainTravel;
+            if (player1Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+            {
+              player1Tickets[2] = player1Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              setCounter();
+              SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+            }
+            else
+            {
+              Debug.Log("insufficient");
+              //insufficient tickets
+            }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
+        {
+            //boatTravel;
+            if (player1Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+            {
+              player1Tickets[0] = player1Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              setCounter();
+              SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+            }
+            else
+            {
+              Debug.Log("insufficient");
+              //insufficient tickets
+            }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
+        {
+            //roadTravel;
+            if (player1Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+            {
+              player1Tickets[3] = player1Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              setCounter();
+              SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+            }
+            else
+            {
+              Debug.Log("insufficient");
+              //insufficient tickets
+            }
+        }
+        break;
+
+        case 2:
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
+        {
+          if (player2Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player2Tickets[0] = player2Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
+        {
+          if (player2Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player2Tickets[1] = player2Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
+        {
+          if (player2Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player2Tickets[2] = player2Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
+        {
+          if (player2Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player2Tickets[3] = player2Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        break;
+
+        case 3:
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
+        {
+          if (player3Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player3Tickets[0] = player3Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
+        {
+          if (player3Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player3Tickets[1] = player3Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+            //trainTravel;
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
+        {
+          if (player3Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player3Tickets[2] = player3Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+            //boatTravel;
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
+        {
+          if (player3Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player3Tickets[3] = player3Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+            //roadTravel;
+        }
+
+        break;
+
+        case 4:
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
+        {
+          if (player4Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player4Tickets[0] = player4Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
+        {
+          if (player4Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player4Tickets[1] = player4Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
             //trainTravel;
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
         {
             //boatTravel;
+            if (player4Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+            {
+              player4Tickets[2] = player4Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              setCounter();
+              SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+            }
+            else
+            {
+              Debug.Log("insufficient");
+              //insufficient tickets
+            }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
         {
             //roadTravel;
+            if (player4Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+            {
+              player4Tickets[3] = player4Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              setCounter();
+
+              SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+            }
+            else
+            {
+              Debug.Log("insufficient");
+              //insufficient tickets
+            }
         }
 
+        break;
+
+        case 5:
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
+        {
+          if (player5Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player5Tickets[0] = player5Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
+        {
+          if (player5Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player5Tickets[1] = player5Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+            //trainTravel;
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
+        {
+          if (player5Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player5Tickets[2] = player5Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+            //boatTravel;
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
+        {
+          if (player5Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player5Tickets[3] = player5Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+            //roadTravel;
+        }
+
+        break;
+
+        case 6:
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
+        {
+          if (player6Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player6Tickets[0] = player6Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
+        {
+          if (player6Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player6Tickets[1] = player6Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
+        {
+          if (player6Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player6Tickets[2] = player6Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
+        {
+          if (player6Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player6Tickets[3] = player6Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+          }
+            //roadTravel;
+        }
+        break;
+      }
+
+
         //SavePlayer();
-        SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+
     }
 
 }
