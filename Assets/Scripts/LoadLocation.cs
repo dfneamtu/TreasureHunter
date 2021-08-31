@@ -323,23 +323,6 @@ public class LoadLocation : MonoBehaviour
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
         {
-          if (player2Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
-          {
-            player2Tickets[0] = player2Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
-            setCounter();
-            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
-          }
-          else
-          {
-            Debug.Log("insufficient");
-            //insufficient tickets
-          }
-        }
-
-        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
-        {
           if (player2Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player2Tickets[1] = player2Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
@@ -355,11 +338,28 @@ public class LoadLocation : MonoBehaviour
           }
         }
 
-        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
         {
           if (player2Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player2Tickets[2] = player2Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
+        {
+          if (player2Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player2Tickets[0] = player2Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
@@ -395,9 +395,9 @@ public class LoadLocation : MonoBehaviour
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
         {
-          if (player3Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          if (player3Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
-            player3Tickets[0] = player3Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            player3Tickets[1] = player3Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
@@ -412,9 +412,9 @@ public class LoadLocation : MonoBehaviour
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
         {
-          if (player3Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          if (player3Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
-            player3Tickets[1] = player3Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            player3Tickets[2] = player3Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
@@ -430,9 +430,9 @@ public class LoadLocation : MonoBehaviour
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
         {
-          if (player3Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          if (player3Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
-            player3Tickets[2] = player3Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            player3Tickets[0] = player3Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
@@ -470,9 +470,9 @@ public class LoadLocation : MonoBehaviour
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
         {
-          if (player4Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          if (player4Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
-            player4Tickets[0] = player4Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            player4Tickets[1] = player4Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
@@ -487,9 +487,9 @@ public class LoadLocation : MonoBehaviour
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
         {
-          if (player4Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          if (player4Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
-            player4Tickets[1] = player4Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            player4Tickets[2] = player4Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
@@ -507,9 +507,9 @@ public class LoadLocation : MonoBehaviour
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
         {
             //boatTravel;
-            if (player4Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+            if (player4Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
             {
-              player4Tickets[2] = player4Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+              player4Tickets[0] = player4Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
               hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
               pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
@@ -547,9 +547,9 @@ public class LoadLocation : MonoBehaviour
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
         {
-          if (player5Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          if (player5Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
-            player5Tickets[0] = player5Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            player5Tickets[1] = player5Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
@@ -565,9 +565,9 @@ public class LoadLocation : MonoBehaviour
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
         {
-          if (player5Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          if (player5Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
-            player5Tickets[1] = player5Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            player5Tickets[2] = player5Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
@@ -583,9 +583,9 @@ public class LoadLocation : MonoBehaviour
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
         {
-          if (player5Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          if (player5Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
-            player5Tickets[2] = player5Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            player5Tickets[0] = player5Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
@@ -623,23 +623,6 @@ public class LoadLocation : MonoBehaviour
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
         {
-          if (player6Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
-          {
-            player6Tickets[0] = player6Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
-            setCounter();
-            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
-          }
-          else
-          {
-            Debug.Log("insufficient");
-            //insufficient tickets
-          }
-        }
-
-        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
-        {
           if (player6Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player6Tickets[1] = player6Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
@@ -655,11 +638,28 @@ public class LoadLocation : MonoBehaviour
           }
         }
 
-        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
         {
           if (player6Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player6Tickets[2] = player6Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            setCounter();
+            SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
+          }
+          else
+          {
+            Debug.Log("insufficient");
+            //insufficient tickets
+          }
+        }
+
+        if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
+        {
+          if (player6Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
+          {
+            player6Tickets[0] = player6Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
