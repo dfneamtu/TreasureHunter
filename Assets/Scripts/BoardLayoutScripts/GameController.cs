@@ -390,7 +390,9 @@ public class GameController : MonoBehaviour
         hubLocation = GlobalController.Instance.hubLocation;
         counters = GlobalController.Instance.counters;
 
-    }
+        missions = GlobalController.Instance.missions;
+
+}
 
     void playerGmo()
     {
@@ -1102,6 +1104,8 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.pLocation = pLocation;
         GlobalController.Instance.hubLocation = hubLocation;
 
+        GlobalController.Instance.missions = missions;
+
         //GlobalController.Instance.playerMoves = playerMoves;
         //GlobalController.Instance.turn = turn;
 
@@ -1158,6 +1162,7 @@ public class GameController : MonoBehaviour
       List<Location> potentialLocationsHub1 = new List<Location>();
       List<Location> potentialLocationsHub2 = new List<Location>();
       List<Location> potentialLocationsHub3 = new List<Location>();
+
       foreach(Location l in locationsScript.locations)
       {
         if (l.isSpawner == 0 && l.isAirport == 0)

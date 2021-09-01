@@ -52,6 +52,9 @@ public class GlobalController : MonoBehaviour
     public int[] hubLocation = new int[6];
     public int[] pLocation = new int[6];
 
+    public List<Mission> missions = new List<Mission>();
+
+
     //public int playerTurn;
     //public int playerMoves;
     //public bool turn;
