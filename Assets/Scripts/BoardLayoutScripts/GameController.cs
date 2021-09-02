@@ -21,73 +21,23 @@ public class Enemy
   }
 }
 
-public class Mission
-{
-  public int hubNum;
-  public int locationNum;
-  public int skillNum;
-  public int pointsReq;
-  public int victoryPoints;
-  public bool[] completedBy = new bool[6];
-
-  public Mission(int h, int l, int s)
-  {
-    hubNum = h;
-    locationNum = l;
-    skillNum = s;
-
-    pointsReq = ML_Algo.ML() + 1;
-    victoryPoints = ML_Algo.ML() + 1;
-
-    for (int i = 0; i < 6; i++)
-    {
-      completedBy[i] = false;
-    }
-  }
-}
-
-public class Player
-{
-  public int hubNum;
-  public int locationNum;
-  public int health;
-  public int strength;
-  public int[] skills = new int[8];
-  public int[] tickets = new int[4];
-
-  public Player()
-  {
-    hubNum = 1;
-    locationNum = 1;
-    health = 10;
-    strength = 10;
-    for (int i = 0; i < 8; i++)
-    {
-      skills[i] = 0;
-    }
-    for (int i = 0; i < 4; i++)
-    {
-      tickets[i] = 0;
-    }
-  }
-}
-
-
 public class GameController : MonoBehaviour
 {
     //Skillsp1Script.GetComponent<Skillsp1>();
     public List<string> log = new List<string>();
     public List<Enemy> enemies = new List<Enemy>();
-    public List<Player> players = new List<Player>();
     public List<Mission> missions = new List<Mission>();
+
 
     public GameObject LocationsObj;
     public GameObject LocationPathsObj;
+    public GameObject MissionsObj;
 
     public int[] counters = new int[6];
 
     private ReadLocationPaths locationPathsScript;
     private ReadLocations locationsScript;
+    private LoadMissions missionsScript;
 
 
     public TMP_Text p1ScoreText;
@@ -226,6 +176,11 @@ public class GameController : MonoBehaviour
 
         locationsScript = LocationsObj.GetComponent<ReadLocations>();
         locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
+        missionsScript = MissionsObj.GetComponent<LoadMissions>();
+
+
+
+
 
     }
 
@@ -233,7 +188,7 @@ public class GameController : MonoBehaviour
     {
 
         Time.timeScale = 1;
-        
+
         for (int i = 0; i < 8; i++)
         {
             skillTextsp1[i].text = 0.ToString();
@@ -259,11 +214,6 @@ public class GameController : MonoBehaviour
 
 
         CheckPlayerTurn();
-        generateMissions();
-        for (int i = 0; i < missions.Count; i++)
-        {
-          Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum + ", " + missions[i].skillNum + ", " + missions[i].pointsReq + ", " + missions[i].victoryPoints);
-        }
 
         //playerMoves = GlobalController.Instance.playerMoves;
         //turn = GlobalController.Instance.turn;
@@ -294,17 +244,12 @@ public class GameController : MonoBehaviour
             maxPlayers = 6;
         }
 
+        missions = missionsScript.GetMissions();
 
-        for (int i = 0; i < maxPlayers; i++)
+        for (int i = 0; i < 9; i++)
         {
-          Player p = new Player();
-          players.Add(p);
+          Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum);
         }
-
-        //pLocation = { 1, 1, 1, 1, 1, 1 };
-        //hubLocation = { 1, 1, 1, 1, 1, 1 };
-
-
     }
 
     private void Update()
@@ -391,7 +336,6 @@ public class GameController : MonoBehaviour
         counters = GlobalController.Instance.counters;
 
         missions = GlobalController.Instance.missions;
-
 }
 
     void playerGmo()
@@ -1075,7 +1019,6 @@ public class GameController : MonoBehaviour
 
     public void SavePlayer()
     {
-        GlobalController.Instance.players = players;
         GlobalController.Instance.counters = counters;
         //Player 1 info to save
         GlobalController.Instance.player1Values = player1Values;
@@ -1104,7 +1047,7 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.pLocation = pLocation;
         GlobalController.Instance.hubLocation = hubLocation;
 
-        GlobalController.Instance.missions = missions;
+
 
         //GlobalController.Instance.playerMoves = playerMoves;
         //GlobalController.Instance.turn = turn;
@@ -1157,63 +1100,7 @@ public class GameController : MonoBehaviour
       return paths;
     }
 
-    public void generateMissions()
-    {
-      List<Location> potentialLocationsHub1 = new List<Location>();
-      List<Location> potentialLocationsHub2 = new List<Location>();
-      List<Location> potentialLocationsHub3 = new List<Location>();
 
-      foreach(Location l in locationsScript.locations)
-      {
-        if (l.isSpawner == 0 && l.isAirport == 0)
-        {
-          if (l.hubNum == 1)
-          {
-            potentialLocationsHub1.Add(l);
-          }
-          if (l.hubNum == 2)
-          {
-            potentialLocationsHub2.Add(l);
-          }
-          if (l.hubNum == 3)
-          {
-            potentialLocationsHub3.Add(l);
-          }
-        }
-      }
-
-      IListExtensions.Shuffle(potentialLocationsHub1);
-      Debug.Log(potentialLocationsHub1.Count);
-      IListExtensions.Shuffle(potentialLocationsHub2);
-      Debug.Log(potentialLocationsHub2.Count);
-      IListExtensions.Shuffle(potentialLocationsHub3);
-      Debug.Log(potentialLocationsHub3.Count);
-
-      int[] skillsHub1 = new int[7];
-      int[] skillsHub2 = new int[7];
-      int[] skillsHub3 = new int[7];
-
-      for (int i = 0; i < 7; i++)
-      {
-        skillsHub1[i] = i + 1;
-        skillsHub2[i] = i + 1;
-        skillsHub3[i] = i + 1;
-      }
-
-      IListExtensions.Shuffle(skillsHub1);
-
-      for (int i = 0; i < 3; i++)
-      {
-        Mission m1 = new Mission(1, potentialLocationsHub1[i].locationNum, skillsHub1[i]);
-        Mission m2 = new Mission(2, potentialLocationsHub2[i].locationNum, skillsHub2[i]);
-        Mission m3 = new Mission(3, potentialLocationsHub3[i].locationNum, skillsHub3[i]);
-
-        missions.Add(m1);
-        missions.Add(m2);
-        missions.Add(m3);
-      }
-      return;
-    }
 
     IEnumerator ExampleCoroutine()
     {

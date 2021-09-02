@@ -15061,8 +15061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4558c17f25d812742ac2d55642867492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UIObject: {fileID: 1800499219}
-  textAssetData: {fileID: 4900000, guid: 2e1f6fd602821964dbb2efdbc86bd2ec, type: 3}
+  UIObject: {fileID: 0}
+  textAssetData: {fileID: 0}
   myInfoList:
     info: []
 --- !u!4 &1800499221

@@ -10,8 +10,6 @@ using UnityEngine.SceneManagement;
 public class GlobalController : MonoBehaviour
 {
     public static GlobalController Instance;
-
-    public List<Player> players = new List<Player>();
     public int[] counters = new int[6];
     //Player 1 Info
     //public TMP_Text[] skillTextsp1 = new TMP_Text[8];
@@ -51,7 +49,6 @@ public class GlobalController : MonoBehaviour
 
     public int[] hubLocation = new int[6];
     public int[] pLocation = new int[6];
-
     public List<Mission> missions = new List<Mission>();
 
 
