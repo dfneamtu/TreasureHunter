@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class LoadMissions : MonoBehaviour
 {
   public static LoadMissions Instance;
-  public GameObject LocationsObj;
+  GameObject LocationsObj;
   private ReadLocations locationsScript;
 
   public List<Mission> missions = new List<Mission>();
@@ -17,7 +17,9 @@ public class LoadMissions : MonoBehaviour
 
   public void Awake()
   {
-    if (Instance == null)
+        LocationsObj = GameObject.Find("LocationsObj");
+
+        if (Instance == null)
     {
         DontDestroyOnLoad(gameObject);
         Instance = this;
