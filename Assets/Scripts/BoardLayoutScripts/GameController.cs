@@ -21,6 +21,7 @@ public class Enemy
   }
 }
 
+[System.Serializable]
 public class Mission
 {
     public int hubNum;
@@ -51,8 +52,10 @@ public class GameController : MonoBehaviour
     //Skillsp1Script.GetComponent<Skillsp1>();
     public List<string> log = new List<string>();
     public List<Enemy> enemies = new List<Enemy>();
-    public List<Mission> missions = new List<Mission>();
 
+    [SerializeField]
+    //public List<Mission> missions = new List<Mission>();
+    public Mission[] missions;
 
     public GameObject LocationsObj;
     public GameObject LocationPathsObj;
@@ -255,16 +258,16 @@ public class GameController : MonoBehaviour
             maxPlayers = 6;
         }
 
-
-
-        if (missions.Count == 0)
+        //Debug.Log("missions count: " + missions.Length);
+        if (missions == null || missions.Length == 0)
         {
-          generateMissions();
-        }
+        Debug.Log("here");
+        missions = generateMissions();
+      }
 
-        Debug.Log("got missions. count: " + missions.Count);
-        for (int i = 0; i < missions.Count; i++)
+        for (int i = 0; i < missions.Length; i++)
         {
+          //Outputting missions
           Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
         }
     }
@@ -943,30 +946,30 @@ public class GameController : MonoBehaviour
         ObjectObj.gameObject.SetActive(false);
 
         playerMoves--;
-        foreach(Mission m in missions)
-        {
-          if (hubLocation[playerTurn - 1] == m.hubNum)
-          {
-            if (pLocation[playerTurn - 1] == m.locationNum)
-            {
-              if (m.completedBy[playerTurn - 1] == false)
-              {
-                 ItemTxt.text = ("Need to define skill type");
-                 TypeTxt.text = " ";
-                 AmountTxt.text = m.pointsReq.ToString();
-                 //REVEAL POTENTIAL MISSION
-                 Debug.Log(m.hubNum + ", " + m.locationNum + ", " + m.skillNum + ", " + m.pointsReq + ", " + m.victoryPoints);
-                 return;
-              }
-              else
-              {
-                 ItemTxt.text = ("Mission already Done");
-                 Debug.Log("Mission already done");
-                 return;
-              }
-            }
-          }
-        }
+        // foreach(Mission m in missions)
+        // {
+        //   if (hubLocation[playerTurn - 1] == m.hubNum)
+        //   {
+        //     if (pLocation[playerTurn - 1] == m.locationNum)
+        //     {
+        //       if (m.completedBy[playerTurn - 1] == false)
+        //       {
+        //          ItemTxt.text = ("Need to define skill type");
+        //          TypeTxt.text = " ";
+        //          AmountTxt.text = m.pointsReq.ToString();
+        //          //REVEAL POTENTIAL MISSION
+        //          Debug.Log(m.hubNum + ", " + m.locationNum + ", " + m.skillNum + ", " + m.pointsReq + ", " + m.victoryPoints);
+        //          return;
+        //       }
+        //       else
+        //       {
+        //          ItemTxt.text = ("Mission already Done");
+        //          Debug.Log("Mission already done");
+        //          return;
+        //       }
+        //     }
+        //   }
+        // }
 
         ItemTxt.text = ("No Mission available at this Location");
         Debug.Log("no mission present");
@@ -1355,8 +1358,11 @@ public class GameController : MonoBehaviour
 
     }
 
-    public void generateMissions()
+    public Mission[] generateMissions()
     {
+
+      Mission[] m = new Mission[9];
+      Debug.Log("inside");
       List<Location> potentialLocationsHub1 = new List<Location>();
       List<Location> potentialLocationsHub2 = new List<Location>();
       List<Location> potentialLocationsHub3 = new List<Location>();
@@ -1399,14 +1405,15 @@ public class GameController : MonoBehaviour
 
       for (int i = 0; i < 3; i++)
       {
+        Debug.Log("inside for in function");
         Mission m1 = new Mission(1, potentialLocationsHub1[i].locationNum, skillsHub1[i]);
         Mission m2 = new Mission(2, potentialLocationsHub2[i].locationNum, skillsHub2[i]);
         Mission m3 = new Mission(3, potentialLocationsHub3[i].locationNum, skillsHub3[i]);
 
-        missions.Add(m1);
-        missions.Add(m2);
-        missions.Add(m3);
+        m[i] = m1;
+        m[i+3] = m2;
+        m[i+6] = m3;
       }
-      return;
+      return m;
     }
 }

@@ -51,7 +51,9 @@ public class GlobalController : MonoBehaviour
     public int[] pLocation = new int[6];
 
 
-    public List<Mission> missions = new List<Mission>();
+    //public List<Mission> missions = new List<Mission>();
+    [SerializeField]
+    public Mission[] missions;
 
 
     //public int playerTurn;
