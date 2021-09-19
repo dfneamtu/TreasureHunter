@@ -52,7 +52,6 @@ public class GlobalController : MonoBehaviour
 
 
     //public List<Mission> missions = new List<Mission>();
-    [SerializeField]
     public Mission[] missions;
 
 

@@ -21,7 +21,6 @@ public class Enemy
   }
 }
 
-[System.Serializable]
 public class Mission
 {
     public int hubNum;
@@ -53,7 +52,6 @@ public class GameController : MonoBehaviour
     public List<string> log = new List<string>();
     public List<Enemy> enemies = new List<Enemy>();
 
-    [SerializeField]
     //public List<Mission> missions = new List<Mission>();
     public Mission[] missions;
 
@@ -258,12 +256,25 @@ public class GameController : MonoBehaviour
             maxPlayers = 6;
         }
 
-        //Debug.Log("missions count: " + missions.Length);
-        if (missions == null || missions.Length == 0)
+        missions = GlobalController.Instance.missions;
+        Debug.Log(missions == null);
+        if (missions != null)
         {
-        Debug.Log("here");
-        missions = generateMissions();
-      }
+          Debug.Log("length" + missions.Length);
+          for (int i = 0; i < missions.Length; i++)
+          {
+            //Outputting missions
+            Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
+          }
+        }
+        //Debug.Log("missions count: " + missions.Length);
+        if (missions == null)
+        {
+          Debug.Log("inside mission function");
+          missions = generateMissions();
+          GlobalController.Instance.missions = missions;
+        }
+
 
         for (int i = 0; i < missions.Length; i++)
         {
@@ -946,30 +957,32 @@ public class GameController : MonoBehaviour
         ObjectObj.gameObject.SetActive(false);
 
         playerMoves--;
-        // foreach(Mission m in missions)
-        // {
-        //   if (hubLocation[playerTurn - 1] == m.hubNum)
-        //   {
-        //     if (pLocation[playerTurn - 1] == m.locationNum)
-        //     {
-        //       if (m.completedBy[playerTurn - 1] == false)
-        //       {
-        //          ItemTxt.text = ("Need to define skill type");
-        //          TypeTxt.text = " ";
-        //          AmountTxt.text = m.pointsReq.ToString();
-        //          //REVEAL POTENTIAL MISSION
-        //          Debug.Log(m.hubNum + ", " + m.locationNum + ", " + m.skillNum + ", " + m.pointsReq + ", " + m.victoryPoints);
-        //          return;
-        //       }
-        //       else
-        //       {
-        //          ItemTxt.text = ("Mission already Done");
-        //          Debug.Log("Mission already done");
-        //          return;
-        //       }
-        //     }
-        //   }
-        // }
+        Debug.Log("missino count: " + missions.Length);
+        for(int i = 0; i < 9; i++)
+        {
+          Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum);
+          // if (hubLocation[playerTurn - 1] == missions[i].hubNum)
+          // {
+          //   if (pLocation[playerTurn - 1] == missions[i].locationNum)
+          //   {
+          //     if (missions[i].completedBy[playerTurn - 1] == false)
+          //     {
+          //        ItemTxt.text = ("Need to define skill type");
+          //        TypeTxt.text = " ";
+          //        AmountTxt.text = missions[i].pointsReq.ToString();
+          //        //REVEAL POTENTIAL MISSION
+          //       // Debug.Log(m.hubNum + ", " + m.locationNum + ", " + m.skillNum + ", " + m.pointsReq + ", " + m.victoryPoints);
+          //        return;
+          //     }
+          //     else
+          //     {
+          //        ItemTxt.text = ("Mission already Done");
+          //        Debug.Log("Mission already done");
+          //        return;
+          //     }
+          //   }
+          // }
+        }
 
         ItemTxt.text = ("No Mission available at this Location");
         Debug.Log("no mission present");
@@ -1088,7 +1101,7 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.pLocation = pLocation;
         GlobalController.Instance.hubLocation = hubLocation;
 
-        GlobalController.Instance.missions = missions;
+
         //GlobalController.Instance.playerMoves = playerMoves;
         //GlobalController.Instance.turn = turn;
 
