@@ -52,6 +52,9 @@ public class GameController : MonoBehaviour
     public List<string> log = new List<string>();
     public List<Enemy> enemies = new List<Enemy>();
 
+    public Image fillImage;
+    public Slider slider;
+
     //public List<Mission> missions = new List<Mission>();
     public Mission[] missions;
 
@@ -81,7 +84,13 @@ public class GameController : MonoBehaviour
     public int maxPlayers;
     public int[] pLocation = new int[6];
     public int[] hubLocation = new int[6];
-
+    public int p1Health;
+    public int p2Health;
+    public int p3Health;
+    public int p4Health;
+    public int p5Health;
+    public int p6Health;
+    public int maxHealth = 100;
 
     //Player GameObjects to set true and false
 
@@ -105,6 +114,8 @@ public class GameController : MonoBehaviour
     public GameObject BGp4;
     public GameObject BGp5;
     public GameObject BGp6;
+
+    public GameObject completeMissionBtn;
 
     //public GameObject movesLeftTag;
     public Text movesLeft;
@@ -281,6 +292,15 @@ public class GameController : MonoBehaviour
           //Outputting missions
           Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
         }
+
+        p1Health = maxHealth;
+        p2Health = maxHealth;
+        p3Health = maxHealth;
+        p4Health = maxHealth;
+        p5Health = maxHealth;
+        p6Health = maxHealth;
+
+
     }
 
     private void Update()
@@ -957,34 +977,54 @@ public class GameController : MonoBehaviour
         ObjectObj.gameObject.SetActive(false);
 
         playerMoves--;
-        Debug.Log("missino count: " + missions.Length);
+        Debug.Log("mission count: " + missions.Length);
         for(int i = 0; i < 9; i++)
         {
           Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum);
-          // if (hubLocation[playerTurn - 1] == missions[i].hubNum)
-          // {
-          //   if (pLocation[playerTurn - 1] == missions[i].locationNum)
-          //   {
-          //     if (missions[i].completedBy[playerTurn - 1] == false)
-          //     {
-          //        ItemTxt.text = ("Need to define skill type");
-          //        TypeTxt.text = " ";
-          //        AmountTxt.text = missions[i].pointsReq.ToString();
-          //        //REVEAL POTENTIAL MISSION
-          //       // Debug.Log(m.hubNum + ", " + m.locationNum + ", " + m.skillNum + ", " + m.pointsReq + ", " + m.victoryPoints);
-          //        return;
-          //     }
-          //     else
-          //     {
-          //        ItemTxt.text = ("Mission already Done");
-          //        Debug.Log("Mission already done");
-          //        return;
-          //     }
-          //   }
-          // }
+           
+            if (hubLocation[playerTurn - 1] == missions[i].hubNum)
+            {
+                if (pLocation[playerTurn - 1] == missions[i].locationNum)
+                {
+                    ItemTxt.text = ("Mission at " + missions[i].hubNum.ToString() + missions[i].locationNum.ToString());
+                    TypeTxt.text = " ";
+                    AmountTxt.text = missions[i].pointsReq.ToString();
+                }
+                else
+                {
+                    ItemTxt.text = ("No Mission available at this Location");
+                    return;
+                }
+            }
+
+            completeMissionBtn.gameObject.SetActive(true); //to set button for complete a mission as active 
+            // completeMissionBtn.gameObject.SetActive(false); ////set as inactive when mission completed
+
+
+            // if (hubLocation[playerTurn - 1] == missions[i].hubNum)
+            // {
+            //   if (pLocation[playerTurn - 1] == missions[i].locationNum)
+            //   {
+            //     if (missions[i].completedBy[playerTurn - 1] == false)
+            //     {
+            //        ItemTxt.text = ("Need to define skill type");
+            //        TypeTxt.text = " ";
+            //        AmountTxt.text = missions[i].pointsReq.ToString();
+            //        //REVEAL POTENTIAL MISSION
+            //       // Debug.Log(m.hubNum + ", " + m.locationNum + ", " + m.skillNum + ", " + m.pointsReq + ", " + m.victoryPoints);
+            //        return;
+            //     }
+            //     else
+            //     {
+            //        ItemTxt.text = ("Mission already Done");
+            //        Debug.Log("Mission already done");
+            //        return;
+            //     }
+            //   }
+            // }
         }
 
-        ItemTxt.text = ("No Mission available at this Location");
+                ItemTxt.text = ("No Mission available at this Location");
         Debug.Log("no mission present");
 
         log.Add("Player " + playerTurn.ToString() + " clicked mission button.");
@@ -1189,6 +1229,9 @@ public class GameController : MonoBehaviour
                 p5ScoreText.gameObject.SetActive(false);
                 p6ScoreText.gameObject.SetActive(false);
 
+                float fillValue = p1Health;
+                slider.value = fillValue;
+
                 break;
 
             case 2:
@@ -1223,6 +1266,8 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
+                fillValue = p2Health;
+                slider.value = fillValue;
 
                 break;
 
@@ -1258,6 +1303,8 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
+                fillValue = p3Health;
+                slider.value = fillValue;
 
                 break;
 
@@ -1293,6 +1340,8 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
+                fillValue = p4Health;
+                slider.value = fillValue;
 
                 break;
 
@@ -1328,6 +1377,9 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(true);
                 BGp6.gameObject.SetActive(false);
 
+                fillValue = p5Health;
+                slider.value = fillValue;
+
                 break;
 
             case 6:
@@ -1361,6 +1413,9 @@ public class GameController : MonoBehaviour
                 BGp4.gameObject.SetActive(false);
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(true);
+
+                fillValue = p6Health;
+                slider.value = fillValue;
 
                 break;
 
