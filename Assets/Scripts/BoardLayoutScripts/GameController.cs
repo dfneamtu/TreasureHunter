@@ -52,6 +52,8 @@ public class GameController : MonoBehaviour
     public List<string> log = new List<string>();
     public List<Enemy> enemies = new List<Enemy>();
 
+    public int currentMissionIndex;
+
     public Image fillImage;
     public Slider slider;
 
@@ -428,6 +430,11 @@ public class GameController : MonoBehaviour
             else
             {
                 playerTurn++;
+                SkillObj.gameObject.SetActive(false);
+                ObjectObj.gameObject.SetActive(false);
+                AmountTxt.text = "";
+                ItemTxt.text = "";
+
             }
 
             playerMoves = 3;
@@ -981,54 +988,35 @@ public class GameController : MonoBehaviour
         for(int i = 0; i < 9; i++)
         {
           Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum);
-           
+          Debug.Log("player location: " + hubLocation[playerTurn - 1] + ", " + pLocation[playerTurn - 1]);
+
+
             if (hubLocation[playerTurn - 1] == missions[i].hubNum)
             {
                 if (pLocation[playerTurn - 1] == missions[i].locationNum)
                 {
-                    ItemTxt.text = ("Mission at " + missions[i].hubNum.ToString() + missions[i].locationNum.ToString());
-                    TypeTxt.text = " ";
+                    ItemTxt.text = "Requires skill " + missions[i].skillNum;
+                    //TypeTxt.text = missions[i].pointsReq.ToString();
                     AmountTxt.text = missions[i].pointsReq.ToString();
-                }
-                else
-                {
-                    ItemTxt.text = ("No Mission available at this Location");
-                    return;
+                    i = 10;
+                    completeMissionBtn.gameObject.SetActive(true);
+                    //
                 }
             }
 
-            completeMissionBtn.gameObject.SetActive(true); //to set button for complete a mission as active 
-            // completeMissionBtn.gameObject.SetActive(false); ////set as inactive when mission completed
+            if (i != 10)
+            {
+              ItemTxt.text = "No mission found here.";
+            }
 
 
-            // if (hubLocation[playerTurn - 1] == missions[i].hubNum)
-            // {
-            //   if (pLocation[playerTurn - 1] == missions[i].locationNum)
-            //   {
-            //     if (missions[i].completedBy[playerTurn - 1] == false)
-            //     {
-            //        ItemTxt.text = ("Need to define skill type");
-            //        TypeTxt.text = " ";
-            //        AmountTxt.text = missions[i].pointsReq.ToString();
-            //        //REVEAL POTENTIAL MISSION
-            //       // Debug.Log(m.hubNum + ", " + m.locationNum + ", " + m.skillNum + ", " + m.pointsReq + ", " + m.victoryPoints);
-            //        return;
-            //     }
-            //     else
-            //     {
-            //        ItemTxt.text = ("Mission already Done");
-            //        Debug.Log("Mission already done");
-            //        return;
-            //     }
-            //   }
-            // }
         }
 
-                ItemTxt.text = ("No Mission available at this Location");
-        Debug.Log("no mission present");
+        //ItemTxt.text = ("No Mission available at this Location");
+        //Debug.Log("no mission present");
 
         log.Add("Player " + playerTurn.ToString() + " clicked mission button.");
-        Debug.Log("Player " + playerTurn.ToString() + " clicked a mission.");
+        //Debug.Log("Player " + playerTurn.ToString() + " clicked a mission.");
     }
 
     public string getObject()
