@@ -29,12 +29,14 @@ public class Mission
     public int pointsReq;
     public int victoryPoints;
     public bool[] completedBy = new bool[6];
+    public int cooldown;
 
     public Mission(int h, int l, int s)
     {
       hubNum = h;
       locationNum = l;
       skillNum = s;
+      cooldown = 0;
 
       pointsReq = ML_Algo.ML() + 1;
       victoryPoints = ML_Algo.ML() + 1;
@@ -52,6 +54,7 @@ public class GameController : MonoBehaviour
     public List<string> log = new List<string>();
     public List<Enemy> enemies = new List<Enemy>();
 
+    public static string[] skillNames = new string[] {"Strength", "Stealth", "Currency", "Intelligence", "Munitions", "Electronics", "Vehicle Piloting", "Code Breaking"};
     public int currentMissionIndex;
 
     public Image fillImage;
@@ -424,7 +427,6 @@ public class GameController : MonoBehaviour
 
     public void CheckPlayerTurn()
     {
-      Debug.Log("turncheckplayer");
         if (playerMoves == 0)
         {
             if (playerTurn == maxPlayers)
@@ -437,11 +439,25 @@ public class GameController : MonoBehaviour
                 confrontEnemies();
                 moveEnemies(enemies);
                 spawnEnemies(locationsScript.hostileLocations);
+                foreach(Mission m in missions)
+                {
+                  if (m.cooldown != 0)
+                  {
+                    m.cooldown--;
+                  }
+                }
             }
             else
             {
 
                 playerTurn++;
+                foreach(Mission m in missions)
+                {
+                  if (m.cooldown != 0)
+                  {
+                    m.cooldown--;
+                  }
+                }
                 SkillObj.gameObject.SetActive(false);
                 ObjectObj.gameObject.SetActive(false);
                 AmountTxt.text = "";
@@ -890,6 +906,7 @@ public class GameController : MonoBehaviour
     {
         SkillObj.gameObject.SetActive(true);
         ObjectObj.gameObject.SetActive(false);
+        TypeTxt.text = "";
         completeMissionBtn.gameObject.SetActive(true);
 
         playerMoves--;
@@ -904,19 +921,35 @@ public class GameController : MonoBehaviour
             {
                 if (pLocation[playerTurn - 1] == missions[i].locationNum)
                 {
-                    ItemTxt.text = "Requires skill " + missions[i].skillNum;
+                    if (missions[i].completedBy[playerTurn - 1] == false && missions[i].cooldown == 0)
+                    {
+                    ItemTxt.text = skillNames[missions[i].skillNum];
                     //TypeTxt.text = missions[i].pointsReq.ToString();
                     AmountTxt.text = missions[i].pointsReq.ToString();
                     currentMissionIndex = i;
                     i = 10;
                     completeMissionBtn.gameObject.SetActive(true);
+                    }
 
+                    else if (missions[i].completedBy[playerTurn - 1])
+                    {
+                      ItemTxt.text = "Already completed this mission.";
+                      AmountTxt.text = "";
+                      i = 10;
+                    }
+
+                    else if (missions[i].cooldown != 0)
+                    {
+                      ItemTxt.text = "Mission on cooldown from another player.";
+                      i = 10;
+                    }
                     //
                 }
             }
 
             if (i != 10)
             {
+              completeMissionBtn.gameObject.SetActive(false);
               ItemTxt.text = "No mission found here.";
             }
 
@@ -936,31 +969,51 @@ public class GameController : MonoBehaviour
         switch (playerTurn)
         {
           case 1:
+          Debug.Log("player has: " + player1Values[missions[currentMissionIndex].skillNum] + " points. Skillnum: " + missions[currentMissionIndex].skillNum);
           if (player1Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
           {
             p1VPs = p1VPs + missions[currentMissionIndex].victoryPoints;
             p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
+            ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
+            AmountTxt.text = "";
+            TypeTxt.text = "";
+            missions[currentMissionIndex].completedBy[0] = true;
+            missions[currentMissionIndex].cooldown = 3;
           }
           break;
 
           case 2:
-          if (player1Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
+          if (player2Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
           {
-            p1VPs = p1VPs + missions[currentMissionIndex].victoryPoints;
+            p2VPs = p2VPs + missions[currentMissionIndex].victoryPoints;
+            p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
+
+            ItemTxt.text = "Completed mission! Awarded " + missions[currentMissionIndex].victoryPoints + " VPs!";
+            AmountTxt.text = "";
+            TypeTxt.text = "";
+            missions[currentMissionIndex].completedBy[1] = true;
+            missions[currentMissionIndex].cooldown = 3;
           }
 
 
           break;
 
           case 3:
-          if (player1Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
+          if (player3Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
           {
-            p1VPs = p1VPs + missions[currentMissionIndex].victoryPoints;
+            p3VPs = p3VPs + missions[currentMissionIndex].victoryPoints;
+            p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
+
+            ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
+            AmountTxt.text = "";
+            TypeTxt.text = "";
+            missions[currentMissionIndex].completedBy[2] = true;
+            missions[currentMissionIndex].cooldown = 3;
           }
 
           break;
 
-          missions[currentMissionIndex].completedBy[playerTurn - 1] = true;
+
         }
 
 
