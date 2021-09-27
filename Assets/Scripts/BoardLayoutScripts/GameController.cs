@@ -909,7 +909,7 @@ public class GameController : MonoBehaviour
         TypeTxt.text = "";
         completeMissionBtn.gameObject.SetActive(true);
 
-        playerMoves--;
+
         Debug.Log("mission count: " + missions.Length);
         for(int i = 0; i < 9; i++)
         {
@@ -928,6 +928,7 @@ public class GameController : MonoBehaviour
                     AmountTxt.text = missions[i].pointsReq.ToString();
                     currentMissionIndex = i;
                     i = 10;
+                    playerMoves--;
                     completeMissionBtn.gameObject.SetActive(true);
                     }
 
