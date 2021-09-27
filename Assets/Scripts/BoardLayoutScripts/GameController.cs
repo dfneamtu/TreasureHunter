@@ -270,31 +270,31 @@ public class GameController : MonoBehaviour
             maxPlayers = 6;
         }
 
-        missions = GlobalController.Instance.missions;
-        Debug.Log(missions == null);
-        if (missions != null)
-        {
-          Debug.Log("length" + missions.Length);
-          for (int i = 0; i < missions.Length; i++)
-          {
-            //Outputting missions
-            //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
-          }
-        }
-        //Debug.Log("missions count: " + missions.Length);
-        if (missions == null)
-        {
-          Debug.Log("inside mission function");
-          missions = generateMissions();
-          GlobalController.Instance.missions = missions;
-        }
+        //missions = GlobalController.Instance.missions;
+        //Debug.Log(missions == null);
+        //if (missions != null)
+        //{
+        //  Debug.Log("length" + missions.Length);
+        //  for (int i = 0; i < missions.Length; i++)
+        //  {
+        //    //Outputting missions
+        //    //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
+        //  }
+        //}
+        ////Debug.Log("missions count: " + missions.Length);
+        //if (missions == null)
+        //{
+        //  Debug.Log("inside mission function");
+        //  missions = generateMissions();
+        //  GlobalController.Instance.missions = missions;
+        //}
 
 
-        for (int i = 0; i < missions.Length; i++)
-        {
-          //Outputting missions
-          //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
-        }
+        //for (int i = 0; i < missions.Length; i++)
+        //{
+        //  //Outputting missions
+        //  //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
+        //}
 
         p1Health = maxHealth;
         p2Health = maxHealth;
@@ -995,6 +995,7 @@ public class GameController : MonoBehaviour
     {
         SkillObj.gameObject.SetActive(true);
         ObjectObj.gameObject.SetActive(false);
+        completeMissionBtn.gameObject.SetActive(true);
 
         playerMoves--;
         Debug.Log("mission count: " + missions.Length);
@@ -1030,6 +1031,38 @@ public class GameController : MonoBehaviour
 
         log.Add("Player " + playerTurn.ToString() + " clicked mission button.");
         //Debug.Log("Player " + playerTurn.ToString() + " clicked a mission.");
+    }
+
+    public void CompleteMissions()
+    {
+
+        missions = GlobalController.Instance.missions;
+        Debug.Log(missions == null);
+        if (missions != null)
+        {
+            Debug.Log("length" + missions.Length);
+            for (int i = 0; i < missions.Length; i++)
+            {
+                //Outputting missions
+                //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
+            }
+        }
+        //Debug.Log("missions count: " + missions.Length);
+        if (missions == null)
+        {
+            Debug.Log("inside mission function");
+            missions = generateMissions();
+            GlobalController.Instance.missions = missions;
+        }
+
+
+        for (int i = 0; i < missions.Length; i++)
+        {
+            //Outputting missions
+            //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
+        }
+
+        completeMissionBtn.gameObject.SetActive(false);
     }
 
     public string getObject()
