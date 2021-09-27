@@ -11,6 +11,14 @@ public class GlobalController : MonoBehaviour
 {
     public static GlobalController Instance;
     public int[] counters = new int[6];
+
+    public string[] playersItemTxt = new string[6];
+    public string[] playersObjItemTxt = new string[6];
+    public string[] playersAmountTxt = new string[6];
+    public string[] playersObjAmountTxt = new string[6];
+    public string[] playersTypeTxt = new string[6];
+
+    public string[] playerObjects = new string[6];
     //Player 1 Info
     //public TMP_Text[] skillTextsp1 = new TMP_Text[8];
     public int[] player1Values = new int[8]; //Skills

@@ -133,6 +133,12 @@ public class GameController : MonoBehaviour
     public Text TypeTxt;
     public Text TurnTxt;
 
+    public string[] playersItemTxt = new string[6];
+    public string[] playersObjItemTxt = new string[6];
+    public string[] playersAmountTxt = new string[6];
+    public string[] playersObjAmountTxt = new string[6];
+    public string[] playersTypeTxt = new string[6];
+
     //Player 1 Stats
     public TMP_Text[] skillTextsp1 = new TMP_Text[8];
     public int[] player1Values = new int[8];
@@ -172,6 +178,7 @@ public class GameController : MonoBehaviour
     //Moves left
     static public int playerMoves = 7;
 
+    public string[] playerObjects = new string[6];
 
     public string p1CurrentObject;
     public string p2CurrentObject;
@@ -195,18 +202,7 @@ public class GameController : MonoBehaviour
     void Awake()
     {
 
-        p1CurrentObject = getObject();
-        Console.WriteLine("PLAYER 1 GOT " + p1CurrentObject);
-        p2CurrentObject = getObject();
-        Console.WriteLine("PLAYER 2 GOT " + p2CurrentObject);
-        p3CurrentObject = getObject();
-        Console.WriteLine("PLAYER 3 GOT " + p3CurrentObject);
-        p4CurrentObject = getObject();
-        Console.WriteLine("PLAYER 4 GOT " + p4CurrentObject);
-        p5CurrentObject = getObject();
-        Console.WriteLine("PLAYER 5 GOT " + p5CurrentObject);
-        p6CurrentObject = getObject();
-        Console.WriteLine("PLAYER 6 GOT " + p6CurrentObject);
+
 
         locationsScript = LocationsObj.GetComponent<ReadLocations>();
         locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
@@ -216,7 +212,16 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
-
+      for (int i = 0; i < 6; i++)
+      {
+        playerObjects[i] = "NONE";
+      }
+        // p1CurrentObject = "NONE";
+        // p2CurrentObject = "NONE";
+        // p3CurrentObject = "NONE";
+        // p4CurrentObject = "NONE";
+        // p5CurrentObject = "NONE";
+        // p6CurrentObject = "NONE";
 
         for (int i = 0; i < 8; i++)
         {
@@ -229,6 +234,13 @@ public class GameController : MonoBehaviour
             //player1Values[i] = 0;
             //player2Values[i] = 0;
 
+        }
+
+        for (int i = 0; i < 6; i++)
+        {
+          playersItemTxt[i] = "";
+          playersTypeTxt[i] = "";
+          playersTypeTxt[i] = "";
         }
 
         for (int i = 0; i < 4; i++)
@@ -333,6 +345,11 @@ public class GameController : MonoBehaviour
             ticketTextsp5[i].text = player5Tickets[i].ToString();
             ticketTextsp6[i].text = player6Tickets[i].ToString();
         }
+
+        ObjItemTxt.text = playersObjItemTxt[playerTurn - 1];
+        ObjAmountTxt.text = playersObjAmountTxt[playerTurn - 1];
+        TypeTxt.text = playersTypeTxt[playerTurn - 1];
+
         CheckPlayerTurn();
 
         if (p1VPs == 6)
@@ -397,6 +414,12 @@ public class GameController : MonoBehaviour
 
         missions = GlobalController.Instance.missions;
         travelled = GlobalController.Instance.travelled;
+
+        playersObjItemTxt = GlobalController.Instance.playersObjItemTxt;
+        playersTypeTxt = GlobalController.Instance.playersTypeTxt;
+        playersObjAmountTxt = GlobalController.Instance.playersObjAmountTxt;
+
+        playerObjects = GlobalController.Instance.playerObjects;
 
         if (hubLocation[playerTurn - 1] == 1)
         {
@@ -815,81 +838,83 @@ public class GameController : MonoBehaviour
 
         CheckPlayerTurn();
 
-        int[] objectInfo = new int[2];
+        int[] newObjectInfo = new int[2];
+        int[] oldObjectInfo = new int[2];
 
         switch (playerTurn)
         {
             case 1:
-                objectInfo = getObjectStats(p1CurrentObject);
-                player1Values[objectInfo[0]] += objectInfo[1];
-                skillTextsp1[objectInfo[0]].text = player1Values[objectInfo[0]].ToString();
 
-                if (player1Values[objectInfo[0]] > 4)
-                {
 
-                }
-                p1CurrentObject = getObject();
+                oldObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
+                playerObjects[playerTurn - 1] = getObject();
+                newObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
+
+                player1Values[oldObjectInfo[0]] -= oldObjectInfo[1];
+                skillTextsp1[oldObjectInfo[0]].text = player1Values[newObjectInfo[0]].ToString();
+
+                player1Values[newObjectInfo[0]] += newObjectInfo[1];
+                skillTextsp1[newObjectInfo[0]].text = player1Values[newObjectInfo[0]].ToString();
+
                 break;
             case 2:
-                objectInfo = getObjectStats(p2CurrentObject);
+              oldObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
+              playerObjects[playerTurn - 1] = getObject();
+              newObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
 
-                player2Values[objectInfo[0]] += objectInfo[1];
-                skillTextsp2[objectInfo[0]].text = player2Values[objectInfo[0]].ToString();
+              player2Values[oldObjectInfo[0]] -= oldObjectInfo[1];
+              skillTextsp2[oldObjectInfo[0]].text = player2Values[newObjectInfo[0]].ToString();
 
-                if (player2Values[objectInfo[0]] > 4)
-                {
+              player2Values[newObjectInfo[0]] += newObjectInfo[1];
+              skillTextsp2[newObjectInfo[0]].text = player2Values[newObjectInfo[0]].ToString();
 
-                }
-                p2CurrentObject = getObject();
                 break;
             case 3:
-                objectInfo = getObjectStats(p3CurrentObject);
+              oldObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
+              playerObjects[playerTurn - 1] = getObject();
+              newObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
 
-                player3Values[objectInfo[0]] += objectInfo[1];
-                skillTextsp3[objectInfo[0]].text = player3Values[objectInfo[0]].ToString();
+              player3Values[oldObjectInfo[0]] -= oldObjectInfo[1];
+              skillTextsp3[oldObjectInfo[0]].text = player3Values[newObjectInfo[0]].ToString();
 
-                if (player3Values[objectInfo[0]] > 4)
-                {
+              player3Values[newObjectInfo[0]] += newObjectInfo[1];
+              skillTextsp3[newObjectInfo[0]].text = player3Values[newObjectInfo[0]].ToString();
 
-                }
-                p3CurrentObject = getObject();
-                break;
+              break;
             case 4:
-                objectInfo = getObjectStats(p4CurrentObject);
+              oldObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
+              playerObjects[playerTurn - 1] = getObject();
+              newObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
 
-                player4Values[objectInfo[0]] += objectInfo[1];
-                skillTextsp4[objectInfo[0]].text = player4Values[objectInfo[0]].ToString();
+              player4Values[oldObjectInfo[0]] -= oldObjectInfo[1];
+              skillTextsp4[oldObjectInfo[0]].text = player4Values[newObjectInfo[0]].ToString();
 
-                if (player4Values[objectInfo[0]] > 4)
-                {
-
-                }
-                p4CurrentObject = getObject();
-                break;
+              player4Values[newObjectInfo[0]] += newObjectInfo[1];
+              skillTextsp4[newObjectInfo[0]].text = player4Values[newObjectInfo[0]].ToString();
+              break;
             case 5:
-                objectInfo = getObjectStats(p5CurrentObject);
+              oldObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
+              playerObjects[playerTurn - 1] = getObject();
+              newObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
 
-                player5Values[objectInfo[0]] += objectInfo[1];
-                skillTextsp5[objectInfo[0]].text = player5Values[objectInfo[0]].ToString();
+              player5Values[oldObjectInfo[0]] -= oldObjectInfo[1];
+              skillTextsp5[oldObjectInfo[0]].text = player5Values[newObjectInfo[0]].ToString();
 
-                if (player5Values[objectInfo[0]] > 4)
-                {
-
-                }
-                p5CurrentObject = getObject();
-                break;
+              player5Values[newObjectInfo[0]] += newObjectInfo[1];
+              skillTextsp5[newObjectInfo[0]].text = player5Values[newObjectInfo[0]].ToString();
+              break;
             case 6:
-                objectInfo = getObjectStats(p6CurrentObject);
+              oldObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
+              playerObjects[playerTurn - 1] = getObject();
+              newObjectInfo = getObjectStats(playerObjects[playerTurn - 1]);
 
-                player6Values[objectInfo[0]] += objectInfo[1];
-                skillTextsp6[objectInfo[0]].text = player6Values[objectInfo[0]].ToString();
+              player6Values[oldObjectInfo[0]] -= oldObjectInfo[1];
+              skillTextsp6[oldObjectInfo[0]].text = player6Values[newObjectInfo[0]].ToString();
 
-                if (player6Values[objectInfo[0]] > 4)
-                {
+              player6Values[newObjectInfo[0]] += newObjectInfo[1];
+              skillTextsp6[newObjectInfo[0]].text = player6Values[newObjectInfo[0]].ToString();
+              break;
 
-                }
-                break;
-                p6CurrentObject = getObject();
             default:
                 break;
         }
@@ -1054,39 +1079,64 @@ public class GameController : MonoBehaviour
         switch (name)
         {
             case "Glock":
-                ObjItemTxt.text = "Glock";
-                ObjAmountTxt.text = "+2";
-                TypeTxt.text = "Munitions";
+
+                playersObjItemTxt[playerTurn - 1] = "Glock";
+                playersObjAmountTxt[playerTurn - 1] = "+2";
+                playersTypeTxt[playerTurn - 1] = "Munitions";
+
                 stats[0] = 4;//munitions
                 stats[1] = 2;
                 break;
             case "Rifle":
-                ObjItemTxt.text = "Rifle";
-                ObjAmountTxt.text = "+5";
-                TypeTxt.text = "Munitions";
+                // ObjItemTxt.text = "Rifle";
+                // ObjAmountTxt.text = "+5";
+                // TypeTxt.text = "Munitions";
+
+                playersObjItemTxt[playerTurn - 1] = "Rifle";
+                playersObjAmountTxt[playerTurn - 1] = "+5";
+                playersTypeTxt[playerTurn - 1] = "Munitions";
                 stats[0] = 4;//munitions
                 stats[1] = 5;
                 break;
             case "Med Kit":
-                ObjItemTxt.text = "Med Kit";
-                ObjAmountTxt.text = "+3";
-                TypeTxt.text = "Strength";
+                // ObjItemTxt.text = "Med Kit";
+                // ObjAmountTxt.text = "+3";
+                // TypeTxt.text = "Strength";
+
+                playersObjItemTxt[playerTurn - 1] = "Med Kit";
+                playersObjAmountTxt[playerTurn - 1] = "+3";
+                playersTypeTxt[playerTurn - 1] = "Strength";
+
                 stats[0] = 0;//strength
                 stats[1] = 3;
                 break;
             case "Bribe Money":
-                ObjItemTxt.text = "Bribe Money";
-                ObjAmountTxt.text = "+3";
-                TypeTxt.text = "Currency";
+                // ObjItemTxt.text = "Bribe Money";
+                // ObjAmountTxt.text = "+3";
+                // TypeTxt.text = "Currency";
+
+                playersObjItemTxt[playerTurn - 1] = "Bribe Money";
+                playersObjAmountTxt[playerTurn - 1] = "+3";
+                playersTypeTxt[playerTurn - 1] = "Currency";
                 stats[0] = 2;//currency
                 stats[1] = 3;
                 break;
             case "Cloak":
-                ObjItemTxt.text = "Cloak";
-                ObjAmountTxt.text = "+4";
-                TypeTxt.text = "Stealth";
+                // ObjItemTxt.text = "Cloak";
+                // ObjAmountTxt.text = "+4";
+                // TypeTxt.text = "Stealth";
+
+                playersObjItemTxt[playerTurn - 1] = "Cloak";
+                playersObjAmountTxt[playerTurn - 1] = "+4";
+                playersTypeTxt[playerTurn - 1] = "Stealth";
+
                 stats[0] = 4;//stealth
                 stats[1] = 4;
+                break;
+
+              case "NONE":
+                stats[0] = 0;
+                stats[0] = 0;
                 break;
             default:
                 Console.WriteLine("ERROR");
@@ -1100,6 +1150,12 @@ public class GameController : MonoBehaviour
 
     public void SavePlayer()
     {
+        GlobalController.Instance.playersObjItemTxt = playersObjItemTxt;
+        GlobalController.Instance.playersTypeTxt = playersTypeTxt;
+        GlobalController.Instance.playersObjAmountTxt = playersObjAmountTxt;
+
+        GlobalController.Instance.playerObjects = playerObjects;
+
         GlobalController.Instance.enemies = enemies;
         GlobalController.Instance.counters = counters;
         //Player 1 info to save
