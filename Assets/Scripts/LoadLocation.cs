@@ -14,6 +14,7 @@ public class LoadLocation : MonoBehaviour
     public int[] pLocation = new int[6];
     public int[] hubLocation = new int[6];
     public int[] counters = new int[6];
+    public int[] travelled = new int[6];
 
     public int playerTurnTickets;
 
@@ -80,7 +81,7 @@ public class LoadLocation : MonoBehaviour
     public void Start()
     {
         ReadCSV();
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
 
         //Debug.Log("counter is: " + counters[playerTurnTickets - 1]);
         //Debug.Log("player is at: " + hubLocation[playerTurnTickets - 1] + ", " + pLocation[playerTurnTickets - 1]);
@@ -135,6 +136,7 @@ public class LoadLocation : MonoBehaviour
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
         counters = GlobalController.Instance.counters;
+        travelled = GlobalController.Instance.travelled;
 
         playerTurnTickets = GameController.playerTurn;
         //Debug.Log("in Update");
@@ -243,7 +245,11 @@ public class LoadLocation : MonoBehaviour
 
     public void TravelBtn()
     {
-
+      if (travelled[playerTurnTickets - 1] == 1)
+      {
+        Debug.Log("cannot travel twice a turn");
+        return;
+      }
       switch (playerTurnTickets)
       {
         case 1:
@@ -255,6 +261,8 @@ public class LoadLocation : MonoBehaviour
               hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
               pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
+              travelled[playerTurnTickets - 1] = 1;
+              //playerMoves--;
               SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
             }
             else
@@ -273,6 +281,8 @@ public class LoadLocation : MonoBehaviour
               hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
               pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
+              //playerMoves--;
+              travelled[playerTurnTickets - 1] = 1;
               SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
             }
             else
@@ -291,6 +301,8 @@ public class LoadLocation : MonoBehaviour
               hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
               pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
+              //playerMoves--;
+              travelled[playerTurnTickets - 1] = 1;
               SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
             }
             else
@@ -309,6 +321,8 @@ public class LoadLocation : MonoBehaviour
               hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
               pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
+              //playerMoves--;
+              travelled[playerTurnTickets - 1] = 1;
               SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
             }
             else
@@ -329,6 +343,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -346,6 +362,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -363,6 +381,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -380,6 +400,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -401,6 +423,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -418,6 +442,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -436,6 +462,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -454,6 +482,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -476,6 +506,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -493,7 +525,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
-
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -513,6 +546,8 @@ public class LoadLocation : MonoBehaviour
               hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
               pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
+              //playerMoves--;
+              travelled[playerTurnTickets - 1] = 1;
               SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
             }
             else
@@ -531,6 +566,8 @@ public class LoadLocation : MonoBehaviour
               hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
               pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
+              //playerMoves--;
+              travelled[playerTurnTickets - 1] = 1;
 
               SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
             }
@@ -553,6 +590,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -571,6 +610,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -589,6 +630,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -607,6 +650,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -629,6 +674,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -646,6 +693,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -663,6 +712,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else
@@ -680,6 +731,8 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
+            //playerMoves--;
+            travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
           else

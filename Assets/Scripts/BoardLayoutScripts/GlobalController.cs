@@ -16,8 +16,6 @@ public class GlobalController : MonoBehaviour
     public int[] player1Values = new int[8]; //Skills
 
     public int[] player1Tickets = new int[4];
-
-
     //public int playerTurn;
     //Player 2 Info
     //public TMP_Text[] skillTextsp2 = new TMP_Text[8];
@@ -49,10 +47,12 @@ public class GlobalController : MonoBehaviour
 
     public int[] hubLocation = new int[6];
     public int[] pLocation = new int[6];
+    public int [] travelled = new int[6];
 
 
     //public List<Mission> missions = new List<Mission>();
     public Mission[] missions;
+    public List<Enemy> enemies = new List<Enemy>();
 
 
     //public int playerTurn;

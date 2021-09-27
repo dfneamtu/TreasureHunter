@@ -17,7 +17,7 @@ public class Enemy
   {
     hubNum = h;
     locationNum = l;
-    damage = Random.Range(1, 4);
+    damage = Random.Range(100, 1000);
   }
 }
 
@@ -65,6 +65,7 @@ public class GameController : MonoBehaviour
     public GameObject MissionsObj;
 
     public int[] counters = new int[6];
+    public int[] travelled = new int[6];
 
     private ReadLocationPaths locationPathsScript;
     private ReadLocations locationsScript;
@@ -212,7 +213,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
-        Time.timeScale = 1;
+
 
         for (int i = 0; i < 8; i++)
         {
@@ -277,7 +278,7 @@ public class GameController : MonoBehaviour
           for (int i = 0; i < missions.Length; i++)
           {
             //Outputting missions
-            Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
+            //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
           }
         }
         //Debug.Log("missions count: " + missions.Length);
@@ -292,7 +293,7 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < missions.Length; i++)
         {
           //Outputting missions
-          Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
+          //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
         }
 
         p1Health = maxHealth;
@@ -302,7 +303,10 @@ public class GameController : MonoBehaviour
         p5Health = maxHealth;
         p6Health = maxHealth;
 
-
+        for (int i = 0; i < 6; i++)
+        {
+          travelled[i] = 0;
+        }
     }
 
     private void Update()
@@ -326,7 +330,6 @@ public class GameController : MonoBehaviour
             ticketTextsp5[i].text = player5Tickets[i].ToString();
             ticketTextsp6[i].text = player6Tickets[i].ToString();
         }
-
         CheckPlayerTurn();
 
         if (p1VPs == 6)
@@ -359,6 +362,7 @@ public class GameController : MonoBehaviour
             PlayerTwoWin();
         }
 
+        enemies = GlobalController.Instance.enemies;
         //playerTurn = GlobalController.Instance.playerTurn;
         //Player 1 info to load
         player1Values = GlobalController.Instance.player1Values;
@@ -389,6 +393,7 @@ public class GameController : MonoBehaviour
         counters = GlobalController.Instance.counters;
 
         missions = GlobalController.Instance.missions;
+        travelled = GlobalController.Instance.travelled;
 
         if (hubLocation[playerTurn - 1] == 1)
         {
@@ -419,22 +424,30 @@ public class GameController : MonoBehaviour
 
     public void CheckPlayerTurn()
     {
+      Debug.Log("turncheckplayer");
         if (playerMoves == 0)
         {
             if (playerTurn == maxPlayers)
             {
+                for (int i = 0; i < 6; i++)
+                {
+                  travelled[i] = 0;
+                }
                 playerTurn = 1;
+                confrontEnemies();
                 moveEnemies(enemies);
                 spawnEnemies(locationsScript.hostileLocations);
             }
             else
             {
+
                 playerTurn++;
                 SkillObj.gameObject.SetActive(false);
                 ObjectObj.gameObject.SetActive(false);
                 AmountTxt.text = "";
                 ItemTxt.text = "";
-
+                confrontEnemies();
+                //check enemeis
             }
 
             playerMoves = 3;
@@ -1101,6 +1114,7 @@ public class GameController : MonoBehaviour
 
     public void SavePlayer()
     {
+        GlobalController.Instance.enemies = enemies;
         GlobalController.Instance.counters = counters;
         //Player 1 info to save
         GlobalController.Instance.player1Values = player1Values;
@@ -1129,6 +1143,7 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.pLocation = pLocation;
         GlobalController.Instance.hubLocation = hubLocation;
 
+        GlobalController.Instance.travelled = travelled;
 
         //GlobalController.Instance.playerMoves = playerMoves;
         //GlobalController.Instance.turn = turn;
@@ -1412,6 +1427,91 @@ public class GameController : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void confrontEnemies()
+    {
+      Debug.Log(" e function called");
+      foreach(Enemy e in enemies)
+      {
+        Debug.Log("player: " + hubLocation[playerTurn - 1] + ", " + pLocation[playerTurn - 1] + " - enemy: " + e.hubNum + ", " + e.locationNum);
+        if (hubLocation[playerTurn - 1] == e.hubNum)
+        {
+          Debug.Log("got to hub of enemy");
+          if (pLocation[playerTurn - 1] == e.locationNum)
+          {
+            //enemy found
+            Debug.Log("confronting enemy");
+            switch (playerTurn)
+            {
+              case 1:
+                if (e.damage >= p1Health)
+                {
+                  Debug.Log("player dies");
+                  pLocation[playerTurn - 1] = 1;
+                  hubLocation[playerTurn - 1] = 1;
+                  if (p1VPs > 2) {
+                  p1VPs = p1VPs - 2;
+                  }
+                  else {
+                    p1VPs = 0;
+                  }
+                }
+                else
+                {
+                  p1Health = p1Health - e.damage;
+                  enemies.Remove(e);
+                  return;
+                }
+              break;
+
+              case 2:
+
+              if (e.damage >= p1Health)
+              {
+                pLocation[playerTurn - 1] = 1;
+                hubLocation[playerTurn - 1] = 1;
+                if (p2VPs > 2) {
+                p2VPs = p2VPs - 2;
+                }
+                else {
+                  p2VPs = 0;
+                }
+                Debug.Log("player dies");
+              }
+              else
+              {
+                p2Health = p2Health - e.damage;
+                enemies.Remove(e);
+                return;
+              }
+              break;
+
+              case 3:
+
+              if (e.damage >= p1Health)
+              {
+                Debug.Log("player dies");
+                pLocation[playerTurn - 1] = 1;
+                hubLocation[playerTurn - 1] = 1;
+                if (p3VPs > 2) {
+                p1VPs = p3VPs - 2;
+                }
+                else {
+                  p3VPs = 0;
+                }
+              }
+              else
+              {
+                p3Health = p3Health - e.damage;
+                enemies.Remove(e);
+                return;
+              }
+              break;
+            }
+          }
+        }
+      }
     }
 
     public Mission[] generateMissions()
