@@ -126,11 +126,10 @@ public class GameController : MonoBehaviour
     //public GameObject movesLeftTag;
     public Text movesLeft;
 
-    public GameObject SkillObj;
-    public GameObject ObjectObj;
-
     public Text ItemTxt;
+    public Text ObjItemTxt;
     public Text AmountTxt;
+    public Text ObjAmountTxt;
     public Text TypeTxt;
     public Text TurnTxt;
 
@@ -459,8 +458,6 @@ public class GameController : MonoBehaviour
                     m.cooldown--;
                   }
                 }
-                SkillObj.gameObject.SetActive(false);
-                ObjectObj.gameObject.SetActive(false);
                 AmountTxt.text = "";
                 ItemTxt.text = "";
                 TypeTxt.text = "";
@@ -815,8 +812,7 @@ public class GameController : MonoBehaviour
 
     public void ObjectClicked()
     {
-        SkillObj.gameObject.SetActive(false);
-        ObjectObj.gameObject.SetActive(true);
+
         CheckPlayerTurn();
 
         int[] objectInfo = new int[2];
@@ -908,9 +904,6 @@ public class GameController : MonoBehaviour
 
     public void MissionsClicked()
     {
-        SkillObj.gameObject.SetActive(true);
-        ObjectObj.gameObject.SetActive(false);
-        TypeTxt.text = "";
         completeMissionBtn.gameObject.SetActive(true);
 
 
@@ -928,7 +921,6 @@ public class GameController : MonoBehaviour
                     if (missions[i].completedBy[playerTurn - 1] == false && missions[i].cooldown == 0)
                     {
                     ItemTxt.text = skillNames[missions[i].skillNum];
-                    //TypeTxt.text = missions[i].pointsReq.ToString();
                     AmountTxt.text = missions[i].pointsReq.ToString();
                     currentMissionIndex = i;
                     i = 10;
@@ -1062,36 +1054,36 @@ public class GameController : MonoBehaviour
         switch (name)
         {
             case "Glock":
-                ItemTxt.text = "Glock";
-                AmountTxt.text = "+2";
+                ObjItemTxt.text = "Glock";
+                ObjAmountTxt.text = "+2";
                 TypeTxt.text = "Munitions";
                 stats[0] = 4;//munitions
                 stats[1] = 2;
                 break;
             case "Rifle":
-                ItemTxt.text = "Rifle";
-                AmountTxt.text = "+5";
+                ObjItemTxt.text = "Rifle";
+                ObjAmountTxt.text = "+5";
                 TypeTxt.text = "Munitions";
                 stats[0] = 4;//munitions
                 stats[1] = 5;
                 break;
             case "Med Kit":
-                ItemTxt.text = "Med Kit";
-                AmountTxt.text = "+3";
+                ObjItemTxt.text = "Med Kit";
+                ObjAmountTxt.text = "+3";
                 TypeTxt.text = "Strength";
                 stats[0] = 0;//strength
                 stats[1] = 3;
                 break;
             case "Bribe Money":
-                ItemTxt.text = "Bribe Money";
-                AmountTxt.text = "+3";
+                ObjItemTxt.text = "Bribe Money";
+                ObjAmountTxt.text = "+3";
                 TypeTxt.text = "Currency";
                 stats[0] = 2;//currency
                 stats[1] = 3;
                 break;
             case "Cloak":
-                ItemTxt.text = "Cloak";
-                AmountTxt.text = "+4";
+                ObjItemTxt.text = "Cloak";
+                ObjAmountTxt.text = "+4";
                 TypeTxt.text = "Stealth";
                 stats[0] = 4;//stealth
                 stats[1] = 4;
