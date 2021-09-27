@@ -17,7 +17,7 @@ public class Enemy
   {
     hubNum = h;
     locationNum = l;
-    damage = Random.Range(100, 1000);
+    damage = Random.Range(5, 50);
   }
 }
 
@@ -167,7 +167,7 @@ public class GameController : MonoBehaviour
     public int[] player6Tickets = new int[4];
 
     //Moves left
-    static public int playerMoves = 3;
+    static public int playerMoves = 7;
 
 
     public string p1CurrentObject;
@@ -270,24 +270,24 @@ public class GameController : MonoBehaviour
             maxPlayers = 6;
         }
 
-        //missions = GlobalController.Instance.missions;
-        //Debug.Log(missions == null);
-        //if (missions != null)
-        //{
-        //  Debug.Log("length" + missions.Length);
-        //  for (int i = 0; i < missions.Length; i++)
-        //  {
-        //    //Outputting missions
-        //    //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
-        //  }
-        //}
-        ////Debug.Log("missions count: " + missions.Length);
-        //if (missions == null)
-        //{
-        //  Debug.Log("inside mission function");
-        //  missions = generateMissions();
-        //  GlobalController.Instance.missions = missions;
-        //}
+        missions = GlobalController.Instance.missions;
+        Debug.Log(missions == null);
+        if (missions != null)
+        {
+         Debug.Log("length" + missions.Length);
+         for (int i = 0; i < missions.Length; i++)
+         {
+           //Outputting missions
+           //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
+         }
+        }
+        //Debug.Log("missions count: " + missions.Length);
+        if (missions == null)
+        {
+         Debug.Log("inside mission function");
+         missions = generateMissions();
+         GlobalController.Instance.missions = missions;
+        }
 
 
         //for (int i = 0; i < missions.Length; i++)
@@ -446,11 +446,13 @@ public class GameController : MonoBehaviour
                 ObjectObj.gameObject.SetActive(false);
                 AmountTxt.text = "";
                 ItemTxt.text = "";
+                TypeTxt.text = "";
+                completeMissionBtn.SetActive(false);
                 confrontEnemies();
                 //check enemeis
             }
 
-            playerMoves = 3;
+            playerMoves = 7;
         }
         playerGmo();
         UpdateUIStats();
@@ -475,14 +477,13 @@ public class GameController : MonoBehaviour
         {
             case 1:
                 int skillToLevel = Random.Range(0, 8);
-                int experienceGained = ML_Algo.ML();
+                int experienceGained = ML_Algo.ML() + 1;
                 //Actions.reduceActions();
                 player1Values[skillToLevel] += experienceGained;
                 skillTextsp1[skillToLevel].text = player1Values[skillToLevel].ToString();
 
                 if (player1Values[skillToLevel] > 4)
                 {
-                    p1VPs++;
                     p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
                 }
 
@@ -497,7 +498,6 @@ public class GameController : MonoBehaviour
 
                 if (player2Values[skillToLevel] > 4)
                 {
-                    p2VPs++;
                     p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
                 }
 
@@ -511,7 +511,6 @@ public class GameController : MonoBehaviour
 
                 if (player3Values[skillToLevel] > 4)
                 {
-                    p3VPs++;
                     p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
                 }
 
@@ -525,7 +524,7 @@ public class GameController : MonoBehaviour
 
                 if (player4Values[skillToLevel] > 4)
                 {
-                    p4VPs++;
+
                     p4ScoreText.text = "Player 4 Victory Points: " + p4VPs.ToString();
                 }
 
@@ -539,7 +538,6 @@ public class GameController : MonoBehaviour
 
                 if (player5Values[skillToLevel] > 4)
                 {
-                    p5VPs++;
                     p5ScoreText.text = "Player 5 Victory Points: " + p5VPs.ToString();
                 }
 
@@ -553,7 +551,6 @@ public class GameController : MonoBehaviour
 
                 if (player6Values[skillToLevel] > 4)
                 {
-                    p6VPs++;
                     p6ScoreText.text = "Player 6 Victory Points: " + p6VPs.ToString();
                 }
 
@@ -587,41 +584,25 @@ public class GameController : MonoBehaviour
                 {
                     player1Tickets[3]++;
                     ticketTextsp1[3].text = player1Tickets[3].ToString();
-                    if (player1Tickets[3] >= 3)
-                    {
-                        p1VPs++;
-                        p1ScoreText.text = "Player 1 Victory Points: " + p2VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 2)
                 {
                     player1Tickets[2]++;
                     ticketTextsp1[2].text = player1Tickets[2].ToString();
-                    if (player1Tickets[2] >= 3)
-                    {
-                        p1VPs++;
-                        p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 3)
                 {
                     player1Tickets[0]++;
                     ticketTextsp1[0].text = player1Tickets[0].ToString();
-                    if (player1Tickets[0] >= 3)
-                    {
-                        p1VPs++;
-                        p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
-                    }
+
                 }
                 else
                 {
                     player1Tickets[1]++;
                     ticketTextsp1[1].text = player1Tickets[1].ToString();
-                    if (player1Tickets[1] >= 3)
-                    {
-                        p1VPs++;
-                        p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
-                    }
+
                 }
 
                 Actions.reduceActions();
@@ -638,41 +619,27 @@ public class GameController : MonoBehaviour
                 {
                     player2Tickets[3]++;
                     ticketTextsp2[3].text = player2Tickets[3].ToString();
-                    if (player2Tickets[3] >= 3)
-                    {
-                        p2VPs++;
-                        p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 2)
                 {
                     player2Tickets[2]++;
                     ticketTextsp2[2].text = player2Tickets[2].ToString();
-                    if (player2Tickets[2] >= 3)
-                    {
-                        p2VPs++;
-                        p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
-                    }
+
+
                 }
                 else if (ticketGained == 3)
                 {
                     player2Tickets[0]++;
                     ticketTextsp2[0].text = player2Tickets[0].ToString();
-                    if (player2Tickets[0] >= 3)
-                    {
-                        p2VPs++;
-                        p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
-                    }
+
+
                 }
                 else
                 {
                     player2Tickets[1]++;
                     ticketTextsp2[1].text = player2Tickets[1].ToString();
-                    if (player2Tickets[1] >= 3)
-                    {
-                        p2VPs++;
-                        p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
-                    }
+
                 }
 
                 Actions.reduceActions();
@@ -689,41 +656,25 @@ public class GameController : MonoBehaviour
                 {
                     player3Tickets[3]++;
                     ticketTextsp3[3].text = player3Tickets[3].ToString();
-                    if (player3Tickets[3] >= 3)
-                    {
-                        p3VPs++;
-                        p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 2)
                 {
                     player3Tickets[2]++;
                     ticketTextsp3[2].text = player3Tickets[2].ToString();
-                    if (player3Tickets[2] >= 3)
-                    {
-                        p3VPs++;
-                        p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 3)
                 {
                     player3Tickets[0]++;
                     ticketTextsp3[0].text = player3Tickets[0].ToString();
-                    if (player3Tickets[0] >= 3)
-                    {
-                        p3VPs++;
-                        p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
-                    }
+
                 }
                 else
                 {
                     player3Tickets[1]++;
                     ticketTextsp3[1].text = player3Tickets[1].ToString();
-                    if (player3Tickets[1] >= 3)
-                    {
-                        p3VPs++;
-                        p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
-                    }
+
                 }
 
                 Actions.reduceActions();
@@ -740,41 +691,25 @@ public class GameController : MonoBehaviour
                 {
                     player4Tickets[3]++;
                     ticketTextsp4[3].text = player4Tickets[3].ToString();
-                    if (player4Tickets[3] >= 3)
-                    {
-                        p4VPs++;
-                        p4ScoreText.text = "Player 4 Victory Points: " + p4VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 2)
                 {
                     player4Tickets[2]++;
                     ticketTextsp4[2].text = player4Tickets[2].ToString();
-                    if (player4Tickets[2] >= 3)
-                    {
-                        p5VPs++;
-                        p4ScoreText.text = "Player 4 Victory Points: " + p4VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 3)
                 {
                     player4Tickets[0]++;
                     ticketTextsp4[0].text = player4Tickets[0].ToString();
-                    if (player4Tickets[0] >= 3)
-                    {
-                        p4VPs++;
-                        p4ScoreText.text = "Player 4 Victory Points: " + p4VPs.ToString();
-                    }
+
                 }
                 else
                 {
                     player4Tickets[1]++;
                     ticketTextsp4[1].text = player4Tickets[1].ToString();
-                    if (player4Tickets[1] >= 3)
-                    {
-                        p4VPs++;
-                        p4ScoreText.text = "Player 4 Victory Points: " + p4VPs.ToString();
-                    }
+
                 }
 
                 Actions.reduceActions();
@@ -791,41 +726,25 @@ public class GameController : MonoBehaviour
                 {
                     player5Tickets[3]++;
                     ticketTextsp5[3].text = player5Tickets[3].ToString();
-                    if (player5Tickets[3] >= 3)
-                    {
-                        p5VPs++;
-                        p5ScoreText.text = "Player 5 Victory Points: " + p5VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 2)
                 {
                     player5Tickets[2]++;
                     ticketTextsp5[2].text = player5Tickets[2].ToString();
-                    if (player5Tickets[2] >= 3)
-                    {
-                        p5VPs++;
-                        p5ScoreText.text = "Player 5 Victory Points: " + p5VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 3)
                 {
                     player5Tickets[0]++;
                     ticketTextsp5[0].text = player5Tickets[0].ToString();
-                    if (player5Tickets[0] >= 3)
-                    {
-                        p5VPs++;
-                        p5ScoreText.text = "Player 5 Victory Points: " + p5VPs.ToString();
-                    }
+
                 }
                 else
                 {
                     player5Tickets[1]++;
                     ticketTextsp5[1].text = player5Tickets[1].ToString();
-                    if (player5Tickets[1] >= 3)
-                    {
-                        p5VPs++;
-                        p5ScoreText.text = "Player 5 Victory Points: " + p5VPs.ToString();
-                    }
+
                 }
 
                 Actions.reduceActions();
@@ -842,46 +761,28 @@ public class GameController : MonoBehaviour
                 {
                     player6Tickets[3]++;
                     ticketTextsp6[3].text = player6Tickets[3].ToString();
-                    if (player6Tickets[3] >= 3)
-                    {
-                        p6VPs++;
-                        p6ScoreText.text = "Player 6 Victory Points: " + p6VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 2)
                 {
                     player6Tickets[2]++;
                     ticketTextsp6[2].text = player6Tickets[2].ToString();
-                    if (player6Tickets[2] >= 3)
-                    {
-                        p6VPs++;
-                        p6ScoreText.text = "Player 6 Victory Points: " + p6VPs.ToString();
-                    }
+
                 }
                 else if (ticketGained == 3)
                 {
                     player6Tickets[0]++;
                     ticketTextsp6[0].text = player6Tickets[0].ToString();
-                    if (player6Tickets[0] >= 3)
-                    {
-                        p6VPs++;
-                        p6ScoreText.text = "Player 6 Victory Points: " + p6VPs.ToString();
-                    }
+
                 }
                 else
                 {
                     player6Tickets[1]++;
                     ticketTextsp6[1].text = player6Tickets[1].ToString();
-                    if (player6Tickets[1] >= 3)
-                    {
-                        p6VPs++;
-                        p6ScoreText.text = "Player 6 Victory Points: " + p6VPs.ToString();
-                    }
+
                 }
 
                 Actions.reduceActions();
-                break;
-            default:
                 break;
                 log.Add("Player " + playerTurn.ToString() + " gained a ticket.");
 
@@ -910,8 +811,7 @@ public class GameController : MonoBehaviour
 
                 if (player1Values[objectInfo[0]] > 4)
                 {
-                    p1VPs++;
-                    p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
+
                 }
                 p1CurrentObject = getObject();
                 break;
@@ -923,8 +823,7 @@ public class GameController : MonoBehaviour
 
                 if (player2Values[objectInfo[0]] > 4)
                 {
-                    p2VPs++;
-                    p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
+
                 }
                 p2CurrentObject = getObject();
                 break;
@@ -936,8 +835,7 @@ public class GameController : MonoBehaviour
 
                 if (player3Values[objectInfo[0]] > 4)
                 {
-                    p3VPs++;
-                    p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
+
                 }
                 p3CurrentObject = getObject();
                 break;
@@ -949,8 +847,7 @@ public class GameController : MonoBehaviour
 
                 if (player4Values[objectInfo[0]] > 4)
                 {
-                    p4VPs++;
-                    p4ScoreText.text = "Player 4 Victory Points: " + p4VPs.ToString();
+
                 }
                 p4CurrentObject = getObject();
                 break;
@@ -962,8 +859,7 @@ public class GameController : MonoBehaviour
 
                 if (player5Values[objectInfo[0]] > 4)
                 {
-                    p5VPs++;
-                    p5ScoreText.text = "Player 5 Victory Points: " + p5VPs.ToString();
+
                 }
                 p5CurrentObject = getObject();
                 break;
@@ -975,8 +871,7 @@ public class GameController : MonoBehaviour
 
                 if (player6Values[objectInfo[0]] > 4)
                 {
-                    p6VPs++;
-                    p6ScoreText.text = "Player 6 Victory Points: " + p6VPs.ToString();
+
                 }
                 break;
                 p6CurrentObject = getObject();
@@ -1012,8 +907,10 @@ public class GameController : MonoBehaviour
                     ItemTxt.text = "Requires skill " + missions[i].skillNum;
                     //TypeTxt.text = missions[i].pointsReq.ToString();
                     AmountTxt.text = missions[i].pointsReq.ToString();
+                    currentMissionIndex = i;
                     i = 10;
                     completeMissionBtn.gameObject.SetActive(true);
+
                     //
                 }
             }
@@ -1036,31 +933,36 @@ public class GameController : MonoBehaviour
     public void CompleteMissions()
     {
 
-        missions = GlobalController.Instance.missions;
-        Debug.Log(missions == null);
-        if (missions != null)
+        switch (playerTurn)
         {
-            Debug.Log("length" + missions.Length);
-            for (int i = 0; i < missions.Length; i++)
-            {
-                //Outputting missions
-                //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
-            }
-        }
-        //Debug.Log("missions count: " + missions.Length);
-        if (missions == null)
-        {
-            Debug.Log("inside mission function");
-            missions = generateMissions();
-            GlobalController.Instance.missions = missions;
-        }
+          case 1:
+          if (player1Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
+          {
+            p1VPs = p1VPs + missions[currentMissionIndex].victoryPoints;
+            p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
+          }
+          break;
+
+          case 2:
+          if (player1Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
+          {
+            p1VPs = p1VPs + missions[currentMissionIndex].victoryPoints;
+          }
 
 
-        for (int i = 0; i < missions.Length; i++)
-        {
-            //Outputting missions
-            //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
+          break;
+
+          case 3:
+          if (player1Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
+          {
+            p1VPs = p1VPs + missions[currentMissionIndex].victoryPoints;
+          }
+
+          break;
+
+          missions[currentMissionIndex].completedBy[playerTurn - 1] = true;
         }
+
 
         completeMissionBtn.gameObject.SetActive(false);
     }
@@ -1199,12 +1101,15 @@ public class GameController : MonoBehaviour
       {
         Debug.Log("Enemy at: " + e.hubNum + ", " + e.locationNum);
         List<LocationPath> paths = getPaths(e.hubNum, e.locationNum);
-
         int randomPath = Random.Range(0,paths.Count);
-        //Debug.Log(paths[randomPath].hubNum + ", " + paths[randomPath].locationNum);
+
+        while (paths[randomPath].travelToNum == 1)
+        {
+        randomPath = Random.Range(0,paths.Count);
+        }
+
         e.hubNum = paths[randomPath].hubToNum;
         e.locationNum = paths[randomPath].travelToNum;
-
         Debug.Log("Enemy moved to: " + e.hubNum + ", " + e.locationNum);
       }
     }
