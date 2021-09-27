@@ -132,6 +132,7 @@ public class GameController : MonoBehaviour
     public Text ItemTxt;
     public Text AmountTxt;
     public Text TypeTxt;
+    public Text TurnTxt;
 
     //Player 1 Stats
     public TMP_Text[] skillTextsp1 = new TMP_Text[8];
@@ -577,6 +578,7 @@ public class GameController : MonoBehaviour
 
         Debug.Log("Skills");
         log.Add("Player " + playerTurn.ToString() + " leveled a skill.");
+        TurnTxt.text = "Player " + playerTurn.ToString() + " leveled a skill.";
 
         playerMoves--;
 
@@ -805,6 +807,7 @@ public class GameController : MonoBehaviour
         }
         Debug.Log("Player " + playerTurn.ToString() + " gained a ticket.");
         log.Add("Player " + playerTurn.ToString() + " gained a ticket.");
+        TurnTxt.text = "Player " + playerTurn.ToString() + " gained a ticket.";
 
         playerMoves--;
         Debug.Log("Tickets");
@@ -898,6 +901,7 @@ public class GameController : MonoBehaviour
         playerMoves--;
         log.Add("Player " + playerTurn.ToString() + " acquired an object.");
         Debug.Log("Player " + playerTurn.ToString() + " acquired an object.");
+        TurnTxt.text = "Player " + playerTurn.ToString() + " acquired an object.";
 
         Debug.Log("Objects");
     }
@@ -961,6 +965,7 @@ public class GameController : MonoBehaviour
         //Debug.Log("no mission present");
 
         log.Add("Player " + playerTurn.ToString() + " clicked mission button.");
+        TurnTxt.text = "Player " + playerTurn.ToString() + " clicked mission button.";
         //Debug.Log("Player " + playerTurn.ToString() + " clicked a mission.");
     }
 
