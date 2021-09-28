@@ -82,6 +82,17 @@ public class GameController : MonoBehaviour
   public TMP_Text p5ScoreText;
   public TMP_Text p6ScoreText;
 
+  public int[] trophyOne = new int[6];
+  public int[] trophyTwo = new int[6];
+  public int[] trophyThree = new int[6];
+  public int[] trophyFour = new int[6];
+
+  public Text trophyOneTxt;
+  public Text trophyTwoTxt;
+  public Text trophyThreeTxt;
+  public Text trophyFourTxt;
+
+
   public int p1VPs = 0;
   public int p2VPs = 0;
   public int p3VPs = 0;
