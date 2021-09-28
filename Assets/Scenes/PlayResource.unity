@@ -1224,6 +1224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   log: []
+  turnOrder: 
   currentMissionIndex: 0
   fillImage: {fileID: 584251042}
   slider: {fileID: 1455536597}
@@ -1274,13 +1275,48 @@ MonoBehaviour:
   BGp6: {fileID: 1499845809}
   completeMissionBtn: {fileID: 1298080014}
   movesLeft: {fileID: 317621840}
-  SkillObj: {fileID: 1463311168}
   ItemTxt: {fileID: 382871649}
   ObjItemTxt: {fileID: 494452566}
   AmountTxt: {fileID: 1441995625}
   ObjAmountTxt: {fileID: 459219677}
   TypeTxt: {fileID: 1753349874}
   TurnTxt: {fileID: 423103922}
+  turnOrderTxt: {fileID: 2146454503}
+  playersItemTxt:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  playersObjItemTxt:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  playersAmountTxt:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  playersObjAmountTxt:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  playersTypeTxt:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   skillTextsp1:
   - {fileID: 1853888424}
   - {fileID: 1397196541}
@@ -1377,6 +1413,13 @@ MonoBehaviour:
   - {fileID: 1827787688}
   - {fileID: 3623544}
   player6Tickets: 00000000000000000000000000000000
+  playerObjects:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   p1CurrentObject: 
   p2CurrentObject: 
   p3CurrentObject: 
@@ -3287,6 +3330,7 @@ RectTransform:
   - {fileID: 1455536596}
   - {fileID: 1084155122}
   - {fileID: 423103921}
+  - {fileID: 2146454501}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5356,6 +5400,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counters: 000000000000000000000000000000000000000000000000
+  turnOrder: 
+  playersItemTxt:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  playersObjItemTxt:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  playersAmountTxt:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  playersObjAmountTxt:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  playersTypeTxt:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  playerObjects:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   player1Values: 0000000000000000000000000000000000000000000000000000000000000000
   player1Tickets: 00000000000000000000000000000000
   player2Values: 0000000000000000000000000000000000000000000000000000000000000000
@@ -5371,6 +5458,7 @@ MonoBehaviour:
   hubLocation: 000000000000000000000000000000000000000000000000
   pLocation: 000000000000000000000000000000000000000000000000
   travelled: 000000000000000000000000000000000000000000000000
+  turnOrderTxt: {fileID: 0}
 --- !u!4 &450424969
 Transform:
   m_ObjectHideFlags: 0
@@ -17696,3 +17784,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113550258}
   m_CullTransparentMesh: 1
+--- !u!1 &2146454500
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2146454501}
+  - component: {fileID: 2146454502}
+  - component: {fileID: 2146454503}
+  m_Layer: 5
+  m_Name: TurnOrder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2146454501
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146454500}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 303960094}
+  m_RootOrder: 51
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 181.4, y: -35.528}
+  m_SizeDelta: {x: 808.9978, y: 61.325}
+  m_Pivot: {x: 0, y: 1}
+--- !u!222 &2146454502
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146454500}
+  m_CullTransparentMesh: 0
+--- !u!114 &2146454503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146454500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 35
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 70
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 

@@ -16,6 +16,9 @@ public class LoadLocation : MonoBehaviour
     public int[] counters = new int[6];
     public int[] travelled = new int[6];
 
+    public Sprite[] tickets;
+    public SpriteRenderer spriteRenderer;
+
     public int playerTurnTickets;
 
     public TMP_Text fromLocation;
@@ -157,6 +160,9 @@ public class LoadLocation : MonoBehaviour
                     trainTravel.text = "0";
                     boatTravel.text = "0";
                     roadTravel.text = "0";
+
+                    spriteRenderer.sprite = tickets[0];
+
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
@@ -165,6 +171,7 @@ public class LoadLocation : MonoBehaviour
                     airTravel.text = "0";
                     boatTravel.text = "0";
                     roadTravel.text = "0";
+                    spriteRenderer.sprite = tickets[1];
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
@@ -173,6 +180,7 @@ public class LoadLocation : MonoBehaviour
                     trainTravel.text = "0";
                     airTravel.text = "0";
                     roadTravel.text = "0";
+                    spriteRenderer.sprite = tickets[2];
                 }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
@@ -181,6 +189,7 @@ public class LoadLocation : MonoBehaviour
                     trainTravel.text = "0";
                     boatTravel.text = "0";
                     airTravel.text = "0";
+                    spriteRenderer.sprite = tickets[3];
                 }
             }
         }
