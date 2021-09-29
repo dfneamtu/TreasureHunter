@@ -62,7 +62,7 @@ public class MapController : MonoBehaviour
                     GlobalController.Instance.players = players;
                   }
                 }
-              
+
             }
           }
 
@@ -87,6 +87,22 @@ public class MapController : MonoBehaviour
 
         startOfTurn = false;
         GlobalController.Instance.startOfTurn = startOfTurn;
+      }
+
+      for (int i = 0; i < 6; i++)
+      {
+        foreach(Location l in locations)
+        {
+          if (l.hubNum == hubLocation[i])
+          {
+            if (l.locationNum == pLocation[i])
+            {
+              players[i].transform.position = new Vector3(l.xPos, 0, l.zPos);
+
+              GlobalController.Instance.players = players;
+            }
+          }
+        }
       }
 
       // for (int i = 0; i < 6; i++)
