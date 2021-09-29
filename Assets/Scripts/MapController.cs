@@ -10,7 +10,7 @@ public class MapController : MonoBehaviour
     private ReadLocations locationsScript;
     public GameObject LocationsObj;
     public List<Location> locations = new List<Location>();
-    Vector3 thing;
+    public GameObject Cube;
 
     void Awake()
     {
@@ -21,20 +21,17 @@ public class MapController : MonoBehaviour
     {
         hubLocation = GlobalController.Instance.hubLocation;
         pLocation = GlobalController.Instance.pLocation;
-
         locations = locationsScript.locations;
 
+        Cube.transform.position = new Vector3(locations[2].xPos, 0, locations[2].zPos);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-      thing = transform.position;
-      thing.x = locations[0].xPos;
-      thing.z = locations[0].zPos;
 
-      transform.position = thing;
+
       //locations[0].x
       //locations[0].y
 
