@@ -1648,6 +1648,8 @@ public class GameController : MonoBehaviour
               Debug.Log("player dies");
               pLocation[playerTurn - 1] = 1;
               hubLocation[playerTurn - 1] = 1;
+              p1Health = maxHealth;
+              counters[0] = 0;
               if (p1VPs > 2) {
                 p1VPs = p1VPs - 2;
               }
@@ -1669,6 +1671,8 @@ public class GameController : MonoBehaviour
             {
               pLocation[playerTurn - 1] = 1;
               hubLocation[playerTurn - 1] = 1;
+              p2Health = maxHealth;
+              counters[1] = 0;
               if (p2VPs > 2) {
                 p2VPs = p2VPs - 2;
               }
@@ -1692,6 +1696,8 @@ public class GameController : MonoBehaviour
               Debug.Log("player dies");
               pLocation[playerTurn - 1] = 1;
               hubLocation[playerTurn - 1] = 1;
+              p3Health = maxHealth;
+              counters[2] = 0;
               if (p3VPs > 2) {
                 p3VPs = p3VPs - 2;
               }
@@ -1714,6 +1720,8 @@ public class GameController : MonoBehaviour
               Debug.Log("player dies");
               pLocation[playerTurn - 1] = 1;
               hubLocation[playerTurn - 1] = 1;
+              p4Health = maxHealth;
+              counters[3] = 0;
               if (p4VPs > 2) {
                 p4VPs = p4VPs - 2;
               }
@@ -1737,6 +1745,8 @@ public class GameController : MonoBehaviour
               Debug.Log("player dies");
               pLocation[playerTurn - 1] = 1;
               hubLocation[playerTurn - 1] = 1;
+              p5Health = maxHealth;
+              counters[4] = 0;
               if (p5VPs > 2) {
                 p5VPs = p5VPs - 2;
               }
@@ -1760,6 +1770,8 @@ public class GameController : MonoBehaviour
               Debug.Log("player dies");
               pLocation[playerTurn - 1] = 1;
               hubLocation[playerTurn - 1] = 1;
+              p6Health = maxHealth;
+              counters[5] = 0;
               if (p6VPs > 2) {
                 p6VPs = p6VPs - 2;
               }

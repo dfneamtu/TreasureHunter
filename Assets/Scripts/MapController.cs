@@ -24,11 +24,17 @@ public class MapController : MonoBehaviour
 
         locations = locationsScript.locations;
 
+
     }
 
     // Update is called once per frame
     void Update()
     {
+      thing = transform.position;
+      thing.x = locations[0].xPos;
+      thing.z = locations[0].zPos;
+
+      transform.position = thing;
       //locations[0].x
       //locations[0].y
 

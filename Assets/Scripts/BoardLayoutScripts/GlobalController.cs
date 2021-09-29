@@ -59,6 +59,7 @@ public class GlobalController : MonoBehaviour
     public int [] travelled = new int[6];
 
     public Text turnOrderTxt;
+    public int turnIndex;
 
     //public List<Mission> missions = new List<Mission>();
     public Mission[] missions;
