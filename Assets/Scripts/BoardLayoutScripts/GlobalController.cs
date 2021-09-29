@@ -70,6 +70,16 @@ public class GlobalController : MonoBehaviour
     public Mission[] missions;
     public List<Enemy> enemies = new List<Enemy>();
 
+    public int[] trophyOne = new int[6];
+    public int[] trophyTwo = new int[6];
+    public int[] trophyThree = new int[6];
+    public int[] trophyFour = new int[6];
+
+    public Text trophyOneTxt;
+    public Text trophyTwoTxt;
+    public Text trophyThreeTxt;
+    public Text trophyFourTxt;
+
 
     //public int playerTurn;
     //public int playerMoves;

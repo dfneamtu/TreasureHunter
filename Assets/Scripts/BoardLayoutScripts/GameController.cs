@@ -451,6 +451,16 @@ public class GameController : MonoBehaviour
 
     startOfTurn = GlobalController.Instance.startOfTurn;
 
+    trophyOne = GlobalController.Instance.trophyOne;
+    trophyTwo = GlobalController.Instance.trophyTwo;
+    trophyThree = GlobalController.Instance.trophyThree;
+    trophyFour = GlobalController.Instance.trophyFour;
+
+    trophyOneTxt = GlobalController.Instance.trophyOneTxt;
+    trophyTwoTxt = GlobalController.Instance.trophyTwoTxt;
+    trophyThreeTxt = GlobalController.Instance.trophyThreeTxt;
+    trophyFourTxt = GlobalController.Instance.trophyFourTxt;
+
     if (hubLocation[playerTurn - 1] == 1)
     {
       Hub1.gameObject.SetActive(true);
@@ -1423,6 +1433,15 @@ public class GameController : MonoBehaviour
 
     GlobalController.Instance.turnOrderTxt = turnOrderTxt;
 
+    GlobalController.Instance.trophyOne = trophyOne;
+    GlobalController.Instance.trophyTwo = trophyTwo;
+    GlobalController.Instance.trophyThree = trophyThree;
+    GlobalController.Instance.trophyFour = trophyFour;
+
+    GlobalController.Instance.trophyOneTxt = trophyOneTxt;
+    GlobalController.Instance.trophyTwoTxt = trophyTwoTxt;
+    GlobalController.Instance.trophyThreeTxt = trophyThreeTxt;
+    GlobalController.Instance.trophyFourTxt = trophyFourTxt;
 
     //GlobalController.Instance.playerMoves = playerMoves;
     //GlobalController.Instance.turn = turn;
@@ -1730,17 +1749,16 @@ public class GameController : MonoBehaviour
               hubLocation[playerTurn - 1] = 1;
               p1Health = maxHealth;
               counters[0] = 0;
-              if (p1VPs > 2) {
-                p1VPs = p1VPs - 2;
-              }
-              else {
-                p1VPs = 0;
-              }
+              trophyOne[playerTurn - 1]--;
+              trophyTwo[playerTurn - 1]--;
+              trophyThree[playerTurn - 1]--;
+              trophyFour[playerTurn - 1]--;
             }
             else
             {
               p1Health = p1Health - e.damage;
               enemies.Remove(e);
+              trophyOne[playerTurn - 1]++;
               return;
             }
             break;
