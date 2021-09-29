@@ -79,8 +79,8 @@ public class GlobalController : MonoBehaviour
     // public Text trophyTwoTxt;
     // public Text trophyThreeTxt;
     // public Text trophyFourTxt;
-    public int p1Health;
-    
+    public int[] pHealth = new int[6];
+
     public GameObject[] players = new GameObject[6];
 
 
@@ -120,6 +120,9 @@ public class GlobalController : MonoBehaviour
             newLocation[i] = 1;
             newHub[i] = 1;
             counters[i] = 0;
+            pHealth[i] = 100;
         }
+
+
     }
 }

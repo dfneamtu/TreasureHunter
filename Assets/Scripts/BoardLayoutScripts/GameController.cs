@@ -112,12 +112,7 @@ public class GameController : MonoBehaviour
     public int[] newLocation = new int[6];
     public int[] newHub = new int[6];
 
-    public int p1Health;
-    public int p2Health;
-    public int p3Health;
-    public int p4Health;
-    public int p5Health;
-    public int p6Health;
+    public int[] pHealth = new int[6];
     public int maxHealth = 100;
 
     //Player GameObjects to set true and false
@@ -347,13 +342,6 @@ public class GameController : MonoBehaviour
         //  //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
         //}
 
-        p1Health = maxHealth;
-        p2Health = maxHealth;
-        p3Health = maxHealth;
-        p4Health = maxHealth;
-        p5Health = maxHealth;
-        p6Health = maxHealth;
-
         enemies = GlobalController.Instance.enemies;
         confrontEnemies();
 
@@ -479,11 +467,7 @@ public class GameController : MonoBehaviour
 
         startOfTurn = GlobalController.Instance.startOfTurn;
 
-        p1Health = GlobalController.Instance.p1Health;
-
-
-
-
+        pHealth = GlobalController.Instance.pHealth;
 
         if (hubLocation[playerTurn - 1] == 1)
         {
@@ -1415,7 +1399,8 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.trophyThree = trophyThree;
         GlobalController.Instance.trophyFour = trophyFour;
 
-        GlobalController.Instance.p1Health = p1Health;
+
+        GlobalController.Instance.pHealth = pHealth;
 
         //GlobalController.Instance.playerMoves = playerMoves;
         //GlobalController.Instance.turn = turn;
@@ -1511,7 +1496,7 @@ public class GameController : MonoBehaviour
                 p5ScoreText.gameObject.SetActive(false);
                 p6ScoreText.gameObject.SetActive(false);
 
-                float fillValue = p1Health;
+                float fillValue = pHealth[0];
                 slider.value = fillValue;
 
                 break;
@@ -1548,7 +1533,7 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
-                fillValue = p2Health;
+                fillValue = pHealth[1];
                 slider.value = fillValue;
 
                 break;
@@ -1585,7 +1570,7 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
-                fillValue = p3Health;
+                fillValue = pHealth[2];
                 slider.value = fillValue;
 
                 break;
@@ -1622,7 +1607,7 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
-                fillValue = p4Health;
+                fillValue = pHealth[3];
                 slider.value = fillValue;
 
                 break;
@@ -1659,7 +1644,7 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(true);
                 BGp6.gameObject.SetActive(false);
 
-                fillValue = p5Health;
+                fillValue = pHealth[4];
                 slider.value = fillValue;
 
                 break;
@@ -1696,7 +1681,7 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(true);
 
-                fillValue = p6Health;
+                fillValue = pHealth[5];
                 slider.value = fillValue;
 
                 break;
@@ -1728,14 +1713,14 @@ public class GameController : MonoBehaviour
                     switch (playerTurn)
                     {
                         case 1:
-                            if (e.damage >= p1Health)
+                            if (e.damage >= pHealth[0])
                             {
                                 Debug.Log("player dies");
                                 newLocation[playerTurn - 1] = 1;
                                 newHub[playerTurn - 1] = 1;
                                 pLocation[playerTurn - 1] = 1;
                                 hubLocation[playerTurn - 1] = 1;
-                                p1Health = maxHealth;
+                                pHealth[0] = maxHealth;
                                 counters[0] = 0;
                                 trophyOne[playerTurn - 1]--;
                                 trophyTwo[playerTurn - 1]--;
@@ -1749,7 +1734,7 @@ public class GameController : MonoBehaviour
                             {
                                 infoPopup.gameObject.SetActive(true);
                                 Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                p1Health = p1Health - e.damage;
+                                pHealth[0] = pHealth[0] - e.damage;
                                 enemies.Remove(e);
                                 trophyOne[playerTurn - 1]++;
 
@@ -1761,13 +1746,13 @@ public class GameController : MonoBehaviour
 
                         case 2:
 
-                            if (e.damage >= p2Health)
+                            if (e.damage >= pHealth[1])
                             {
                               newLocation[playerTurn - 1] = 1;
                               newHub[playerTurn - 1] = 1;
                               pLocation[playerTurn - 1] = 1;
                               hubLocation[playerTurn - 1] = 1;
-                                p2Health = maxHealth;
+                                pHealth[1] = maxHealth;
                                 counters[1] = 0;
                                 if (p2VPs > 2)
                                 {
@@ -1783,7 +1768,7 @@ public class GameController : MonoBehaviour
                             {
                                 infoPopup.gameObject.SetActive(true);
                                 Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                p2Health = p2Health - e.damage;
+                                pHealth[1] = pHealth[1] - e.damage;
                                 enemies.Remove(e);
                                 return;
                             }
@@ -1791,14 +1776,14 @@ public class GameController : MonoBehaviour
 
                         case 3:
 
-                            if (e.damage >= p3Health)
+                            if (e.damage >= pHealth[2])
                             {
                                 Debug.Log("player dies");
                                 newLocation[playerTurn - 1] = 1;
                                 newHub[playerTurn - 1] = 1;
                                 pLocation[playerTurn - 1] = 1;
                                 hubLocation[playerTurn - 1] = 1;
-                                p3Health = maxHealth;
+                                pHealth[2] = maxHealth;
                                 counters[2] = 0;
                                 if (p3VPs > 2)
                                 {
@@ -1813,7 +1798,7 @@ public class GameController : MonoBehaviour
                             {
                                 infoPopup.gameObject.SetActive(true);
                                 Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                p3Health = p3Health - e.damage;
+                                pHealth[2] = pHealth[2] - e.damage;
                                 enemies.Remove(e);
                                 return;
                             }
@@ -1821,14 +1806,14 @@ public class GameController : MonoBehaviour
 
                         case 4:
 
-                            if (e.damage >= p4Health)
+                            if (e.damage >= pHealth[3])
                             {
                                 Debug.Log("player dies");
                                 newLocation[playerTurn - 1] = 1;
                                 newHub[playerTurn - 1] = 1;
                                 pLocation[playerTurn - 1] = 1;
                                 hubLocation[playerTurn - 1] = 1;
-                                p4Health = maxHealth;
+                                pHealth[3] = maxHealth;
                                 counters[3] = 0;
                                 if (p4VPs > 2)
                                 {
@@ -1843,7 +1828,7 @@ public class GameController : MonoBehaviour
                             {
                                 infoPopup.gameObject.SetActive(true);
                                 Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                p4Health = p4Health - e.damage;
+                                pHealth[3] = pHealth[3] - e.damage;
                                 enemies.Remove(e);
                                 return;
                             }
@@ -1852,14 +1837,14 @@ public class GameController : MonoBehaviour
 
                         case 5:
 
-                            if (e.damage >= p5Health)
+                            if (e.damage >= pHealth[4])
                             {
                                 Debug.Log("player dies");
                                 newLocation[playerTurn - 1] = 1;
                                 newHub[playerTurn - 1] = 1;
                                 pLocation[playerTurn - 1] = 1;
                                 hubLocation[playerTurn - 1] = 1;
-                                p5Health = maxHealth;
+                                pHealth[4] = maxHealth;
                                 counters[4] = 0;
                                 if (p5VPs > 2)
                                 {
@@ -1874,7 +1859,7 @@ public class GameController : MonoBehaviour
                             {
                                 infoPopup.gameObject.SetActive(true);
                                 Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                p5Health = p5Health - e.damage;
+                                pHealth[4] = pHealth[4] - e.damage;
                                 enemies.Remove(e);
                                 return;
                             }
@@ -1883,14 +1868,14 @@ public class GameController : MonoBehaviour
 
                         case 6:
 
-                            if (e.damage >= p6Health)
+                            if (e.damage >= pHealth[5])
                             {
                                 Debug.Log("player dies");
                                 newLocation[playerTurn - 1] = 1;
                                 newHub[playerTurn - 1] = 1;
                                 pLocation[playerTurn - 1] = 1;
                                 hubLocation[playerTurn - 1] = 1;
-                                p6Health = maxHealth;
+                                pHealth[5] = maxHealth;
                                 counters[5] = 0;
                                 if (p6VPs > 2)
                                 {
@@ -1905,7 +1890,7 @@ public class GameController : MonoBehaviour
                             {
                                 infoPopup.gameObject.SetActive(true);
                                 Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                p6Health = p6Health - e.damage;
+                                pHealth[5] = pHealth[5] - e.damage;
                                 enemies.Remove(e);
                                 return;
                             }
