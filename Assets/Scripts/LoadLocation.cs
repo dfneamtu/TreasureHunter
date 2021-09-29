@@ -87,13 +87,6 @@ public class LoadLocation : MonoBehaviour
     {
         ReadCSV();
         //Time.timeScale = 1;
-
-        //Debug.Log("counter is: " + counters[playerTurnTickets - 1]);
-        //Debug.Log("player is at: " + hubLocation[playerTurnTickets - 1] + ", " + pLocation[playerTurnTickets - 1]);
-
-
-        //setCounter();
-
     }
 
     public void ReadCSV()
@@ -368,7 +361,6 @@ public class LoadLocation : MonoBehaviour
           }
           else
           {
-            Debug.Log("insufficient");
             //insufficient tickets
           }
         }

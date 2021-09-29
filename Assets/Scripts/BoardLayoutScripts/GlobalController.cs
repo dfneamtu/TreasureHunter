@@ -75,12 +75,12 @@ public class GlobalController : MonoBehaviour
     public int[] trophyThree = new int[6];
     public int[] trophyFour = new int[6];
 
-    public Text trophyOneTxt;
-    public Text trophyTwoTxt;
-    public Text trophyThreeTxt;
-    public Text trophyFourTxt;
-
+    // public Text trophyOneTxt;
+    // public Text trophyTwoTxt;
+    // public Text trophyThreeTxt;
+    // public Text trophyFourTxt;
     public int p1Health;
+    
     public GameObject[] players = new GameObject[6];
 
 

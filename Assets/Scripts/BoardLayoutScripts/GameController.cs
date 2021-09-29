@@ -260,6 +260,11 @@ public class GameController : MonoBehaviour
             playersItemTxt[i] = "";
             playersTypeTxt[i] = "";
             playersTypeTxt[i] = "";
+
+            trophyOneTxt.text = 0.ToString();
+            trophyTwoTxt.text = 0.ToString();
+            trophyThreeTxt.text = 0.ToString();
+            trophyFourTxt.text = 0.ToString();
         }
 
         for (int i = 0; i < 4; i++)
@@ -349,6 +354,9 @@ public class GameController : MonoBehaviour
         p5Health = maxHealth;
         p6Health = maxHealth;
 
+        enemies = GlobalController.Instance.enemies;
+        confrontEnemies();
+
         for (int i = 0; i < 6; i++)
         {
             travelled[i] = 0;
@@ -377,9 +385,20 @@ public class GameController : MonoBehaviour
             ticketTextsp6[i].text = player6Tickets[i].ToString();
         }
 
+        trophyOne = GlobalController.Instance.trophyOne;
+        trophyTwo = GlobalController.Instance.trophyTwo;
+        trophyThree = GlobalController.Instance.trophyThree;
+        trophyFour = GlobalController.Instance.trophyFour;
+
+        trophyOneTxt.text = trophyOne[playerTurn - 1].ToString();
+        trophyTwoTxt.text = trophyTwo[playerTurn - 1].ToString();
+        trophyThreeTxt.text = trophyThree[playerTurn - 1].ToString();
+        trophyFourTxt.text = trophyFour[playerTurn - 1].ToString();
+
         ObjItemTxt.text = playersObjItemTxt[playerTurn - 1];
         ObjAmountTxt.text = playersObjAmountTxt[playerTurn - 1];
         TypeTxt.text = playersTypeTxt[playerTurn - 1];
+
 
         CheckPlayerTurn();
 
@@ -413,8 +432,6 @@ public class GameController : MonoBehaviour
         {
             PlayerOneWin();
         }
-
-        p1Health = GlobalController.Instance.p1Health;
 
         turnOrder = GlobalController.Instance.turnOrder;
         enemies = GlobalController.Instance.enemies;
@@ -462,15 +479,11 @@ public class GameController : MonoBehaviour
 
         startOfTurn = GlobalController.Instance.startOfTurn;
 
-        trophyOne = GlobalController.Instance.trophyOne;
-        trophyTwo = GlobalController.Instance.trophyTwo;
-        trophyThree = GlobalController.Instance.trophyThree;
-        trophyFour = GlobalController.Instance.trophyFour;
+        p1Health = GlobalController.Instance.p1Health;
 
-        trophyOneTxt = GlobalController.Instance.trophyOneTxt;
-        trophyTwoTxt = GlobalController.Instance.trophyTwoTxt;
-        trophyThreeTxt = GlobalController.Instance.trophyThreeTxt;
-        trophyFourTxt = GlobalController.Instance.trophyFourTxt;
+
+
+
 
         if (hubLocation[playerTurn - 1] == 1)
         {
@@ -512,21 +525,16 @@ public class GameController : MonoBehaviour
                 for (int i = 0; i < maxPlayers; i++)
                 {
                     turnOrder.Add(i + 1);
-                    Debug.Log("player " + turnOrder[i]);
                 }
 
                 IListExtensions.Shuffle(turnOrder); // randomize turn order for the round
-                for (int i = 0; i < maxPlayers; i++)
-                {
-                    Debug.Log("player " + turnOrder[i]);
-                }
 
                 playerTurn = turnOrder[0];
                 turnOrder.RemoveAt(0);
 
                 travelled[playerTurn - 1] = 0;
                 //handle new round
-                confrontEnemies();
+                //confrontEnemies();
                 moveEnemies(enemies);
                 spawnEnemies(locationsScript.hostileLocations);
                 foreach (Mission m in missions)
@@ -546,7 +554,6 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                Debug.Log("NEW TURN");
                 playerTurn = turnOrder[0];
                 turnOrder.RemoveAt(0);
                 travelled[playerTurn - 1] = 0;
@@ -558,11 +565,12 @@ public class GameController : MonoBehaviour
                         m.cooldown--;
                     }
                 }
+
                 AmountTxt.text = "";
                 ItemTxt.text = "";
                 TypeTxt.text = "";
                 completeMissionBtn.SetActive(false);
-                confrontEnemies();
+                //confrontEnemies();
                 playerMoves = 7;
                 SceneManager.LoadScene("Map3Dworld");
             }
@@ -571,47 +579,7 @@ public class GameController : MonoBehaviour
 
 
 
-        // if (playerMoves == 0)
-        // {
-        //     if (playerTurn == maxPlayers)
-        //     {
-        //         for (int i = 0; i < 6; i++)
-        //         {
-        //           travelled[i] = 0;
-        //         }
-        //         playerTurn = 1;
-        //         confrontEnemies();
-        //         moveEnemies(enemies);
-        //         spawnEnemies(locationsScript.hostileLocations);
-        //         foreach(Mission m in missions)
-        //         {
-        //           if (m.cooldown != 0)
-        //           {
-        //             m.cooldown--;
-        //           }
-        //         }
-        //     }
-        //     else
-        //     {
-        //
-        //         playerTurn++;
-        //         foreach(Mission m in missions)
-        //         {
-        //           if (m.cooldown != 0)
-        //           {
-        //             m.cooldown--;
-        //           }
-        //         }
-        //         AmountTxt.text = "";
-        //         ItemTxt.text = "";
-        //         TypeTxt.text = "";
-        //         completeMissionBtn.SetActive(false);
-        //         confrontEnemies();
-        //         //check enemeis
-        //     }
-        //
-        //     playerMoves = 7;
-        // }
+
         playerGmo();
         UpdateUIStats();
 
@@ -717,7 +685,6 @@ public class GameController : MonoBehaviour
                 break;
         }
 
-        Debug.Log("Skills");
         log.Add("Player " + playerTurn.ToString() + " leveled a skill.");
         TurnTxt.text = "Player " + playerTurn.ToString() + " leveled a skill.";
 
@@ -946,12 +913,10 @@ public class GameController : MonoBehaviour
                 log.Add("Player " + playerTurn.ToString() + " gained a ticket.");
 
         }
-        Debug.Log("Player " + playerTurn.ToString() + " gained a ticket.");
         log.Add("Player " + playerTurn.ToString() + " gained a ticket.");
         TurnTxt.text = "Player " + playerTurn.ToString() + " gained a ticket.";
 
         playerMoves--;
-        Debug.Log("Tickets");
     }
 
     public void ObjectClicked()
@@ -1080,18 +1045,14 @@ public class GameController : MonoBehaviour
 
         playerMoves--;
         log.Add("Player " + playerTurn.ToString() + " acquired an object.");
-        Debug.Log("Player " + playerTurn.ToString() + " acquired an object.");
         TurnTxt.text = "Player " + playerTurn.ToString() + " acquired an object.";
 
-        Debug.Log("Objects");
     }
 
     public void MissionsClicked()
     {
         completeMissionBtn.gameObject.SetActive(true);
 
-
-        Debug.Log("mission count: " + missions.Length);
         for (int i = 0; i < 9; i++)
         {
             Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum + ", " + missions[i].trophyType + ", " + missions[i].victoryPoints);
@@ -1136,12 +1097,9 @@ public class GameController : MonoBehaviour
 
         }
 
-        //ItemTxt.text = ("No Mission available at this Location");
-        //Debug.Log("no mission present");
-
         log.Add("Player " + playerTurn.ToString() + " clicked mission button.");
         TurnTxt.text = "Player " + playerTurn.ToString() + " clicked mission button.";
-        //Debug.Log("Player " + playerTurn.ToString() + " clicked a mission.");
+
     }
 
     public void CompleteMissions()
@@ -1155,15 +1113,17 @@ public class GameController : MonoBehaviour
                 {
                     if (missions[currentMissionIndex].trophyType == 1)
                     {
-                        trophyTwo[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+                        trophyTwo[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+
                     }
                     else if (missions[currentMissionIndex].trophyType == 2)
                     {
-                        trophyThree[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+                        trophyThree[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+
                     }
                     else
                     {
-                        trophyFour[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+                        trophyFour[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
                     }
                     //p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
                     ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
@@ -1177,18 +1137,20 @@ public class GameController : MonoBehaviour
             case 2:
                 if (player2Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
                 {
-                    if (missions[currentMissionIndex].trophyType == 1)
-                    {
-                        trophyTwo[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
-                    }
-                    else if (missions[currentMissionIndex].trophyType == 2)
-                    {
-                        trophyThree[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
-                    }
-                    else
-                    {
-                        trophyFour[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
-                    }
+                  if (missions[currentMissionIndex].trophyType == 1)
+                  {
+                      trophyTwo[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+
+                  }
+                  else if (missions[currentMissionIndex].trophyType == 2)
+                  {
+                      trophyThree[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+
+                  }
+                  else
+                  {
+                      trophyFour[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+                  }
 
                     ItemTxt.text = "Completed mission! Awarded " + missions[currentMissionIndex].victoryPoints + " VPs!";
                     AmountTxt.text = "";
@@ -1203,18 +1165,20 @@ public class GameController : MonoBehaviour
             case 3:
                 if (player3Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
                 {
-                    if (missions[currentMissionIndex].trophyType == 1)
-                    {
-                        trophyTwo[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
-                    }
-                    else if (missions[currentMissionIndex].trophyType == 2)
-                    {
-                        trophyThree[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
-                    }
-                    else
-                    {
-                        trophyFour[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
-                    }
+                  if (missions[currentMissionIndex].trophyType == 1)
+                  {
+                      trophyTwo[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+
+                  }
+                  else if (missions[currentMissionIndex].trophyType == 2)
+                  {
+                      trophyThree[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+
+                  }
+                  else
+                  {
+                      trophyFour[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+                  }
 
                     ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
                     AmountTxt.text = "";
@@ -1451,11 +1415,6 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.trophyThree = trophyThree;
         GlobalController.Instance.trophyFour = trophyFour;
 
-        GlobalController.Instance.trophyOneTxt = trophyOneTxt;
-        GlobalController.Instance.trophyTwoTxt = trophyTwoTxt;
-        GlobalController.Instance.trophyThreeTxt = trophyThreeTxt;
-        GlobalController.Instance.trophyFourTxt = trophyFourTxt;
-
         GlobalController.Instance.p1Health = p1Health;
 
         //GlobalController.Instance.playerMoves = playerMoves;
@@ -1471,13 +1430,13 @@ public class GameController : MonoBehaviour
             enemies.Add(e);
             Debug.Log("Added a new enemy at: " + l.hubNum + ", " + l.locationNum);
         }
+
     }
 
     public void moveEnemies(List<Enemy> enemies)
     {
         foreach (Enemy e in enemies)
         {
-            Debug.Log("Enemy at: " + e.hubNum + ", " + e.locationNum);
             List<LocationPath> paths = getPaths(e.hubNum, e.locationNum);
             int randomPath = Random.Range(0, paths.Count);
 
@@ -1488,7 +1447,11 @@ public class GameController : MonoBehaviour
 
             e.hubNum = paths[randomPath].hubToNum;
             e.locationNum = paths[randomPath].travelToNum;
-            Debug.Log("Enemy moved to: " + e.hubNum + ", " + e.locationNum);
+        }
+
+        foreach(Enemy e in enemies)
+        {
+          Debug.Log("enemy at: " + e.hubNum + " , " + e.locationNum);
         }
     }
 
@@ -1779,8 +1742,6 @@ public class GameController : MonoBehaviour
                                 trophyThree[playerTurn - 1]--;
                                 trophyFour[playerTurn - 1]--;
 
-                                GlobalController.Instance.p1Health = maxHealth;
-
                                 break;
 
                             }
@@ -1793,7 +1754,6 @@ public class GameController : MonoBehaviour
                                 trophyOne[playerTurn - 1]++;
 
                                 GlobalController.Instance.trophyOne = trophyOne;
-                                GlobalController.Instance.p1Health = p1Health;
                                 GlobalController.Instance.enemies = enemies;
                                 return;
                             }
@@ -1961,7 +1921,6 @@ public class GameController : MonoBehaviour
     {
 
         Mission[] m = new Mission[9];
-        Debug.Log("inside");
         List<Location> potentialLocationsHub1 = new List<Location>();
         List<Location> potentialLocationsHub2 = new List<Location>();
         List<Location> potentialLocationsHub3 = new List<Location>();
@@ -2004,7 +1963,6 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            Debug.Log("inside for in function");
             Mission m1 = new Mission(1, potentialLocationsHub1[i].locationNum, skillsHub1[i], 1);
             Mission m2 = new Mission(2, potentialLocationsHub2[i].locationNum, skillsHub2[i], 2);
             Mission m3 = new Mission(3, potentialLocationsHub3[i].locationNum, skillsHub3[i], 3);

@@ -37,6 +37,8 @@ public class MapController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //m_someOtherScriptOnAnotherGameObject = GameObject.FindObjectOfType(typeof(ScriptA)) as ScriptA;
+
 
         startOfTurn = GlobalController.Instance.startOfTurn;
         turn = GameController.playerTurn;
@@ -69,22 +71,19 @@ public class MapController : MonoBehaviour
 
         if (startOfTurn)
         {
-          Debug.Log("Start of Turn");
           if (hubLocation[turn - 1] != newHub[turn - 1] || pLocation[turn - 1] != newLocation[turn -1])
           {
               foreach(Location l in locations)
               {
-                Debug.Log("player: " + turn + " loc: " + hubLocation[turn - 1] + ", " + pLocation[turn - 1] + " going to " + newHub[turn - 1] + " , " + newLocation[turn - 1]);
-
                 if (l.hubNum == newHub[turn - 1])
                 {
                   if (l.locationNum == newLocation[turn - 1])
                   {
                     players[turn - 1].transform.position = new Vector3(l.xPos, 0, l.zPos);
-                    Debug.Log("1 ) player: " + turn + " loc: " + hubLocation[turn - 1] + ", " + pLocation[turn - 1] + " going to " + newHub[turn - 1] + " , " + newLocation[turn - 1]);
+
                     pLocation[turn - 1] = newLocation[turn - 1];
                     hubLocation[turn - 1] = newHub[turn - 1];
-                    Debug.Log("2) player: " + turn + " loc: " + hubLocation[turn - 1] + ", " + pLocation[turn - 1] + " going to " + newHub[turn - 1] + " , " + newLocation[turn - 1]);
+
 
                     GlobalController.Instance.hubLocation = hubLocation;
                     GlobalController.Instance.pLocation = pLocation;
@@ -125,26 +124,6 @@ public class MapController : MonoBehaviour
           players[i].transform.position = new Vector3(2000,2000,2000);
         }
       }
-
-      // for (int i = 0; i < 6; i++)
-      // {
-      //   foreach(Location l in locations)
-      //   {
-      //     if (hubLocation[i] == l.hubNum)
-      //     {
-      //       if (pLocation[i] == l.locationNum)
-      //       {
-      //         //Debug.Log("player: " + turn + " loc: " + hubLocation[turn - 1] + ", " + pLocation[turn - 1] + " going to " + newHub[turn - 1] + " , " + newLocation[turn - 1]);
-      //         players[i].transform.position = new Vector3(l.xPos, 0, l.zPos);
-      //       }
-      //     }
-      //   }
-      // }
-        //Vector3 final = Vector3.MoveTowards(vector, destination, Time.deltaTime * 50f);
-        //p1.transform.position = final;
-        //p1.transform.position = vector;
-        //p1.transform.position = Vector3.MoveTowards(Cube.transform.position, destination, Time.deltaTime * speed);
-
     }
 
     // Update is called once per frame
