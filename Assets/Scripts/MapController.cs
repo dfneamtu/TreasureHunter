@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MapController : MonoBehaviour
 {
@@ -97,7 +98,7 @@ public class MapController : MonoBehaviour
           {
             if (l.locationNum == pLocation[i])
             {
-              players[i].transform.position = new Vector3(l.xPos, 0, l.zPos);
+              players[i].transform.position = new Vector3(l.xPos + Random.Range(-10f, 10f), 0 + Random.Range(0,7.5f), l.zPos + Random.Range(-10f,10f));
 
               GlobalController.Instance.players = players;
             }
