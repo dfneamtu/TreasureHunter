@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.22714037, g: 0.31692734, b: 0.4350574, a: 1}
+  m_IndirectSpecularColor: {r: 0.22714093, g: 0.31692824, b: 0.4350577, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6535,6 +6535,7 @@ MonoBehaviour:
   pLocation: 000000000000000000000000000000000000000000000000
   LocationsObj: {fileID: 1535036394}
   locations: []
+  Cube: {fileID: 827949509}
 --- !u!4 &907041468
 Transform:
   m_ObjectHideFlags: 0
@@ -8418,6 +8419,7 @@ MonoBehaviour:
   pLocation: 000000000000000000000000000000000000000000000000
   travelled: 000000000000000000000000000000000000000000000000
   turnOrderTxt: {fileID: 0}
+  turnIndex: 0
 --- !u!4 &1106233657
 Transform:
   m_ObjectHideFlags: 0
