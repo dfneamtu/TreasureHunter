@@ -10,7 +10,12 @@ public class MapController : MonoBehaviour
     private ReadLocations locationsScript;
     public GameObject LocationsObj;
     public List<Location> locations = new List<Location>();
-    //public GameObject Cube;
+    public GameObject p1;
+    public GameObject p2;
+    public GameObject p3;
+    public GameObject p4;
+    public GameObject p5;
+    public GameObject p6;
     public Vector3 vector;
     public Vector3 destination;
 
@@ -27,11 +32,11 @@ public class MapController : MonoBehaviour
         vector = new Vector3(locations[2].xPos, 0, locations[2].zPos);
         destination = new Vector3(locations[0].xPos, 0, locations[0].zPos);
 
-        //Cube.transform.position = vector;
+        //p1.transform.position = vector;
         //Vector3 final = Vector3.MoveTowards(vector, destination, Time.deltaTime * 50f);
-        //Cube.transform.position = final;
-        //Cube.transform.position = vector;
-        //Cube.transform.position = Vector3.MoveTowards(Cube.transform.position, destination, Time.deltaTime * speed);
+        //p1.transform.position = final;
+        //p1.transform.position = vector;
+        //p1.transform.position = Vector3.MoveTowards(Cube.transform.position, destination, Time.deltaTime * speed);
 
     }
 
@@ -39,11 +44,10 @@ public class MapController : MonoBehaviour
     void Update()
     {
 
+        //locations[0].x;
+        //locations[0].y;
 
-      //locations[0].x
-      //locations[0].y
-
-      //locations[0].xPos
-      //locations[0].zPos
+        //locations[0].xPos;
+        //locations[0].zPos;
     }
 }
