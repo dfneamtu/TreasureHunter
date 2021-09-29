@@ -13,6 +13,8 @@ public class LoadLocation : MonoBehaviour
 {
     public int[] pLocation = new int[6];
     public int[] hubLocation = new int[6];
+    public int[] newLocation = new int[6];
+    public int[] newHub = new int[6];
     public int[] counters = new int[6];
     public int[] travelled = new int[6];
 
@@ -138,8 +140,13 @@ public class LoadLocation : MonoBehaviour
 
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
+
+        newLocation = GlobalController.Instance.newLocation;
+        newHub = GlobalController.Instance.newHub;
+
         counters = GlobalController.Instance.counters;
         travelled = GlobalController.Instance.travelled;
+
 
         playerTurnTickets = GameController.playerTurn;
         //Debug.Log("in Update");
@@ -234,6 +241,9 @@ public class LoadLocation : MonoBehaviour
         GlobalController.Instance.hubLocation = hubLocation;
         GlobalController.Instance.counters = counters;
 
+        GlobalController.Instance.newLocation = newLocation;
+        GlobalController.Instance.newHub = newHub;
+
     }
 
     public void FwdButton()
@@ -267,8 +277,8 @@ public class LoadLocation : MonoBehaviour
             if (player1Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
             {
               player1Tickets[1] = player1Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
               travelled[playerTurnTickets - 1] = 1;
               //playerMoves--;
@@ -287,8 +297,8 @@ public class LoadLocation : MonoBehaviour
             if (player1Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
             {
               player1Tickets[2] = player1Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
               //playerMoves--;
               travelled[playerTurnTickets - 1] = 1;
@@ -307,8 +317,8 @@ public class LoadLocation : MonoBehaviour
             if (player1Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
             {
               player1Tickets[0] = player1Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
               //playerMoves--;
               travelled[playerTurnTickets - 1] = 1;
@@ -327,8 +337,8 @@ public class LoadLocation : MonoBehaviour
             if (player1Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
             {
               player1Tickets[3] = player1Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
               setCounter();
               //playerMoves--;
               travelled[playerTurnTickets - 1] = 1;
@@ -349,8 +359,8 @@ public class LoadLocation : MonoBehaviour
           if (player2Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player2Tickets[1] = player2Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -368,8 +378,8 @@ public class LoadLocation : MonoBehaviour
           if (player2Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player2Tickets[2] = player2Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -387,8 +397,8 @@ public class LoadLocation : MonoBehaviour
           if (player2Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player2Tickets[0] = player2Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -406,8 +416,8 @@ public class LoadLocation : MonoBehaviour
           if (player2Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player2Tickets[3] = player2Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -429,8 +439,8 @@ public class LoadLocation : MonoBehaviour
           if (player3Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player3Tickets[1] = player3Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -448,8 +458,8 @@ public class LoadLocation : MonoBehaviour
           if (player3Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player3Tickets[2] = player3Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -468,8 +478,8 @@ public class LoadLocation : MonoBehaviour
           if (player3Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player3Tickets[0] = player3Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -488,8 +498,8 @@ public class LoadLocation : MonoBehaviour
           if (player3Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player3Tickets[3] = player3Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;

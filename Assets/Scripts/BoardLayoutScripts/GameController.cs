@@ -103,6 +103,9 @@ public class GameController : MonoBehaviour
   public int maxPlayers;
   public int[] pLocation = new int[6];
   public int[] hubLocation = new int[6];
+  public int[] newLocation = new int[6];
+  public int[] newHub = new int[6];
+
   public int p1Health;
   public int p2Health;
   public int p3Health;
@@ -138,6 +141,7 @@ public class GameController : MonoBehaviour
 
   //public GameObject movesLeftTag;
   public Text movesLeft;
+  public bool startOfTurn;
 
   public Text ItemTxt;
   public Text ObjItemTxt;
@@ -430,6 +434,9 @@ public class GameController : MonoBehaviour
     hubLocation = GlobalController.Instance.hubLocation;
     counters = GlobalController.Instance.counters;
 
+    newLocation = GlobalController.Instance.newLocation;
+    newHub = GlobalController.Instance.newLocation;
+
     missions = GlobalController.Instance.missions;
     travelled = GlobalController.Instance.travelled;
 
@@ -438,6 +445,8 @@ public class GameController : MonoBehaviour
     playersObjAmountTxt = GlobalController.Instance.playersObjAmountTxt;
 
     playerObjects = GlobalController.Instance.playerObjects;
+
+    startOfTurn = GlobalController.Instance.startOfTurn;
 
     if (hubLocation[playerTurn - 1] == 1)
     {
@@ -471,6 +480,7 @@ public class GameController : MonoBehaviour
 
     if (playerMoves == 0) // end of turn
     {
+      GlobalController.Instance.startOfTurn = true;
       if (turnOrder.Count == 0) // new round
       {
         for (int i = 0; i < maxPlayers; i++)
@@ -506,6 +516,7 @@ public class GameController : MonoBehaviour
         TypeTxt.text = "";
         completeMissionBtn.SetActive(false);
         playerMoves = 7;
+        SceneManager.LoadScene("Map3Dworld");
       }
       else
       {
@@ -527,6 +538,7 @@ public class GameController : MonoBehaviour
         completeMissionBtn.SetActive(false);
         confrontEnemies();
         playerMoves = 7;
+        SceneManager.LoadScene("Map3Dworld");
       }
     }
 
@@ -1340,10 +1352,15 @@ public class GameController : MonoBehaviour
     GlobalController.Instance.pLocation = pLocation;
     GlobalController.Instance.hubLocation = hubLocation;
 
+    GlobalController.Instance.newLocation = newLocation;
+    GlobalController.Instance.newLocation = newHub;
+
     GlobalController.Instance.travelled = travelled;
     GlobalController.Instance.turnOrder = turnOrder;
 
     GlobalController.Instance.turnOrderTxt = turnOrderTxt;
+
+
     //GlobalController.Instance.playerMoves = playerMoves;
     //GlobalController.Instance.turn = turn;
 
@@ -1667,7 +1684,7 @@ public class GameController : MonoBehaviour
 
             case 2:
 
-            if (e.damage >= p1Health)
+            if (e.damage >= p2Health)
             {
               pLocation[playerTurn - 1] = 1;
               hubLocation[playerTurn - 1] = 1;
@@ -1691,7 +1708,7 @@ public class GameController : MonoBehaviour
 
             case 3:
 
-            if (e.damage >= p1Health)
+            if (e.damage >= p3Health)
             {
               Debug.Log("player dies");
               pLocation[playerTurn - 1] = 1;
@@ -1715,7 +1732,7 @@ public class GameController : MonoBehaviour
 
             case 4:
 
-            if (e.damage >= p1Health)
+            if (e.damage >= p4Health)
             {
               Debug.Log("player dies");
               pLocation[playerTurn - 1] = 1;
@@ -1740,7 +1757,7 @@ public class GameController : MonoBehaviour
 
             case 5:
 
-            if (e.damage >= p1Health)
+            if (e.damage >= p5Health)
             {
               Debug.Log("player dies");
               pLocation[playerTurn - 1] = 1;
@@ -1765,7 +1782,7 @@ public class GameController : MonoBehaviour
 
             case 6:
 
-            if (e.damage >= p1Health)
+            if (e.damage >= p6Health)
             {
               Debug.Log("player dies");
               pLocation[playerTurn - 1] = 1;

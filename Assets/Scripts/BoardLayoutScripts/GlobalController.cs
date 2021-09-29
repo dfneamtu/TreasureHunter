@@ -13,6 +13,8 @@ public class GlobalController : MonoBehaviour
     public int[] counters = new int[6];
     public List<int> turnOrder = new List<int>();
 
+    public bool startOfTurn;
+
     public string[] playersItemTxt = new string[6];
     public string[] playersObjItemTxt = new string[6];
     public string[] playersAmountTxt = new string[6];
@@ -56,10 +58,13 @@ public class GlobalController : MonoBehaviour
 
     public int[] hubLocation = new int[6];
     public int[] pLocation = new int[6];
+
+    public int[] newLocation = new int[6];
+    public int[] newHub = new int[6];
+
     public int [] travelled = new int[6];
 
     public Text turnOrderTxt;
-    public int turnIndex;
 
     //public List<Mission> missions = new List<Mission>();
     public Mission[] missions;
@@ -99,6 +104,8 @@ public class GlobalController : MonoBehaviour
         {
             pLocation[i] = 1;
             hubLocation[i] = 1;
+            newLocation[i] = 1;
+            newHub[i] = 1;
             counters[i] = 0;
         }
     }
