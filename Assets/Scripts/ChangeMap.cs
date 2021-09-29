@@ -21,6 +21,8 @@ public class ChangeMap : MonoBehaviour
     {
         playerTurnTickets = GameController.playerTurn;
 
+
+
         //if (hubLocation[playerTurnTickets - 1] == 1)
         //{
         //    Object.GetComponent<MeshRenderer>().material = Hub1;
@@ -46,20 +48,20 @@ public class ChangeMap : MonoBehaviour
     }
 
     public void Hub1Click()
-    { 
-            Object.GetComponent<MeshRenderer>().material = Hub1;
+    {
+      //Object.GetComponent<MeshRenderer>().material = Hub1;
 
 
     }
     public void Hub2Click()
     {
-        Object.GetComponent<MeshRenderer>().material = Hub2;
+        //Object.GetComponent<MeshRenderer>().material = Hub2;
 
 
     }
     public void Hub3Click()
     {
-        Object.GetComponent<MeshRenderer>().material = Hub3;
+        //Object.GetComponent<MeshRenderer>().material = Hub3;
 
 
     }

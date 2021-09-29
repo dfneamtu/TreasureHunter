@@ -11,7 +11,12 @@ public class MapController : MonoBehaviour
     public int[] newHub = new int[6];
     public int[] newLocation = new int[6];
 
+    public int currentHub;
 
+    public Material Hub1;
+    public Material Hub2;
+    public Material Hub3;
+    public GameObject Object;
 
     private ReadLocations locationsScript;
     public GameObject LocationsObj;
@@ -21,6 +26,9 @@ public class MapController : MonoBehaviour
     public Vector3 destination;
     public int turn;
     public bool startOfTurn;
+
+
+
 
     void Awake()
     {
@@ -41,6 +49,24 @@ public class MapController : MonoBehaviour
         newLocation = GlobalController.Instance.newLocation;
         newHub = GlobalController.Instance.newHub;
 
+        if (newHub[turn - 1] == 1)
+        {
+          Object.GetComponent<MeshRenderer>().material = Hub1;
+          currentHub = 1;
+        }
+        else if (newHub[turn - 1] == 2)
+        {
+          Object.GetComponent<MeshRenderer>().material = Hub2;
+          currentHub = 2;
+        }
+        else if (newHub[turn - 1] == 3)
+        {
+          Object.GetComponent<MeshRenderer>().material = Hub3;
+          currentHub = 3;
+        }
+
+
+
         if (startOfTurn)
         {
           Debug.Log("Start of Turn");
@@ -55,36 +81,21 @@ public class MapController : MonoBehaviour
                   if (l.locationNum == newLocation[turn - 1])
                   {
                     players[turn - 1].transform.position = new Vector3(l.xPos, 0, l.zPos);
+                    Debug.Log("1 ) player: " + turn + " loc: " + hubLocation[turn - 1] + ", " + pLocation[turn - 1] + " going to " + newHub[turn - 1] + " , " + newLocation[turn - 1]);
                     pLocation[turn - 1] = newLocation[turn - 1];
                     hubLocation[turn - 1] = newHub[turn - 1];
+                    Debug.Log("2) player: " + turn + " loc: " + hubLocation[turn - 1] + ", " + pLocation[turn - 1] + " going to " + newHub[turn - 1] + " , " + newLocation[turn - 1]);
 
                     GlobalController.Instance.hubLocation = hubLocation;
                     GlobalController.Instance.pLocation = pLocation;
+                    GlobalController.Instance.newHub = newHub;
+                    GlobalController.Instance.newLocation = newLocation;
                     GlobalController.Instance.players = players;
                   }
                 }
 
             }
           }
-
-
-        // foreach(Location l in locations)
-        // {
-        //   if (newHub[turn - 1] == l.hubNum)
-        //   {
-        //     if (newLocation[turn - 1] == l.locationNum)
-        //     {
-        //       Debug.Log("player: " + turn + " loc: " + hubLocation[turn - 1] + ", " + pLocation[turn - 1] + " going to " + newHub[turn - 1] + " , " + newLocation[turn - 1]);
-        //       players[turn - 1].transform.position = new Vector3(l.xPos, 0, l.zPos);
-        //       pLocation[turn - 1] = newLocation[turn - 1];
-        //       hubLocation[turn - 1] = newHub[turn - 1];
-        //
-        //       GlobalController.Instance.hubLocation = hubLocation;
-        //       GlobalController.Instance.pLocation = pLocation;
-        //       GlobalController.Instance.players = players;
-        //     }
-        //   }
-        // }
 
         startOfTurn = false;
         GlobalController.Instance.startOfTurn = startOfTurn;
@@ -103,6 +114,15 @@ public class MapController : MonoBehaviour
               GlobalController.Instance.players = players;
             }
           }
+        }
+      }
+
+
+      for (int i = 0; i < 6; i++)
+      {
+        if (hubLocation[i] != currentHub)
+        {
+          players[i].transform.position = new Vector3(2000,2000,2000);
         }
       }
 
@@ -135,7 +155,6 @@ public class MapController : MonoBehaviour
 
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
-
 
         //locations[0].x;
         //locations[0].y;

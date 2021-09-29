@@ -80,6 +80,7 @@ public class GlobalController : MonoBehaviour
     public Text trophyThreeTxt;
     public Text trophyFourTxt;
 
+    public int p1Health;
     public GameObject[] players = new GameObject[6];
 
 
