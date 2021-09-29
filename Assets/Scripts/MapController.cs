@@ -10,7 +10,7 @@ public class MapController : MonoBehaviour
     private ReadLocations locationsScript;
     public GameObject LocationsObj;
     public List<Location> locations = new List<Location>();
-    public GameObject Cube;
+    //public GameObject Cube;
     public Vector3 vector;
     public Vector3 destination;
 
@@ -27,9 +27,9 @@ public class MapController : MonoBehaviour
         vector = new Vector3(locations[2].xPos, 0, locations[2].zPos);
         destination = new Vector3(locations[0].xPos, 0, locations[0].zPos);
 
-        Cube.transform.position = vector;
-        Vector3 final = Vector3.MoveTowards(vector, destination, Time.deltaTime * 50f);
-        Cube.transform.position = final;
+        //Cube.transform.position = vector;
+        //Vector3 final = Vector3.MoveTowards(vector, destination, Time.deltaTime * 50f);
+        //Cube.transform.position = final;
         //Cube.transform.position = vector;
         //Cube.transform.position = Vector3.MoveTowards(Cube.transform.position, destination, Time.deltaTime * speed);
 
