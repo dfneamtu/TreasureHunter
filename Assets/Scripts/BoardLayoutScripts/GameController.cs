@@ -355,7 +355,7 @@ public class GameController : MonoBehaviour
         //}
 
         enemies = GlobalController.Instance.enemies;
-        confrontEnemies();
+        //confrontEnemies();
 
         for (int i = 0; i < 6; i++)
         {
@@ -529,8 +529,7 @@ public class GameController : MonoBehaviour
                 turnOrder.RemoveAt(0);
 
                 travelled[playerTurn - 1] = 0;
-                //handle new round
-                //confrontEnemies();
+
                 moveEnemies(enemies);
                 spawnEnemies(locationsScript.hostileLocations);
                 foreach (Mission m in missions)
@@ -566,7 +565,7 @@ public class GameController : MonoBehaviour
                 ItemTxt.text = "";
                 TypeTxt.text = "";
                 completeMissionBtn.SetActive(false);
-                //confrontEnemies();
+
                 playerMoves = 7;
                 SceneManager.LoadScene("Map3Dworld");
             }
@@ -1721,7 +1720,7 @@ public class GameController : MonoBehaviour
           newLocation = GlobalController.Instance.newHub;
 
           Debug.Log("enemy at: " + e.hubNum + ", " + e.locationNum + " player at " + newHub[playerTurn-1] + ", " + newLocation[playerTurn - 1]);
-            if (newHub[playerTurn - 1] == e.hubNum && newLocation[playerTurn-1] == e.locationNum)
+            if (hubLocation[playerTurn - 1] == e.hubNum && pLocation[playerTurn-1] == e.locationNum)
             {
 
                     Debug.Log("enemy found");
