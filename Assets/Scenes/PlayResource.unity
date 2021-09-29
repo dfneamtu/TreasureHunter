@@ -5701,10 +5701,7 @@ MonoBehaviour:
   trophyTwo: 000000000000000000000000000000000000000000000000
   trophyThree: 000000000000000000000000000000000000000000000000
   trophyFour: 000000000000000000000000000000000000000000000000
-  trophyOneTxt: {fileID: 0}
-  trophyTwoTxt: {fileID: 0}
-  trophyThreeTxt: {fileID: 0}
-  trophyFourTxt: {fileID: 0}
+  p1Health: 0
   players:
   - {fileID: 0}
   - {fileID: 0}
