@@ -17,7 +17,7 @@ public class Enemy
     {
         hubNum = h;
         locationNum = l;
-        damage = Random.Range(10, 40);
+        damage = Random.Range(40, 60);
     }
 }
 
@@ -113,7 +113,7 @@ public class GameController : MonoBehaviour
     public int[] newHub = new int[6];
 
     public int[] pHealth = new int[6];
-    public int maxHealth = 100;
+    public static int maxHealth = 100;
 
     //Player GameObjects to set true and false
 
@@ -270,6 +270,18 @@ public class GameController : MonoBehaviour
             ticketTextsp4[i].text = 0.ToString();
             ticketTextsp5[i].text = 0.ToString();
             ticketTextsp6[i].text = 0.ToString();
+        }
+
+        if (pHealth == null)
+        {
+          for (int i = 0; i < 6; i++)
+          {
+            pHealth[i] = maxHealth;
+          }
+        }
+        else
+        {
+          pHealth = GlobalController.Instance.pHealth;
         }
 
 
@@ -1703,201 +1715,237 @@ public class GameController : MonoBehaviour
       Debug.Log("confronting enemies. Total number: " + enemies.Count);
         foreach (Enemy e in enemies)
         {
+          hubLocation = GlobalController.Instance.hubLocation;
+          pLocation = GlobalController.Instance.pLocation;
+          newHub = GlobalController.Instance.newHub;
+          newLocation = GlobalController.Instance.newHub;
+
           Debug.Log("enemy at: " + e.hubNum + ", " + e.locationNum + " player at " + newHub[playerTurn-1] + ", " + newLocation[playerTurn - 1]);
-            if (newHub[playerTurn - 1] == e.hubNum)
+            if (newHub[playerTurn - 1] == e.hubNum && newLocation[playerTurn-1] == e.locationNum)
             {
-              Debug.Log("enemy in hub");
-                if (newLocation[playerTurn - 1] == e.locationNum)
-                {
+
                     Debug.Log("enemy found");
-                    switch (playerTurn)
+                    if (e.damage  >= pHealth[playerTurn - 1])
                     {
-                        case 1:
-                            if (e.damage >= pHealth[0])
-                            {
-                                Debug.Log("player dies");
-                                newLocation[playerTurn - 1] = 1;
-                                newHub[playerTurn - 1] = 1;
-                                pLocation[playerTurn - 1] = 1;
-                                hubLocation[playerTurn - 1] = 1;
-                                pHealth[0] = maxHealth;
-                                counters[0] = 0;
-                                trophyOne[playerTurn - 1]--;
-                                trophyTwo[playerTurn - 1]--;
-                                trophyThree[playerTurn - 1]--;
-                                trophyFour[playerTurn - 1]--;
+                      Debug.Log("player health : " + pHealth[playerTurn - 1]);
+                      Debug.Log("player " + playerTurn + " took " + e.damage + " froom an enemy");
+                      Debug.Log("player dies");
 
-                                break;
-
-                            }
-                            else
-                            {
-                                infoPopup.gameObject.SetActive(true);
-                                Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                pHealth[0] = pHealth[0] - e.damage;
-                                enemies.Remove(e);
-                                trophyOne[playerTurn - 1]++;
-
-                                GlobalController.Instance.trophyOne = trophyOne;
-                                GlobalController.Instance.enemies = enemies;
-                                return;
-                            }
-                            break;
-
-                        case 2:
-
-                            if (e.damage >= pHealth[1])
-                            {
-                              newLocation[playerTurn - 1] = 1;
-                              newHub[playerTurn - 1] = 1;
-                              pLocation[playerTurn - 1] = 1;
-                              hubLocation[playerTurn - 1] = 1;
-                                pHealth[1] = maxHealth;
-                                counters[1] = 0;
-                                if (p2VPs > 2)
-                                {
-                                    p2VPs = p2VPs - 2;
-                                }
-                                else
-                                {
-                                    p2VPs = 0;
-                                }
-                                Debug.Log("player dies");
-                            }
-                            else
-                            {
-                                infoPopup.gameObject.SetActive(true);
-                                Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                pHealth[1] = pHealth[1] - e.damage;
-                                enemies.Remove(e);
-                                return;
-                            }
-                            break;
-
-                        case 3:
-
-                            if (e.damage >= pHealth[2])
-                            {
-                                Debug.Log("player dies");
-                                newLocation[playerTurn - 1] = 1;
-                                newHub[playerTurn - 1] = 1;
-                                pLocation[playerTurn - 1] = 1;
-                                hubLocation[playerTurn - 1] = 1;
-                                pHealth[2] = maxHealth;
-                                counters[2] = 0;
-                                if (p3VPs > 2)
-                                {
-                                    p3VPs = p3VPs - 2;
-                                }
-                                else
-                                {
-                                    p3VPs = 0;
-                                }
-                            }
-                            else
-                            {
-                                infoPopup.gameObject.SetActive(true);
-                                Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                pHealth[2] = pHealth[2] - e.damage;
-                                enemies.Remove(e);
-                                return;
-                            }
-                            break;
-
-                        case 4:
-
-                            if (e.damage >= pHealth[3])
-                            {
-                                Debug.Log("player dies");
-                                newLocation[playerTurn - 1] = 1;
-                                newHub[playerTurn - 1] = 1;
-                                pLocation[playerTurn - 1] = 1;
-                                hubLocation[playerTurn - 1] = 1;
-                                pHealth[3] = maxHealth;
-                                counters[3] = 0;
-                                if (p4VPs > 2)
-                                {
-                                    p4VPs = p4VPs - 2;
-                                }
-                                else
-                                {
-                                    p3VPs = 0;
-                                }
-                            }
-                            else
-                            {
-                                infoPopup.gameObject.SetActive(true);
-                                Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                pHealth[3] = pHealth[3] - e.damage;
-                                enemies.Remove(e);
-                                return;
-                            }
-
-                            break;
-
-                        case 5:
-
-                            if (e.damage >= pHealth[4])
-                            {
-                                Debug.Log("player dies");
-                                newLocation[playerTurn - 1] = 1;
-                                newHub[playerTurn - 1] = 1;
-                                pLocation[playerTurn - 1] = 1;
-                                hubLocation[playerTurn - 1] = 1;
-                                pHealth[4] = maxHealth;
-                                counters[4] = 0;
-                                if (p5VPs > 2)
-                                {
-                                    p5VPs = p5VPs - 2;
-                                }
-                                else
-                                {
-                                    p5VPs = 0;
-                                }
-                            }
-                            else
-                            {
-                                infoPopup.gameObject.SetActive(true);
-                                Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                pHealth[4] = pHealth[4] - e.damage;
-                                enemies.Remove(e);
-                                return;
-                            }
-
-                            break;
-
-                        case 6:
-
-                            if (e.damage >= pHealth[5])
-                            {
-                                Debug.Log("player dies");
-                                newLocation[playerTurn - 1] = 1;
-                                newHub[playerTurn - 1] = 1;
-                                pLocation[playerTurn - 1] = 1;
-                                hubLocation[playerTurn - 1] = 1;
-                                pHealth[5] = maxHealth;
-                                counters[5] = 0;
-                                if (p6VPs > 2)
-                                {
-                                    p6VPs = p6VPs - 2;
-                                }
-                                else
-                                {
-                                    p6VPs = 0;
-                                }
-                            }
-                            else
-                            {
-                                infoPopup.gameObject.SetActive(true);
-                                Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
-                                pHealth[5] = pHealth[5] - e.damage;
-                                enemies.Remove(e);
-                                return;
-                            }
-
-                            break;
+                      pHealth[playerTurn - 1] = maxHealth;
+                      pLocation[playerTurn - 1] = 1;
+                      newLocation[playerTurn - 1] = 1;
+                      hubLocation[playerTurn - 1] = 1;
+                      newHub[playerTurn - 1] = 1;
+                      counters[playerTurn - 1] = 0;
+                      trophyTwo[playerTurn - 1]--;
+                      trophyThree[playerTurn - 1]--;
+                      trophyFour[playerTurn - 1]--;
+                      Debug.Log("PLAYER LOCATION DEATH: " + pLocation[playerTurn - 1] + ", " + hubLocation[playerTurn - 1]);
+                      SavePlayer();
+                      return;
                     }
-                }
+                    else
+                    {
+                      Debug.Log("player " + playerTurn + " took " + e.damage + " froom an enemy");
+                      pHealth[playerTurn - 1] = pHealth[playerTurn - 1] - e.damage;
+                      Debug.Log("new player health: " + pHealth[playerTurn - 1]);
+                      trophyOne[playerTurn - 1]++;
+                      Debug.Log(trophyOne[playerTurn - 1]);
+                      Debug.Log("PLAYER LOCATION WIN:  " + pLocation[playerTurn - 1] + ", " + hubLocation[playerTurn - 1]);
+                      enemies.Remove(e);
+
+                      SavePlayer();
+                      Debug.Log("PLAYER LOCATION WIN: " + pLocation[playerTurn - 1] + ", " + hubLocation[playerTurn - 1]);
+                      return;
+                    }
+                    // switch (playerTurn)
+                    // {
+                    //     case 1:
+                    //         if (e.damage >= pHealth[0])
+                    //         {
+                    //             Debug.Log("player dies");
+                    //             newLocation[playerTurn - 1] = 1;
+                    //             newHub[playerTurn - 1] = 1;
+                    //             pLocation[playerTurn - 1] = 1;
+                    //             hubLocation[playerTurn - 1] = 1;
+                    //             //pHealth[0] = maxHealth;
+                    //             counters[0] = 0;
+                    //             trophyOne[playerTurn - 1]--;
+                    //             trophyTwo[playerTurn - 1]--;
+                    //             trophyThree[playerTurn - 1]--;
+                    //             trophyFour[playerTurn - 1]--;
+                    //
+                    //             break;
+                    //
+                    //         }
+                    //         else
+                    //         {
+                    //             infoPopup.gameObject.SetActive(true);
+                    //             Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
+                    //             pHealth[0] = pHealth[0] - e.damage;
+                    //             enemies.Remove(e);
+                    //             trophyOne[playerTurn - 1]++;
+                    //
+                    //             GlobalController.Instance.trophyOne = trophyOne;
+                    //             GlobalController.Instance.enemies = enemies;
+                    //             return;
+                    //         }
+                    //         break;
+                    //
+                    //     case 2:
+                    //
+                    //         if (e.damage >= pHealth[1])
+                    //         {
+                    //           newLocation[playerTurn - 1] = 1;
+                    //           newHub[playerTurn - 1] = 1;
+                    //           pLocation[playerTurn - 1] = 1;
+                    //           hubLocation[playerTurn - 1] = 1;
+                    //             pHealth[1] = maxHealth;
+                    //             counters[1] = 0;
+                    //             if (p2VPs > 2)
+                    //             {
+                    //                 p2VPs = p2VPs - 2;
+                    //             }
+                    //             else
+                    //             {
+                    //                 p2VPs = 0;
+                    //             }
+                    //             Debug.Log("player dies");
+                    //         }
+                    //         else
+                    //         {
+                    //             infoPopup.gameObject.SetActive(true);
+                    //             Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
+                    //             pHealth[1] = pHealth[1] - e.damage;
+                    //             enemies.Remove(e);
+                    //             return;
+                    //         }
+                    //         break;
+                    //
+                    //     case 3:
+                    //
+                    //         if (e.damage >= pHealth[2])
+                    //         {
+                    //             Debug.Log("player dies");
+                    //             newLocation[playerTurn - 1] = 1;
+                    //             newHub[playerTurn - 1] = 1;
+                    //             pLocation[playerTurn - 1] = 1;
+                    //             hubLocation[playerTurn - 1] = 1;
+                    //             pHealth[2] = maxHealth;
+                    //             counters[2] = 0;
+                    //             if (p3VPs > 2)
+                    //             {
+                    //                 p3VPs = p3VPs - 2;
+                    //             }
+                    //             else
+                    //             {
+                    //                 p3VPs = 0;
+                    //             }
+                    //         }
+                    //         else
+                    //         {
+                    //             infoPopup.gameObject.SetActive(true);
+                    //             Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
+                    //             pHealth[2] = pHealth[2] - e.damage;
+                    //             enemies.Remove(e);
+                    //             return;
+                    //         }
+                    //         break;
+                    //
+                    //     case 4:
+                    //
+                    //         if (e.damage >= pHealth[3])
+                    //         {
+                    //             Debug.Log("player dies");
+                    //             newLocation[playerTurn - 1] = 1;
+                    //             newHub[playerTurn - 1] = 1;
+                    //             pLocation[playerTurn - 1] = 1;
+                    //             hubLocation[playerTurn - 1] = 1;
+                    //             pHealth[3] = maxHealth;
+                    //             counters[3] = 0;
+                    //             if (p4VPs > 2)
+                    //             {
+                    //                 p4VPs = p4VPs - 2;
+                    //             }
+                    //             else
+                    //             {
+                    //                 p3VPs = 0;
+                    //             }
+                    //         }
+                    //         else
+                    //         {
+                    //             infoPopup.gameObject.SetActive(true);
+                    //             Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
+                    //             pHealth[3] = pHealth[3] - e.damage;
+                    //             enemies.Remove(e);
+                    //             return;
+                    //         }
+                    //
+                    //         break;
+                    //
+                    //     case 5:
+                    //
+                    //         if (e.damage >= pHealth[4])
+                    //         {
+                    //             Debug.Log("player dies");
+                    //             newLocation[playerTurn - 1] = 1;
+                    //             newHub[playerTurn - 1] = 1;
+                    //             pLocation[playerTurn - 1] = 1;
+                    //             hubLocation[playerTurn - 1] = 1;
+                    //             pHealth[4] = maxHealth;
+                    //             counters[4] = 0;
+                    //             if (p5VPs > 2)
+                    //             {
+                    //                 p5VPs = p5VPs - 2;
+                    //             }
+                    //             else
+                    //             {
+                    //                 p5VPs = 0;
+                    //             }
+                    //         }
+                    //         else
+                    //         {
+                    //             infoPopup.gameObject.SetActive(true);
+                    //             Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
+                    //             pHealth[4] = pHealth[4] - e.damage;
+                    //             enemies.Remove(e);
+                    //             return;
+                    //         }
+                    //
+                    //         break;
+                    //
+                    //     case 6:
+                    //
+                    //         if (e.damage >= pHealth[5])
+                    //         {
+                    //             Debug.Log("player dies");
+                    //             newLocation[playerTurn - 1] = 1;
+                    //             newHub[playerTurn - 1] = 1;
+                    //             pLocation[playerTurn - 1] = 1;
+                    //             hubLocation[playerTurn - 1] = 1;
+                    //             pHealth[5] = maxHealth;
+                    //             counters[5] = 0;
+                    //             if (p6VPs > 2)
+                    //             {
+                    //                 p6VPs = p6VPs - 2;
+                    //             }
+                    //             else
+                    //             {
+                    //                 p6VPs = 0;
+                    //             }
+                    //         }
+                    //         else
+                    //         {
+                    //             infoPopup.gameObject.SetActive(true);
+                    //             Popupinfo.text = "Player " + playerTurn.ToString() + " lost " + e.damage.ToString() + " health points";
+                    //             pHealth[5] = pHealth[5] - e.damage;
+                    //             enemies.Remove(e);
+                    //             return;
+                    //         }
+                    //
+                    //         break;
+                    // }
+
             }
         }
     }

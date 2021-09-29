@@ -148,7 +148,7 @@ public class MapController : MonoBehaviour
     private void spawnEnemy(float xPos, float zPos)
     {
       GameObject a = Instantiate(enemyObjPrefab) as GameObject;
-      a.transform.position = new Vector3(xPos, 0, zPos);
+      a.transform.position = new Vector3(xPos, 30, zPos);
     }
     // Update is called once per frame
     void Update()
