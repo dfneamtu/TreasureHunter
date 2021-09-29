@@ -30,13 +30,16 @@ public class Mission
   public int victoryPoints;
   public bool[] completedBy = new bool[6];
   public int cooldown;
+  public int trophyType;
 
-  public Mission(int h, int l, int s)
+  public Mission(int h, int l, int s, int t)
   {
     hubNum = h;
     locationNum = l;
     skillNum = s;
+    trophyType = t;
     cooldown = 0;
+
 
     pointsReq = ML_Algo.ML() + 1;
     victoryPoints = ML_Algo.ML() + 1;
@@ -1068,8 +1071,7 @@ public class GameController : MonoBehaviour
     Debug.Log("mission count: " + missions.Length);
     for(int i = 0; i < 9; i++)
     {
-      Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum);
-      Debug.Log("player location: " + hubLocation[playerTurn - 1] + ", " + pLocation[playerTurn - 1]);
+      Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum + ", " + missions[i].trophyType + ", " + missions[i].victoryPoints);
 
 
       if (hubLocation[playerTurn - 1] == missions[i].hubNum)
@@ -1128,8 +1130,19 @@ public class GameController : MonoBehaviour
       Debug.Log("player has: " + player1Values[missions[currentMissionIndex].skillNum] + " points. Skillnum: " + missions[currentMissionIndex].skillNum);
       if (player1Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
       {
-        p1VPs = p1VPs + missions[currentMissionIndex].victoryPoints;
-        p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
+        if (missions[currentMissionIndex].trophyType == 1)
+        {
+          trophyTwo[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else if (missions[currentMissionIndex].trophyType == 2)
+        {
+          trophyThree[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else
+        {
+          trophyFour[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        //p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
         ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
         AmountTxt.text = "";
         TypeTxt.text = "";
@@ -1141,8 +1154,18 @@ public class GameController : MonoBehaviour
       case 2:
       if (player2Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
       {
-        p2VPs = p2VPs + missions[currentMissionIndex].victoryPoints;
-        p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
+        if (missions[currentMissionIndex].trophyType == 1)
+        {
+          trophyTwo[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else if (missions[currentMissionIndex].trophyType == 2)
+        {
+          trophyThree[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else
+        {
+          trophyFour[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
 
         ItemTxt.text = "Completed mission! Awarded " + missions[currentMissionIndex].victoryPoints + " VPs!";
         AmountTxt.text = "";
@@ -1157,8 +1180,18 @@ public class GameController : MonoBehaviour
       case 3:
       if (player3Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
       {
-        p3VPs = p3VPs + missions[currentMissionIndex].victoryPoints;
-        p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
+        if (missions[currentMissionIndex].trophyType == 1)
+        {
+          trophyTwo[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else if (missions[currentMissionIndex].trophyType == 2)
+        {
+          trophyThree[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else
+        {
+          trophyFour[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
 
         ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
         AmountTxt.text = "";
@@ -1172,8 +1205,18 @@ public class GameController : MonoBehaviour
       case 4:
       if (player4Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
       {
-        p4VPs = p4VPs + missions[currentMissionIndex].victoryPoints;
-        p4ScoreText.text = "Player 4 Victory Points: " + p4VPs.ToString();
+        if (missions[currentMissionIndex].trophyType == 1)
+        {
+          trophyTwo[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else if (missions[currentMissionIndex].trophyType == 2)
+        {
+          trophyThree[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else
+        {
+          trophyFour[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
 
         ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
         AmountTxt.text = "";
@@ -1187,8 +1230,18 @@ public class GameController : MonoBehaviour
       case 5:
       if (player5Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
       {
-        p5VPs = p5VPs + missions[currentMissionIndex].victoryPoints;
-        p5ScoreText.text = "Player 5 Victory Points: " + p5VPs.ToString();
+        if (missions[currentMissionIndex].trophyType == 1)
+        {
+          trophyTwo[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else if (missions[currentMissionIndex].trophyType == 2)
+        {
+          trophyThree[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else
+        {
+          trophyFour[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
 
         ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
         AmountTxt.text = "";
@@ -1201,8 +1254,18 @@ public class GameController : MonoBehaviour
       case 6:
       if (player6Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
       {
-        p6VPs = p6VPs + missions[currentMissionIndex].victoryPoints;
-        p6ScoreText.text = "Player 6 Victory Points: " + p6VPs.ToString();
+        if (missions[currentMissionIndex].trophyType == 1)
+        {
+          trophyTwo[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else if (missions[currentMissionIndex].trophyType == 2)
+        {
+          trophyThree[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
+        else
+        {
+          trophyFour[playerTurn - 1] = missions[currentMissionIndex].victoryPoints;
+        }
 
         ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
         AmountTxt.text = "";
@@ -1858,9 +1921,9 @@ public class GameController : MonoBehaviour
     for (int i = 0; i < 3; i++)
     {
       Debug.Log("inside for in function");
-      Mission m1 = new Mission(1, potentialLocationsHub1[i].locationNum, skillsHub1[i]);
-      Mission m2 = new Mission(2, potentialLocationsHub2[i].locationNum, skillsHub2[i]);
-      Mission m3 = new Mission(3, potentialLocationsHub3[i].locationNum, skillsHub3[i]);
+      Mission m1 = new Mission(1, potentialLocationsHub1[i].locationNum, skillsHub1[i], 1);
+      Mission m2 = new Mission(2, potentialLocationsHub2[i].locationNum, skillsHub2[i], 2);
+      Mission m3 = new Mission(3, potentialLocationsHub3[i].locationNum, skillsHub3[i], 3);
 
       m[i] = m1;
       m[i+3] = m2;
