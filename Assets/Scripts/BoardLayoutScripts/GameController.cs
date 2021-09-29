@@ -316,14 +316,19 @@ public class GameController : MonoBehaviour
       GlobalController.Instance.missions = missions;
     }
 
-    turnOrder = GlobalController.Instance.turnOrder;
-    if (turnOrder.Count == 0)
+
+    if (turnOrder.Count == 0 && turnOrder.Count == null)
     {
       for (int i = 1; i < maxPlayers; i++)
       {
       turnOrder.Add(i+1);
-      GlobalController.Instance.turnOrder = turnOrder;
       }
+      playerTurn = turnOrder[0];
+      turnOrder.RemoveAt(0);
+    }
+    else
+    {
+      turnOrder = GlobalController.Instance.turnOrder;
     }
 
 
@@ -375,34 +380,35 @@ public class GameController : MonoBehaviour
 
     CheckPlayerTurn();
 
-    if (p1VPs == 6)
+
+    if (trophyOne[0] >= 3 && trophyTwo[0] >= 3 && trophyThree[0] >= 3 && trophyFour[0] >= 3)
     {
       PlayerOneWin();
     }
 
-    if (p2VPs == 6)
+    if (trophyOne[1] >= 3 && trophyTwo[1] >= 3 && trophyThree[1] >= 3 && trophyFour[1] >= 3)
     {
       PlayerTwoWin();
     }
 
-    if (p3VPs == 6)
+    if (trophyOne[2] >= 3 && trophyTwo[2] >= 3 && trophyThree[2] >= 3 && trophyFour[2] >= 3)
     {
-      PlayerTwoWin();
+      PlayerOneWin();
     }
 
-    if (p4VPs == 6)
+    if (trophyOne[3] >= 3 && trophyTwo[3] >= 3 && trophyThree[3] >= 3 && trophyFour[3] >= 3)
     {
-      PlayerTwoWin();
+      PlayerOneWin();
     }
 
-    if (p5VPs == 6)
+    if (trophyOne[4] >= 3 && trophyTwo[4] >= 3 && trophyThree[4] >= 3 && trophyFour[4] >= 3)
     {
-      PlayerTwoWin();
+      PlayerOneWin();
     }
 
-    if (p6VPs == 6)
+    if (trophyOne[5] >= 3 && trophyTwo[5] >= 3 && trophyThree[5] >= 3 && trophyFour[5] >= 3)
     {
-      PlayerTwoWin();
+      PlayerOneWin();
     }
 
     turnOrder = GlobalController.Instance.turnOrder;
@@ -483,6 +489,8 @@ public class GameController : MonoBehaviour
     }
   }
 
+
+
   void playerGmo()
   {
     StartCoroutine(ExampleCoroutine());
@@ -499,16 +507,14 @@ public class GameController : MonoBehaviour
         for (int i = 0; i < maxPlayers; i++)
         {
           turnOrder.Add(i+1);
+          Debug.Log("player " + turnOrder[i]);
         }
 
         IListExtensions.Shuffle(turnOrder); // randomize turn order for the round
-        //turnOrderTxt.text = "";
-
-        // for (int i = 0; i < turnOrder.Count; i++)
-        // {
-        //   turnOrderTxt.text = (turnOrderTxt.text + " " + turnOrder[i].ToString());
-        // }
-
+        for (int i = 0; i < maxPlayers;  i++)
+        {
+          Debug.Log("player " + turnOrder[i]);
+        }
 
         playerTurn = turnOrder[0];
         turnOrder.RemoveAt(0);

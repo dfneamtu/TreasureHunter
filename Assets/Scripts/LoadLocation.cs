@@ -152,10 +152,10 @@ public class LoadLocation : MonoBehaviour
         //Debug.Log("in Update");
 
         //Debug.Log("Player can travel to: " + myInfoList.info[hubLocation[playerTurnTickets]].traveltoStr + " with " + myInfoList.info[hubLocation[playerTurnTickets]].ticketNum + " " + myInfoList.info[hubLocation[playerTurnTickets]].travelType + " tickets. From: " + myInfoList.info[hubLocation[playerTurnTickets]].locationStr);
-        if (myInfoList.info[counters[playerTurnTickets - 1]].hubNum == hubLocation[playerTurnTickets - 1])
+        if (myInfoList.info[counters[playerTurnTickets - 1]].hubNum == newHub[playerTurnTickets - 1])
         {
             //Debug.Log("INSIDE HUB IF");
-            if (myInfoList.info[counters[playerTurnTickets - 1]].locationNum == pLocation[playerTurnTickets - 1])
+            if (myInfoList.info[counters[playerTurnTickets - 1]].locationNum == newLocation[playerTurnTickets - 1])
             {
 
                 fromLocation.text = myInfoList.info[counters[playerTurnTickets - 1]].locationStr.ToString();
@@ -206,9 +206,9 @@ public class LoadLocation : MonoBehaviour
     {
       for (int i = tableSize - 1; i >= 0; i--)
       {
-        if (myInfoList.info[i].hubNum == hubLocation[playerTurnTickets - 1])
+        if (myInfoList.info[i].hubNum == newHub[playerTurnTickets - 1])
         {
-          if (myInfoList.info[i].locationNum == pLocation[playerTurnTickets - 1])
+          if (myInfoList.info[i].locationNum == newLocation[playerTurnTickets - 1])
           {
             counters[playerTurnTickets - 1] = i;
             Debug.Log("new counter value: " + counters[playerTurnTickets - 1]);
@@ -248,7 +248,7 @@ public class LoadLocation : MonoBehaviour
 
     public void FwdButton()
     {
-      if (counters[playerTurnTickets - 1] != (tableSize - 1) && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].hubNum && pLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].locationNum)
+      if (counters[playerTurnTickets - 1] != (tableSize - 1) && newHub[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].hubNum && newLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].locationNum)
       {
         counters[playerTurnTickets - 1]++;
       }
@@ -256,7 +256,7 @@ public class LoadLocation : MonoBehaviour
 
     public void PrevButton()
     {
-      if (counters[playerTurnTickets - 1] != 0 && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].hubNum && pLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].locationNum)
+      if (counters[playerTurnTickets - 1] != 0 && newHub[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].hubNum && newLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].locationNum)
       {
         counters[playerTurnTickets - 1]--;
       }
