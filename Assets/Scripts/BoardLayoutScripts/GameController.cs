@@ -703,7 +703,7 @@ public class GameController : MonoBehaviour
         {
             case 1:
                 int skillToLevel = Random.Range(0, 8);
-                int experienceGained = ML_Algo.ML() + 1;
+                int experienceGained = ML_Algo.ML() + 2;
                 //Actions.reduceActions();
                 player1Values[skillToLevel] += experienceGained;
                 skillTextsp1[skillToLevel].text = player1Values[skillToLevel].ToString();
@@ -720,7 +720,7 @@ public class GameController : MonoBehaviour
                 break;
             case 3:
                 skillToLevel = Random.Range(0, 8);
-                experienceGained = ML_Algo.ML();
+                experienceGained = ML_Algo.ML() + 2;
                 //Actions.reduceActions();
                 player3Values[skillToLevel] += experienceGained;
                 skillTextsp3[skillToLevel].text = player3Values[skillToLevel].ToString();
@@ -728,7 +728,7 @@ public class GameController : MonoBehaviour
                 break;
             case 4:
                 skillToLevel = Random.Range(0, 8);
-                experienceGained = ML_Algo.ML();
+                experienceGained = ML_Algo.ML() + 2;
                 //Actions.reduceActions();
                 player4Values[skillToLevel] += experienceGained;
                 skillTextsp4[skillToLevel].text = player4Values[skillToLevel].ToString();
@@ -736,7 +736,7 @@ public class GameController : MonoBehaviour
                 break;
             case 5:
                 skillToLevel = Random.Range(0, 8);
-                experienceGained = ML_Algo.ML();
+                experienceGained = ML_Algo.ML() + 2;
                 //Actions.reduceActions();
                 player5Values[skillToLevel] += experienceGained;
                 skillTextsp5[skillToLevel].text = player5Values[skillToLevel].ToString();
@@ -744,7 +744,7 @@ public class GameController : MonoBehaviour
                 break;
             case 6:
                 skillToLevel = Random.Range(0, 8);
-                experienceGained = ML_Algo.ML();
+                experienceGained = ML_Algo.ML() + 2;
                 //Actions.reduceActions();
                 player6Values[skillToLevel] += experienceGained;
                 skillTextsp6[skillToLevel].text = player6Values[skillToLevel].ToString();
