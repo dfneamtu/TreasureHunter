@@ -475,8 +475,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -561,8 +561,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 828, y: 497}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 826.53674, y: 470.66266}
+  m_SizeDelta: {x: 162.9265, y: 82.6747}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26960702
 MonoBehaviour:
@@ -1260,13 +1260,7 @@ MonoBehaviour:
   hubLocation: 000000000000000000000000000000000000000000000000
   newLocation: 000000000000000000000000000000000000000000000000
   newHub: 000000000000000000000000000000000000000000000000
-  p1Health: 0
-  p2Health: 0
-  p3Health: 0
-  p4Health: 0
-  p5Health: 0
-  p6Health: 0
-  maxHealth: 100
+  pHealth: 000000000000000000000000000000000000000000000000
   p1skills: {fileID: 1868969670}
   p2skills: {fileID: 1521911486}
   p3skills: {fileID: 681387177}
@@ -3298,7 +3292,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c25092ba628dbf4c86ad8249e395e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playTravelObj: {fileID: 1336679956}
+  playerWin: {fileID: 0}
+  trophyOne: 000000000000000000000000000000000000000000000000
+  trophyTwo: 000000000000000000000000000000000000000000000000
+  trophyThree: 000000000000000000000000000000000000000000000000
+  trophyFour: 000000000000000000000000000000000000000000000000
 --- !u!114 &303960091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5701,7 +5699,7 @@ MonoBehaviour:
   trophyTwo: 000000000000000000000000000000000000000000000000
   trophyThree: 000000000000000000000000000000000000000000000000
   trophyFour: 000000000000000000000000000000000000000000000000
-  p1Health: 0
+  pHealth: 000000000000000000000000000000000000000000000000
   players:
   - {fileID: 0}
   - {fileID: 0}

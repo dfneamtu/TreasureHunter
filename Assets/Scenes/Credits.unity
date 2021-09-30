@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: -18.0433}
-  m_SizeDelta: {x: 113.6788, y: 40.9653}
+  m_AnchoredPosition: {x: 50.2476, y: -63.2354}
+  m_SizeDelta: {x: 209.8079, y: 75.6064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19073146
 MonoBehaviour:
@@ -486,7 +486,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c25092ba628dbf4c86ad8249e395e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playTravelObj: {fileID: 0}
+  playerWin: {fileID: 0}
+  trophyOne: 000000000000000000000000000000000000000000000000
+  trophyTwo: 000000000000000000000000000000000000000000000000
+  trophyThree: 000000000000000000000000000000000000000000000000
+  trophyFour: 000000000000000000000000000000000000000000000000
 --- !u!114 &339352747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,8 +731,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.999992, y: -2.6814}
-  m_SizeDelta: {x: 983.1675, y: 553.0317}
+  m_AnchoredPosition: {x: 50.247574, y: -34.883118}
+  m_SizeDelta: {x: 1814.5532, y: 1020.6863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1309902136
 MonoBehaviour:
@@ -804,8 +808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.999992, y: 48.5253}
-  m_SizeDelta: {x: 113.6788, y: 40.9653}
+  m_AnchoredPosition: {x: 50.247574, y: 59.62494}
+  m_SizeDelta: {x: 209.8079, y: 75.6064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944548157
 MonoBehaviour:
