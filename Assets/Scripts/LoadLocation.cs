@@ -408,7 +408,7 @@ public class LoadLocation : MonoBehaviour
 
             InfoPopup.gameObject.SetActive(true);
             InfoText.text = "You've committed to travel to " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr + ". You will begin your next turn there.";
-            
+
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -835,7 +835,7 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
-            //playerMoves--;
+            
             travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }

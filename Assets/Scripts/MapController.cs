@@ -74,36 +74,7 @@ public class MapController : MonoBehaviour
 
 
         //check if the current player has a commited location, if so, commit travel
-        if (startOfTurn)
-        {
-          if (hubLocation[turn - 1] != newHub[turn - 1] || pLocation[turn - 1] != newLocation[turn -1])
-          {
-              foreach(Location l in locations)
-              {
-                if (l.hubNum == newHub[turn - 1])
-                {
-                  if (l.locationNum == newLocation[turn - 1])
-                  {
-                    players[turn - 1].transform.position = new Vector3(l.xPos, 0, l.zPos);
 
-                    pLocation[turn - 1] = newLocation[turn - 1];
-                    hubLocation[turn - 1] = newHub[turn - 1];
-
-
-                    GlobalController.Instance.hubLocation = hubLocation;
-                    GlobalController.Instance.pLocation = pLocation;
-                    GlobalController.Instance.newHub = newHub;
-                    GlobalController.Instance.newLocation = newLocation;
-                    GlobalController.Instance.players = players;
-                  }
-                }
-
-            }
-          }
-
-        startOfTurn = false;
-        GlobalController.Instance.startOfTurn = startOfTurn;
-      }
 
       //load all players to their current location
       for (int i = 0; i < 6; i++)
@@ -153,11 +124,51 @@ public class MapController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      Debug.Log("calling update");
         GlobalController.Instance.newHub = newHub;
         GlobalController.Instance.newLocation = newLocation;
 
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
+
+        if (startOfTurn)
+        {
+          if (hubLocation[turn - 1] != newHub[turn - 1] || pLocation[turn - 1] != newLocation[turn -1])
+          {
+              foreach(Location l in locations)
+              {
+                if (l.hubNum == newHub[turn - 1])
+                {
+                  if (l.locationNum == newLocation[turn - 1])
+                  {
+                    Vector3 dest = new Vector3(l.xPos, 0, l.zPos);
+                    while (players[turn - 1].transform.position.x != l.xPos && players[turn - 1].transform.position.z != l.zPos)
+                    {
+                    //Vector3 current = new Vector3(players[turn - 1].transform.position.x, 0, players[turn-1].transform.position.z);
+
+                    players[turn - 1].transform.position = Vector3.MoveTowards(players[turn-1].transform.position, dest, Time.deltaTime * .1f);
+
+                  }
+                  pLocation[turn - 1] = newLocation[turn - 1];
+                  hubLocation[turn - 1] = newHub[turn - 1];
+
+
+                  GlobalController.Instance.hubLocation = hubLocation;
+                  GlobalController.Instance.pLocation = pLocation;
+                  GlobalController.Instance.newHub = newHub;
+                  GlobalController.Instance.newLocation = newLocation;
+                  GlobalController.Instance.players = players;
+                  }
+                }
+
+            }
+          }
+
+        startOfTurn = false;
+        GlobalController.Instance.startOfTurn = startOfTurn;
+      }
+
+
 
         //locations[0].x;
         //locations[0].y;
