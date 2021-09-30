@@ -424,7 +424,7 @@ public class GameController : MonoBehaviour
 
         if (trophyOne[1] >= 3 && trophyTwo[1] >= 3 && trophyThree[1] >= 3 && trophyFour[1] >= 3)
         {
-            PlayerTwoWin();
+            PlayerOneWin();
         }
 
         if (trophyOne[2] >= 3 && trophyTwo[2] >= 3 && trophyThree[2] >= 3 && trophyFour[2] >= 3)
@@ -490,6 +490,9 @@ public class GameController : MonoBehaviour
         playersObjAmountTxt = GlobalController.Instance.playersObjAmountTxt;
 
         trophyOne = GlobalController.Instance.trophyOne;
+        trophyTwo = GlobalController.Instance.trophyTwo;
+        trophyThree = GlobalController.Instance.trophyThree;
+        trophyFour = GlobalController.Instance.trophyFour;
 
         playerObjects = GlobalController.Instance.playerObjects;
 

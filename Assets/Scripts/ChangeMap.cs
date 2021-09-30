@@ -10,10 +10,6 @@ public class ChangeMap : MonoBehaviour
 
     public int playerTurnTickets;
 
-    public Material Hub1;
-    public Material Hub2;
-    public Material Hub3;
-
     //in the editor this is what you would set as the object you wan't to change
     public GameObject Object;
 
