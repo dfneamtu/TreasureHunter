@@ -15997,7 +15997,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reach 4 points in each category to win!
+  m_Text: Reach over 3 points in each category to win!
 --- !u!222 &1726005400
 CanvasRenderer:
   m_ObjectHideFlags: 0
