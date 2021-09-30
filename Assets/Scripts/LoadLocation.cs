@@ -14,6 +14,8 @@ public class LoadLocation : MonoBehaviour
     public TMP_Text InfoText;
     public GameObject InfoPopup;
 
+    public GameObject airportPopup;
+
     public int[] pLocation = new int[6];
     public int[] hubLocation = new int[6];
     public int[] newLocation = new int[6];
@@ -156,6 +158,23 @@ public class LoadLocation : MonoBehaviour
 
                 fromLocation.text = myInfoList.info[counters[playerTurnTickets - 1]].locationStr.ToString();
                 toLocation.text = myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr.ToString();
+
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "London")
+                {
+                    airportPopup.gameObject.SetActive(true);
+                }
+                else if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Paris")
+                {
+                    airportPopup.gameObject.SetActive(true);
+                }
+                else if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Stockholm")
+                {
+                    airportPopup.gameObject.SetActive(true);
+                }
+                else
+                {
+                    airportPopup.gameObject.SetActive(false);
+                }
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
                 {
