@@ -601,7 +601,7 @@ public class GameController : MonoBehaviour
               TypeTxt.text = "";
               completeMissionBtn.SetActive(false);
 
-              playerMoves = 7;
+              playerMoves = 3;
               SceneManager.LoadScene("Map3Dworld");
             }
             else
@@ -621,7 +621,7 @@ public class GameController : MonoBehaviour
               TypeTxt.text = "";
               completeMissionBtn.SetActive(false);
 
-              playerMoves = 7;
+              playerMoves = 3;
               SceneManager.LoadScene("Map3Dworld");
             }
         //     if (turnOrder.Count == 0) // new round
@@ -652,7 +652,7 @@ public class GameController : MonoBehaviour
         //         TypeTxt.text = "";
         //         completeMissionBtn.SetActive(false);
         //
-        //         playerMoves = 7;
+        //         playerMoves = 3;
         //         SceneManager.LoadScene("Map3Dworld");
         //     }
         //     else
@@ -674,7 +674,7 @@ public class GameController : MonoBehaviour
         //         TypeTxt.text = "";
         //         completeMissionBtn.SetActive(false);
         //
-        //         playerMoves = 7;
+        //         playerMoves = 3;
         //         SceneManager.LoadScene("Map3Dworld");
         //     }
          }
