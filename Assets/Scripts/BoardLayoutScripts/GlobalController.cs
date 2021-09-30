@@ -115,6 +115,7 @@ public class GlobalController : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
+            trophyOne[i] = 0;
             pLocation[i] = 1;
             hubLocation[i] = 1;
             newLocation[i] = 1;

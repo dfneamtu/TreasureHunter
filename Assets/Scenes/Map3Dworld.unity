@@ -3825,6 +3825,7 @@ MonoBehaviour:
   newHub: 000000000000000000000000000000000000000000000000
   newLocation: 000000000000000000000000000000000000000000000000
   currentHub: 0
+  enemyObjPrefab: {fileID: 3409245815897354733, guid: 0438c6fc312ce41af891282feb1b7552, type: 3}
   Hub1: {fileID: 2100000, guid: ffac904a444de0f4f8e3421ef94e96fb, type: 2}
   Hub2: {fileID: 2100000, guid: b8af0cd29815cb64db78174bf9015c26, type: 2}
   Hub3: {fileID: 2100000, guid: c8fb406113398bf409f78bb672e8c87f, type: 2}
@@ -3838,6 +3839,7 @@ MonoBehaviour:
   - {fileID: 1460832875}
   - {fileID: 334266422}
   - {fileID: 1616389331}
+  enemiesObj: []
   vector: {x: 0, y: 0, z: 0}
   destination: {x: 0, y: 0, z: 0}
   turn: 0
@@ -5067,11 +5069,7 @@ MonoBehaviour:
   trophyTwo: 000000000000000000000000000000000000000000000000
   trophyThree: 000000000000000000000000000000000000000000000000
   trophyFour: 000000000000000000000000000000000000000000000000
-  trophyOneTxt: {fileID: 0}
-  trophyTwoTxt: {fileID: 0}
-  trophyThreeTxt: {fileID: 0}
-  trophyFourTxt: {fileID: 0}
-  p1Health: 0
+  pHealth: 000000000000000000000000000000000000000000000000
   players:
   - {fileID: 1017141168}
   - {fileID: 115113279}
