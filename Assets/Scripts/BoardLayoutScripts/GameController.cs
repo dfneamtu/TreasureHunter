@@ -1752,6 +1752,9 @@ public class GameController : MonoBehaviour
           Debug.Log("Enemy damage: " + e.damage);
 
           pHealth[playerTurn - 1] = pHealth[playerTurn - 1] - e.damage;
+          infoPopup.gameObject.SetActive(true);
+          Popupinfo.text = "You confronted and defeated an enemy. You lost " + e.damage.ToString() + " health. Gained 1 Enemy trophy point!";
+
 
           trophyOne[playerTurn - 1]++;
 
@@ -1764,7 +1767,8 @@ public class GameController : MonoBehaviour
             trophyThree[playerTurn - 1]--;
             trophyFour[playerTurn - 1]--;
 
-            Debug.Log("UPDATE after death. PLayer health: " + pHealth[playerTurn - 1] + " location: " + hubLocation[playerTurn - 1] + " , " + pLocation[playerTurn - 1] + "going to " + newHub[playerTurn - 1] + " , " + newLocation[playerTurn - 1]);
+            infoPopup.gameObject.SetActive(true);
+            Popupinfo.text = "An enemy defeated you. You've lost 1 of each trophy point.";
           }
 
           enemies.Remove(e);
