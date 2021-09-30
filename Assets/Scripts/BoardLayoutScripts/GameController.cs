@@ -56,6 +56,13 @@ public class GameController : MonoBehaviour
     public GameObject infoPopup;
     public TMP_Text Popupinfo;
 
+    public Text p1Popup;
+    public Text p2Popup;
+    public Text p3Popup;
+    public Text p4Popup;
+    public Text p5Popup;
+    public Text p6Popup;
+
     //Skillsp1Script.GetComponent<Skillsp1>();
     public List<string> log = new List<string>();
     public List<Enemy> enemies = new List<Enemy>();
@@ -80,13 +87,6 @@ public class GameController : MonoBehaviour
 
     private ReadLocationPaths locationPathsScript;
     private ReadLocations locationsScript;
-
-    public TMP_Text p1ScoreText;
-    public TMP_Text p2ScoreText;
-    public TMP_Text p3ScoreText;
-    public TMP_Text p4ScoreText;
-    public TMP_Text p5ScoreText;
-    public TMP_Text p6ScoreText;
 
     public int[] trophyOne = new int[6];
     public int[] trophyTwo = new int[6];
@@ -375,6 +375,7 @@ public class GameController : MonoBehaviour
         {
             travelled[i] = 0;
         }
+
     }
 
     private void Update()
@@ -520,6 +521,50 @@ public class GameController : MonoBehaviour
             Hub2.gameObject.SetActive(false);
             Hub3.gameObject.SetActive(true);
         }
+
+        //Game status stuff
+
+        if (PlayerPrefs.GetInt("players") == 2)
+        {
+            p1Popup.text = "Player One has " + trophyOne[0].ToString() + " Enemy Points, " + trophyTwo[0].ToString() + " London Points, " + trophyThree[0].ToString() + " Paris Points, " + " and " + trophyFour[0].ToString() + " Stockholm Points";
+            p2Popup.text = "Player Two has " + trophyOne[1].ToString() + " Enemy Points, " + trophyTwo[1].ToString() + " London Points, " + trophyThree[1].ToString() + " Paris Points, " + " and " + trophyFour[1].ToString() + " Stockholm Points";
+        }
+
+        if (PlayerPrefs.GetInt("players") == 3)
+        {
+            p1Popup.text = "Player One has " + trophyOne[0].ToString() + " Enemy Points, " + trophyTwo[0].ToString() + " London Points, " + trophyThree[0].ToString() + " Paris Points," + " and " + trophyFour[0].ToString() + " Stockholm Points";
+            p2Popup.text = "Player Two has " + trophyOne[1].ToString() + " Enemy Points, " + trophyTwo[1].ToString() + " London Points, " + trophyThree[1].ToString() + " Paris Points, " + " and " + trophyFour[1].ToString() + " Stockholm Points";
+            p3Popup.text = "Player Three has " + trophyOne[2].ToString() + " Enemy Points, " + trophyTwo[2].ToString() + " London Points, " + trophyThree[2].ToString() + " Paris Points, " + " and " + trophyFour[2].ToString() + " Stockholm Points";
+        }
+
+        if (PlayerPrefs.GetInt("players") == 4)
+        {
+            p1Popup.text = "Player One has " + trophyOne[0].ToString() + " Enemy Points, " + trophyTwo[0].ToString() + " London Points, " + trophyThree[0].ToString() + " Paris Points, " + " and " + trophyFour[0].ToString() + " Stockholm Points";
+            p2Popup.text = "Player Two has " + trophyOne[1].ToString() + " Enemy Points, " + trophyTwo[1].ToString() + " London Points, " + trophyThree[1].ToString() + " Paris Points, " + " and " + trophyFour[1].ToString() + " Stockholm Points";
+            p3Popup.text = "Player Three has " + trophyOne[2].ToString() + " Enemy Points, " + trophyTwo[2].ToString() + " London Points, " + trophyThree[2].ToString() + " Paris Points, " + " and " + trophyFour[2].ToString() + " Stockholm Points";
+            p4Popup.text = "Player Four has " + trophyOne[3].ToString() + " Enemy Points, " + trophyTwo[3].ToString() + " London Points, " + trophyThree[3].ToString() + " Paris Points, " + " and " + trophyFour[3].ToString() + " Stockholm Points ";
+        }
+
+        if (PlayerPrefs.GetInt("players") == 5)
+        {
+            p1Popup.text = "Player One has " + trophyOne[0].ToString() + " Enemy Points, " + trophyTwo[0].ToString() + " London Points, " + trophyThree[0].ToString() + " Paris Points, " + " and " + trophyFour[0].ToString() + " Stockholm Points";
+            p2Popup.text = "Player Two has " + trophyOne[1].ToString() + " Enemy Points, " + trophyTwo[1].ToString() + " London Points, " + trophyThree[1].ToString() + " Paris Points, " + " and " + trophyFour[1].ToString() + " Stockholm Points";
+            p3Popup.text = "Player Three has " + trophyOne[2].ToString() + " Enemy Points, " + trophyTwo[2].ToString() + " London Points, " + trophyThree[2].ToString() + " Paris Points, " + " and " + trophyFour[2].ToString() + " Stockholm Points";
+            p4Popup.text = "Player Four has " + trophyOne[3].ToString() + " Enemy Points, " + trophyTwo[3].ToString() + " London Points, " + trophyThree[3].ToString() + " Paris Points, " + " and " + trophyFour[3].ToString() + " Stockholm Points";
+            p5Popup.text = "Player Five has " + trophyOne[4].ToString() + " Enemy Points, " + trophyTwo[4].ToString() + " London Points, " + trophyThree[4].ToString() + " Paris Points, " + " and " + trophyFour[4].ToString() + " Stockholm Points";
+        }
+
+        if (PlayerPrefs.GetInt("players") == 6)
+        {
+            p1Popup.text = "Player One has " + trophyOne[0].ToString() + " Enemy Points, " + trophyTwo[0].ToString() + " London Points, " + trophyThree[0].ToString() + " Paris Points, " + " and " + trophyFour[0].ToString() + " Stockholm Points ";
+            p2Popup.text = "Player Two has " + trophyOne[1].ToString() + " Enemy Points, " + trophyTwo[1].ToString() + " London Points, " + trophyThree[1].ToString() + " Paris Points, " + " and " + trophyFour[1].ToString() + " Stockholm Points";
+            p3Popup.text = "Player Three has " + trophyOne[2].ToString() + " Enemy Points, " + trophyTwo[2].ToString() + " London Points, " + trophyThree[2].ToString() + " Paris Points, " + " and " + trophyFour[2].ToString() + " Stockholm Points";
+            p4Popup.text = "Player Four has " + trophyOne[3].ToString() + " Enemy Points, " + trophyTwo[3].ToString() + " London Points, " + trophyThree[3].ToString() + " Paris Points, " + " and " + trophyFour[3].ToString() + " Stockholm Points";
+            p5Popup.text = "Player Five has " + trophyOne[4].ToString() + " Enemy Points, " + trophyTwo[4].ToString() + " London Points, " + trophyThree[4].ToString() + " Paris Points, " + " and " + trophyFour[4].ToString() + " Stockholm Points";
+            p6Popup.text = "Player Six has " + trophyOne[5].ToString() + " Enemy Points, " + trophyTwo[5].ToString() + " London Points, " + trophyThree[5].ToString() + " Paris Points, " + " and " + trophyFour[5].ToString() + " Stockholm Points";
+        }
+
+
     }
 
 
@@ -663,11 +708,6 @@ public class GameController : MonoBehaviour
                 player1Values[skillToLevel] += experienceGained;
                 skillTextsp1[skillToLevel].text = player1Values[skillToLevel].ToString();
 
-                if (player1Values[skillToLevel] > 4)
-                {
-                    p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
-                }
-
                 break;
             case 2:
                 skillToLevel = Random.Range(0, 8);
@@ -677,11 +717,6 @@ public class GameController : MonoBehaviour
                 player2Values[skillToLevel] += experienceGained;
                 skillTextsp2[skillToLevel].text = player1Values[skillToLevel].ToString();
 
-                if (player2Values[skillToLevel] > 4)
-                {
-                    p2ScoreText.text = "Player 2 Victory Points: " + p2VPs.ToString();
-                }
-
                 break;
             case 3:
                 skillToLevel = Random.Range(0, 8);
@@ -689,11 +724,6 @@ public class GameController : MonoBehaviour
                 //Actions.reduceActions();
                 player3Values[skillToLevel] += experienceGained;
                 skillTextsp3[skillToLevel].text = player3Values[skillToLevel].ToString();
-
-                if (player3Values[skillToLevel] > 4)
-                {
-                    p3ScoreText.text = "Player 3 Victory Points: " + p3VPs.ToString();
-                }
 
                 break;
             case 4:
@@ -703,12 +733,6 @@ public class GameController : MonoBehaviour
                 player4Values[skillToLevel] += experienceGained;
                 skillTextsp4[skillToLevel].text = player4Values[skillToLevel].ToString();
 
-                if (player4Values[skillToLevel] > 4)
-                {
-
-                    p4ScoreText.text = "Player 4 Victory Points: " + p4VPs.ToString();
-                }
-
                 break;
             case 5:
                 skillToLevel = Random.Range(0, 8);
@@ -717,11 +741,6 @@ public class GameController : MonoBehaviour
                 player5Values[skillToLevel] += experienceGained;
                 skillTextsp5[skillToLevel].text = player5Values[skillToLevel].ToString();
 
-                if (player5Values[skillToLevel] > 4)
-                {
-                    p5ScoreText.text = "Player 5 Victory Points: " + p5VPs.ToString();
-                }
-
                 break;
             case 6:
                 skillToLevel = Random.Range(0, 8);
@@ -729,11 +748,6 @@ public class GameController : MonoBehaviour
                 //Actions.reduceActions();
                 player6Values[skillToLevel] += experienceGained;
                 skillTextsp6[skillToLevel].text = player6Values[skillToLevel].ToString();
-
-                if (player6Values[skillToLevel] > 4)
-                {
-                    p6ScoreText.text = "Player 6 Victory Points: " + p6VPs.ToString();
-                }
 
                 break;
             default:
@@ -1180,7 +1194,6 @@ public class GameController : MonoBehaviour
                     {
                         trophyFour[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
                     }
-                    //p1ScoreText.text = "Player 1 Victory Points: " + p1VPs.ToString();
                     ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
                     AmountTxt.text = "";
                     TypeTxt.text = "";
@@ -1560,13 +1573,6 @@ public class GameController : MonoBehaviour
                 BGp5.gameObject.SetActive(false);
                 BGp6.gameObject.SetActive(false);
 
-                p1ScoreText.gameObject.SetActive(true);
-                p2ScoreText.gameObject.SetActive(false);
-                p3ScoreText.gameObject.SetActive(false);
-                p4ScoreText.gameObject.SetActive(false);
-                p5ScoreText.gameObject.SetActive(false);
-                p6ScoreText.gameObject.SetActive(false);
-
                 float fillValue = pHealth[0];
                 slider.value = fillValue;
 
@@ -1576,12 +1582,6 @@ public class GameController : MonoBehaviour
 
                 yield return new WaitForSeconds(1);
 
-                p1ScoreText.gameObject.SetActive(false);
-                p2ScoreText.gameObject.SetActive(true);
-                p3ScoreText.gameObject.SetActive(false);
-                p4ScoreText.gameObject.SetActive(false);
-                p5ScoreText.gameObject.SetActive(false);
-                p6ScoreText.gameObject.SetActive(false);
                 //Console.WriteLine("Case 2");
                 p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(true);
@@ -1613,12 +1613,6 @@ public class GameController : MonoBehaviour
 
                 yield return new WaitForSeconds(1);
 
-                p1ScoreText.gameObject.SetActive(false);
-                p2ScoreText.gameObject.SetActive(false);
-                p3ScoreText.gameObject.SetActive(true);
-                p4ScoreText.gameObject.SetActive(false);
-                p5ScoreText.gameObject.SetActive(false);
-                p6ScoreText.gameObject.SetActive(false);
                 //oOoo
                 p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(false);
@@ -1650,13 +1644,6 @@ public class GameController : MonoBehaviour
 
                 yield return new WaitForSeconds(1);
 
-                p1ScoreText.gameObject.SetActive(false);
-                p2ScoreText.gameObject.SetActive(false);
-                p3ScoreText.gameObject.SetActive(false);
-                p4ScoreText.gameObject.SetActive(true);
-                p5ScoreText.gameObject.SetActive(false);
-                p6ScoreText.gameObject.SetActive(false);
-
                 p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(false);
                 p3skills.gameObject.SetActive(false);
@@ -1687,13 +1674,6 @@ public class GameController : MonoBehaviour
 
                 yield return new WaitForSeconds(1);
 
-                p1ScoreText.gameObject.SetActive(false);
-                p2ScoreText.gameObject.SetActive(false);
-                p3ScoreText.gameObject.SetActive(false);
-                p4ScoreText.gameObject.SetActive(false);
-                p5ScoreText.gameObject.SetActive(true);
-                p6ScoreText.gameObject.SetActive(false);
-
                 p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(false);
                 p3skills.gameObject.SetActive(false);
@@ -1723,13 +1703,6 @@ public class GameController : MonoBehaviour
             case 6:
 
                 yield return new WaitForSeconds(1);
-
-                p1ScoreText.gameObject.SetActive(false);
-                p2ScoreText.gameObject.SetActive(false);
-                p3ScoreText.gameObject.SetActive(false);
-                p4ScoreText.gameObject.SetActive(false);
-                p5ScoreText.gameObject.SetActive(false);
-                p6ScoreText.gameObject.SetActive(true);
 
                 p1skills.gameObject.SetActive(false);
                 p2skills.gameObject.SetActive(false);
@@ -1916,4 +1889,6 @@ public class GameController : MonoBehaviour
     {
         infoPopup.gameObject.SetActive(false);
     }
+
+
 }
