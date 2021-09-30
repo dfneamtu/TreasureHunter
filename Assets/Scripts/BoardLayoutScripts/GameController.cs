@@ -195,7 +195,7 @@ public class GameController : MonoBehaviour
     public int[] player6Tickets = new int[4];
 
     //Moves left
-    static public int playerMoves = 7;
+    static public int playerMoves = 3;
 
     public string[] playerObjects = new string[6];
 
