@@ -1199,6 +1199,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[0] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    playerMoves--;
                 }
                 break;
 
@@ -1225,6 +1226,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[1] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    playerMoves--;
                 }
 
 
@@ -1253,6 +1255,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[2] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    playerMoves--;
                 }
 
                 break;
@@ -1278,6 +1281,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[3] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    playerMoves--;
                 }
 
                 break;
@@ -1303,6 +1307,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[4] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    playerMoves--;
                 }
                 break;
 
@@ -1327,6 +1332,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[5] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    playerMoves--;
                 }
                 break;
 
