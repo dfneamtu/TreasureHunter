@@ -17,7 +17,7 @@ public class Enemy
     {
         hubNum = h;
         locationNum = l;
-        damage = Random.Range(30, 60);
+        damage = Random.Range(40, 60);
     }
 }
 
@@ -42,7 +42,7 @@ public class Mission
 
 
         pointsReq = ML_Algo.ML() + 1;
-        victoryPoints = ML_Algo.ML() + 2;
+        victoryPoints = ML_Algo.ML() + 1;
 
         for (int i = 0; i < 6; i++)
         {
@@ -348,7 +348,12 @@ public class GameController : MonoBehaviour
         }
 
 
-      
+
+        //for (int i = 0; i < missions.Length; i++)
+        //{
+        //  //Outputting missions
+        //  //Debug.Log("mission: " + (i+1) + " at " + missions[i].hubNum + ", " + missions[i].locationNum);
+        //}
 
         enemies = GlobalController.Instance.enemies;
         trophyOne = GlobalController.Instance.trophyOne;
@@ -579,17 +584,6 @@ public class GameController : MonoBehaviour
             if (playerTurn == maxPlayers)
             {
 
-              for (int i = 0; i < 6; i++)
-              {
-                if (pHealth[i] <= (maxHealth - 10))
-                {
-                  pHealth[i] += 10;
-                }
-                else
-                {
-                  pHealth[i] = maxHealth;
-                }
-              }
               playerTurn = 1;
               travelled[playerTurn - 1] = 0;
 
