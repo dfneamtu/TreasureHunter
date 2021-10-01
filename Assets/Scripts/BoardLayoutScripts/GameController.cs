@@ -63,6 +63,8 @@ public class GameController : MonoBehaviour
     public Text p5Popup;
     public Text p6Popup;
 
+    public int rounds = 0;
+
     //Skillsp1Script.GetComponent<Skillsp1>();
     public List<string> log = new List<string>();
     public List<Enemy> enemies = new List<Enemy>();
@@ -583,12 +585,15 @@ public class GameController : MonoBehaviour
 
             if (playerTurn == maxPlayers)
             {
+              rounds++;
 
               playerTurn = 1;
               travelled[playerTurn - 1] = 0;
-
-              moveEnemies(enemies);
-              spawnEnemies(locationsScript.hostileLocations);
+              if (rounds % 2 == 0)
+              {
+                moveEnemies(enemies);
+                spawnEnemies(locationsScript.hostileLocations);
+              }
               foreach (Mission m in missions)
               {
                 if (m.cooldown != 0)
