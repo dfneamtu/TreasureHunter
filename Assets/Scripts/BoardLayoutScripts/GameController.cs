@@ -17,7 +17,7 @@ public class Enemy
     {
         hubNum = h;
         locationNum = l;
-        damage = Random.Range(40, 60);
+        damage = Random.Range(30, 50);
     }
 }
 
@@ -63,8 +63,7 @@ public class GameController : MonoBehaviour
     public Text p5Popup;
     public Text p6Popup;
 
-    public int rounds = 0;
-
+    public int rounds;
     //Skillsp1Script.GetComponent<Skillsp1>();
     public List<string> log = new List<string>();
     public List<Enemy> enemies = new List<Enemy>();
@@ -231,7 +230,6 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
-
         // p1CurrentObject = "NONE";
         // p2CurrentObject = "NONE";
         // p3CurrentObject = "NONE";
@@ -287,11 +285,15 @@ public class GameController : MonoBehaviour
           pHealth = GlobalController.Instance.pHealth;
         }
 
+        if (rounds == null)
+        {
+          rounds = 1;
+        }
+
 
         CheckPlayerTurn();
 
-        //playerMoves = GlobalController.Instance.playerMoves;
-        //turn = GlobalController.Instance.turn;
+
 
         //Game size
         if (PlayerPrefs.GetInt("players") == 2)
@@ -370,8 +372,7 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.trophyTwo = trophyTwo;
         GlobalController.Instance.trophyThree = trophyThree;
         GlobalController.Instance.trophyFour = trophyFour;
-        // GlobalController.Instance.newLocation = newLocation;
-        // GlobalController.Instance.newHub = newHub;
+
 
         for (int i = 0; i < 6; i++)
         {
@@ -585,15 +586,19 @@ public class GameController : MonoBehaviour
 
             if (playerTurn == maxPlayers)
             {
+              rounds = GlobalController.Instance.rounds;
               rounds++;
+              GlobalController.Instance.rounds = rounds;
 
               playerTurn = 1;
               travelled[playerTurn - 1] = 0;
+
               if (rounds % 2 == 0)
               {
                 moveEnemies(enemies);
                 spawnEnemies(locationsScript.hostileLocations);
               }
+
               foreach (Mission m in missions)
               {
                 if (m.cooldown != 0)
@@ -1497,8 +1502,7 @@ public class GameController : MonoBehaviour
 
         GlobalController.Instance.pHealth = pHealth;
 
-        //GlobalController.Instance.playerMoves = playerMoves;
-        //GlobalController.Instance.turn = turn;
+
 
     }
 

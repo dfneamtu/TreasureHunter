@@ -90,7 +90,7 @@ public class LoadLocation : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        ReadCSV();
+      ReadCSV();
         //Time.timeScale = 1;
     }
 
@@ -304,7 +304,7 @@ public class LoadLocation : MonoBehaviour
               travelled[playerTurnTickets - 1] = 1;
 
 
-              //playerMoves--;
+
               SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
             }
             else
@@ -329,7 +329,7 @@ public class LoadLocation : MonoBehaviour
               InfoText.text = "You've committed to travel to " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr + ". You will begin your next turn there.";
 
               setCounter();
-              //playerMoves--;
+
               travelled[playerTurnTickets - 1] = 1;
 
               SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
@@ -356,7 +356,7 @@ public class LoadLocation : MonoBehaviour
               InfoText.text = "You've committed to travel to " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr + ". You will begin your next turn there.";
 
               setCounter();
-              //playerMoves--;
+
               travelled[playerTurnTickets - 1] = 1;
               SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
             }
@@ -382,7 +382,7 @@ public class LoadLocation : MonoBehaviour
               InfoText.text = "You've committed to travel to " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr + ". You will begin your next turn there.";
 
               setCounter();
-              //playerMoves--;
+
               travelled[playerTurnTickets - 1] = 1;
               SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
             }
@@ -835,7 +835,7 @@ public class LoadLocation : MonoBehaviour
             hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
             pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
-            
+            //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
             SceneManager.LoadScene("PlayResource", LoadSceneMode.Single);
           }
