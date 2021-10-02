@@ -53,6 +53,9 @@ public class Mission
 
 public class GameController : MonoBehaviour
 {
+    public GameObject[] TargetsHub0;
+    public GameObject[] TargetsHub1;
+    public GameObject[] TargetsHub2;
     public GameObject infoPopup;
     public TMP_Text Popupinfo;
 
@@ -504,27 +507,6 @@ public class GameController : MonoBehaviour
 
         pHealth = GlobalController.Instance.pHealth;
 
-        if (hubLocation[playerTurn - 1] == 1)
-        {
-            Hub1.gameObject.SetActive(true);
-            Hub2.gameObject.SetActive(false);
-            Hub3.gameObject.SetActive(false);
-        }
-
-        if (hubLocation[playerTurn - 1] == 2)
-        {
-            Hub1.gameObject.SetActive(false);
-            Hub2.gameObject.SetActive(true);
-            Hub3.gameObject.SetActive(false);
-        }
-
-        if (hubLocation[playerTurn - 1] == 3)
-        {
-            Hub1.gameObject.SetActive(false);
-            Hub2.gameObject.SetActive(false);
-            Hub3.gameObject.SetActive(true);
-        }
-
         //Game status stuff
 
         if (PlayerPrefs.GetInt("players") == 2)
@@ -574,7 +556,8 @@ public class GameController : MonoBehaviour
 
     void playerGmo()
     {
-        StartCoroutine(ExampleCoroutine());
+        //StartCoroutine(ExampleCoroutine1());
+        playerGraphics();
     }
 
     public void CheckPlayerTurn()
@@ -612,6 +595,7 @@ public class GameController : MonoBehaviour
               completeMissionBtn.SetActive(false);
 
               playerMoves = 3;
+               //StartCoroutine(ExampleCoroutine());
               SceneManager.LoadScene("Map3Dworld");
             }
             else
@@ -632,6 +616,7 @@ public class GameController : MonoBehaviour
               completeMissionBtn.SetActive(false);
 
               playerMoves = 3;
+                //StartCoroutine(ExampleCoroutine());
               SceneManager.LoadScene("Map3Dworld");
             }
         //     if (turnOrder.Count == 0) // new round
@@ -1555,11 +1540,355 @@ public class GameController : MonoBehaviour
         return paths;
     }
 
+    public void playerGraphics()
+    {
 
+        if (hubLocation[playerTurn - 1] == 1)
+        {
+            Hub1.gameObject.SetActive(true);
+            Hub2.gameObject.SetActive(false);
+            Hub3.gameObject.SetActive(false);
 
+            if (pLocation[playerTurn - 1] == 1)
+            {
+                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 3)
+            {
+                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 4)
+            {
+                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 5)
+            {
+                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 6)
+            {
+                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 7)
+            {
+                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 8)
+            {
+                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 9)
+            {
+                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 10)
+            {
+                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+        }
+
+        if (hubLocation[playerTurn - 1] == 2)
+        {
+            Hub1.gameObject.SetActive(false);
+            Hub2.gameObject.SetActive(true);
+            Hub3.gameObject.SetActive(false);
+
+            if (pLocation[playerTurn - 1] == 1)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 3)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 4)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 5)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 6)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 7)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 8)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 9)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 10)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 11)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 12)
+            {
+                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+        }
+
+        if (hubLocation[playerTurn - 1] == 3)
+        {
+            Hub1.gameObject.SetActive(false);
+            Hub2.gameObject.SetActive(false);
+            Hub3.gameObject.SetActive(true);
+            if (pLocation[playerTurn - 1] == 1)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 3)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 4)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 5)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 6)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 7)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 8)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 9)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 10)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 11)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 12)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+            else if (pLocation[playerTurn - 1] == 13)
+            {
+                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+            }
+        }
+
+        switch (playerTurn)
+        {
+            case 1:
+
+                //yield return new WaitForSeconds(1);
+
+                //Console.WriteLine("Case 1");
+                p1skills.gameObject.SetActive(true);
+                p2skills.gameObject.SetActive(false);
+                p3skills.gameObject.SetActive(false);
+                p4skills.gameObject.SetActive(false);
+                p5skills.gameObject.SetActive(false);
+                p6skills.gameObject.SetActive(false);
+
+                p1tickets.gameObject.SetActive(true);
+                p2tickets.gameObject.SetActive(false);
+                p3tickets.gameObject.SetActive(false);
+                p4tickets.gameObject.SetActive(false);
+                p5tickets.gameObject.SetActive(false);
+                p6tickets.gameObject.SetActive(false);
+
+                BGp1.gameObject.SetActive(true);
+                BGp2.gameObject.SetActive(false);
+                BGp3.gameObject.SetActive(false);
+                BGp4.gameObject.SetActive(false);
+                BGp5.gameObject.SetActive(false);
+                BGp6.gameObject.SetActive(false);
+
+                float fillValue = pHealth[0];
+                slider.value = fillValue;
+
+                break;
+
+            case 2:
+
+                //yield return new WaitForSeconds(1);
+
+                //Console.WriteLine("Case 2");
+                p1skills.gameObject.SetActive(false);
+                p2skills.gameObject.SetActive(true);
+                p3skills.gameObject.SetActive(false);
+                p4skills.gameObject.SetActive(false);
+                p5skills.gameObject.SetActive(false);
+                p6skills.gameObject.SetActive(false);
+
+                p1tickets.gameObject.SetActive(false);
+                p2tickets.gameObject.SetActive(true);
+                p3tickets.gameObject.SetActive(false);
+                p4tickets.gameObject.SetActive(false);
+                p5tickets.gameObject.SetActive(false);
+                p6tickets.gameObject.SetActive(false);
+
+                BGp1.gameObject.SetActive(false);
+                BGp2.gameObject.SetActive(true);
+                BGp3.gameObject.SetActive(false);
+                BGp4.gameObject.SetActive(false);
+                BGp5.gameObject.SetActive(false);
+                BGp6.gameObject.SetActive(false);
+
+                fillValue = pHealth[1];
+                slider.value = fillValue;
+
+                break;
+
+            case 3:
+
+                //yield return new WaitForSeconds(1);
+
+                //oOoo
+                p1skills.gameObject.SetActive(false);
+                p2skills.gameObject.SetActive(false);
+                p3skills.gameObject.SetActive(true);
+                p4skills.gameObject.SetActive(false);
+                p5skills.gameObject.SetActive(false);
+                p6skills.gameObject.SetActive(false);
+
+                p1tickets.gameObject.SetActive(false);
+                p2tickets.gameObject.SetActive(false);
+                p3tickets.gameObject.SetActive(true);
+                p4tickets.gameObject.SetActive(false);
+                p5tickets.gameObject.SetActive(false);
+                p6tickets.gameObject.SetActive(false);
+
+                BGp1.gameObject.SetActive(false);
+                BGp2.gameObject.SetActive(false);
+                BGp3.gameObject.SetActive(true);
+                BGp4.gameObject.SetActive(false);
+                BGp5.gameObject.SetActive(false);
+                BGp6.gameObject.SetActive(false);
+
+                fillValue = pHealth[2];
+                slider.value = fillValue;
+
+                break;
+
+            case 4:
+
+                //yield return new WaitForSeconds(1);
+
+                p1skills.gameObject.SetActive(false);
+                p2skills.gameObject.SetActive(false);
+                p3skills.gameObject.SetActive(false);
+                p4skills.gameObject.SetActive(true);
+                p5skills.gameObject.SetActive(false);
+                p6skills.gameObject.SetActive(false);
+
+                p1tickets.gameObject.SetActive(false);
+                p2tickets.gameObject.SetActive(false);
+                p3tickets.gameObject.SetActive(false);
+                p4tickets.gameObject.SetActive(true);
+                p5tickets.gameObject.SetActive(false);
+                p6tickets.gameObject.SetActive(false);
+
+                BGp1.gameObject.SetActive(false);
+                BGp2.gameObject.SetActive(false);
+                BGp3.gameObject.SetActive(false);
+                BGp4.gameObject.SetActive(true);
+                BGp5.gameObject.SetActive(false);
+                BGp6.gameObject.SetActive(false);
+
+                fillValue = pHealth[3];
+                slider.value = fillValue;
+
+                break;
+
+            case 5:
+
+                //yield return new WaitForSeconds(1);
+
+                p1skills.gameObject.SetActive(false);
+                p2skills.gameObject.SetActive(false);
+                p3skills.gameObject.SetActive(false);
+                p4skills.gameObject.SetActive(false);
+                p5skills.gameObject.SetActive(true);
+                p6skills.gameObject.SetActive(false);
+
+                p1tickets.gameObject.SetActive(false);
+                p2tickets.gameObject.SetActive(false);
+                p3tickets.gameObject.SetActive(false);
+                p4tickets.gameObject.SetActive(false);
+                p5tickets.gameObject.SetActive(true);
+                p6tickets.gameObject.SetActive(false);
+
+                BGp1.gameObject.SetActive(false);
+                BGp2.gameObject.SetActive(false);
+                BGp3.gameObject.SetActive(false);
+                BGp4.gameObject.SetActive(false);
+                BGp5.gameObject.SetActive(true);
+                BGp6.gameObject.SetActive(false);
+
+                fillValue = pHealth[4];
+                slider.value = fillValue;
+
+                break;
+
+            case 6:
+
+                //yield return new WaitForSeconds(1);
+
+                p1skills.gameObject.SetActive(false);
+                p2skills.gameObject.SetActive(false);
+                p3skills.gameObject.SetActive(false);
+                p4skills.gameObject.SetActive(false);
+                p5skills.gameObject.SetActive(false);
+                p6skills.gameObject.SetActive(true);
+
+                p1tickets.gameObject.SetActive(false);
+                p2tickets.gameObject.SetActive(false);
+                p3tickets.gameObject.SetActive(false);
+                p4tickets.gameObject.SetActive(false);
+                p5tickets.gameObject.SetActive(false);
+                p6tickets.gameObject.SetActive(true);
+
+                BGp1.gameObject.SetActive(false);
+                BGp2.gameObject.SetActive(false);
+                BGp3.gameObject.SetActive(false);
+                BGp4.gameObject.SetActive(false);
+                BGp5.gameObject.SetActive(false);
+                BGp6.gameObject.SetActive(true);
+
+                fillValue = pHealth[5];
+                slider.value = fillValue;
+
+                break;
+
+            default:
+                //Console.WriteLine("Default case");
+                break;
+        }
+    }
     IEnumerator ExampleCoroutine()
     {
-        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Map3Dworld");
+
         switch (playerTurn)
         {
             case 1:
@@ -1751,6 +2080,201 @@ public class GameController : MonoBehaviour
         }
 
     }
+
+    //IEnumerator ExampleCoroutine1()
+    //{
+    //    //yield on a new YieldInstruction that waits for 5 seconds.
+    //    switch (playerTurn)
+    //    {
+    //        case 1:
+
+    //            yield return new WaitForSeconds(2);
+
+    //            //Console.WriteLine("Case 1");
+    //            p1skills.gameObject.SetActive(true);
+    //            p2skills.gameObject.SetActive(false);
+    //            p3skills.gameObject.SetActive(false);
+    //            p4skills.gameObject.SetActive(false);
+    //            p5skills.gameObject.SetActive(false);
+    //            p6skills.gameObject.SetActive(false);
+
+    //            p1tickets.gameObject.SetActive(true);
+    //            p2tickets.gameObject.SetActive(false);
+    //            p3tickets.gameObject.SetActive(false);
+    //            p4tickets.gameObject.SetActive(false);
+    //            p5tickets.gameObject.SetActive(false);
+    //            p6tickets.gameObject.SetActive(false);
+
+    //            BGp1.gameObject.SetActive(true);
+    //            BGp2.gameObject.SetActive(false);
+    //            BGp3.gameObject.SetActive(false);
+    //            BGp4.gameObject.SetActive(false);
+    //            BGp5.gameObject.SetActive(false);
+    //            BGp6.gameObject.SetActive(false);
+
+    //            float fillValue = pHealth[0];
+    //            slider.value = fillValue;
+
+    //            break;
+
+    //        case 2:
+
+    //            yield return new WaitForSeconds(2);
+
+    //            //Console.WriteLine("Case 2");
+    //            p1skills.gameObject.SetActive(false);
+    //            p2skills.gameObject.SetActive(true);
+    //            p3skills.gameObject.SetActive(false);
+    //            p4skills.gameObject.SetActive(false);
+    //            p5skills.gameObject.SetActive(false);
+    //            p6skills.gameObject.SetActive(false);
+
+    //            p1tickets.gameObject.SetActive(false);
+    //            p2tickets.gameObject.SetActive(true);
+    //            p3tickets.gameObject.SetActive(false);
+    //            p4tickets.gameObject.SetActive(false);
+    //            p5tickets.gameObject.SetActive(false);
+    //            p6tickets.gameObject.SetActive(false);
+
+    //            BGp1.gameObject.SetActive(false);
+    //            BGp2.gameObject.SetActive(true);
+    //            BGp3.gameObject.SetActive(false);
+    //            BGp4.gameObject.SetActive(false);
+    //            BGp5.gameObject.SetActive(false);
+    //            BGp6.gameObject.SetActive(false);
+
+    //            fillValue = pHealth[1];
+    //            slider.value = fillValue;
+
+    //            break;
+
+    //        case 3:
+
+    //            yield return new WaitForSeconds(2);
+
+    //            //oOoo
+    //            p1skills.gameObject.SetActive(false);
+    //            p2skills.gameObject.SetActive(false);
+    //            p3skills.gameObject.SetActive(true);
+    //            p4skills.gameObject.SetActive(false);
+    //            p5skills.gameObject.SetActive(false);
+    //            p6skills.gameObject.SetActive(false);
+
+    //            p1tickets.gameObject.SetActive(false);
+    //            p2tickets.gameObject.SetActive(false);
+    //            p3tickets.gameObject.SetActive(true);
+    //            p4tickets.gameObject.SetActive(false);
+    //            p5tickets.gameObject.SetActive(false);
+    //            p6tickets.gameObject.SetActive(false);
+
+    //            BGp1.gameObject.SetActive(false);
+    //            BGp2.gameObject.SetActive(false);
+    //            BGp3.gameObject.SetActive(true);
+    //            BGp4.gameObject.SetActive(false);
+    //            BGp5.gameObject.SetActive(false);
+    //            BGp6.gameObject.SetActive(false);
+
+    //            fillValue = pHealth[2];
+    //            slider.value = fillValue;
+
+    //            break;
+
+    //        case 4:
+
+    //            yield return new WaitForSeconds(2);
+
+    //            p1skills.gameObject.SetActive(false);
+    //            p2skills.gameObject.SetActive(false);
+    //            p3skills.gameObject.SetActive(false);
+    //            p4skills.gameObject.SetActive(true);
+    //            p5skills.gameObject.SetActive(false);
+    //            p6skills.gameObject.SetActive(false);
+
+    //            p1tickets.gameObject.SetActive(false);
+    //            p2tickets.gameObject.SetActive(false);
+    //            p3tickets.gameObject.SetActive(false);
+    //            p4tickets.gameObject.SetActive(true);
+    //            p5tickets.gameObject.SetActive(false);
+    //            p6tickets.gameObject.SetActive(false);
+
+    //            BGp1.gameObject.SetActive(false);
+    //            BGp2.gameObject.SetActive(false);
+    //            BGp3.gameObject.SetActive(false);
+    //            BGp4.gameObject.SetActive(true);
+    //            BGp5.gameObject.SetActive(false);
+    //            BGp6.gameObject.SetActive(false);
+
+    //            fillValue = pHealth[3];
+    //            slider.value = fillValue;
+
+    //            break;
+
+    //        case 5:
+
+    //            yield return new WaitForSeconds(2);
+
+    //            p1skills.gameObject.SetActive(false);
+    //            p2skills.gameObject.SetActive(false);
+    //            p3skills.gameObject.SetActive(false);
+    //            p4skills.gameObject.SetActive(false);
+    //            p5skills.gameObject.SetActive(true);
+    //            p6skills.gameObject.SetActive(false);
+
+    //            p1tickets.gameObject.SetActive(false);
+    //            p2tickets.gameObject.SetActive(false);
+    //            p3tickets.gameObject.SetActive(false);
+    //            p4tickets.gameObject.SetActive(false);
+    //            p5tickets.gameObject.SetActive(true);
+    //            p6tickets.gameObject.SetActive(false);
+
+    //            BGp1.gameObject.SetActive(false);
+    //            BGp2.gameObject.SetActive(false);
+    //            BGp3.gameObject.SetActive(false);
+    //            BGp4.gameObject.SetActive(false);
+    //            BGp5.gameObject.SetActive(true);
+    //            BGp6.gameObject.SetActive(false);
+
+    //            fillValue = pHealth[4];
+    //            slider.value = fillValue;
+
+    //            break;
+
+    //        case 6:
+
+    //            yield return new WaitForSeconds(2);
+
+    //            p1skills.gameObject.SetActive(false);
+    //            p2skills.gameObject.SetActive(false);
+    //            p3skills.gameObject.SetActive(false);
+    //            p4skills.gameObject.SetActive(false);
+    //            p5skills.gameObject.SetActive(false);
+    //            p6skills.gameObject.SetActive(true);
+
+    //            p1tickets.gameObject.SetActive(false);
+    //            p2tickets.gameObject.SetActive(false);
+    //            p3tickets.gameObject.SetActive(false);
+    //            p4tickets.gameObject.SetActive(false);
+    //            p5tickets.gameObject.SetActive(false);
+    //            p6tickets.gameObject.SetActive(true);
+
+    //            BGp1.gameObject.SetActive(false);
+    //            BGp2.gameObject.SetActive(false);
+    //            BGp3.gameObject.SetActive(false);
+    //            BGp4.gameObject.SetActive(false);
+    //            BGp5.gameObject.SetActive(false);
+    //            BGp6.gameObject.SetActive(true);
+
+    //            fillValue = pHealth[5];
+    //            slider.value = fillValue;
+
+    //            break;
+
+    //        default:
+    //            //Console.WriteLine("Default case");
+    //            break;
+    //    }
+
+   // }
 
     public void confrontEnemies()
     {
