@@ -260,19 +260,19 @@ public class GameController : MonoBehaviour
 
         if (pHealth == null)
         {
-          for (int i = 0; i < 6; i++)
-          {
-            pHealth[i] = maxHealth;
-          }
+            for (int i = 0; i < 6; i++)
+            {
+                pHealth[i] = maxHealth;
+            }
         }
         else
         {
-          pHealth = GlobalController.Instance.pHealth;
+            pHealth = GlobalController.Instance.pHealth;
         }
 
         if (rounds == null)
         {
-          rounds = 1;
+            rounds = 1;
         }
 
 
@@ -533,8 +533,8 @@ public class GameController : MonoBehaviour
 
         if (travelled[playerTurn - 1] == 1)
         {
-          playerMoves = 0;
-          travelled[playerTurn - 1] = 0;
+            playerMoves = 0;
+            travelled[playerTurn - 1] = 0;
         }
 
     }
@@ -543,8 +543,10 @@ public class GameController : MonoBehaviour
 
     void playerGmo()
     {
-        StartCoroutine(ExampleCoroutine());
-        //playerGraphics();
+
+        StartCoroutine(PlayerGraphics());
+        //StartCoroutine(TurnDelayCoroutine());
+        //PlayerGraphics();
     }
 
     public void CheckPlayerTurn()
@@ -556,56 +558,57 @@ public class GameController : MonoBehaviour
 
             if (playerTurn == maxPlayers)
             {
-              rounds = GlobalController.Instance.rounds;
-              rounds++;
-              GlobalController.Instance.rounds = rounds;
+                rounds = GlobalController.Instance.rounds;
+                rounds++;
+                GlobalController.Instance.rounds = rounds;
 
-              playerTurn = 1;
-              //travelled[playerTurn - 1] = 0;
+                playerTurn = 1;
+                //travelled[playerTurn - 1] = 0;
 
-              if (rounds % 2 == 0)
-              {
-                moveEnemies(enemies);
-                spawnEnemies(locationsScript.hostileLocations);
-              }
+                if (rounds % 2 == 0)
+                {
+                    moveEnemies(enemies);
+                    spawnEnemies(locationsScript.hostileLocations);
+                }
 
-              Debug.Log("missions count: " + missions.Length);
+                Debug.Log("missions count: " + missions.Length);
 
-              // for(int i = 0; i < missions.Length; i++)
-              // {
-              //   if (missions[i].cooldown != 0)
-              //   {
-              //     missions[i].cooldown--;
-              //   }
-              // }
+                // for(int i = 0; i < missions.Length; i++)
+                // {
+                //   if (missions[i].cooldown != 0)
+                //   {
+                //     missions[i].cooldown--;
+                //   }
+                // }
 
-              reduceMissions(GlobalController.Instance.missions);
-              AmountTxt.text = "";
-              ItemTxt.text = "";
-              TypeTxt.text = "";
-              completeMissionBtn.SetActive(false);
+                reduceMissions(GlobalController.Instance.missions);
+                AmountTxt.text = "";
+                ItemTxt.text = "";
+                TypeTxt.text = "";
+                completeMissionBtn.SetActive(false);
 
-              playerMoves = 3;
-               //StartCoroutine(ExampleCoroutine());
-              //SceneManager.LoadScene("Map3Dworld");
+                playerMoves = 3;
+                //StartCoroutine(ExampleCoroutine());
+                //SceneManager.LoadScene("Map3Dworld");
             }
             else
             {
-              playerTurn++;
-              //travelled[playerTurn - 1] = 0;
+                playerTurn++;
+                //travelled[playerTurn - 1] = 0;
 
-              Debug.Log("missions count: " + missions.Length);
-              reduceMissions(GlobalController.Instance.missions);
-              AmountTxt.text = "";
-              ItemTxt.text = "";
-              TypeTxt.text = "";
-              completeMissionBtn.SetActive(false);
+                Debug.Log("missions count: " + missions.Length);
+                reduceMissions(GlobalController.Instance.missions);
+                AmountTxt.text = "";
+                ItemTxt.text = "";
+                TypeTxt.text = "";
+                completeMissionBtn.SetActive(false);
 
-              playerMoves = 3;
+                playerMoves = 3;
                 //StartCoroutine(ExampleCoroutine());
-              //SceneManager.LoadScene("Map3Dworld");
+                //SceneManager.LoadScene("Map3Dworld");
             }
-         }
+        }
+
 
 
         playerGmo();
@@ -1101,18 +1104,18 @@ public class GameController : MonoBehaviour
 
     public void reduceMissions(Mission[] missions)
     {
-      for (int i = 0; i < missions.Length - 3; i++)
-      {
-        if (missions[i].cooldown != 0)
+        for (int i = 0; i < missions.Length - 3; i++)
         {
-          Debug.Log("ACCESSING " + i);
-          missions[i].cooldown--;
+            if (missions[i].cooldown != 0)
+            {
+                Debug.Log("ACCESSING " + i);
+                missions[i].cooldown--;
+            }
         }
-      }
 
-      //int x = 0;
-      //missions[x].cooldown--;
-      //missions[0].cooldown--;
+        //int x = 0;
+        //missions[x].cooldown--;
+        //missions[0].cooldown--;
     }
 
     public void CompleteMissions()
@@ -1151,20 +1154,20 @@ public class GameController : MonoBehaviour
             case 2:
                 if (player2Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
                 {
-                  if (missions[currentMissionIndex].trophyType == 1)
-                  {
-                      trophyTwo[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+                    if (missions[currentMissionIndex].trophyType == 1)
+                    {
+                        trophyTwo[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
 
-                  }
-                  else if (missions[currentMissionIndex].trophyType == 2)
-                  {
-                      trophyThree[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+                    }
+                    else if (missions[currentMissionIndex].trophyType == 2)
+                    {
+                        trophyThree[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
 
-                  }
-                  else
-                  {
-                      trophyFour[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
-                  }
+                    }
+                    else
+                    {
+                        trophyFour[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+                    }
 
                     ItemTxt.text = "Completed mission! Awarded " + missions[currentMissionIndex].victoryPoints + " VPs!";
                     AmountTxt.text = "";
@@ -1181,20 +1184,20 @@ public class GameController : MonoBehaviour
             case 3:
                 if (player3Values[missions[currentMissionIndex].skillNum] >= missions[currentMissionIndex].pointsReq)
                 {
-                  if (missions[currentMissionIndex].trophyType == 1)
-                  {
-                      trophyTwo[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+                    if (missions[currentMissionIndex].trophyType == 1)
+                    {
+                        trophyTwo[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
 
-                  }
-                  else if (missions[currentMissionIndex].trophyType == 2)
-                  {
-                      trophyThree[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+                    }
+                    else if (missions[currentMissionIndex].trophyType == 2)
+                    {
+                        trophyThree[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
 
-                  }
-                  else
-                  {
-                      trophyFour[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
-                  }
+                    }
+                    else
+                    {
+                        trophyFour[playerTurn - 1] += missions[currentMissionIndex].victoryPoints;
+                    }
 
                     ItemTxt.text = "Completed mission! Awarded + " + missions[currentMissionIndex].victoryPoints + " victory points!";
                     AmountTxt.text = "";
@@ -1470,9 +1473,9 @@ public class GameController : MonoBehaviour
             e.locationNum = paths[randomPath].travelToNum;
         }
 
-        foreach(Enemy e in enemies)
+        foreach (Enemy e in enemies)
         {
-          Debug.Log("enemy at: " + e.hubNum + " , " + e.locationNum);
+            Debug.Log("enemy at: " + e.hubNum + " , " + e.locationNum);
         }
     }
 
@@ -1491,350 +1494,17 @@ public class GameController : MonoBehaviour
         }
         return paths;
     }
+    //IEnumerator TurnDelayCoroutine()
+    //{
+    //    if (playerMoves == 0) // end of turn
+    //    {
+    //        yield return new WaitForSeconds(1);
 
-    public void playerGraphics()
-    {
+    //    }
 
-        if (hubLocation[playerTurn - 1] == 1)
-        {
-            Hub1.gameObject.SetActive(true);
-            Hub2.gameObject.SetActive(false);
-            Hub3.gameObject.SetActive(false);
+    //}
 
-            if (pLocation[playerTurn - 1] == 1)
-            {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 3)
-            {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 4)
-            {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 5)
-            {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 6)
-            {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 7)
-            {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 8)
-            {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 9)
-            {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 10)
-            {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-        }
-
-        if (hubLocation[playerTurn - 1] == 2)
-        {
-            Hub1.gameObject.SetActive(false);
-            Hub2.gameObject.SetActive(true);
-            Hub3.gameObject.SetActive(false);
-
-            if (pLocation[playerTurn - 1] == 1)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 3)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 4)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 5)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 6)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 7)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 8)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 9)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 10)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 11)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 12)
-            {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-        }
-
-        if (hubLocation[playerTurn - 1] == 3)
-        {
-            Hub1.gameObject.SetActive(false);
-            Hub2.gameObject.SetActive(false);
-            Hub3.gameObject.SetActive(true);
-            if (pLocation[playerTurn - 1] == 1)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 3)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 4)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 5)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 6)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 7)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 8)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 9)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 10)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 11)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 12)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-            else if (pLocation[playerTurn - 1] == 13)
-            {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
-            }
-        }
-
-        switch (playerTurn)
-        {
-            case 1:
-
-                //yield return new WaitForSeconds(1);
-
-                playerBGs[0].gameObject.SetActive(true);
-                playerBGs[1].gameObject.SetActive(false);
-                playerBGs[2].gameObject.SetActive(false);
-                playerBGs[3].gameObject.SetActive(false);
-                playerBGs[4].gameObject.SetActive(false);
-                playerBGs[5].gameObject.SetActive(false);
-
-                playerTickets[0].gameObject.SetActive(true);
-                playerTickets[1].gameObject.SetActive(false);
-                playerTickets[2].gameObject.SetActive(false);
-                playerTickets[3].gameObject.SetActive(false);
-                playerTickets[4].gameObject.SetActive(false);
-                playerTickets[5].gameObject.SetActive(false);
-
-                playerSkills[0].gameObject.SetActive(true);
-                playerSkills[1].gameObject.SetActive(false);
-                playerSkills[2].gameObject.SetActive(false);
-                playerSkills[3].gameObject.SetActive(false);
-                playerSkills[4].gameObject.SetActive(false);
-                playerSkills[5].gameObject.SetActive(false);
-
-                float fillValue = pHealth[0];
-                slider.value = fillValue;
-
-                break;
-
-            case 2:
-
-                //yield return new WaitForSeconds(1);
-
-                playerBGs[0].gameObject.SetActive(false);
-                playerBGs[1].gameObject.SetActive(true);
-                playerBGs[2].gameObject.SetActive(false);
-                playerBGs[3].gameObject.SetActive(false);
-                playerBGs[4].gameObject.SetActive(false);
-                playerBGs[5].gameObject.SetActive(false);
-
-                playerTickets[0].gameObject.SetActive(false);
-                playerTickets[1].gameObject.SetActive(true);
-                playerTickets[2].gameObject.SetActive(false);
-                playerTickets[3].gameObject.SetActive(false);
-                playerTickets[4].gameObject.SetActive(false);
-                playerTickets[5].gameObject.SetActive(false);
-
-                playerSkills[0].gameObject.SetActive(false);
-                playerSkills[1].gameObject.SetActive(true);
-                playerSkills[2].gameObject.SetActive(false);
-                playerSkills[3].gameObject.SetActive(false);
-                playerSkills[4].gameObject.SetActive(false);
-                playerSkills[5].gameObject.SetActive(false);
-
-                fillValue = pHealth[1];
-                slider.value = fillValue;
-
-                break;
-
-            case 3:
-
-                //yield return new WaitForSeconds(1);
-
-                playerBGs[0].gameObject.SetActive(false);
-                playerBGs[1].gameObject.SetActive(false);
-                playerBGs[2].gameObject.SetActive(true);
-                playerBGs[3].gameObject.SetActive(false);
-                playerBGs[4].gameObject.SetActive(false);
-                playerBGs[5].gameObject.SetActive(false);
-
-                playerTickets[0].gameObject.SetActive(false);
-                playerTickets[1].gameObject.SetActive(false);
-                playerTickets[2].gameObject.SetActive(true);
-                playerTickets[3].gameObject.SetActive(false);
-                playerTickets[4].gameObject.SetActive(false);
-                playerTickets[5].gameObject.SetActive(false);
-
-                playerSkills[0].gameObject.SetActive(false);
-                playerSkills[1].gameObject.SetActive(false);
-                playerSkills[2].gameObject.SetActive(true);
-                playerSkills[3].gameObject.SetActive(false);
-                playerSkills[4].gameObject.SetActive(false);
-                playerSkills[5].gameObject.SetActive(false);
-
-                fillValue = pHealth[2];
-                slider.value = fillValue;
-
-                break;
-
-            case 4:
-
-                //yield return new WaitForSeconds(1);
-
-                playerBGs[0].gameObject.SetActive(false);
-                playerBGs[1].gameObject.SetActive(false);
-                playerBGs[2].gameObject.SetActive(false);
-                playerBGs[3].gameObject.SetActive(true);
-                playerBGs[4].gameObject.SetActive(false);
-                playerBGs[5].gameObject.SetActive(false);
-
-                playerTickets[0].gameObject.SetActive(false);
-                playerTickets[1].gameObject.SetActive(false);
-                playerTickets[2].gameObject.SetActive(false);
-                playerTickets[3].gameObject.SetActive(true);
-                playerTickets[4].gameObject.SetActive(false);
-                playerTickets[5].gameObject.SetActive(false);
-
-                playerSkills[0].gameObject.SetActive(false);
-                playerSkills[1].gameObject.SetActive(false);
-                playerSkills[2].gameObject.SetActive(false);
-                playerSkills[3].gameObject.SetActive(true);
-                playerSkills[4].gameObject.SetActive(false);
-                playerSkills[5].gameObject.SetActive(false);
-
-                fillValue = pHealth[3];
-                slider.value = fillValue;
-
-                break;
-
-            case 5:
-                //yield return new WaitForSeconds(1);
-
-
-                playerBGs[0].gameObject.SetActive(false);
-                playerBGs[1].gameObject.SetActive(false);
-                playerBGs[2].gameObject.SetActive(false);
-                playerBGs[3].gameObject.SetActive(false);
-                playerBGs[4].gameObject.SetActive(true);
-                playerBGs[5].gameObject.SetActive(false);
-
-                playerTickets[0].gameObject.SetActive(false);
-                playerTickets[1].gameObject.SetActive(false);
-                playerTickets[2].gameObject.SetActive(false);
-                playerTickets[3].gameObject.SetActive(false);
-                playerTickets[4].gameObject.SetActive(true);
-                playerTickets[5].gameObject.SetActive(false);
-
-                playerSkills[0].gameObject.SetActive(false);
-                playerSkills[1].gameObject.SetActive(false);
-                playerSkills[2].gameObject.SetActive(false);
-                playerSkills[3].gameObject.SetActive(false);
-                playerSkills[4].gameObject.SetActive(true);
-                playerSkills[5].gameObject.SetActive(false);
-
-                fillValue = pHealth[4];
-                slider.value = fillValue;
-
-                break;
-
-            case 6:
-
-                //yield return new WaitForSeconds(1);
-
-                playerBGs[0].gameObject.SetActive(false);
-                playerBGs[1].gameObject.SetActive(false);
-                playerBGs[2].gameObject.SetActive(false);
-                playerBGs[3].gameObject.SetActive(false);
-                playerBGs[4].gameObject.SetActive(false);
-                playerBGs[5].gameObject.SetActive(true);
-
-                playerTickets[0].gameObject.SetActive(false);
-                playerTickets[1].gameObject.SetActive(false);
-                playerTickets[2].gameObject.SetActive(false);
-                playerTickets[3].gameObject.SetActive(false);
-                playerTickets[4].gameObject.SetActive(false);
-                playerTickets[5].gameObject.SetActive(true);
-
-                playerSkills[0].gameObject.SetActive(false);
-                playerSkills[1].gameObject.SetActive(false);
-                playerSkills[2].gameObject.SetActive(false);
-                playerSkills[3].gameObject.SetActive(false);
-                playerSkills[4].gameObject.SetActive(false);
-                playerSkills[5].gameObject.SetActive(true);
-
-                fillValue = pHealth[5];
-                slider.value = fillValue;
-
-                break;
-
-            default:
-                //Console.WriteLine("Default case");
-                break;
-        }
-    }
-
-    IEnumerator ExampleCoroutine()
+    IEnumerator PlayerGraphics()
     {
         if (hubLocation[playerTurn - 1] == 1)
         {
@@ -2404,14 +2074,11 @@ public class GameController : MonoBehaviour
 
                 float fillValue = pHealth[0];
                 slider.value = fillValue;
-
                 yield return new WaitForSeconds(1);
 
                 break;
 
             case 2:
-
-
 
                 playerBGs[0].gameObject.SetActive(false);
                 playerBGs[1].gameObject.SetActive(true);
@@ -2434,16 +2101,14 @@ public class GameController : MonoBehaviour
                 playerSkills[4].gameObject.SetActive(false);
                 playerSkills[5].gameObject.SetActive(false);
 
+
                 fillValue = pHealth[1];
                 slider.value = fillValue;
 
                 yield return new WaitForSeconds(1);
-
                 break;
 
             case 3:
-
-
 
                 playerBGs[0].gameObject.SetActive(false);
                 playerBGs[1].gameObject.SetActive(false);
@@ -2466,6 +2131,7 @@ public class GameController : MonoBehaviour
                 playerSkills[4].gameObject.SetActive(false);
                 playerSkills[5].gameObject.SetActive(false);
 
+
                 fillValue = pHealth[2];
                 slider.value = fillValue;
 
@@ -2474,8 +2140,6 @@ public class GameController : MonoBehaviour
                 break;
 
             case 4:
-
-
 
                 playerBGs[0].gameObject.SetActive(false);
                 playerBGs[1].gameObject.SetActive(false);
@@ -2498,6 +2162,7 @@ public class GameController : MonoBehaviour
                 playerSkills[4].gameObject.SetActive(false);
                 playerSkills[5].gameObject.SetActive(false);
 
+
                 fillValue = pHealth[3];
                 slider.value = fillValue;
 
@@ -2506,8 +2171,6 @@ public class GameController : MonoBehaviour
                 break;
 
             case 5:
-
-
 
                 playerBGs[0].gameObject.SetActive(false);
                 playerBGs[1].gameObject.SetActive(false);
@@ -2538,8 +2201,6 @@ public class GameController : MonoBehaviour
                 break;
 
             case 6:
-
-
 
                 playerBGs[0].gameObject.SetActive(false);
                 playerBGs[1].gameObject.SetActive(false);
@@ -2572,113 +2233,116 @@ public class GameController : MonoBehaviour
             default:
                 //Console.WriteLine("Default case");
                 break;
+
+                yield return new WaitForSeconds(1);
+
         }
     }
 
-   
+
 
     public void confrontEnemies()
     {
-      Debug.Log("Enemy count: " + enemies.Count);
-      hubLocation = GlobalController.Instance.hubLocation;
-      pLocation = GlobalController.Instance.pLocation;
+        Debug.Log("Enemy count: " + enemies.Count);
+        hubLocation = GlobalController.Instance.hubLocation;
+        pLocation = GlobalController.Instance.pLocation;
 
-      foreach(Enemy e in enemies)
-      {
-        Debug.Log("Enemy: " + e.hubNum + " , " + e.locationNum + " - Player: " + hubLocation[playerTurn - 1] + " , " + pLocation[playerTurn - 1]);
-        if (hubLocation[playerTurn - 1] == e.hubNum && pLocation[playerTurn - 1] == e.locationNum)
+        foreach (Enemy e in enemies)
         {
-          Debug.Log("MATCH. PLayer health: " + pHealth[playerTurn - 1]);
-          Debug.Log("Enemy damage: " + e.damage);
+            Debug.Log("Enemy: " + e.hubNum + " , " + e.locationNum + " - Player: " + hubLocation[playerTurn - 1] + " , " + pLocation[playerTurn - 1]);
+            if (hubLocation[playerTurn - 1] == e.hubNum && pLocation[playerTurn - 1] == e.locationNum)
+            {
+                Debug.Log("MATCH. PLayer health: " + pHealth[playerTurn - 1]);
+                Debug.Log("Enemy damage: " + e.damage);
 
-          pHealth[playerTurn - 1] = pHealth[playerTurn - 1] - e.damage;
-          infoPopup.gameObject.SetActive(true);
-          Popupinfo.text = "You confronted and defeated an enemy. You lost " + e.damage.ToString() + " health. Gained 1 Enemy trophy point!";
+                pHealth[playerTurn - 1] = pHealth[playerTurn - 1] - e.damage;
+                infoPopup.gameObject.SetActive(true);
+                Popupinfo.text = "You confronted and defeated an enemy. You lost " + e.damage.ToString() + " health. Gained 1 Enemy trophy point!";
 
 
-          trophyOne[playerTurn - 1]++;
+                trophyOne[playerTurn - 1]++;
 
-          Debug.Log("UPDATE. PLayer health: " + pHealth[playerTurn - 1]);
-          if(pHealth[playerTurn - 1] <= 0)
-          {
-            pHealth[playerTurn - 1] = maxHealth;
-            trophyOne[playerTurn - 1]--;
-            trophyTwo[playerTurn - 1]--;
-            trophyThree[playerTurn - 1]--;
-            trophyFour[playerTurn - 1]--;
+                Debug.Log("UPDATE. PLayer health: " + pHealth[playerTurn - 1]);
+                if (pHealth[playerTurn - 1] <= 0)
+                {
+                    pHealth[playerTurn - 1] = maxHealth;
+                    trophyOne[playerTurn - 1]--;
+                    trophyTwo[playerTurn - 1]--;
+                    trophyThree[playerTurn - 1]--;
+                    trophyFour[playerTurn - 1]--;
 
-            infoPopup.gameObject.SetActive(true);
-            Popupinfo.text = "An enemy defeated you. You've lost 1 of each trophy point.";
-          }
+                    infoPopup.gameObject.SetActive(true);
+                    Popupinfo.text = "An enemy defeated you. You've lost 1 of each trophy point.";
+                }
 
-          enemies.Remove(e);
-          return;
+                enemies.Remove(e);
+                return;
+            }
         }
-      }
-      // newHub = GlobalController.Instance.newHub;
-      // newLocation = GlobalController.Instance.newLocation;
-      // pLocation = GlobalController.Instance.pLocation;
-      // hubLocation = GlobalController.Instance.hubLocation;
-      //
-      // Debug.Log("confronting enemies. Total number: " + enemies.Count);
-      //   foreach (Enemy e in enemies)
-      //   {
-      //     hubLocation = GlobalController.Instance.hubLocation;
-      //     pLocation = GlobalController.Instance.pLocation;
-      //     newHub = GlobalController.Instance.newHub;
-      //     newLocation = GlobalController.Instance.newHub;
-      //
-      //     Debug.Log("enemy at: " + e.hubNum + ", " + e.locationNum + " player at " + newHub[playerTurn-1] + ", " + newLocation[playerTurn - 1]);
-      //       if (hubLocation[playerTurn - 1] == e.hubNum && pLocation[playerTurn-1] == e.locationNum)
-      //       {
-      //
-      //               Debug.Log("enemy found");
-      //               if (e.damage  >= pHealth[playerTurn - 1])
-      //               {
-      //                 Debug.Log("player health : " + pHealth[playerTurn - 1]);
-      //                 Debug.Log("player " + playerTurn + " took " + e.damage + " froom an enemy");
-      //                 Debug.Log("player dies");
-      //
-      //                 pHealth[playerTurn - 1] = maxHealth;
-      //                 pLocation[playerTurn - 1] = 1;
-      //                 newLocation[playerTurn - 1] = 1;
-      //                 hubLocation[playerTurn - 1] = 1;
-      //                 newHub[playerTurn - 1] = 1;
-      //                 counters[playerTurn - 1] = 0;
-      //                 trophyTwo[playerTurn - 1]--;
-      //                 trophyThree[playerTurn - 1]--;
-      //                 trophyFour[playerTurn - 1]--;
-      //                 Debug.Log("PLAYER LOCATION DEATH: " + pLocation[playerTurn - 1] + ", " + hubLocation[playerTurn - 1]);
-      //                 SavePlayer();
-      //                 return;
-      //               }
-      //               else
-      //               {
-      //                 Debug.Log("player " + playerTurn + " took " + e.damage + " froom an enemy");
-      //                 pHealth[playerTurn - 1] = pHealth[playerTurn - 1] - e.damage;
-      //                 Debug.Log("new player health: " + pHealth[playerTurn - 1]);
-      //                 trophyOne[playerTurn - 1]++;
-      //                 Debug.Log(trophyOne[playerTurn - 1]);
-      //                 Debug.Log("PLAYER LOCATION WIN:  " + pLocation[playerTurn - 1] + ", " + hubLocation[playerTurn - 1]);
-      //                 enemies.Remove(e);
-      //
-      //                 SavePlayer();
-      //                 Debug.Log("PLAYER LOCATION WIN: " + pLocation[playerTurn - 1] + ", " + hubLocation[playerTurn - 1]);
-      //                 return;
-      //               }
-      //
-      //
-      //       }
-      //   }
+        // newHub = GlobalController.Instance.newHub;
+        // newLocation = GlobalController.Instance.newLocation;
+        // pLocation = GlobalController.Instance.pLocation;
+        // hubLocation = GlobalController.Instance.hubLocation;
+        //
+        // Debug.Log("confronting enemies. Total number: " + enemies.Count);
+        //   foreach (Enemy e in enemies)
+        //   {
+        //     hubLocation = GlobalController.Instance.hubLocation;
+        //     pLocation = GlobalController.Instance.pLocation;
+        //     newHub = GlobalController.Instance.newHub;
+        //     newLocation = GlobalController.Instance.newHub;
+        //
+        //     Debug.Log("enemy at: " + e.hubNum + ", " + e.locationNum + " player at " + newHub[playerTurn-1] + ", " + newLocation[playerTurn - 1]);
+        //       if (hubLocation[playerTurn - 1] == e.hubNum && pLocation[playerTurn-1] == e.locationNum)
+        //       {
+        //
+        //               Debug.Log("enemy found");
+        //               if (e.damage  >= pHealth[playerTurn - 1])
+        //               {
+        //                 Debug.Log("player health : " + pHealth[playerTurn - 1]);
+        //                 Debug.Log("player " + playerTurn + " took " + e.damage + " froom an enemy");
+        //                 Debug.Log("player dies");
+        //
+        //                 pHealth[playerTurn - 1] = maxHealth;
+        //                 pLocation[playerTurn - 1] = 1;
+        //                 newLocation[playerTurn - 1] = 1;
+        //                 hubLocation[playerTurn - 1] = 1;
+        //                 newHub[playerTurn - 1] = 1;
+        //                 counters[playerTurn - 1] = 0;
+        //                 trophyTwo[playerTurn - 1]--;
+        //                 trophyThree[playerTurn - 1]--;
+        //                 trophyFour[playerTurn - 1]--;
+        //                 Debug.Log("PLAYER LOCATION DEATH: " + pLocation[playerTurn - 1] + ", " + hubLocation[playerTurn - 1]);
+        //                 SavePlayer();
+        //                 return;
+        //               }
+        //               else
+        //               {
+        //                 Debug.Log("player " + playerTurn + " took " + e.damage + " froom an enemy");
+        //                 pHealth[playerTurn - 1] = pHealth[playerTurn - 1] - e.damage;
+        //                 Debug.Log("new player health: " + pHealth[playerTurn - 1]);
+        //                 trophyOne[playerTurn - 1]++;
+        //                 Debug.Log(trophyOne[playerTurn - 1]);
+        //                 Debug.Log("PLAYER LOCATION WIN:  " + pLocation[playerTurn - 1] + ", " + hubLocation[playerTurn - 1]);
+        //                 enemies.Remove(e);
+        //
+        //                 SavePlayer();
+        //                 Debug.Log("PLAYER LOCATION WIN: " + pLocation[playerTurn - 1] + ", " + hubLocation[playerTurn - 1]);
+        //                 return;
+        //               }
+        //
+        //
+        //       }
+        //   }
     }
 
     public Mission[] generateMissions()
     {
 
         int count = 0;
-        foreach(Location l in locationsScript.locations)
+        foreach (Location l in locationsScript.locations)
         {
-          count++;
+            count++;
         }
 
         Mission[] m = new Mission[count];
@@ -2687,11 +2351,11 @@ public class GameController : MonoBehaviour
 
         foreach (Location l in locationsScript.locations)
         {
-          if (l.isAirport == 0)
-          {
-            m[i] = new Mission(l.hubNum, l.locationNum, Random.Range(0,7), l.hubNum);
-            i++;
-          }
+            if (l.isAirport == 0)
+            {
+                m[i] = new Mission(l.hubNum, l.locationNum, Random.Range(0, 7), l.hubNum);
+                i++;
+            }
         }
 
         return m;
