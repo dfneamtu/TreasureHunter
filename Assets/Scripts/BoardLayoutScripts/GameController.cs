@@ -221,10 +221,8 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-
         locationsScript = LocationsObj.GetComponent<ReadLocations>();
         locationPathsScript = LocationPathsObj.GetComponent<ReadLocationPaths>();
-
     }
 
     void Start()
@@ -372,6 +370,8 @@ public class GameController : MonoBehaviour
         GlobalController.Instance.trophyTwo = trophyTwo;
         GlobalController.Instance.trophyThree = trophyThree;
         GlobalController.Instance.trophyFour = trophyFour;
+
+        //GlobalController.Instance.travelled = travelled;
 
 
         for (int i = 0; i < 6; i++)
@@ -567,6 +567,11 @@ public class GameController : MonoBehaviour
             p6Popup.text = "Player Six has " + trophyOne[5].ToString() + " Enemy Points, " + trophyTwo[5].ToString() + " London Points, " + trophyThree[5].ToString() + " Paris Points, " + " and " + trophyFour[5].ToString() + " Stockholm Points";
         }
 
+        if (travelled[playerTurn - 1] == 1)
+        {
+          playerMoves = 0;
+          travelled[playerTurn - 1] = 0;
+        }
 
     }
 
@@ -591,7 +596,7 @@ public class GameController : MonoBehaviour
               GlobalController.Instance.rounds = rounds;
 
               playerTurn = 1;
-              travelled[playerTurn - 1] = 0;
+              //travelled[playerTurn - 1] = 0;
 
               if (rounds % 2 == 0)
               {
@@ -617,7 +622,7 @@ public class GameController : MonoBehaviour
             else
             {
               playerTurn++;
-              travelled[playerTurn - 1] = 0;
+              //travelled[playerTurn - 1] = 0;
 
               foreach (Mission m in missions)
               {
