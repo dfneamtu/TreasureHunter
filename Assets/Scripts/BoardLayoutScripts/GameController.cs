@@ -602,7 +602,7 @@ public class GameController : MonoBehaviour
 
               playerMoves = 3;
                //StartCoroutine(ExampleCoroutine());
-              SceneManager.LoadScene("Map3Dworld");
+              //SceneManager.LoadScene("Map3Dworld");
             }
             else
             {
@@ -618,7 +618,7 @@ public class GameController : MonoBehaviour
 
               playerMoves = 3;
                 //StartCoroutine(ExampleCoroutine());
-              SceneManager.LoadScene("Map3Dworld");
+              //SceneManager.LoadScene("Map3Dworld");
             }
          }
 
