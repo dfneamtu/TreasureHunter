@@ -59,6 +59,14 @@ public class GameController : MonoBehaviour
     public GameObject infoPopup;
     public TMP_Text Popupinfo;
 
+    public GameObject EndTurnBtn;
+    public GameObject TicketsBtn;
+    public GameObject AquireTicketsBtn;
+    public GameObject ObjectsBtn;
+    public GameObject SkillsBtn;
+    public GameObject MissionBtn;
+
+
     public Text p1Popup;
     public Text p2Popup;
     public Text p3Popup;
@@ -183,7 +191,7 @@ public class GameController : MonoBehaviour
     public int[] player6Tickets = new int[4];
 
     //Moves left
-    static public int playerMoves = 3;
+    static public int playerMoves = 4;
 
     public string[] playerObjects = new string[6];
 
@@ -203,7 +211,7 @@ public class GameController : MonoBehaviour
 
     void UpdateUIStats()
     {
-        movesLeft.text = playerMoves.ToString();
+        movesLeft.text = (playerMoves - 1).ToString() ;
     }
 
     void Awake()
@@ -587,7 +595,7 @@ public class GameController : MonoBehaviour
                 TypeTxt.text = "";
                 completeMissionBtn.SetActive(false);
 
-                playerMoves = 3;
+                playerMoves = 4;
                 //StartCoroutine(ExampleCoroutine());
                 //SceneManager.LoadScene("Map3Dworld");
             }
@@ -603,17 +611,31 @@ public class GameController : MonoBehaviour
                 TypeTxt.text = "";
                 completeMissionBtn.SetActive(false);
 
-                playerMoves = 3;
+                playerMoves = 4;
                 //StartCoroutine(ExampleCoroutine());
                 //SceneManager.LoadScene("Map3Dworld");
             }
         }
 
+        if (playerMoves == 1)
+        {
+            EndTurnBtn.gameObject.SetActive(true);
+            TicketsBtn.gameObject.SetActive(false);
+            AquireTicketsBtn.gameObject.SetActive(false);
+            ObjectsBtn.gameObject.SetActive(false);
+            SkillsBtn.gameObject.SetActive(false);
+            MissionBtn.gameObject.SetActive(false);
 
+        }
 
         playerGmo();
         UpdateUIStats();
 
+    }
+
+    public void EndTurnBtnClicked()
+    {
+        playerMoves--;
     }
 
     void PlayerOneWin()
