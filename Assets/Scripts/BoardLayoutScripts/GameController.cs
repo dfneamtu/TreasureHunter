@@ -113,8 +113,7 @@ public class GameController : MonoBehaviour
     public int maxPlayers;
     public int[] pLocation = new int[6];
     public int[] hubLocation = new int[6];
-    public int[] newLocation = new int[6];
-    public int[] newHub = new int[6];
+
 
     public int[] pHealth = new int[6];
     public static int maxHealth = 100;
@@ -486,8 +485,6 @@ public class GameController : MonoBehaviour
         hubLocation = GlobalController.Instance.hubLocation;
         counters = GlobalController.Instance.counters;
 
-        newLocation = GlobalController.Instance.newLocation;
-        newHub = GlobalController.Instance.newLocation;
 
         missions = GlobalController.Instance.missions;
         travelled = GlobalController.Instance.travelled;
@@ -587,13 +584,13 @@ public class GameController : MonoBehaviour
                 spawnEnemies(locationsScript.hostileLocations);
               }
 
-              foreach (Mission m in missions)
-              {
-                if (m.cooldown != 0)
-                {
-                  m.cooldown--;
-                }
-              }
+              // foreach (Mission m in missions)
+              // {
+              //   if (m.cooldown != 0)
+              //   {
+              //     m.cooldown--;
+              //   }
+              // }
               AmountTxt.text = "";
               ItemTxt.text = "";
               TypeTxt.text = "";
@@ -608,13 +605,13 @@ public class GameController : MonoBehaviour
               playerTurn++;
               //travelled[playerTurn - 1] = 0;
 
-              foreach (Mission m in missions)
-              {
-                if (m.cooldown != 0)
-                {
-                  m.cooldown--;
-                }
-              }
+              // foreach (Mission m in missions)
+              // {
+              //   if (m.cooldown != 0)
+              //   {
+              //     m.cooldown--;
+              //   }
+              // }
               AmountTxt.text = "";
               ItemTxt.text = "";
               TypeTxt.text = "";
@@ -1475,9 +1472,6 @@ public class GameController : MonoBehaviour
 
         GlobalController.Instance.pLocation = pLocation;
         GlobalController.Instance.hubLocation = hubLocation;
-
-        GlobalController.Instance.newLocation = newLocation;
-        GlobalController.Instance.newLocation = newHub;
 
         GlobalController.Instance.travelled = travelled;
         GlobalController.Instance.turnOrder = turnOrder;
@@ -2379,58 +2373,76 @@ public class GameController : MonoBehaviour
     public Mission[] generateMissions()
     {
 
-        Mission[] m = new Mission[9];
-        List<Location> potentialLocationsHub1 = new List<Location>();
-        List<Location> potentialLocationsHub2 = new List<Location>();
-        List<Location> potentialLocationsHub3 = new List<Location>();
+        int count = 0;
+        foreach(Location l in locationsScript.locations)
+        {
+          count++;
+        }
+
+        Mission[] m = new Mission[count];
+
+        int i = 0;
 
         foreach (Location l in locationsScript.locations)
         {
-            if (l.isSpawner == 0 && l.isAirport == 0)
-            {
-                if (l.hubNum == 1)
-                {
-                    potentialLocationsHub1.Add(l);
-                }
-                if (l.hubNum == 2)
-                {
-                    potentialLocationsHub2.Add(l);
-                }
-                if (l.hubNum == 3)
-                {
-                    potentialLocationsHub3.Add(l);
-                }
-            }
+          if (l.isAirport == 0)
+          {
+            m[i] = new Mission(l.hubNum, l.locationNum, Random.Range(0,7), l.hubNum);
+            i++;
+          }
         }
 
-        IListExtensions.Shuffle(potentialLocationsHub1);
-        IListExtensions.Shuffle(potentialLocationsHub2);
-        IListExtensions.Shuffle(potentialLocationsHub3);
-
-        int[] skillsHub1 = new int[7];
-        int[] skillsHub2 = new int[7];
-        int[] skillsHub3 = new int[7];
-
-        for (int i = 0; i < 7; i++)
-        {
-            skillsHub1[i] = i + 1;
-            skillsHub2[i] = i + 1;
-            skillsHub3[i] = i + 1;
-        }
-
-        IListExtensions.Shuffle(skillsHub1);
-
-        for (int i = 0; i < 3; i++)
-        {
-            Mission m1 = new Mission(1, potentialLocationsHub1[i].locationNum, skillsHub1[i], 1);
-            Mission m2 = new Mission(2, potentialLocationsHub2[i].locationNum, skillsHub2[i], 2);
-            Mission m3 = new Mission(3, potentialLocationsHub3[i].locationNum, skillsHub3[i], 3);
-
-            m[i] = m1;
-            m[i + 3] = m2;
-            m[i + 6] = m3;
-        }
         return m;
+        // List<Location> potentialLocationsHub1 = new List<Location>();
+        // List<Location> potentialLocationsHub2 = new List<Location>();
+        // List<Location> potentialLocationsHub3 = new List<Location>();
+        //
+        // foreach (Location l in locationsScript.locations)
+        // {
+        //     if (l.isSpawner == 0 && l.isAirport == 0)
+        //     {
+        //         if (l.hubNum == 1)
+        //         {
+        //             potentialLocationsHub1.Add(l);
+        //         }
+        //         if (l.hubNum == 2)
+        //         {
+        //             potentialLocationsHub2.Add(l);
+        //         }
+        //         if (l.hubNum == 3)
+        //         {
+        //             potentialLocationsHub3.Add(l);
+        //         }
+        //     }
+        // }
+        //
+        // IListExtensions.Shuffle(potentialLocationsHub1);
+        // IListExtensions.Shuffle(potentialLocationsHub2);
+        // IListExtensions.Shuffle(potentialLocationsHub3);
+        //
+        // int[] skillsHub1 = new int[7];
+        // int[] skillsHub2 = new int[7];
+        // int[] skillsHub3 = new int[7];
+        //
+        // for (int i = 0; i < 7; i++)
+        // {
+        //     skillsHub1[i] = i + 1;
+        //     skillsHub2[i] = i + 1;
+        //     skillsHub3[i] = i + 1;
+        // }
+        //
+        // IListExtensions.Shuffle(skillsHub1);
+        //
+        // for (int i = 0; i < 3; i++)
+        // {
+        //     Mission m1 = new Mission(1, potentialLocationsHub1[i].locationNum, skillsHub1[i], 1);
+        //     Mission m2 = new Mission(2, potentialLocationsHub2[i].locationNum, skillsHub2[i], 2);
+        //     Mission m3 = new Mission(3, potentialLocationsHub3[i].locationNum, skillsHub3[i], 3);
+        //
+        //     m[i] = m1;
+        //     m[i + 3] = m2;
+        //     m[i + 6] = m3;
+        // }
     }
 
     public void SetPopupInactive()

@@ -59,12 +59,9 @@ public class GlobalController : MonoBehaviour
     public int[] hubLocation = new int[6];
     public int[] pLocation = new int[6];
 
-    public int[] newLocation = new int[6];
-    public int[] newHub = new int[6];
-
     public int [] travelled = new int[6];
     public int rounds;
-    
+
     public Text turnOrderTxt;
 
     //public List<Mission> missions = new List<Mission>();
@@ -119,8 +116,6 @@ public class GlobalController : MonoBehaviour
             trophyOne[i] = 0;
             pLocation[i] = 1;
             hubLocation[i] = 1;
-            newLocation[i] = 1;
-            newHub[i] = 1;
             counters[i] = 0;
             pHealth[i] = 100;
         }

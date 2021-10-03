@@ -9,8 +9,6 @@ public class MapController : MonoBehaviour
 
     public int[] hubLocation = new int[6];
     public int[] pLocation = new int[6];
-    public int[] newHub = new int[6];
-    public int[] newLocation = new int[6];
 
     public int currentHub;
 
@@ -53,42 +51,32 @@ public class MapController : MonoBehaviour
 
         locations = locationsScript.locations;
 
-        newLocation = GlobalController.Instance.newLocation;
-        newHub = GlobalController.Instance.newHub;
 
-        if (newHub[turn - 1] == 1)
+        if (hubLocation[turn - 1] == 1)
         {
           Object.GetComponent<MeshRenderer>().material = Hub1;
           currentHub = 1;
         }
-        else if (newHub[turn - 1] == 2)
+        else if (hubLocation[turn - 1] == 2)
         {
           Object.GetComponent<MeshRenderer>().material = Hub2;
           currentHub = 2;
         }
-        else if (newHub[turn - 1] == 3)
+        else if (hubLocation[turn - 1] == 3)
         {
           Object.GetComponent<MeshRenderer>().material = Hub3;
           currentHub = 3;
         }
-
-
-        //check if the current player has a commited location, if so, commit travel
-
 
       //load all players to their current location
       for (int i = 0; i < 6; i++)
       {
         foreach(Location l in locations)
         {
-          if (l.hubNum == hubLocation[i])
+          if (l.hubNum == hubLocation[i] && l.locationNum == pLocation[i])
           {
-            if (l.locationNum == pLocation[i])
-            {
-              players[i].transform.position = new Vector3(l.xPos + Random.Range(-10f, 10f), 0 + Random.Range(0,7.5f), l.zPos + Random.Range(-10f,10f));
-
-              GlobalController.Instance.players = players;
-            }
+          players[i].transform.position = new Vector3(l.xPos + Random.Range(-10f, 10f), 0 + Random.Range(0,7.5f), l.zPos + Random.Range(-10f,10f));
+          GlobalController.Instance.players = players;
           }
         }
       }
@@ -124,56 +112,6 @@ public class MapController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      Debug.Log("calling update");
-        GlobalController.Instance.newHub = newHub;
-        GlobalController.Instance.newLocation = newLocation;
 
-        pLocation = GlobalController.Instance.pLocation;
-        hubLocation = GlobalController.Instance.hubLocation;
-
-        if (startOfTurn)
-        {
-          if (hubLocation[turn - 1] != newHub[turn - 1] || pLocation[turn - 1] != newLocation[turn -1])
-          {
-              foreach(Location l in locations)
-              {
-                if (l.hubNum == newHub[turn - 1])
-                {
-                  if (l.locationNum == newLocation[turn - 1])
-                  {
-                    Vector3 dest = new Vector3(l.xPos, 0, l.zPos);
-                    while (players[turn - 1].transform.position.x != l.xPos && players[turn - 1].transform.position.z != l.zPos)
-                    {
-                    //Vector3 current = new Vector3(players[turn - 1].transform.position.x, 0, players[turn-1].transform.position.z);
-
-                    players[turn - 1].transform.position = Vector3.MoveTowards(players[turn-1].transform.position, dest, Time.deltaTime * .1f);
-
-                  }
-                  pLocation[turn - 1] = newLocation[turn - 1];
-                  hubLocation[turn - 1] = newHub[turn - 1];
-
-
-                  GlobalController.Instance.hubLocation = hubLocation;
-                  GlobalController.Instance.pLocation = pLocation;
-                  GlobalController.Instance.newHub = newHub;
-                  GlobalController.Instance.newLocation = newLocation;
-                  GlobalController.Instance.players = players;
-                  }
-                }
-
-            }
-          }
-
-        startOfTurn = false;
-        GlobalController.Instance.startOfTurn = startOfTurn;
-      }
-
-
-
-        //locations[0].x;
-        //locations[0].y;
-
-        //locations[0].xPos;
-        //locations[0].zPos;
     }
 }

@@ -18,8 +18,6 @@ public class LoadLocation : MonoBehaviour
 
     public int[] pLocation = new int[6];
     public int[] hubLocation = new int[6];
-    public int[] newLocation = new int[6];
-    public int[] newHub = new int[6];
     public int[] counters = new int[6];
     public int[] travelled = new int[6];
 
@@ -139,9 +137,6 @@ public class LoadLocation : MonoBehaviour
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
 
-        newLocation = GlobalController.Instance.newLocation;
-        newHub = GlobalController.Instance.newHub;
-
         counters = GlobalController.Instance.counters;
         travelled = GlobalController.Instance.travelled;
 
@@ -150,10 +145,10 @@ public class LoadLocation : MonoBehaviour
         //Debug.Log("in Update");
 
         //Debug.Log("Player can travel to: " + myInfoList.info[hubLocation[playerTurnTickets]].traveltoStr + " with " + myInfoList.info[hubLocation[playerTurnTickets]].ticketNum + " " + myInfoList.info[hubLocation[playerTurnTickets]].travelType + " tickets. From: " + myInfoList.info[hubLocation[playerTurnTickets]].locationStr);
-        if (myInfoList.info[counters[playerTurnTickets - 1]].hubNum == newHub[playerTurnTickets - 1])
+        if (myInfoList.info[counters[playerTurnTickets - 1]].hubNum == hubLocation[playerTurnTickets - 1])
         {
             //Debug.Log("INSIDE HUB IF");
-            if (myInfoList.info[counters[playerTurnTickets - 1]].locationNum == newLocation[playerTurnTickets - 1])
+            if (myInfoList.info[counters[playerTurnTickets - 1]].locationNum == pLocation[playerTurnTickets - 1])
             {
 
                 fromLocation.text = myInfoList.info[counters[playerTurnTickets - 1]].locationStr.ToString();
@@ -221,9 +216,9 @@ public class LoadLocation : MonoBehaviour
     {
       for (int i = tableSize - 1; i >= 0; i--)
       {
-        if (myInfoList.info[i].hubNum == newHub[playerTurnTickets - 1])
+        if (myInfoList.info[i].hubNum == hubLocation[playerTurnTickets - 1])
         {
-          if (myInfoList.info[i].locationNum == newLocation[playerTurnTickets - 1])
+          if (myInfoList.info[i].locationNum == pLocation[playerTurnTickets - 1])
           {
             counters[playerTurnTickets - 1] = i;
             Debug.Log("new counter value: " + counters[playerTurnTickets - 1]);
@@ -256,14 +251,11 @@ public class LoadLocation : MonoBehaviour
         GlobalController.Instance.hubLocation = hubLocation;
         GlobalController.Instance.counters = counters;
 
-        GlobalController.Instance.newLocation = newLocation;
-        GlobalController.Instance.newHub = newHub;
-
     }
 
     public void FwdButton()
     {
-      if (counters[playerTurnTickets - 1] != (tableSize - 1) && newHub[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].hubNum && newLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].locationNum)
+      if (counters[playerTurnTickets - 1] != (tableSize - 1) && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].hubNum && pLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] + 1].locationNum)
       {
         counters[playerTurnTickets - 1]++;
       }
@@ -271,7 +263,7 @@ public class LoadLocation : MonoBehaviour
 
     public void PrevButton()
     {
-      if (counters[playerTurnTickets - 1] != 0 && newHub[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].hubNum && newLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].locationNum)
+      if (counters[playerTurnTickets - 1] != 0 && hubLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].hubNum && pLocation[playerTurnTickets - 1] == myInfoList.info[counters[playerTurnTickets - 1] - 1].locationNum)
       {
         counters[playerTurnTickets - 1]--;
       }
@@ -294,8 +286,8 @@ public class LoadLocation : MonoBehaviour
             if (player1Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
             {
               player1Tickets[1] = player1Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-              newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-              newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
 
               InfoPopup.gameObject.SetActive(true);
               InfoText.text = "You've committed to travel to " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr + ". You will begin your next turn there.";
@@ -322,8 +314,8 @@ public class LoadLocation : MonoBehaviour
             if (player1Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
             {
               player1Tickets[2] = player1Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-              newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-              newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
 
               InfoPopup.gameObject.SetActive(true);
               InfoText.text = "You've committed to travel to " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr + ". You will begin your next turn there.";
@@ -349,8 +341,8 @@ public class LoadLocation : MonoBehaviour
             if (player1Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
             {
               player1Tickets[0] = player1Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-              newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-              newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
 
               InfoPopup.gameObject.SetActive(true);
               InfoText.text = "You've committed to travel to " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr + ". You will begin your next turn there.";
@@ -375,8 +367,8 @@ public class LoadLocation : MonoBehaviour
             if (player1Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
             {
               player1Tickets[3] = player1Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-              newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-              newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+              hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+              pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
 
               InfoPopup.gameObject.SetActive(true);
               InfoText.text = "You've committed to travel to " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr + ". You will begin your next turn there.";
@@ -403,8 +395,8 @@ public class LoadLocation : MonoBehaviour
           if (player2Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player2Tickets[1] = player2Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
 
             InfoPopup.gameObject.SetActive(true);
             InfoText.text = "You've committed to travel to " + myInfoList.info[counters[playerTurnTickets - 1]].locationStr + ". You will begin your next turn there.";
@@ -427,8 +419,8 @@ public class LoadLocation : MonoBehaviour
           if (player2Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player2Tickets[2] = player2Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -448,8 +440,8 @@ public class LoadLocation : MonoBehaviour
           if (player2Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player2Tickets[0] = player2Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -469,8 +461,8 @@ public class LoadLocation : MonoBehaviour
           if (player2Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player2Tickets[3] = player2Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -494,8 +486,8 @@ public class LoadLocation : MonoBehaviour
           if (player3Tickets[1] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player3Tickets[1] = player3Tickets[1] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -515,8 +507,8 @@ public class LoadLocation : MonoBehaviour
           if (player3Tickets[2] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player3Tickets[2] = player3Tickets[2] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -537,8 +529,8 @@ public class LoadLocation : MonoBehaviour
           if (player3Tickets[0] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player3Tickets[0] = player3Tickets[0] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
@@ -559,8 +551,8 @@ public class LoadLocation : MonoBehaviour
           if (player3Tickets[3] >= myInfoList.info[counters[playerTurnTickets - 1]].ticketNum)
           {
             player3Tickets[3] = player3Tickets[3] - myInfoList.info[counters[playerTurnTickets - 1]].ticketNum;
-            newHub[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
-            newLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
+            hubLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].hubtoNum;
+            pLocation[playerTurnTickets - 1] = myInfoList.info[counters[playerTurnTickets - 1]].traveltoNum;
             setCounter();
             //playerMoves--;
             travelled[playerTurnTickets - 1] = 1;
