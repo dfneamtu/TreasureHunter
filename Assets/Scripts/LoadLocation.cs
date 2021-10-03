@@ -13,6 +13,7 @@ public class LoadLocation : MonoBehaviour
 {
     public TMP_Text InfoText;
     public GameObject InfoPopup;
+    public GameObject ConfirmInfoPopup;
 
     public GameObject airportPopup;
 
@@ -34,6 +35,9 @@ public class LoadLocation : MonoBehaviour
     public TMP_Text roadTravel;
 
     public int tableSize;
+
+    public GameObject confirmTravelBtn;
+    public GameObject nopeBtn;
 
     public Button fwdButton;
     public Button prevButton;
@@ -271,6 +275,21 @@ public class LoadLocation : MonoBehaviour
 
     public void TravelBtn()
     {
+        InfoPopup.gameObject.SetActive(true);
+        InfoText.text = "Are you sure you want to travel? Traveling will end your turn.";
+        confirmTravelBtn.gameObject.SetActive(true);
+        nopeBtn.gameObject.SetActive(true);
+    }
+
+    public void noBtn()
+    {
+        InfoPopup.gameObject.SetActive(false);
+        confirmTravelBtn.gameObject.SetActive(false);
+        nopeBtn.gameObject.SetActive(false);
+    }
+
+    public void ConfirmTravelBtn()
+    {
       if (travelled[playerTurnTickets - 1] == 1)
       {
         InfoPopup.gameObject.SetActive(true);
@@ -302,10 +321,13 @@ public class LoadLocation : MonoBehaviour
             else
             {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-              //insufficient tickets
-            }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
@@ -329,10 +351,13 @@ public class LoadLocation : MonoBehaviour
             else
             {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-              //insufficient tickets
-            }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
@@ -355,10 +380,13 @@ public class LoadLocation : MonoBehaviour
             else
             {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-              //insufficient tickets
-            }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
@@ -381,10 +409,13 @@ public class LoadLocation : MonoBehaviour
             else
             {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-              //insufficient tickets
-            }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
         break;
 
@@ -409,7 +440,10 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
                         //insufficient tickets
                     }
         }
@@ -429,10 +463,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
@@ -450,10 +487,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
@@ -471,10 +511,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         break;
@@ -496,10 +539,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
@@ -517,10 +563,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
             //trainTravel;
         }
 
@@ -539,10 +588,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
             //boatTravel;
         }
 
@@ -561,10 +613,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
             //roadTravel;
         }
 
@@ -587,10 +642,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
@@ -608,10 +666,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
             //trainTravel;
         }
 
@@ -631,10 +692,13 @@ public class LoadLocation : MonoBehaviour
             else
             {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-              //insufficient tickets
-            }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
@@ -654,10 +718,13 @@ public class LoadLocation : MonoBehaviour
             else
             {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-              //insufficient tickets
-            }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         break;
@@ -679,10 +746,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
 
         }
 
@@ -701,10 +771,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
             //trainTravel;
         }
 
@@ -723,10 +796,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
             //boatTravel;
         }
 
@@ -745,10 +821,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
             //roadTravel;
         }
 
@@ -771,10 +850,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Train")
@@ -792,10 +874,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Boat")
@@ -813,10 +898,13 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-            //insufficient tickets
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                        //insufficient tickets
+                    }
         }
 
         if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Road")
@@ -834,9 +922,12 @@ public class LoadLocation : MonoBehaviour
           else
           {
                         InfoPopup.gameObject.SetActive(true);
+                        ConfirmInfoPopup.gameObject.SetActive(true);
                         InfoText.text = "Insufficient Ticket Amount";
                         Debug.Log("insufficient");
-          }
+                        confirmTravelBtn.gameObject.SetActive(false);
+                        nopeBtn.gameObject.SetActive(false);
+                    }
             //roadTravel;
         }
         break;
@@ -850,6 +941,8 @@ public class LoadLocation : MonoBehaviour
     public void confirmPopup()
     {
         InfoPopup.gameObject.SetActive(false);
+        ConfirmInfoPopup.gameObject.SetActive(false);
+
     }
 
 }
