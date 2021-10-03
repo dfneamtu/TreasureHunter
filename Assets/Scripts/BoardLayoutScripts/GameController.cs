@@ -1844,39 +1844,133 @@ public class GameController : MonoBehaviour
 
             if (pLocation[playerTurn - 1] == 1)
             {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub0[1].gameObject.SetActive(true);
+                TargetsHub0[2].gameObject.SetActive(false);
+                TargetsHub0[3].gameObject.SetActive(false);
+                TargetsHub0[4].gameObject.SetActive(false);
+                TargetsHub0[5].gameObject.SetActive(false);
+                TargetsHub0[6].gameObject.SetActive(false);
+                TargetsHub0[7].gameObject.SetActive(false);
+                TargetsHub0[8].gameObject.SetActive(false);
+                TargetsHub0[9].gameObject.SetActive(false);
+                TargetsHub0[10].gameObject.SetActive(false);
+            }
+            else if (pLocation[playerTurn - 1] == 2)
+            {
+                TargetsHub0[1].gameObject.SetActive(false);
+                TargetsHub0[2].gameObject.SetActive(true);
+                TargetsHub0[3].gameObject.SetActive(false);
+                TargetsHub0[4].gameObject.SetActive(false);
+                TargetsHub0[5].gameObject.SetActive(false);
+                TargetsHub0[6].gameObject.SetActive(false);
+                TargetsHub0[7].gameObject.SetActive(false);
+                TargetsHub0[8].gameObject.SetActive(false);
+                TargetsHub0[9].gameObject.SetActive(false);
+                TargetsHub0[10].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 3)
             {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub0[1].gameObject.SetActive(false);
+                TargetsHub0[2].gameObject.SetActive(false);
+                TargetsHub0[3].gameObject.SetActive(true);
+                TargetsHub0[4].gameObject.SetActive(false);
+                TargetsHub0[5].gameObject.SetActive(false);
+                TargetsHub0[6].gameObject.SetActive(false);
+                TargetsHub0[7].gameObject.SetActive(false);
+                TargetsHub0[8].gameObject.SetActive(false);
+                TargetsHub0[9].gameObject.SetActive(false);
+                TargetsHub0[10].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 4)
             {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub0[1].gameObject.SetActive(false);
+                TargetsHub0[2].gameObject.SetActive(false);
+                TargetsHub0[3].gameObject.SetActive(false);
+                TargetsHub0[4].gameObject.SetActive(true);
+                TargetsHub0[5].gameObject.SetActive(false);
+                TargetsHub0[6].gameObject.SetActive(false);
+                TargetsHub0[7].gameObject.SetActive(false);
+                TargetsHub0[8].gameObject.SetActive(false);
+                TargetsHub0[9].gameObject.SetActive(false);
+                TargetsHub0[10].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 5)
             {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub0[1].gameObject.SetActive(false);
+                TargetsHub0[2].gameObject.SetActive(false);
+                TargetsHub0[3].gameObject.SetActive(false);
+                TargetsHub0[4].gameObject.SetActive(false);
+                TargetsHub0[5].gameObject.SetActive(true);
+                TargetsHub0[6].gameObject.SetActive(false);
+                TargetsHub0[7].gameObject.SetActive(false);
+                TargetsHub0[8].gameObject.SetActive(false);
+                TargetsHub0[9].gameObject.SetActive(false);
+                TargetsHub0[10].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 6)
             {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub0[1].gameObject.SetActive(false);
+                TargetsHub0[2].gameObject.SetActive(false);
+                TargetsHub0[3].gameObject.SetActive(false);
+                TargetsHub0[4].gameObject.SetActive(false);
+                TargetsHub0[5].gameObject.SetActive(false);
+                TargetsHub0[6].gameObject.SetActive(true);
+                TargetsHub0[7].gameObject.SetActive(false);
+                TargetsHub0[8].gameObject.SetActive(false);
+                TargetsHub0[9].gameObject.SetActive(false);
+                TargetsHub0[10].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 7)
             {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub0[1].gameObject.SetActive(false);
+                TargetsHub0[2].gameObject.SetActive(false);
+                TargetsHub0[3].gameObject.SetActive(false);
+                TargetsHub0[4].gameObject.SetActive(false);
+                TargetsHub0[5].gameObject.SetActive(false);
+                TargetsHub0[6].gameObject.SetActive(false);
+                TargetsHub0[7].gameObject.SetActive(true);
+                TargetsHub0[8].gameObject.SetActive(false);
+                TargetsHub0[9].gameObject.SetActive(false);
+                TargetsHub0[10].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 8)
             {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub0[1].gameObject.SetActive(false);
+                TargetsHub0[2].gameObject.SetActive(false);
+                TargetsHub0[3].gameObject.SetActive(false);
+                TargetsHub0[4].gameObject.SetActive(false);
+                TargetsHub0[5].gameObject.SetActive(false);
+                TargetsHub0[6].gameObject.SetActive(false);
+                TargetsHub0[7].gameObject.SetActive(false);
+                TargetsHub0[8].gameObject.SetActive(true);
+                TargetsHub0[9].gameObject.SetActive(false);
+                TargetsHub0[10].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 9)
             {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub0[1].gameObject.SetActive(false);
+                TargetsHub0[2].gameObject.SetActive(false);
+                TargetsHub0[3].gameObject.SetActive(false);
+                TargetsHub0[4].gameObject.SetActive(false);
+                TargetsHub0[5].gameObject.SetActive(false);
+                TargetsHub0[6].gameObject.SetActive(false);
+                TargetsHub0[7].gameObject.SetActive(false);
+                TargetsHub0[8].gameObject.SetActive(false);
+                TargetsHub0[9].gameObject.SetActive(true);
+                TargetsHub0[10].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 10)
             {
-                TargetsHub0[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub0[1].gameObject.SetActive(false);
+                TargetsHub0[2].gameObject.SetActive(false);
+                TargetsHub0[3].gameObject.SetActive(false);
+                TargetsHub0[4].gameObject.SetActive(false);
+                TargetsHub0[5].gameObject.SetActive(false);
+                TargetsHub0[6].gameObject.SetActive(false);
+                TargetsHub0[7].gameObject.SetActive(false);
+                TargetsHub0[8].gameObject.SetActive(false);
+                TargetsHub0[9].gameObject.SetActive(false);
+                TargetsHub0[10].gameObject.SetActive(true);
             }
         }
 
@@ -1888,47 +1982,183 @@ public class GameController : MonoBehaviour
 
             if (pLocation[playerTurn - 1] == 1)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(true);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(false);
+            }
+            else if (pLocation[playerTurn - 1] == 2)
+            {
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(true);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 3)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(true);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 4)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(true);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 5)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(true);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 6)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(true);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 7)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(true);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 8)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(true);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 9)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(true);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 10)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(true);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 11)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(true);
+                TargetsHub1[12].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 12)
             {
-                TargetsHub1[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub1[1].gameObject.SetActive(false);
+                TargetsHub1[2].gameObject.SetActive(false);
+                TargetsHub1[3].gameObject.SetActive(false);
+                TargetsHub1[4].gameObject.SetActive(false);
+                TargetsHub1[5].gameObject.SetActive(false);
+                TargetsHub1[6].gameObject.SetActive(false);
+                TargetsHub1[7].gameObject.SetActive(false);
+                TargetsHub1[8].gameObject.SetActive(false);
+                TargetsHub1[9].gameObject.SetActive(false);
+                TargetsHub1[10].gameObject.SetActive(false);
+                TargetsHub1[11].gameObject.SetActive(false);
+                TargetsHub1[12].gameObject.SetActive(true);
             }
         }
 
@@ -1939,51 +2169,211 @@ public class GameController : MonoBehaviour
             Hub3.gameObject.SetActive(true);
             if (pLocation[playerTurn - 1] == 1)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(true);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
+            }
+            else if (pLocation[playerTurn - 1] == 2)
+            {
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(true);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 3)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(true);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 4)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(true);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 5)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(true);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 6)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(true);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 7)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(true);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 8)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(true);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 9)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(true);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 10)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(true);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 11)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(true);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 12)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(true);
+                TargetsHub2[13].gameObject.SetActive(false);
             }
             else if (pLocation[playerTurn - 1] == 13)
             {
-                TargetsHub2[pLocation[playerTurn - 1]].gameObject.SetActive(true);
+                TargetsHub2[1].gameObject.SetActive(false);
+                TargetsHub2[2].gameObject.SetActive(false);
+                TargetsHub2[3].gameObject.SetActive(false);
+                TargetsHub2[4].gameObject.SetActive(false);
+                TargetsHub2[5].gameObject.SetActive(false);
+                TargetsHub2[6].gameObject.SetActive(false);
+                TargetsHub2[7].gameObject.SetActive(false);
+                TargetsHub2[8].gameObject.SetActive(false);
+                TargetsHub2[9].gameObject.SetActive(false);
+                TargetsHub2[10].gameObject.SetActive(false);
+                TargetsHub2[11].gameObject.SetActive(false);
+                TargetsHub2[12].gameObject.SetActive(false);
+                TargetsHub2[13].gameObject.SetActive(true);
             }
         }
 
