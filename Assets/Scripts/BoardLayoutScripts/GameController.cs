@@ -619,6 +619,7 @@ public class GameController : MonoBehaviour
 
         if (playerMoves == 1)
         {
+            TurnTxt.text = "  ";
             EndTurnBtn.gameObject.SetActive(true);
             TicketsBtn.gameObject.SetActive(false);
             AquireTicketsBtn.gameObject.SetActive(false);
