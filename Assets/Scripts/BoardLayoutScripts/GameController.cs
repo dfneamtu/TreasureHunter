@@ -584,13 +584,17 @@ public class GameController : MonoBehaviour
                 spawnEnemies(locationsScript.hostileLocations);
               }
 
-              // foreach (Mission m in missions)
+              Debug.Log("missions count: " + missions.Length);
+
+              // for(int i = 0; i < missions.Length; i++)
               // {
-              //   if (m.cooldown != 0)
+              //   if (missions[i].cooldown != 0)
               //   {
-              //     m.cooldown--;
+              //     missions[i].cooldown--;
               //   }
               // }
+
+              reduceMissions(GlobalController.Instance.missions);
               AmountTxt.text = "";
               ItemTxt.text = "";
               TypeTxt.text = "";
@@ -605,13 +609,8 @@ public class GameController : MonoBehaviour
               playerTurn++;
               //travelled[playerTurn - 1] = 0;
 
-              // foreach (Mission m in missions)
-              // {
-              //   if (m.cooldown != 0)
-              //   {
-              //     m.cooldown--;
-              //   }
-              // }
+              Debug.Log("missions count: " + missions.Length);
+              reduceMissions(GlobalController.Instance.missions);
               AmountTxt.text = "";
               ItemTxt.text = "";
               TypeTxt.text = "";
@@ -621,59 +620,6 @@ public class GameController : MonoBehaviour
                 //StartCoroutine(ExampleCoroutine());
               SceneManager.LoadScene("Map3Dworld");
             }
-        //     if (turnOrder.Count == 0) // new round
-        //     {
-        //         for (int i = 0; i < maxPlayers; i++)
-        //         {
-        //             turnOrder.Add(i + 1);
-        //         }
-        //
-        //         IListExtensions.Shuffle(turnOrder); // randomize turn order for the round
-        //
-        //         playerTurn = turnOrder[0];
-        //         turnOrder.RemoveAt(0);
-        //
-        //         travelled[playerTurn - 1] = 0;
-        //
-        //         moveEnemies(enemies);
-        //         spawnEnemies(locationsScript.hostileLocations);
-        //         foreach (Mission m in missions)
-        //         {
-        //             if (m.cooldown != 0)
-        //             {
-        //                 m.cooldown--;
-        //             }
-        //         }
-        //         AmountTxt.text = "";
-        //         ItemTxt.text = "";
-        //         TypeTxt.text = "";
-        //         completeMissionBtn.SetActive(false);
-        //
-        //         playerMoves = 3;
-        //         SceneManager.LoadScene("Map3Dworld");
-        //     }
-        //     else
-        //     {
-        //         playerTurn = turnOrder[0];
-        //         turnOrder.RemoveAt(0);
-        //         travelled[playerTurn - 1] = 0;
-        //
-        //         foreach (Mission m in missions)
-        //         {
-        //             if (m.cooldown != 0)
-        //             {
-        //                 m.cooldown--;
-        //             }
-        //         }
-        //
-        //         AmountTxt.text = "";
-        //         ItemTxt.text = "";
-        //         TypeTxt.text = "";
-        //         completeMissionBtn.SetActive(false);
-        //
-        //         playerMoves = 3;
-        //         SceneManager.LoadScene("Map3Dworld");
-        //     }
          }
 
 
@@ -1168,6 +1114,22 @@ public class GameController : MonoBehaviour
 
     }
 
+    public void reduceMissions(Mission[] missions)
+    {
+      for (int i = 0; i < missions.Length - 3; i++)
+      {
+        if (missions[i].cooldown != 0)
+        {
+          Debug.Log("ACCESSING " + i);
+          missions[i].cooldown--;
+        }
+      }
+
+      //int x = 0;
+      //missions[x].cooldown--;
+      //missions[0].cooldown--;
+    }
+
     public void CompleteMissions()
     {
 
@@ -1196,6 +1158,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[0] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
                 }
                 break;
@@ -1223,6 +1186,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[1] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
                 }
 
@@ -1252,6 +1216,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[2] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
                 }
 
@@ -1278,6 +1243,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[3] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
                 }
 
@@ -1304,6 +1270,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[4] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
                 }
                 break;
@@ -1329,6 +1296,7 @@ public class GameController : MonoBehaviour
                     TypeTxt.text = "";
                     missions[currentMissionIndex].completedBy[5] = true;
                     missions[currentMissionIndex].cooldown = 3;
+                    completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
                 }
                 break;
@@ -1337,7 +1305,7 @@ public class GameController : MonoBehaviour
         }
 
 
-        completeMissionBtn.gameObject.SetActive(false);
+
     }
 
     public string getObject()
@@ -2393,56 +2361,6 @@ public class GameController : MonoBehaviour
         }
 
         return m;
-        // List<Location> potentialLocationsHub1 = new List<Location>();
-        // List<Location> potentialLocationsHub2 = new List<Location>();
-        // List<Location> potentialLocationsHub3 = new List<Location>();
-        //
-        // foreach (Location l in locationsScript.locations)
-        // {
-        //     if (l.isSpawner == 0 && l.isAirport == 0)
-        //     {
-        //         if (l.hubNum == 1)
-        //         {
-        //             potentialLocationsHub1.Add(l);
-        //         }
-        //         if (l.hubNum == 2)
-        //         {
-        //             potentialLocationsHub2.Add(l);
-        //         }
-        //         if (l.hubNum == 3)
-        //         {
-        //             potentialLocationsHub3.Add(l);
-        //         }
-        //     }
-        // }
-        //
-        // IListExtensions.Shuffle(potentialLocationsHub1);
-        // IListExtensions.Shuffle(potentialLocationsHub2);
-        // IListExtensions.Shuffle(potentialLocationsHub3);
-        //
-        // int[] skillsHub1 = new int[7];
-        // int[] skillsHub2 = new int[7];
-        // int[] skillsHub3 = new int[7];
-        //
-        // for (int i = 0; i < 7; i++)
-        // {
-        //     skillsHub1[i] = i + 1;
-        //     skillsHub2[i] = i + 1;
-        //     skillsHub3[i] = i + 1;
-        // }
-        //
-        // IListExtensions.Shuffle(skillsHub1);
-        //
-        // for (int i = 0; i < 3; i++)
-        // {
-        //     Mission m1 = new Mission(1, potentialLocationsHub1[i].locationNum, skillsHub1[i], 1);
-        //     Mission m2 = new Mission(2, potentialLocationsHub2[i].locationNum, skillsHub2[i], 2);
-        //     Mission m3 = new Mission(3, potentialLocationsHub3[i].locationNum, skillsHub3[i], 3);
-        //
-        //     m[i] = m1;
-        //     m[i + 3] = m2;
-        //     m[i + 6] = m3;
-        // }
     }
 
     public void SetPopupInactive()
