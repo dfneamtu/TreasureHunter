@@ -1171,6 +1171,10 @@ public class GameController : MonoBehaviour
                     missions[currentMissionIndex].cooldown = 3;
                     completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
+                } else
+                {
+                    infoPopup.gameObject.SetActive(true);
+                    Popupinfo.text = "You do not have enough skill points for this mission";
                 }
                 break;
 
@@ -1199,6 +1203,11 @@ public class GameController : MonoBehaviour
                     missions[currentMissionIndex].cooldown = 3;
                     completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
+                }
+                else
+                {
+                    infoPopup.gameObject.SetActive(true);
+                    Popupinfo.text = "You do not have enough skill points for this mission";
                 }
 
 
@@ -1230,7 +1239,11 @@ public class GameController : MonoBehaviour
                     completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
                 }
-
+                else
+                {
+                    infoPopup.gameObject.SetActive(true);
+                    Popupinfo.text = "You do not have enough skill points for this mission";
+                }
                 break;
 
             case 4:
@@ -1257,7 +1270,11 @@ public class GameController : MonoBehaviour
                     completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
                 }
-
+                else
+                {
+                    infoPopup.gameObject.SetActive(true);
+                    Popupinfo.text = "You do not have enough skill points for this mission";
+                }
                 break;
 
             case 5:
@@ -1284,6 +1301,11 @@ public class GameController : MonoBehaviour
                     completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
                 }
+                else
+                {
+                    infoPopup.gameObject.SetActive(true);
+                    Popupinfo.text = "You do not have enough skill points for this mission";
+                }
                 break;
 
             case 6:
@@ -1309,6 +1331,11 @@ public class GameController : MonoBehaviour
                     missions[currentMissionIndex].cooldown = 3;
                     completeMissionBtn.gameObject.SetActive(false);
                     playerMoves--;
+                }
+                else
+                {
+                    infoPopup.gameObject.SetActive(true);
+                    Popupinfo.text = "You do not have enough skill points for this mission";
                 }
                 break;
 
