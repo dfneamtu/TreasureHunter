@@ -15,6 +15,14 @@ public class LoadLocation : MonoBehaviour
     public GameObject InfoPopup;
     public GameObject ConfirmInfoPopup;
 
+    public GameObject[] hub1Targets;
+    public GameObject[] hub2Targets;
+    public GameObject[] hub3Targets;
+
+    public GameObject[] fromhub1Targets;
+    public GameObject[] fromhub2Targets;
+    public GameObject[] fromhub3Targets;
+
     public GameObject airportPopup;
 
     public int[] pLocation = new int[6];
@@ -158,15 +166,16 @@ public class LoadLocation : MonoBehaviour
                 fromLocation.text = myInfoList.info[counters[playerTurnTickets - 1]].locationStr.ToString();
                 toLocation.text = myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr.ToString();
 
-                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "London")
+                //If its an airport
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "London")
                 {
                     airportPopup.gameObject.SetActive(true);
                 }
-                else if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Paris")
+                else if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Paris")
                 {
                     airportPopup.gameObject.SetActive(true);
                 }
-                else if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Stockholm")
+                else if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Stockholm")
                 {
                     airportPopup.gameObject.SetActive(true);
                 }
@@ -174,6 +183,557 @@ public class LoadLocation : MonoBehaviour
                 {
                     airportPopup.gameObject.SetActive(false);
                 }
+
+                //No targets for airports 
+                //Hub1 Locations
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Canterbury")
+                {
+                    hub1Targets[1].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub1Targets[1].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Brussels")
+                {
+                    hub1Targets[2].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub1Targets[2].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Amsterdam")
+                {
+                    hub1Targets[3].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub1Targets[3].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Birmingham")
+                {
+                    hub1Targets[4].gameObject.SetActive(true);
+                } 
+                else
+                {
+                    hub1Targets[4].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Liverpool")
+                {
+                    hub1Targets[5].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub1Targets[5].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Leeds")
+                {
+                    hub1Targets[6].gameObject.SetActive(true);
+                } 
+                else 
+                {
+                    hub1Targets[6].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Edinburgh")
+                {
+                    hub1Targets[7].gameObject.SetActive(true);
+                } 
+                else
+                {
+                    hub1Targets[7].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Dublin")
+                {
+                    hub1Targets[8].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub1Targets[8].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Belfast")
+                {
+                    hub1Targets[9].gameObject.SetActive(true);
+                } 
+                else
+                {
+                    hub1Targets[9].gameObject.SetActive(false);
+                }
+
+                //Hub2 Locations
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Luxembourg")
+                {
+                    hub2Targets[0].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[0].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Bern")
+                {
+                    hub2Targets[1].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[1].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Milan")
+                {
+                    hub2Targets[2].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[2].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Genoa")
+                {
+                    hub2Targets[3].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[3].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Monaco")
+                {
+                    hub2Targets[4].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[4].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Marseille")
+                {
+                    hub2Targets[5].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[5].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Toulouse")
+                {
+                    hub2Targets[6].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[6].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Boreaux")
+                {
+                    hub2Targets[7].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[7].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Lyon")
+                {
+                    hub2Targets[8].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[8].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Nantes")
+                {
+                    hub2Targets[9].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[9].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Brussels")
+                {
+                    hub2Targets[10].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub2Targets[10].gameObject.SetActive(false);
+                }
+
+                //Hub3 Locations
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Copenhagen")
+                {
+                    hub3Targets[0].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[0].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Gavle")
+                {
+                    hub3Targets[1].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[1].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Oslo")
+                {
+                    hub3Targets[2].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[2].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Bergen")
+                {
+                    hub3Targets[3].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[3].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Trondheim")
+                {
+                    hub3Targets[4].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[4].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Umea")
+                {
+                    hub3Targets[5].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[5].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Lulea")
+                {
+                    hub3Targets[6].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[6].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Oulu")
+                {
+                    hub3Targets[7].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[7].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Tampere")
+                {
+                    hub3Targets[8].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[8].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Helsinki")
+                {
+                    hub3Targets[9].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[9].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "St. Petersburg")
+                {
+                    hub3Targets[10].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[10].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].traveltoStr == "Gdansk")
+                {
+                    hub3Targets[11].gameObject.SetActive(true);
+                }
+                else
+                {
+                    hub3Targets[11].gameObject.SetActive(false);
+                }
+
+                //No targets for airports 
+                //FromHub1 Locations
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "London")
+                {
+                    fromhub1Targets[0].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub1Targets[0].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Canterbury")
+                {
+                    fromhub1Targets[1].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub1Targets[1].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Brussels")
+                {
+                    fromhub1Targets[2].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub1Targets[2].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Amsterdam")
+                {
+                    fromhub1Targets[3].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub1Targets[3].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Birmingham")
+                {
+                    fromhub1Targets[4].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub1Targets[4].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Liverpool")
+                {
+                    fromhub1Targets[5].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub1Targets[5].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Leeds")
+                {
+                    fromhub1Targets[6].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub1Targets[6].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Edinburgh")
+                {
+                    fromhub1Targets[7].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub1Targets[7].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Dublin")
+                {
+                    fromhub1Targets[8].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub1Targets[8].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Belfast")
+                {
+                    fromhub1Targets[9].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub1Targets[9].gameObject.SetActive(false);
+                }
+
+                //FromHub2 Locations
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Luxembourg")
+                {
+                    fromhub2Targets[0].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[0].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Bern")
+                {
+                    fromhub2Targets[1].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[1].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Milan")
+                {
+                    fromhub2Targets[2].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[2].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Genoa")
+                {
+                    fromhub2Targets[3].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[3].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Monaco")
+                {
+                    fromhub2Targets[4].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[4].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Marseille")
+                {
+                    fromhub2Targets[5].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[5].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Toulouse")
+                {
+                    fromhub2Targets[6].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[6].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Boreaux")
+                {
+                    fromhub2Targets[7].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[7].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Lyon")
+                {
+                    fromhub2Targets[8].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[8].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Nantes")
+                {
+                    fromhub2Targets[9].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[9].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Brussels")
+                {
+                    fromhub2Targets[10].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[10].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Paris")
+                {
+                    fromhub2Targets[11].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub2Targets[11].gameObject.SetActive(false);
+                }
+
+                //FromHub3 Locations
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Copenhagen")
+                {
+                    fromhub3Targets[0].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[0].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Gavle")
+                {
+                    fromhub3Targets[1].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[1].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Oslo")
+                {
+                    fromhub3Targets[2].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[2].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Bergen")
+                {
+                    fromhub3Targets[3].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[3].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Trondheim")
+                {
+                    fromhub3Targets[4].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[4].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Umea")
+                {
+                    fromhub3Targets[5].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[5].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Lulea")
+                {
+                    fromhub3Targets[6].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[6].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Oulu")
+                {
+                    fromhub3Targets[7].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[7].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Tampere")
+                {
+                    fromhub3Targets[8].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[8].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Helsinki")
+                {
+                    fromhub3Targets[9].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[9].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "St. Petersburg")
+                {
+                    fromhub3Targets[10].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[10].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Gdansk")
+                {
+                    fromhub3Targets[11].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[11].gameObject.SetActive(false);
+                }
+                if (myInfoList.info[counters[playerTurnTickets - 1]].locationStr == "Stockholm")
+                {
+                    fromhub3Targets[12].gameObject.SetActive(true);
+                }
+                else
+                {
+                    fromhub3Targets[12].gameObject.SetActive(false);
+                }
+
 
                 if (myInfoList.info[counters[playerTurnTickets - 1]].travelType == "Air")
                 {
