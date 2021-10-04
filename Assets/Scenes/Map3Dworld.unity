@@ -6239,7 +6239,6 @@ GameObject:
   - component: {fileID: 1440863737}
   - component: {fileID: 1440863736}
   - component: {fileID: 1440863735}
-  - component: {fileID: 1440863738}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -6332,41 +6331,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1440863738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440863733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac151bbeca4985c4ba63d33283e49e82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnHighlighter:
-  - {fileID: 23181134}
-  - {fileID: 324744401}
-  - {fileID: 1814852351}
-  - {fileID: 1705789285}
-  - {fileID: 1364523487}
-  - {fileID: 975139621}
-  playerPrefabs:
-  - {fileID: 1017141168}
-  - {fileID: 115113279}
-  - {fileID: 1066847343}
-  - {fileID: 1460832875}
-  - {fileID: 334266422}
-  - {fileID: 1616389331}
-  playerTokens:
-  - {fileID: 1491130901}
-  - {fileID: 1007634667}
-  - {fileID: 1131987604}
-  - {fileID: 284585509}
-  - {fileID: 2127727419}
-  - {fileID: 1426498734}
-  playerTurnTickets: 0
-  totalPlayers: 0
 --- !u!1 &1452519380
 GameObject:
   m_ObjectHideFlags: 0
