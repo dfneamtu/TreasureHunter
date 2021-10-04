@@ -1078,7 +1078,7 @@ public class GameController : MonoBehaviour
     {
         completeMissionBtn.gameObject.SetActive(true);
 
-        for (int i = 0; i < 9; i++)
+        for (int i = 0; i < missions.Length - 3; i++)
         {
             Debug.Log(missions[i].hubNum + ", " + missions[i].locationNum + ", " + missions[i].trophyType + ", " + missions[i].victoryPoints);
 
@@ -1092,7 +1092,7 @@ public class GameController : MonoBehaviour
                         ItemTxt.text = skillNames[missions[i].skillNum];
                         AmountTxt.text = missions[i].pointsReq.ToString();
                         currentMissionIndex = i;
-                        i = 10;
+                        i = 1000;
                         playerMoves--;
                         completeMissionBtn.gameObject.SetActive(true);
                     }
@@ -1101,19 +1101,19 @@ public class GameController : MonoBehaviour
                     {
                         ItemTxt.text = "Already completed this mission.";
                         AmountTxt.text = "";
-                        i = 10;
+                        i = 1000;
                     }
 
                     else if (missions[i].cooldown != 0)
                     {
                         ItemTxt.text = "Mission on cooldown from another player.";
-                        i = 10;
+                        i = 1000;
                     }
                     //
                 }
             }
 
-            if (i != 10)
+            if (pLocation[playerTurn - 1] == 1)
             {
                 completeMissionBtn.gameObject.SetActive(false);
                 ItemTxt.text = "No mission found here.";
