@@ -1174,7 +1174,6 @@ MonoBehaviour:
   - {fileID: 740236996}
   - {fileID: 1150211968}
   - {fileID: 1030534622}
-  - {fileID: 1030534622}
   - {fileID: 1105619081}
   - {fileID: 1910344150}
   TargetsHub1:
@@ -1214,6 +1213,7 @@ MonoBehaviour:
   ObjectsBtn: {fileID: 821693939}
   SkillsBtn: {fileID: 1229766579}
   MissionBtn: {fileID: 1525977798}
+  CompleteMissionBtn: {fileID: 1298080014}
   p1Popup: {fileID: 624413200}
   p2Popup: {fileID: 543078565}
   p3Popup: {fileID: 1712376102}

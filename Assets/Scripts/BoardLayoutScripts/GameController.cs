@@ -65,6 +65,7 @@ public class GameController : MonoBehaviour
     public GameObject ObjectsBtn;
     public GameObject SkillsBtn;
     public GameObject MissionBtn;
+    public GameObject CompleteMissionBtn;
 
 
     public Text p1Popup;
@@ -626,6 +627,7 @@ public class GameController : MonoBehaviour
             ObjectsBtn.gameObject.SetActive(false);
             SkillsBtn.gameObject.SetActive(false);
             MissionBtn.gameObject.SetActive(false);
+            CompleteMissionBtn.gameObject.SetActive(false);
 
         }
 

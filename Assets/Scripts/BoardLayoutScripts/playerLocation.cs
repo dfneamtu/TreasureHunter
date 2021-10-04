@@ -124,7 +124,7 @@ public class playerLocation : MonoBehaviour
         pLocation = GlobalController.Instance.pLocation;
         hubLocation = GlobalController.Instance.hubLocation;
 
-        playerMoves.text = playerMovesLeft.ToString();
+        playerMoves.text = (playerMovesLeft - 1).ToString();
 
         playerGmo();
 
