@@ -42,7 +42,7 @@ public class Mission
 
 
         pointsReq = ML_Algo.ML() + 1;
-        victoryPoints = ML_Algo.ML() + 3;
+        victoryPoints = ML_Algo.ML() + 1;
 
         for (int i = 0; i < 6; i++)
         {
